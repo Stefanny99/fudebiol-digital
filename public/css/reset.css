@@ -11,10 +11,13 @@
     padding: 20px;
 }
 
-.rc{
- 	 
- 	 font-size: 20px;
- 	 margin-bottom: 20px;
+.cheader{
+
+	margin-bottom: 20px;
+}
+
+#rc{
+ 	 font-size: 25px;
 }
   .btn_restaurar {
                  background-color: rgb(7, 217, 130);

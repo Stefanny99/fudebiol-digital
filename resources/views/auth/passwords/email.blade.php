@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card rContenedor">
-                <div class="card-header rc">{{ __('Restaurar contraseña') }}
+                
+                <div class="cheader">
+                 <label id="rc" >Restaurar contraseña</label>
                  <img id="logo" src="\img\logo.jpg">
                 </div>
 
