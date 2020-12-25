@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card rContenedor">
                 <div class="card-header rc">{{ __('Restaurar contraseña') }}
-                 <img id="logo" src="img\logo.jpg">
+                 <img id="logo" src="\img\logo.jpg">
                 </div>
 
                 <div class="card-body">
