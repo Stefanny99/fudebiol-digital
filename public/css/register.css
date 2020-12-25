@@ -69,4 +69,14 @@
     margin-bottom: 20px;
    }
    
-  
+     #confirmar:-webkit-autofill, #confirmar:-webkit-autofill:hover, #confirmar:-webkit-autofill:focus
+        {
+          border: none;
+          -webkit-text-fill-color: white;
+          transition: background-color 5000s ease-in-out 0s;
+         
+        }
+   #confirmar input:focus, #contraseña input:focus, #nombre input:focus  {
+               outline: none;
+               margin-bottom: 5px;
+            }

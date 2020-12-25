@@ -73,15 +73,18 @@
                
             }
 
-         #email:-webkit-autofill, #email:-webkit-autofill:hover, #email:-webkit-autofill:focus,
-         #clave:-webkit-autofill:hover, #clave:-webkit-autofill, #clave:-webkit-autofill:focus
+         #email:-webkit-autofill, #email:-webkit-autofill:hover, #email:-webkit-autofill:focus
         {
           border: none;
           -webkit-text-fill-color: white;
           transition: background-color 5000s ease-in-out 0s;
          
         }
-
+        #clave:-webkit-autofill:hover, #clave:-webkit-autofill, #clave:-webkit-autofill:focus {
+         border: none;
+         -webkit-text-fill-color: white;
+         transition: background-color 5000s ease-in-out 0s;
+        }
             
            #btn_forgot{
                 text-align: center;
