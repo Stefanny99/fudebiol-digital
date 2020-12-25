@@ -3,19 +3,25 @@
                 }
 
              body{
-                background: rgb(80,0,44);
-                background: linear-gradient(21deg, rgba(80,0,44,1) 6%, rgba(7,68,13,1) 100%);
+               background: rgb(80,0,37);
+                background: linear-gradient(17deg, rgba(80,0,37,1) 6%, rgba(0,58,122,1) 100%);
                 font-family: 'Nunito', sans-serif;
                 margin:0;
                 height: 100%;
+                flex-direction: column;
                 display: flex;
                 align-items: center;
 
                
             } 
+            header{
+                width: 100%;
+                 background-color: rgb(28, 0, 14);
+            }
 
             .log{
                 margin-bottom: 15px;
+                padding-bottom: 15px;
                 font-size: 30px;
             }
 
@@ -40,7 +46,6 @@
             }
 
              #password, #user {
-              
                 display: flex;
                 background-color: rgb(28, 0, 14);
                 min-height: 10px;
@@ -68,7 +73,8 @@
                
             }
 
-         #email:-webkit-autofill, #clave:-webkit-autofill
+         #email:-webkit-autofill, #email:-webkit-autofill:hover, #email:-webkit-autofill:focus,
+         #clave:-webkit-autofill:hover, #clave:-webkit-autofill, #clave:-webkit-autofill:focus
         {
           border: none;
           -webkit-text-fill-color: white;
@@ -99,13 +105,7 @@
             }
 
 
-            #encabezado {
-                margin-bottom: 15px;
-                display: flex;
-                padding: 10px;
-                justify-content: center;
-
-            }
+           
              .card img {
                 width: 60px;
                 height: 60px;

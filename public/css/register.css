@@ -1,0 +1,72 @@
+ 
+ #encabezado {
+               
+    text-align: right;
+    color: transparent;
+    flex: 0;
+    padding-right: 20px;
+
+            }
+ #encabezado a{
+ 	color: white;
+ }
+ #container{
+ 	flex-direction:row;
+ }
+
+ .register {
+    color: white;
+    border: 1px white solid;
+    background-color: rgba(255,255,255, 0.1);
+    min-width: 300px;
+    height: 400px;
+    border-radius: 15px;
+    filter: drop-shadow(0px 0px 10px black);
+    flex-direction: column;
+    flex: 0;
+    padding: 20px;
+    }
+ .reg{
+    margin-bottom: 15px;
+    font-size: 25px;
+     
+     }
+  #logo {
+    width: 60px;
+    height: 60px;
+    margin-left: 50px;
+    border-radius: 10px;
+        }
+  .cuerpo form div{
+  	display: flex;
+  	flex-direction: column;
+  	height: 20px;
+  	
+  }
+.cuerpo form div input{
+	flex:1;
+	min-height: 20px;
+	background-color: transparent;
+	border-color: transparent;
+	color: white;
+    }
+.btn_registrar {
+	 background-color: rgb(7, 217, 130);
+	 min-height: 30px;
+	 border-color: transparent;
+	 border-radius: 6px;
+	 color: white;
+	 margin-top: 20px;
+	 flex:1;
+   }
+
+   #confirmar, #nombre, #correo, #contraseña {
+    display: flex;
+    background-color: rgb(28, 0, 14);
+    min-height: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+   }
+   
+  
