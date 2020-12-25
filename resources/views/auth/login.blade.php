@@ -14,7 +14,7 @@
                         @csrf
 
                         <div id="user">
-                        
+                                <label><i class="fas fa-envelope"></i></label>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="E-Mail" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -26,7 +26,7 @@
                         </div>
 
                         <div id="password">
-                           
+                                <label><i class="fas fa-lock"></i></label>
                                 <input id="clave" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Clave" name="password" required autocomplete="current-password">
 
                                 @error('password')

@@ -16,6 +16,7 @@
                         <div id="nombre" class="form-group row">
                             
                             <div  class="col-md-6">
+                                 <label><i class="fas fa-user"></i></label>
                                 <input id="name" placeholder="Nombre" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
@@ -30,6 +31,7 @@
                            
 
                             <div class="col-md-6">
+                               <label><i class="fas fa-envelope"></i></label>
                                 <input id="email" placeholder="E-mail" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
@@ -44,6 +46,7 @@
                             
 
                             <div class="col-md-6">
+                                <label><i class="fas fa-lock"></i></label>
                                 <input  type="password" class="form-control @error('password') is-invalid @enderror" name="password"  placeholder="Clave" required autocomplete="new-password">
 
                                 @error('password')
@@ -57,6 +60,7 @@
                         <div id="confirmar" class="form-group row">
 
                             <div class="col-md-6">
+                                <label><i class="fas fa-check-square"></i></label>
                                 <input id="password-confirm" type="password" placeholder="Confirmar clave" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>

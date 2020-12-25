@@ -115,3 +115,6 @@
                 margin-left: 150px;
                 border-radius: 10px;
              }
+      #user label, #password label {
+        margin-right: 5px;
+      }
