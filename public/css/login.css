@@ -1,0 +1,114 @@
+            html{
+                height: 100%;
+                }
+
+             body{
+                background: rgb(80,0,44);
+                background: linear-gradient(21deg, rgba(80,0,44,1) 6%, rgba(7,68,13,1) 100%);
+                font-family: 'Nunito', sans-serif;
+                margin:0;
+                height: 100%;
+                display: flex;
+                align-items: center;
+
+               
+            } 
+
+            .log{
+                margin-bottom: 15px;
+                font-size: 30px;
+            }
+
+            #app{
+                 
+                flex-direction: column;
+                margin: auto;
+            }
+           
+            .logIn {
+                color: white;
+                border: 1px white solid;
+                background-color: rgba(255,255,255, 0.1);
+                min-width: 300px;
+                height: 300px;
+                
+                border-radius: 15px;
+                filter: drop-shadow(0px 0px 10px black);
+                flex-direction: column;
+                flex: 0;
+                padding: 20px;
+            }
+
+             #password, #user {
+              
+                display: flex;
+                background-color: rgb(28, 0, 14);
+                min-height: 10px;
+                padding: 10px;
+                border-radius: 6px;
+                margin-bottom: 20px;
+            }
+          
+           #user img, #password img{
+            width: 25px;
+            height: 20px;
+            border-right: 1px gray solid;
+           }
+
+            #email, #clave {
+                color: white;
+                min-height:10px;
+                border-color: transparent;
+                flex:1;
+                background-color: transparent;
+            }
+
+            #email:focus, #clave:focus {
+               outline: none;
+               
+            }
+
+         #email:-webkit-autofill, #clave:-webkit-autofill
+        {
+          border: none;
+          -webkit-text-fill-color: white;
+          transition: background-color 5000s ease-in-out 0s;
+         
+        }
+
+            
+           #btn_forgot{
+                text-align: center;
+                margin-bottom: 10px;
+                display: flex;
+               flex-direction: column;
+               flex: 1;
+            }
+             .btn_ingresar {
+                 background-color: rgb(7, 217, 130);
+                 min-height: 30px;
+                 border-color: transparent;
+                 border-radius: 6px;
+                 color: white;
+                 flex:1;
+             }
+            #forgot{
+                margin-bottom:  10px;
+                color: white;
+                font-size: 15px;
+            }
+
+
+            #encabezado {
+                margin-bottom: 15px;
+                display: flex;
+                padding: 10px;
+                justify-content: center;
+
+            }
+             .card img {
+                width: 60px;
+                height: 60px;
+                margin-left: 150px;
+                border-radius: 10px;
+             }
