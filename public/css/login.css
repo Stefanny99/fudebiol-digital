@@ -17,6 +17,8 @@
             header{
                 width: 100%;
                  background-color: rgb(28, 0, 14);
+
+
             }
 
             .log{
@@ -118,3 +120,5 @@
       #user label, #password label {
         margin-right: 5px;
       }
+
+    

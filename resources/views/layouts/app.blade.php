@@ -20,11 +20,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/register.css') }}" rel="stylesheet"  type="text/css" >
+    <link href="{{ asset('css/reset.css') }}" rel="stylesheet"  type="text/css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
 
 </head>
 <header>
-    <nav id="encabezado" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav id="navegador" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 
                     <span class="navbar-toggler-icon"></span>
@@ -37,7 +38,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul id="encabezado" class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
