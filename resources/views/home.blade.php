@@ -1,23 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
+    <div id="body_home">
+        <div id="cabeza">
+            <div class="sitename">
+                <img class="logo" src="img/vector.png">
+                <div class="text">FUDEBIOL</div>
             </div>
-        </div>
+            <nav class="menu">
+                <a href="">
+                    <img class="icon" src="img/home.png"></img>
+                    <div class="text">Inicio</div>
+                </a>
+                <a href="">
+                    <img class="icon" src="img/gallery.png"></img>
+                    <div class="text">Galería</div>
+                </a>
+                <a href="">
+                    <img class="icon" src="img/tree.png"></img>
+                    <div class="text">Mi árbol para la vida</div>
+                </a>
+                <a href="">
+                    <img class="icon" src="img/investigation.png"></img>
+                    <div class="text">Investigaciones</div>
+                </a>
+                <a href="">
+                    <img class="icon" src="img/Information.png"></img>
+                    <div class="text">Información</div>
+                </a>
+            </nav>
+        </div>         
+        <div id="contenido">HOLA, BABYS! AQUI NO SÉ QUÉ IRA XD</div>  
     </div>
-</div>
 @endsection

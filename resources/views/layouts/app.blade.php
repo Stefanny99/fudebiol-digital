@@ -11,6 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/common-script.js') }}"></script>
+    <script src="{{ asset('js/main-script.js') }}"></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,21 +24,21 @@
     <link href="{{ asset('css/login.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/register.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet"  type="text/css" >
+    <!-- <link href="{{ asset('css/admin-style.css') }}" rel="stylesheet"  type="text/css" > -->
+   <!--  <link href="{{ asset('css/common-style.css') }}" rel="stylesheet"  type="text/css" > > -->
+    <link href="{{ asset('css/main-style.css') }}" rel="stylesheet"  type="text/css"> 
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Heebo&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
 
 </head>
 <header>
     <nav id="navegador" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul id="encabezado" class="navbar-nav ml-auto">

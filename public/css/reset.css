@@ -27,6 +27,10 @@
                  color: white;
                  flex:1;
              }
+
+    .btn_restaurar:hover {
+                cursor: pointer;
+            }
   .btn_rc{
   	display: flex;
   	margin-top: 30px;

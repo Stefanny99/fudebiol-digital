@@ -10,15 +10,12 @@
                 height: 100%;
                 flex-direction: column;
                 display: flex;
-                align-items: center;
-
-               
+                align-items: center; 
             } 
+
             header{
                 width: 100%;
-                 background-color: rgb(28, 0, 14);
-
-
+                background-color: rgb(28, 0, 14);
             }
 
             .log{
@@ -47,7 +44,7 @@
                 padding: 20px;
             }
 
-             #password, #user {
+            #password, #user {
                 display: flex;
                 background-color: rgb(28, 0, 14);
                 min-height: 10px;
@@ -82,6 +79,7 @@
           transition: background-color 5000s ease-in-out 0s;
          
         }
+        
         #clave:-webkit-autofill:hover, #clave:-webkit-autofill, #clave:-webkit-autofill:focus {
          border: none;
          -webkit-text-fill-color: white;
@@ -103,22 +101,25 @@
                  color: white;
                  flex:1;
              }
+
+            .btn_ingresar:hover {
+                cursor: pointer;
+            }
             #forgot{
                 margin-bottom:  10px;
                 color: white;
                 font-size: 15px;
             }
 
-
-           
              .card img {
                 width: 60px;
                 height: 60px;
                 margin-left: 150px;
                 border-radius: 10px;
              }
-      #user label, #password label {
-        margin-right: 5px;
-      }
+
+              #user label, #password label {
+                margin-right: 5px;
+              }
 
     

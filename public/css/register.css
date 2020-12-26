@@ -60,6 +60,10 @@
 	 flex:1;
    }
 
+   .btn_registrar:hover {
+                cursor: pointer;
+            }
+
    #confirmar, #nombre, #correo, #contraseña {
     display: flex;
     background-color: rgb(28, 0, 14);

@@ -1,0 +1,12 @@
+main>section.content>article>.content>#load_icon{
+	animation: load_icon_animation 1.5s linear infinite;
+}
+
+@keyframes load_icon_animation{
+	from {
+		transform: rotate( 0deg );
+	}
+	to {
+		transform: rotate( 360deg );
+	}
+}

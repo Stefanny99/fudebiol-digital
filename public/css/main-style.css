@@ -1,0 +1,88 @@
+#body_home{
+	
+	text-align: center;
+	display: flex;
+	flex:1;
+}
+
+#cabeza{
+	margin-top: 80px;
+	background-color: black;
+ 	box-shadow: 0px 0.3rem 1rem black;
+	display: flex;
+	font-family: 'Quicksand', sans-serif;
+	flex-direction: row;
+	height: 10.5rem;
+	left: 0px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	z-index: 2;
+	flex:0;
+}
+#cabeza>.sitename{
+	color: white;
+	align-items: center;
+	background-color: <?php echo $color[ 4 ]?>;
+	display: flex;
+	flex: 0;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding: 1rem;
+}
+#cabeza>.sitename>.logo{
+	width: 5rem;
+}
+#cabeza>.sitename>.text{
+	font-size: 1.5rem;
+	white-space: nowrap;
+}
+
+#cabeza>.menu{
+	background-color: <?php echo $color[ 0 ]; ?>;
+	display: flex;
+	flex: 1;
+	flex-direction: row;
+}
+
+#cabeza>.menu>a{
+	border-bottom: 0.3rem solid transparent;
+	color: white;
+	cursor: pointer;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: flex-end;
+	outline-style: none;
+	padding: 1rem;
+	text-decoration: none;
+	text-align: center;
+}
+
+#cabeza>.menu>a:hover{
+	border-color: <?php echo $color[ 1 ]; ?>;
+	color: yellow;
+}
+
+#cabeza>.menu>a>.icon{
+	background-color: <?php echo $color[ 4 ] ?>;
+	height: 4rem;
+	width: 4rem;
+	margin: 0px auto;
+}
+
+#cabeza>.menu>a:hover>.icon{
+	background-color: <?php echo $color[ 1 ] ?>;
+}
+
+#cabeza>.menu>a>.text{
+	font-size: 1.5rem;
+	white-space: nowrap;
+}
+
+#contenido{
+	margin-top: 100px;
+	background-color: white;
+	flex:1;
+	padding:100px;
+}
