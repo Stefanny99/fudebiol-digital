@@ -1,109 +1,322 @@
 #body_home{
-	text-align: center;
-	display: flex;
-	background-color: white;
+text-align: center;
+display: flex;
+flex-direction: column;
+background-color: black;
+flex:1;
+height: 100%;
+min-width: 100%;
 }
 
 #cabeza{
-	background-color: black;
- 	box-shadow: 0px 0.3rem 1rem black;
+background-color: black;
+box-shadow: 0px 0.3rem 1rem black;
+display: flex;
+font-family: 'Quicksand', sans-serif;
+flex-direction: row;
+height: 9.5rem;
+left: 0px;
+top: 0px;
+min-width: 100%;
+flex:1;
+z-index: 2;
+}
+#cabeza>.sitename{
+color: white;
+align-items: center;
+background-color: <?php echo $color[ 4 ]?>;
+display: flex;
+flex: 0;
+flex-direction: column;
+justify-content: flex-end;
+padding: 1rem;
+}
+#cabeza>.sitename>.logo{
+width: 5rem;
+}
+#cabeza>.sitename>.text{
+font-size: 1.5rem;
+white-space: nowrap;
+}
+
+#cabeza>.menu{
+background-color: <?php echo $color[ 0 ]; ?>;
+display: flex;
+flex: 1;
+flex-direction: row;
+}
+
+#cabeza>.menu>a{
+border-bottom: 0.3rem solid transparent;
+color: white;
+cursor: pointer;
+display: flex;
+flex: 1;
+flex-direction: column;
+justify-content: flex-end;
+outline-style: none;
+padding: 1rem;
+text-decoration: none;
+text-align: center;
+}
+
+#cabeza>.menu>a:hover{
+border-color: rgb(131,0,61);
+color: yellow;
+}
+
+#cabeza>.menu>a>.icon{
+background-color: <?php echo $color[ 4 ] ?>;
+height: 4rem;
+width: 4rem;
+margin: 0px auto;
+}
+
+
+
+#cabeza>.menu>a>.text{
+font-size: 1.5rem;
+white-space: nowrap;
+}
+
+#contenido{
+display: flex;
+font-family: 'Quicksand', sans-serif;
+flex-direction: column;
+width: 100%;
+background-color: white;
+
+}
+
+
+#pie>.top:not( :empty )>*{
+	box-sizing: border-box;
+	margin: 0px 0.25rem;
+}
+
+
+#pie>.top>input[ type = "button" ]:hover{
+	border-left-color: <?php echo $color[ 1 ]; ?>;
+	border-right-color: <?php echo $color[ 1 ]; ?>;
+	color: <?php echo $color[ 1 ]; ?>;
+}
+
+#pie>.bottom{
+	background-color: <?php echo $color[ 0 ]; ?>;
 	display: flex;
 	font-family: 'Quicksand', sans-serif;
 	flex-direction: row;
-	height: 9.5rem;
-	left: 0px;
-	top: 0px;
-	min-width: 100%;
-	flex:1;
+	justify-content: space-between;
+	padding: 1rem;
 }
-#cabeza>.sitename{
-	color: white;
+
+#pie>.bottom>*:not( :first-child ){
+	margin-left: 0.5rem;
+}
+
+#pie>.bottom>*:not( :last-child ){
+	margin-right: 0.5rem;
+}
+
+#pie>.bottom>.left{
 	align-items: center;
-	background-color: <?php echo $color[ 4 ]?>;
 	display: flex;
 	flex: 0;
 	flex-direction: column;
 	justify-content: flex-end;
-	padding: 1rem;
 }
-#cabeza>.sitename>.logo{
-	width: 5rem;
+
+#pie>.bottom>.left>.logo{
+	background-color: <?php echo $color[ 4 ]; ?>;
+	height: 7rem;
+	width: 7rem;
 }
-#cabeza>.sitename>.text{
-	font-size: 1.5rem;
+
+#pie>.bottom>.left>.sitename{
+	color: white;
+	font-size: 2rem;
 	white-space: nowrap;
 }
 
-#cabeza>.menu{
-	background-color: <?php echo $color[ 0 ]; ?>;
+#pie>.bottom>.middle{
+	align-items: flex-start;
 	display: flex;
-	flex: 1;
-	flex-direction: row;
-}
-
-#cabeza>.menu>a{
-	border-bottom: 0.3rem solid transparent;
-	color: white;
-	cursor: pointer;
-	display: flex;
-	flex: 1;
+	flex: 0;
 	flex-direction: column;
-	justify-content: flex-end;
-	outline-style: none;
-	padding: 1rem;
-	text-decoration: none;
-	text-align: center;
+	justify-content: space-around;
 }
 
-#cabeza>.menu>a:hover{
-	border-color: <?php echo $color[ 1 ]; ?>;
+#pie>.bottom>.middle>.contact{
+	align-items: center; 
+	border-style: none;
+	display: flex;
+	flex: 0;
+	flex-direction: row;
+	outline-style: none;
+	text-decoration: none;
+}
+
+#pie>.bottom>.middle>.contact>.icon{
+	background-color: <?php echo $color[ 1 ] ?>;
+	height: 3.5rem;
+	width: 3.5rem;
+}
+
+#pie>.bottom>.middle>a.contact:hover>.icon{
+	background-color: <?php echo $color[ 4 ] ?>;
+}
+
+#pie>.bottom>.middle>.contact>.label{
+	color: white;
+	font-size: 2rem;
+	margin-left: 1rem;
+	white-space: nowrap;
+}
+
+#pie>.bottom>.middle>a.contact:hover>.label{
 	color: yellow;
 }
 
-#cabeza>.menu>a>.icon{
-	background-color: <?php echo $color[ 4 ] ?>;
-	height: 4rem;
-	width: 4rem;
-	margin: 0px auto;
+#pie>.bottom>.right{
+	align-items: flex-end;
+	display: flex;
+	flex: 0;
+	flex-direction: column;
 }
 
-#cabeza>.menu>a:hover>.icon{
-	background-color: <?php echo $color[ 1 ] ?>;
+#pie>.bottom>.right>.message-form{
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	margin-bottom: 20px;
+	max-width: 40rem;
+	min-width: 40rem;
 }
 
-#cabeza>.menu>a>.text{
+#pie>.bottom>.right>.message-form>.title{
+	color: white;
+	font-size: 2rem;
+	flex: 0;
+	margin-bottom: 0.5rem;
+}
+
+#pie>.bottom>.right>.message-form>.body{
+	box-sizing: border-box;
+	border-style: none;
 	font-size: 1.5rem;
+	flex: 0;
+	min-height: 10rem;
+	margin-bottom: 0.5rem;
+	max-width: 40rem;
+	min-width: 40rem;
+	padding: 0.5rem;
+}
+
+#pie>.bottom>.right>.message-form>.field{
+	align-items: center;
+	display: flex;
+	flex: 0;
+	flex-direction: row;
+	margin-bottom: 0.5rem;
+}
+
+#pie>.bottom>.right>.message-form>.field>label{
+	color: white;
+	font-size: 1.5rem;
+	flex: 0;
+	min-width: 7rem;
+}
+
+#pie>.bottom>.right>.message-form>.field>input{
+	border-style: none;
+	font-family: inherit;
+	font-size: 1.5rem;
+	flex: 1;
+	outline-style: none;
+	padding: 0.5rem;
+	text-decoration: none;
+}
+
+#pie>.bottom>.right>.message-form>.remember{
+	display: none;
+}
+
+#pie>.bottom>.right>.message-form>.remember-label{
+	align-items: center;
+	color: white;
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	font-size: 1.5rem;
+	margin-left: auto;
+	margin-bottom: 0.5rem;
+}
+
+#pie>.bottom>.right>.message-form>.remember:not( :checked ) + .remember-label::after{
+	background-color: <?php echo $color[ 1 ]; ?>;
+	box-sizing: border-box;
+	content: "";
+	display: inline-block;
+	height: 1.2rem;
+	margin: 0.4rem;
+	margin-left: 0.9rem;
+	outline-offset: 0.2rem;
+	outline-style: solid;
+	outline-width: 0.2rem;
+	outline-color: <?php echo $color[ 1 ]; ?>;
+	width: 1.2rem;
+}
+
+#pie>.bottom>.right>.message-form>.remember:checked + .remember-label::after{
+	box-sizing: border-box;
+	content: "";
+	display: inline-block;
+	height: 1.2rem;
+	margin: 0.4rem;
+	margin-left: 0.9rem;
+	outline-offset: 0.2rem;
+	outline-style: solid;
+	outline-width: 0.2rem;
+	outline-color: <?php echo $color[ 1 ]; ?>;
+	width: 1.2rem;
+}
+
+#pie>.bottom>.right>.message-form>.submit{
+	background-color: <?php echo $color[ 1 ]; ?>;
+	border-style: none;
+	cursor: pointer;
+	font-family: inherit;
+	font-size: 1.5rem;
+	flex: 0;
+	margin-left: auto;
+	outline-style: none;
+	padding: 0.5rem 1.5rem;
+	text-decoration: none;
+}
+
+#pie>.bottom>.right>.message-form>.submit:hover{
+	background: transparent;
+	color: <?php echo $color[ 4 ]?>;
+	outline-style: solid;
+	outline-color: <?php echo $color[ 1 ]; ?>;
+	outline-width: 0.2rem;
+	outline-offset: -0.2rem;
+}
+
+#pie>.bottom>.right>.authors{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+#pie>.bottom>.right>.authors>.author{
+	color: white;
+	font-size: 1.2rem;
+	flex: 0;
 	white-space: nowrap;
 }
 
-#contenido{
-	border-radius: 20px;
-	display: flex;
-	font-family: 'Quicksand', sans-serif;
-	flex-direction: column;
-	height: 10.5rem;
-	left: 0px;
-	
-	top: 0px;
-	width: 100%;
-	flex:0;
-	margin-top: 300px;
-	background-color: white;
-	flex:1;
+#pie>.bottom>.right>.authors>.author:not(:last-child){
+	margin-right: 1.5rem;
 }
-#d1{
-	background-color: black;
-	height: 10rem;
-}
-#d2{
-	border-color: red;
-	height: 7rem;
-}
-#d3{
-	background-color: green;
-	height: 5rem;
-}
-#d4{
-	background-color: yellow;
-	height: 3rem;
-}
+

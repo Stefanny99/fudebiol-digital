@@ -3,14 +3,16 @@
 @section('content')
     <div id="body_home">     
         <div id="contenido">
+            <br> <br> <br>
              hola, la verdad aqui ni sé que va,  luego lo hablamos! 
+             <br> <br> <br> <br> <br> <br> <br>
         </div>  
-        <footer>
+        <div id="pie">
             <div class="top"> aqui va algo</div>
             <div class="bottom">
                 <div class="left">
                     <img class="logo" src="img/vector.png"></img>
-                    <div class="sitename">&copy;Fudebiol></div>
+                    <div class="sitename">&copy;Fudebiol</div>
                 </div>
                 <div class="middle">
                     <a class="facebook contact" href="https://www.facebook.com/FUDEBIOL/">
@@ -42,9 +44,9 @@
                         <label for="message-remember" class="remember-label">Recordar</label>
                         <input class="submit" type="submit" value="Envíar">
                     </form>
-                    <div class="authors"><div class="author">LDS</div> </div>
+                    <div class="authors"><div class="author">Lizeth Monge, Diego Tames, Stefanny Barrantes</div> </div>
                 </div>
             </div>
-        </footer>
+        </div>
     </div>
 @endsection
