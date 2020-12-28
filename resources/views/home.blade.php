@@ -1,35 +1,50 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="body_home">
-        <div id="cabeza">
-            <div class="sitename">
-                <img class="logo" src="img/vector.png">
-                <div class="text">FUDEBIOL</div>
+    <div id="body_home">     
+        <div id="contenido">
+             hola, la verdad aqui ni sé que va,  luego lo hablamos! 
+        </div>  
+        <footer>
+            <div class="top"> aqui va algo</div>
+            <div class="bottom">
+                <div class="left">
+                    <img class="logo" src="img/vector.png"></img>
+                    <div class="sitename">&copy;Fudebiol></div>
+                </div>
+                <div class="middle">
+                    <a class="facebook contact" href="https://www.facebook.com/FUDEBIOL/">
+                        <img class="icon" src="img/facebook.png"></img>
+                        <div class="label">@FUDEBIOL</div>
+                    </a>
+                    <a class="whatsapp contact" href="">
+                        <img class="icon" src="img/whatsapp.png"></img>
+                        <div class="label">7265-9372</div>
+                    </a>
+                    <span class="email contact">
+                        <img class="icon" src="img/email.png"></img>
+                        <div class="label">fudebiol@gmail.com</div>
+                    </span>
+                </div>
+                <div class="right">
+                    <form class="message-form" action="" method="post">
+                        <div class="title">Dejar un mensaje</div>
+                        <textarea class="body" name="message" placeholder="Mensaje" required></textarea>
+                        <div class="email field">
+                            <label for="message-email">Correo:</label>
+                            <input id="message-email" class="email" name="email" type="email" placeholder="Correo electrónico">
+                        </div>
+                        <div class="Teléfono field">
+                            <label for="message-phone">Teléfono:</label>
+                            <input id="message-phone" class="phone" name="phone" type="text" placeholder="Número de teléfono">
+                        </div>
+                        <input id="message-remember" class="remember" name="remember" type="checkbox">
+                        <label for="message-remember" class="remember-label">Recordar</label>
+                        <input class="submit" type="submit" value="Envíar">
+                    </form>
+                    <div class="authors"><div class="author">LDS</div> </div>
+                </div>
             </div>
-            <nav class="menu">
-                <a href="">
-                    <img class="icon" src="img/home.png"></img>
-                    <div class="text">Inicio</div>
-                </a>
-                <a href="">
-                    <img class="icon" src="img/gallery.png"></img>
-                    <div class="text">Galería</div>
-                </a>
-                <a href="">
-                    <img class="icon" src="img/tree.png"></img>
-                    <div class="text">Mi árbol para la vida</div>
-                </a>
-                <a href="">
-                    <img class="icon" src="img/investigation.png"></img>
-                    <div class="text">Investigaciones</div>
-                </a>
-                <a href="">
-                    <img class="icon" src="img/Information.png"></img>
-                    <div class="text">Información</div>
-                </a>
-            </nav>
-        </div>         
-        <div id="contenido">HOLA, BABYS! AQUI NO SÉ QUÉ IRA XD</div>  
+        </footer>
     </div>
 @endsection

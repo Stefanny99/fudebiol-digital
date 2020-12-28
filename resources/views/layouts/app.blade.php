@@ -33,56 +33,64 @@
 
 </head>
 <header>
-    <nav id="navegador" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <!-- Right Side Of Navbar -->
-                    <ul id="encabezado" class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-                            
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+    @guest
+        @if (Route::has('login'))
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            </li>
+        @endif
+        
+        @if (Route::has('register'))
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+            </li>
+        @endif
+    @else
+            <div id="cabeza">
+                <div class="sitename">
+                    <img class="logo" src="img/vector.png">
+                    <div class="text">FUDEBIOL</div>
                 </div>
+                <nav class="menu">
+                    <a href="">
+                        <img class="icon" src="img/home.png"></img>
+                        <div class="text">Inicio</div>
+                    </a>
+                    <a href="">
+                        <img class="icon" src="img/gallery.png"></img>
+                        <div class="text">Galería</div>
+                    </a>
+                    <a href="">
+                        <img class="icon" src="img/tree.png"></img>
+                        <div class="text">Mi árbol para la vida</div>
+                    </a>
+                    <a href="">
+                        <img class="icon" src="img/investigation.png"></img>
+                        <div class="text">Investigaciones</div>
+                    </a>
+                    <a href="">
+                        <img class="icon" src="img/Information.png"></img>
+                        <div class="text">Información</div>
+                    </a>
+               
+                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}
+                </a>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                    {{ __('Cerrar sesión') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
-        </nav>
+       
+    @endguest
 </header>
+
 <body>
     <div id="app">
-        
-
         <main class="py-4">
             @yield('content')
         </main>

@@ -1,24 +1,20 @@
 #body_home{
-	
 	text-align: center;
 	display: flex;
-	flex:1;
+	background-color: white;
 }
 
 #cabeza{
-	margin-top: 80px;
 	background-color: black;
  	box-shadow: 0px 0.3rem 1rem black;
 	display: flex;
 	font-family: 'Quicksand', sans-serif;
 	flex-direction: row;
-	height: 10.5rem;
+	height: 9.5rem;
 	left: 0px;
-	position: fixed;
 	top: 0px;
-	width: 100%;
-	z-index: 2;
-	flex:0;
+	min-width: 100%;
+	flex:1;
 }
 #cabeza>.sitename{
 	color: white;
@@ -81,8 +77,33 @@
 }
 
 #contenido{
-	margin-top: 100px;
+	border-radius: 20px;
+	display: flex;
+	font-family: 'Quicksand', sans-serif;
+	flex-direction: column;
+	height: 10.5rem;
+	left: 0px;
+	
+	top: 0px;
+	width: 100%;
+	flex:0;
+	margin-top: 300px;
 	background-color: white;
 	flex:1;
-	padding:100px;
+}
+#d1{
+	background-color: black;
+	height: 10rem;
+}
+#d2{
+	border-color: red;
+	height: 7rem;
+}
+#d3{
+	background-color: green;
+	height: 5rem;
+}
+#d4{
+	background-color: yellow;
+	height: 3rem;
 }
