@@ -24,6 +24,7 @@
     <link href="{{ asset('css/login.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/register.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet"  type="text/css" >
+     <link href="{{ asset('css/mantenimientoUsuarios.css') }}" rel="stylesheet"  type="text/css" >
     <!-- <link href="{{ asset('css/admin-style.css') }}" rel="stylesheet"  type="text/css" > -->
    <!--  <link href="{{ asset('css/common-style.css') }}" rel="stylesheet"  type="text/css" > > -->
     <link href="{{ asset('css/main-style.css') }}" rel="stylesheet"  type="text/css"> 
@@ -52,7 +53,7 @@
                     <div class="text">FUDEBIOL</div>
                 </div>
                 <nav class="menu">
-                    <a href="">
+                    <a href="http://localhost:8000/home">
                         <img class="icon" src="img/home.png"></img>
                         <div class="text">Inicio</div>
                     </a>
@@ -73,7 +74,7 @@
                         <div class="text">Información</div>
                     </a>
                   
-                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="http://localhost:8000/usuarios" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                  <img class="icon" src="img/user.png"></img>
                 <div class="text">  {{ Auth::user()->name }}  </div>
                 </a>

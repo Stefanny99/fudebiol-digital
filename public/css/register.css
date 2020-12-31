@@ -18,12 +18,12 @@
     color: white;
     border: 1px white solid;
     background-color: rgba(255,255,255, 0.1);
-    min-width: 300px;
+    max-width: 400px;
     height: 400px;
     border-radius: 15px;
     filter: drop-shadow(0px 0px 10px black);
     flex-direction: column;
-    flex: 0;
+    margin:auto;
     padding: 20px;
     }
  .reg{

@@ -18,3 +18,5 @@ Route::get('/',  [App\Http\Controllers\HomeController::class, 'index'])->name('h
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/usuarios', [App\Http\Controllers\FudebiolDigital\UsuariosController::class, 'mantenimientoUsuarios'])->name('usuarios');
