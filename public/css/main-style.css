@@ -2,11 +2,11 @@
 text-align: center;
 display: flex;
 flex-direction: column;
-background-color: black;
+background-color: white;
 flex:1;
-height: 100%;
+min-height: 100%;
 min-width: 100%;
-overflow-y: 
+
 }
 
 ::-webkit-scrollbar {
@@ -66,8 +66,8 @@ text-align: center;
 }
 
 #cabeza>.menu>a:hover{
-border-color: rgb(131,0,61);
-color: yellow;
+border-color: #41a8ff;
+color: #8ccaff;
 }
 
 #cabeza>.menu>a>.icon{
@@ -85,29 +85,27 @@ white-space: nowrap;
 }
 
 #contenido{
-display: flex;
+background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(145,165,190,1) 53%, rgba(1,48,105,1) 97%);
+padding-top: 70px;	
 font-family: 'Quicksand', sans-serif;
 flex-direction: column;
-width: 100%;
-background-color: white;
-
+text-align: center;
+flex:1;
 }
 
-
-#pie>.top:not( :empty )>*{
-	box-sizing: border-box;
-	margin: 0px 0.25rem;
+#pie{
+	background-color: black;
 }
-
 
 #pie>.top>input[ type = "button" ]:hover{
-	border-left-color: <?php echo $color[ 1 ]; ?>;
-	border-right-color: <?php echo $color[ 1 ]; ?>;
-	color: <?php echo $color[ 1 ]; ?>;
+	border-left-color: white;
+	border-right-color: white;
+	color: white;
 }
 
 #pie>.bottom{
-	background-color: <?php echo $color[ 0 ]; ?>;
+
+	background-color:black;
 	display: flex;
 	font-family: 'Quicksand', sans-serif;
 	flex-direction: row;
@@ -132,7 +130,7 @@ background-color: white;
 }
 
 #pie>.bottom>.left>.logo{
-	background-color: <?php echo $color[ 4 ]; ?>;
+	background-color: black;
 	height: 7rem;
 	width: 7rem;
 }
@@ -179,7 +177,7 @@ background-color: white;
 }
 
 #pie>.bottom>.middle>a.contact:hover>.label{
-	color: yellow;
+	color: #2385ff;
 }
 
 #pie>.bottom>.right{

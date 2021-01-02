@@ -1,84 +1,119 @@
 #tablaUsuarios{
-	background: rgb(0,18,111);
-    background: linear-gradient(90deg, rgba(0,18,111,1) 0%, rgba(0,136,147,1) 100%);border-radius:0px 0px 20px 20px;
-	padding: 10px;
-	-webkit-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93);
-	-moz-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93);
-	box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93); 
+background: rgb(0,18,111);
+background: linear-gradient(90deg, rgba(0,18,111,1) 0%, rgba(0,136,147,1) 100%);border-radius:0px 0px 20px 20px;
+-webkit-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93);
+-moz-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93);
+box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93); 
+flex:0;
+padding: 20px;
+margin: auto;
+min-width: 900px;
+
+
 }
 
 #tablaUsuarios caption{
-	background: rgb(0,40,244);
-	background: linear-gradient(90deg, rgba(0,40,244,1) 0%, rgba(0,208,224,1) 100%);
-	border-radius:20px 20px 0px 0px;
-	height: 30px;
-	padding-top: 10px;
-	color: white;
-	font-weight: bold;
+background: rgb(0,40,244);
+background: linear-gradient(90deg, rgba(0,40,244,1) 0%, rgba(0,208,224,1) 100%);
+border-radius:20px 20px 0px 0px;
+height: 30px;
+padding-top: 10px;
+color: white;
+font-weight: bold;
 }
- #tablaUsuarios tbody th{
- 	background-color: rgba(255,255,255,0.5);
- 	border-radius: 10px;
+#tablaUsuarios tbody th{
+background-color: rgba(255,255,255,0.5);
+border-radius: 10px;
 
- }
-
-
-  #tablaUsuarios tbody tr td{
- 	background-color: rgba(0,0,0,0.5);
- 	color: white;
- 	border-radius: 10px;
- 	cursor: pointer;
-
- }
-  #tablaUsuarios tbody tr td:hover{
- 	background-color: rgba(0,0,0,0.2);
- }
-
-#contenidoUsuarios{
-	margin-top: 70px;
-	padding: 100px;
-	display: flex;
-	flex-direction: column;
-	font-family: 'Quicksand', sans-serif;
-	background-color: white;
-	flex:1;
 }
+
+#tablaUsuarios tbody tr{
+margin-left:50px;
+}
+
+#tablaUsuarios tbody tr td{
+background-color: rgba(0,0,0,0.5);
+color: white;
+border-radius: 10px;
+cursor: pointer;
+
+
+}
+#tablaUsuarios tbody tr td:hover{
+background-color: rgba(0,0,0,0.2);
+}
+
 
 #botonesEdicion{
-	margin-top: 50px;
-	letter-spacing: 30px;
+letter-spacing: 60px;
+margin-top: 50px;
 }
 
-.btn_guardar{
-  
-  cursor: pointer;
-  background: linear-gradient(180deg,#f9f9f9 0%,#e0e0e0 100%);
-  border-radius: 100px;
-  border: 0.5px solid rgba(0,0,0,0.2);
-  border-width: 0.5px 0.5px 0.5px 0.5px;
-  padding: 4px 22px 5px 22px;
-  box-shadow: 0px 1px 1px rgba(0,0,0,0.6),0px 0px 5px rgba(255,255,255,1),0px 1px 0px 3px rgba(0,0,0,0.2),inset 0px 1px 0px rgba(255,255,255,1);
-  color: #273;
-  font-size: 16px;
-  font-family: 'Quicksand';
-  font-weight: 900;
-  
-  }
+.btn_guardar{  
+cursor: pointer;
+height: 40px;
+width: 130px;
+border:2px white solid;
+border-style: inset;
+background: green;
+color:white;
+border-radius: 100px;
+padding: 4px 22px 5px 22px;
+font-size: 16px;
+font-family: 'Quicksand';
+font-weight: 900;
+outline: none;
+
+}
 
 .btn_eliminar{
-  cursor: pointer;
-  background: linear-gradient(180deg,#f9f9f9 0%,#e0e0e0 100%);
-  border-radius: 100px;
-  border: 0.5px solid rgba(0,0,0,0.2);
-  border-width: 0.5px 0.5px 0.5px 0.5px;
-  padding: 4px 22px 5px 22px;
-  box-shadow: 0px 1px 1px rgba(0,0,0,0.6),0px 0px 5px rgba(255,255,255,1),0px 1px 0px 3px rgba(0,0,0,0.2),inset 0px 1px 0px rgba(255,255,255,1);
-  color: #6e0000;
-  font-size: 16px;
-  font-family: 'Quicksand';
-  font-weight: 900;
+cursor: pointer;
+height: 40px;
+width: 130px;
+border-radius: 100px;
+border:2px white solid;
+border-style: inset;
+background: darkred;
+color:white;
+padding: 4px 22px 5px 22px;
+font-size: 16px;
+font-family: 'Quicksand';
+font-weight: 900;
+outline: none;
 
-  }
- 
+
+}
+
+.btn_guardar:hover {
+border:2px white solid;
+border-style: inset;
+background: green;
+color:white;
+transition: 0.2s;
+transform: translateY(-3px);
+box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+.btn_eliminar:hover{
+border:2px white solid;
+border-style: inset;
+background: darkred;
+color:white;
+transition: 0.2s;
+transform: translateY(-3px);
+box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}  
+.btn_guardar:active, .btn_eliminar:active  {
+transition: 0,2s;
+transform: translateY(-1px);
+box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+
+
+
+
 
 

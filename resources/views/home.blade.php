@@ -6,7 +6,6 @@
         
         </div>  
         <div id="pie">
-            <div class="top"> aqui va algo</div>
             <div class="bottom">
                 <div class="left">
                     <img class="logo" src="img/vector.png"></img>

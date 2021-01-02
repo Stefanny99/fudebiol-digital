@@ -31,10 +31,12 @@ padding-bottom: 15px;
 font-size: 30px;
 }
 
-#app, #app>*{
+#app, #app main{
 flex-direction: column;
 margin: auto;
 width: 100%;
+height: 100%;
+padding-top: 51px;
 text-align: center;
 
 }

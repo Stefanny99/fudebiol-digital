@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="body_home">     
-        <div id="contenidoUsuarios">
+        <div id="contenido">
         <table id="tablaUsuarios" >
               <caption>Administradores Fudebiol Digital</caption>
               <tbody>
@@ -23,6 +23,12 @@
                  <td>Lizeth Monge Padilla</td>
                  <td>lizmonge15@gmail.com</td>
                  <td>Mi árbol para la vida</td>
+                </tr>
+                 <tr>
+                  <th>3</th>
+                 <td>Stefanny Barrantes Vargas</td>
+                 <td>barrantesdenia@gmail.com</td>
+                 <td>Sitio web</td>
                 </tr>
               </tbody>
             </table>
