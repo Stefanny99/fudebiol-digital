@@ -83,39 +83,80 @@ font-size: 16px;
 font-family: 'Quicksand';
 font-weight: 900;
 outline: none;
+}
+.btn_editar{
+cursor: pointer;
+height: 40px;
+width: 130px;
+border-radius: 100px;
+border:2px white solid;
+border-style: inset;
+background: #3271a8;
+color:white;
+padding: 4px 22px 5px 22px;
+font-size: 16px;
+font-family: 'Quicksand';
+font-weight: 900;
+outline: none;
 
 
 }
 
-.btn_guardar:hover {
-border:2px white solid;
-border-style: inset;
-background: green;
-color:white;
+.btn_guardar:hover,.btn_eliminar:hover, .btn_editar:hover  {
 transition: 0.2s;
 transform: translateY(-3px);
 box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
 }
-.btn_eliminar:hover{
-border:2px white solid;
-border-style: inset;
-background: darkred;
-color:white;
-transition: 0.2s;
-transform: translateY(-3px);
-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+
 }  
-.btn_guardar:active, .btn_eliminar:active  {
+.btn_guardar:active, .btn_eliminar:active, .btn_editar  {
 transition: 0,2s;
 transform: translateY(-1px);
 box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
 }
 
+#agregarUsuario{
+	border: 1px white solid;
+	align-items: center;
+	background: #013069;
+    padding: 50px;
+	display: flex;
+	flex-direction: column;
+	color: white;
+	border-radius: 0px 30px 30px 0px;
+	-webkit-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93);
+	-moz-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93);
+	box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93); 
+}
+
+#agregarUsuario label{
+margin-top: 20px;
+}
+
+#agregarUsuario input, #agregarUsuario select{
+border-radius: 5px;
+border: 1px white solid;
+background-color: rgba(0,0,0,0.3);
+color: white;
+height: 30px;
+
+}
+#agregarUsuario select{
+ width: 180px;
+}
+ #RegUsuarios{
+ 	font-weight: bold;
+ 	font-size: 20px;
+ }
 
 
+#agregarUsuario input:-webkit-autofill, #agregarUsuario input:-webkit-autofill:hover,#agregarUsuario input:-webkit-autofill:focus
+{
+border: none;
+-webkit-text-fill-color: white;
+transition: background-color 5000s ease-in-out 0s;
 
-
-
+}
 
 
 

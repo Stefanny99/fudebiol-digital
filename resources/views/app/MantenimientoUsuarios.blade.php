@@ -3,6 +3,25 @@
 @section('content')
     <div id="body_home">     
         <div id="contenido">
+          <div id="agregarUsuario">
+            <label id="RegUsuarios">Registrar Usuario</label>
+            <label for="nombre">Nombre completo</label>
+            <input type="text" name="nombre">
+            <label for="email">E-mail</label>
+            <input type="text" name="email">
+            <label for="usuario">Usuario</label>
+            <input type="text" name="usuario">
+            <label for="contraseña">Contraseña</label>
+            <input type="text" name="contraseña">
+            <label for="rol">Rol</label>
+            <select name="rol">
+                <option value="SW">Sitio Web</option>
+                <option value="GA">Mi árbol para la vida</option>
+            </select><br>
+            <button class="btn_guardar">Agregar</button>
+
+
+          </div>
           <div id="tabla">
         <table id="tablaUsuarios" >
               <caption>Administradores Fudebiol Digital</caption>
@@ -36,6 +55,7 @@
             <div id="botonesEdicion">
                 <button class="btn_guardar"> Guardar</button>
                 <button class="btn_eliminar"> Eliminar</button>
+                <button class="btn_editar"> Editar</button>
             </div>
           </div>
         </div>
