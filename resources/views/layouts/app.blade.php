@@ -13,6 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/common-script.js') }}"></script>
     <script src="{{ asset('js/main-script.js') }}"></script>
+    <script src="{{ asset('js/galeria.js') }}"></script>
 
 
     <!-- Fonts -->
@@ -25,8 +26,7 @@
     <link href="{{ asset('css/register.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet"  type="text/css" >
      <link href="{{ asset('css/mantenimientoUsuarios.css') }}" rel="stylesheet"  type="text/css" >
-    <!-- <link href="{{ asset('css/admin-style.css') }}" rel="stylesheet"  type="text/css" > -->
-   <!--  <link href="{{ asset('css/common-style.css') }}" rel="stylesheet"  type="text/css" > > -->
+     <link href="{{ asset('css/galeria.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/main-style.css') }}" rel="stylesheet"  type="text/css"> 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Heebo&display=swap">
@@ -57,7 +57,7 @@
                         <img class="icon" src="img/home.png"></img>
                         <div class="text">Inicio</div>
                     </a>
-                    <a href="">
+                    <a href="http://localhost:8000/galeria">
                         <img class="icon" src="img/gallery.png"></img>
                         <div class="text">Galería</div>
                     </a>
