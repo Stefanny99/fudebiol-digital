@@ -85,12 +85,15 @@ white-space: nowrap;
 }
 
 #contenido{
+display: flex;
 background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(145,165,190,1) 53%, rgba(1,48,105,1) 97%);
-padding-top: 70px;	
+padding-top: 70px;
+padding-bottom: 70px;	
+height: 100%;
 font-family: 'Quicksand', sans-serif;
-flex-direction: column;
+flex-direction: row;
 text-align: center;
-flex:1;
+flex: 1;
 }
 
 #pie{

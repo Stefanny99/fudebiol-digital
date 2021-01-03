@@ -66,6 +66,13 @@
     </div>
   </div>
   </div>
+  <div id="contenedor2">
+   <div id="visualizador1">
+     <div id="visualizador"></div> 
+   </div> 
+ </div>
+  <br>
         </div>
+
     </div>
 @endsection

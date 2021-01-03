@@ -3,6 +3,7 @@
 @section('content')
     <div id="body_home">     
         <div id="contenido">
+          <div id="tabla">
         <table id="tablaUsuarios" >
               <caption>Administradores Fudebiol Digital</caption>
               <tbody>
@@ -36,6 +37,7 @@
                 <button class="btn_guardar"> Guardar</button>
                 <button class="btn_eliminar"> Eliminar</button>
             </div>
+          </div>
         </div>
     </div>
 @endsection

@@ -1,3 +1,6 @@
+#tabla{
+	margin: auto;
+}
 #tablaUsuarios{
 background: rgb(0,18,111);
 background: linear-gradient(90deg, rgba(0,18,111,1) 0%, rgba(0,136,147,1) 100%);border-radius:0px 0px 20px 20px;
