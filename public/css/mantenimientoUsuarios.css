@@ -1,5 +1,6 @@
 #tabla{
 	margin: auto;
+	flex: 0;
 }
 #tablaUsuarios{
 background: rgb(0,18,111);
@@ -116,10 +117,13 @@ box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
 }
 
 #agregarUsuario{
+	position: relative;
+	left: 0;
+	transition: 0.5s;
 	border: 1px white solid;
 	align-items: center;
-	background: #013069;
-    padding: 50px;
+    background: linear-gradient(180deg, rgba(3,6,143,0.8519782913165266) 0%, rgba(1,48,105,1) 97%);
+    padding: 0px 50px 50px 50px;
 	display: flex;
 	flex-direction: column;
 	color: white;
@@ -128,12 +132,81 @@ box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
 	-moz-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93);
 	box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93); 
 }
+#agregarUsuario .item{
+	color: white;
+	display: block;
+	width: 100%;
+	text-decoration: none;
+	padding-left: 40px;
+	box-sizing: border-box;
+	transition: 0.5s;
+	transition-property: background;
+}
+#agregarUsuario .item:hover{
+	background: rgba(250, 107, 255,0.2); 
+}
+#agregarUsuario i:{
+	padding-right: 10px;
+	margin-bottom: 10px;
+}
+#btn_sidebar{
+	max-width: 100px;
+	max-height: 100px;
+	z-index: 1;
+	color: white;
+	position: relative;
+	cursor: pointer;
+	left: 70px;
+	top:160px;
+	margin-bottom:10px;
+	transition: 0.5s;
+	transition-property: color;
+	
+}
+#btn_sidebar img{
+	max-width: 30px;
+	max-height: 30px;
+	border-radius: 40px;
+	z-index: 1;
+	color: white;
+	position: relative;
+	cursor: pointer;
+	left: 70px;
+	top:160px;
+	margin-bottom:10px;
+	transition: 0.5s;
+	transition-property: color;
+	
+}
+#check:checked ~ #agregarUsuario {
+	left: -240px;
+}
+#check:checked ~ #agregarUsuario a span{
+	display: none;
+}
+#check:checked ~ #agregarUsuario #hrefUser{
+	display: none;
+}
+#check:checked ~ #agregarUsuario a{
+	font-size: 20px;
+	margin-left: 170px;
+	width: 80px;
+}
+#adduser{
+	margin-top: 0px;
+	font-size: 70px;
+}
 
-#agregarUsuario label{
+#check{
+	display: none;
+}
+.texto{
 margin-top: 20px;
 }
 
 #agregarUsuario input, #agregarUsuario select{
+padding: 3px;
+text-align: center;
 border-radius: 5px;
 border: 1px white solid;
 background-color: rgba(0,0,0,0.3);

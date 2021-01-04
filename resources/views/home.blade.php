@@ -9,7 +9,7 @@
             <div class="bottom">
                 <div class="left">
                     <img class="logo" src="img/vector.png"></img>
-                    <div class="sitename">&copy;Fudebiol</div>
+                    <div class="sitename">&copy;FUDEBIOL</div>
                 </div>
                 <div class="middle">
                     <a class="facebook contact" href="https://www.facebook.com/FUDEBIOL/">
