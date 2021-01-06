@@ -8,7 +8,7 @@ Use Exception;
 
 class UsuariosModel extends Model {
 
-    public function getUsuarios(){
+    public function obtenerUsuarios(){
         try{
             return DB::table('users')->get();
         }catch(Exception $e){
