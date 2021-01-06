@@ -3,38 +3,46 @@
 	flex: 0;
 }
 #tablaUsuarios{
-background: rgb(0,18,111);
-background: linear-gradient(90deg, rgba(0,18,111,1) 0%, rgba(0,136,147,1) 100%);border-radius:0px 0px 20px 20px;
--webkit-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93);
--moz-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93);
+background: white;
+border-radius:0px 0px 0px 0px;
 box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93); 
 flex:0;
 padding: 0px 20px 20px 20px;
 margin: auto;
 min-width: 900px;
+height: 200px;
 }
+ 
+ tbody tr>.number{
+ 	
+ 	color:black;
+ 	font-weight: bold;
+ }
+
 
 #tablaUsuarios caption{
-background: rgb(0,40,244);
-background: linear-gradient(90deg, rgba(0,40,244,1) 0%, rgba(0,208,224,1) 100%);
+background: rgb(21,144,14);
+background: radial-gradient(circle, rgba(21,144,14,1) 0%, rgba(0,87,3,1) 100%);
 border-radius:20px 20px 0px 0px;
 height: 30px;
-padding-top: 10px;
+padding: 20px 0px 20px 0px;
 color: white;
 font-weight: bold;
+font-size: 20px;
 }
 #tablaUsuarios tbody th{
 background-color: rgba(255,255,255,0.5);
-border-radius: 10px;
+border-bottom: 1px black solid;
+font-size: 17px;
 }
 
 #tablaUsuarios tbody tr{
 margin-left:50px;
 }
 
-#tablaUsuarios tbody tr td{
-background-color: rgba(0,0,0,0.5);
-color: white;
+#tablaUsuarios tbody tr>.fila{
+color: darkgreen;
+font-weight: bold;
 border-radius: 10px;
 cursor: pointer;
 }
@@ -43,10 +51,13 @@ cursor: pointer;
 background-color: rgba(0,0,0,0.2);
 }
 
-
 #botonesEdicion{
+box-shadow: 4px 30px 47px -2px rgba(0,0,0,0.9);
+background: radial-gradient(circle, rgba(21,144,14,1) 0%, rgba(0,87,3,1) 100%);
 letter-spacing: 60px;
-margin-top: 50px;
+padding: 20px 0px 20px 0px;
+border-radius: 0px 0px 20px 20px;
+
 }
 
 .btn_guardar{  
@@ -55,8 +66,8 @@ height: 40px;
 width: 130px;
 border:2px white solid;
 border-style: inset;
-background: green;
-color:white;
+background: white;
+color:green;
 border-radius: 100px;
 padding: 4px 22px 5px 22px;
 font-size: 16px;
@@ -66,36 +77,6 @@ outline: none;
 
 }
 
-.btn_eliminar{
-cursor: pointer;
-height: 40px;
-width: 130px;
-border-radius: 100px;
-border:2px white solid;
-border-style: inset;
-background: darkred;
-color:white;
-padding: 4px 22px 5px 22px;
-font-size: 16px;
-font-family: 'Quicksand';
-font-weight: 900;
-outline: none;
-}
-.btn_editar{
-cursor: pointer;
-height: 40px;
-width: 130px;
-border-radius: 100px;
-border:2px white solid;
-border-style: inset;
-background: #3271a8;
-color:white;
-padding: 4px 22px 5px 22px;
-font-size: 16px;
-font-family: 'Quicksand';
-font-weight: 900;
-outline: none;
-}
 
 .btn_guardar:hover,.btn_eliminar:hover, .btn_editar:hover  {
 transition: 0.2s;
@@ -115,7 +96,7 @@ box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
 	transition: 0.5s;
 	border: 1px white solid;
 	align-items: center;
-    background: linear-gradient(180deg, rgba(3,6,143,0.8519782913165266) 0%, rgba(1,48,105,1) 97%);
+    background: radial-gradient(circle, rgba(21,144,14,1) 0%, rgba(0,87,3,1) 100%);
     padding: 0px 50px 50px 50px;
 	display: flex;
 	flex-direction: column;
@@ -190,9 +171,11 @@ border: 1px white solid;
 background-color: rgba(0,0,0,0.3);
 color: white;
 height: 30px;
+outline: none;
 }
 #agregarUsuario select{
  width: 180px;
+ height: 40px;
 }
  #RegUsuarios{
  	font-weight: bold;

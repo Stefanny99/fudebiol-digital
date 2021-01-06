@@ -14,7 +14,7 @@ min-width: 100%;
 }
 
 #cabeza{
-	background-color: black;
+background-color: black;
 box-shadow: 0px 0.3rem 1rem black;
 display: flex;
 font-family: 'Quicksand', sans-serif;
@@ -87,7 +87,8 @@ white-space: nowrap;
 
 #contenido{
 display: flex;
-background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(145,165,190,1) 53%, rgba(1,48,105,1) 97%);
+background: rgb(97,97,97);
+background: radial-gradient(circle, rgba(97,97,97,1) 0%, rgba(0,0,0,1) 100%);
 padding-top: 10px;
 padding-bottom: 70px;	
 height: 100%;
