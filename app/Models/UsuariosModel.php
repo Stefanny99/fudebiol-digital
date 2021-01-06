@@ -8,6 +8,16 @@ Use Exception;
 
 class UsuariosModel extends Model {
 
+    public function getUsuarios(){
+        try{
+            return DB::table('users')->get();
+        }catch(Exception $e){
+            $data['resultado'] = "Error al obtener usuarios. Por favor inténtelo nuevamente";
+            $data['exito'] = false;
+            return $data;
+        }
+    }
+
     public function crearUsuario($request){
         try {
             $date = date('Y-m-d H:i:s');
@@ -20,7 +30,7 @@ class UsuariosModel extends Model {
                 'created_at' => $date, 
                 'updated_at' => $date
                 ]);
-            $data['mensaje'] = "¡Datos insertados con éxito!";
+            $data['resultado'] = "¡Datos insertados con éxito!";
             $data['exito'] = true;
         } catch (Exception $e) {
             $data['resultado'] = "Error. No se pudo insertar el registro, por favor intentelo nuevamente."; 
