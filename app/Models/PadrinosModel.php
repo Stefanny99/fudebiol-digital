@@ -16,7 +16,7 @@ class PadrinosModel extends Model {
         }
     }
 
-    public function obtenerPadrinoPorCedula(){
+    public function obtenerPadrinoPorCedula($request){
         try{
             return DB::table('fudebiol_padrinos')->where('fp_cedula', $request->input('cedula'))->first();
         }catch(Exception $e){
@@ -40,7 +40,6 @@ class PadrinosModel extends Model {
 
     public function crearPadrino($request){
         try {
-            $date = date('Y-m-d H:i:s');
             DB::table('fudebiol_padrinos')->insert([
                 'fp_cedula' => $request->input('cedula'),
                 'fp_nombre1' => $request->input('nombre1'),

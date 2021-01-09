@@ -2,8 +2,6 @@
 
 namespace App\Models;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Hash;
 Use Exception;
 
 class ArbolesModel extends Model {
@@ -46,12 +44,11 @@ class ArbolesModel extends Model {
 
     public function crearArbol($request, $nombre_foto){
         try {
-            $date = date('Y-m-d H:i:s');
             $arbol_id = DB::table('fudebiol_arboles')->insertGetId([
                 'fa_nombre_cientifico' => $request->input('nombre_cientifico'),
                 'fa_jiffys' => $request->input('jiffys'),
                 'fa_bolsas' => $request->input('bolsas'),
-                'fa_elevacion_minima' => Hash::make($request->input('elevacion_minima')),
+                'fa_elevacion_minima' => $request->input('elevacion_minima'),
                 'fa_elevacion_maxima' => $request->input('elevacion_maxima'),
             ]);
             if ($arbol_id > 0 && $nombre_foto !== ''){ 
@@ -69,14 +66,14 @@ class ArbolesModel extends Model {
         return $data;
     }
 
-    public function editarArbol($request){
+    public function editarArbol($request, $nombre_foto){
         try{
-            $arbol_editado = DB::table('fudebiol_arboles')->where('id',$request->input('usuario_id'))
+            $arbol_editado = DB::table('fudebiol_arboles')->where('fa_id',$request->input('arbol_id'))
             ->update([
                 'fa_nombre_cientifico' => $request->input('nombre_cientifico'),
                 'fa_jiffys' => $request->input('jiffys'),
                 'fa_bolsas' => $request->input('bolsas'),
-                'fa_elevacion_minima' => Hash::make($request->input('elevacion_minima')),
+                'fa_elevacion_minima' => $request->input('elevacion_minima'),
                 'fa_elevacion_maxima' => $request->input('elevacion_maxima'), 
             ]);
             if ($arbol_editado->fa_id > 0 && $nombre_foto !== ''){ 
