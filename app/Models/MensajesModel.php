@@ -16,15 +16,15 @@ class MensajesModel extends Model {
         }
     }
 
-    public function obtenerMensajesNoLeidos(){
-        try{
-           DB::table('fudebiol_mensajes')->where('fm_estado', 1)->get();
-        }catch(Exception $e){
-            $data['resultado'] = "Error al obtener mensajes. Por favor inténtelo nuevamente";
-            $data['exito'] = false;
-            return $data;
-        }
-    }
+    // public function obtenerMensajesNoLeidos(){
+    //     try{
+    //        DB::table('fudebiol_mensajes')->where('fm_estado', 1)->get();
+    //     }catch(Exception $e){
+    //         $data['resultado'] = "Error al obtener mensajes. Por favor inténtelo nuevamente";
+    //         $data['exito'] = false;
+    //         return $data;
+    //     }
+    // }
 
     public function eliminarMensaje($request){
         try{
