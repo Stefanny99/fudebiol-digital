@@ -4,7 +4,8 @@
     <div id="body_home">     
         <div id="contenido">
           <input type="checkbox" id="check" checked="checked">
-          <div id="agregarUsuario">
+          <form id="agregarUsuario" method="post" action="{{ route( 'insertarUsuario' ) }}">
+            @csrf
             <label id="btn_sidebar" for="check">
               <img src="img/flecha.png">
             </label>
@@ -12,55 +13,43 @@
                <i class="fas fa-user-plus" id=""></i>
             </label>
             <label id="RegUsuarios">Registrar Usuario</label>
-            <label class="texto" for="nombre">Nombre completo</label>
-            <input type="text" name="nombre">
+            <label class="texto" for="name">Nombre completo</label>
+            <input type="text" name="name">
             <label class="texto" for="email">E-mail</label>
             <input type="text" name="email">
-            <label class="texto" for="usuario">Usuario</label>
-            <input type="text" name="usuario">
-            <label class="texto" for="contraseña">Contraseña</label>
-            <input type="text" name="contraseña">
-            <label class="texto" for="rol">Rol</label>
-            <select name="rol">
-                <option value="SW">Sitio Web</option>
-                <option value="GA">Mi árbol para la vida</option>
-            </select><br>
+            <label class="texto" for="username">Usuario</label>
+            <input type="text" name="username">
+            <label class="texto" for="password">Contraseña</label>
+            <input type="password" name="password">
+            <label class="texto" for="password_confirmation">Confirmar Contraseña</label>
+            <input type="password" name="password_confirmation">
+            <label class="texto" for="role">Rol</label>
+            <select name="role">
+                <option value="S">Sitio Web</option>
+                <option value="A">Mi árbol para la vida</option>
+            </select>
             <button class="btn_guardar">Agregar</button>
 
 
-          </div>
+          </form>
           <div id="tabla">
         <table id="tablaUsuarios" >
               <caption>Administradores Fudebiol Digital</caption>
               <tbody>
                 <tr>
-                  <td style="background-color: transparent;"></td>
                   <th>Nombre</th>
                   <th>E-mail</th>
                   <th>Usuario</th>
                   <th>Rol</th>
                 </tr>
-                <tr>
-                  <td class="number">1</td>
-                  <td class="fila">Diego Tames Vargas</td>
-                  <td class="fila">thamesdiego@gmail.com</td>
-                  <td class="fila">Tames</td>
-                  <td class="fila">Sitio web</td>
+                @foreach ( $usuarios as $usuario )
+                <tr class="fila">
+                  <td class="fila">{{ $usuario->name }}</td>
+                  <td class="fila">{{ $usuario->email }}</td>
+                  <td class="fila">{{ $usuario->username }}</td>
+                  <td class="fila">{{ $usuario->role }}</td>
                 </tr>
-                <tr>
-                  <td  class="number">2</td>
-                 <td class="fila">Lizeth Monge Padilla</td>
-                 <td class="fila">lizmonge15@gmail.com</td>
-                 <td class="fila">Liz MP</td>
-                 <td class="fila">Mi árbol para la vida</td>
-                </tr>
-                 <tr>
-                  <td class="number">3</td>
-                 <td class="fila">Stefanny Barrantes Vargas</td>
-                 <td class="fila">barrantesdenia@gmail.com</td>
-                 <td class="fila">Tefa</td>
-                 <td class="fila">Sitio web</td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
             <div id="botonesEdicion">

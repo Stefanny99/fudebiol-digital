@@ -6,16 +6,22 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 Use Exception;
 
+use Illuminate\Database\Eloquent\Model;
+
 class UsuariosModel extends Model {
 
     public function obtenerUsuarios(){
+        $data = array(
+            "codigo" => 0,
+            "accion" => "obtenerUsuarios",
+            "razon" => ""
+        );
         try{
-            return DB::table('users')->get();
+            $data['resultado'] = DB::table('users')->get();
         }catch(Exception $e){
-            $data['resultado'] = "Error al obtener usuarios. Por favor inténtelo nuevamente";
-            $data['exito'] = false;
-            return $data;
+            $data[ 'codigo' ] = 1;
         }
+        return $data;
     }
 
     public function eliminarUsuario($request){

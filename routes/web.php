@@ -22,3 +22,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/galeria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'galeria'])->name('galeria');
 
 Route::get('/usuarios', [App\Http\Controllers\FudebiolDigital\UsuariosController::class, 'MantenimientoUsuarios'])->name('usuarios');
+
+Route::post('/insertarUsuario', [App\Http\Controllers\FudebiolDigital\UsuariosController::class, 'insertarUsuario'])->name('insertarUsuario');
