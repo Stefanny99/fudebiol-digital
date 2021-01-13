@@ -38,7 +38,7 @@ class UsuariosController extends Controller
     	if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
     		Session::flash( "error", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) );
     	}
-    	return view( "app\MantenimientoUsuarios", array(
+    	return view( "app\MantenimientoUsuariosView", array(
 			"usuarios" => $result[ "resultado" ]
 		) );
     }
