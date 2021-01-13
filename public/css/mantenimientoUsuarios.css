@@ -167,9 +167,9 @@ margin-top: 15px;
 padding: 3px;
 text-align: center;
 border-radius: 5px;
-border: 1px white solid;
-background-color: rgba(255,255,255,0.3);
-color: white;
+border: 1px darkgreen solid;
+background-color: rgba(255,255,255,1);
+color: green;
 height: 30px;
 outline: none;
 }

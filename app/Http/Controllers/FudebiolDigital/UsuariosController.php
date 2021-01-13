@@ -34,6 +34,7 @@ class UsuariosController extends Controller
     public function mantenimientoUsuarios(){
     	$model = new UsuariosModel();
     	$result = $model->obtenerUsuarios();
+
     	if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
     		Session::flash( "error", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) );
     	}
