@@ -37,7 +37,7 @@ class UsuariosController extends Controller
     		Session::flash( "exito", false );
     		return redirect()->back();
     	}else{
-    		return view( "app\MantenimientoUsuarios", array(
+    		return view( "app\MantenimientoUsuariosView", array(
     			"usuarios" => $result
     		) );
     	}

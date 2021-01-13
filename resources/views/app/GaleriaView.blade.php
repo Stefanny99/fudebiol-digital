@@ -5,7 +5,6 @@
         <div id="contenido">
           <div id="contenedor">
        <div class="galeria">     
-    <h2 class="text-center">Galeria de fotos</h2>
     <div class="lightbox-gallery">
       <div class="cont_fotos">
         <div>
@@ -49,18 +48,7 @@
           </div>
 
     </div>
-     <div class="cont_fotos">
-        <div><img src="https://www.hola.com/imagenes/estar-bien/20190826147707/mejores-fotografias-perros-2019-gt/0-712-917/perros-foto-m.jpg" onclick="mostrarFoto(this)">
-        </div>
-         <div><img src="https://i.pinimg.com/originals/db/c7/25/dbc725d10d300be7db2cefe0f3703d5b.jpg" onclick="mostrarFoto(this)">
-        </div>  
-       <div><img src="https://i.pinimg.com/564x/62/d9/fd/62d9fd6e1a8326e7432c9aa6fba5c0e7.jpg" onclick="mostrarFoto(this)">
-       
-      </div>
-      <div><img src="https://us.123rf.com/450wm/jakkapan/jakkapan1706/jakkapan170600080/81141313-hermosa-fantas%C3%ADa-de-oto%C3%B1o-flor-silvestre-en-la-temporada-de-oto%C3%B1o-y-la-luna-llena-con-la-estrella-de-la-v%C3%ADa-l%C3%A1ct.jpg?ver=6" onclick="mostrarFoto(this)">
-       
-      </div>
-    </div>
+
 
 
     </div>

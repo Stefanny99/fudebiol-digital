@@ -28,7 +28,7 @@ class GaleriaController extends Controller
 
     /* Llama la vista de mantenimiento de categorías */
     public function galeria(){
-          return view('app\galeria');
+          return view('app\GaleriaView');
     }
      
         
