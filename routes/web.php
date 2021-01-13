@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
  /*RUTA DE INICIO*/
 Route::get('/',  [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 /*RUTAS DE AUTENTICACIÓN*/
 Auth::routes();
-/*RUTA DE MANTENIMIENTO DE USUARIOS*/
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 /*RUTA DE GALERIA*/
 Route::get('/galeria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'galeria'])->name('galeria');
-
+/*RUTA DE MANTENIMIENTO DE USUARIOS*/
 Route::get('/usuarios', [App\Http\Controllers\FudebiolDigital\UsuariosController::class, 'MantenimientoUsuarios'])->name('usuarios');
-
 Route::post('/insertarUsuario', [App\Http\Controllers\FudebiolDigital\UsuariosController::class, 'insertarUsuario'])->name('insertarUsuario');
+/*RUTAS DE MANTENIMIENTO DE ÁRBOLES*/
+Route::get('/registrarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'registrarArbol'])->name('registrarArbol');
