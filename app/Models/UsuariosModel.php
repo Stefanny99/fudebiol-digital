@@ -6,13 +6,15 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 Use Exception;
 
+use App\Helper\Util;
+
 use Illuminate\Database\Eloquent\Model;
 
 class UsuariosModel extends Model {
 
     public function obtenerUsuarios(){
         $data = array(
-            "codigo" => 0,
+            "codigo" => Util::$codigos[ "EXITO" ],
             "accion" => "obtenerUsuarios",
             "razon" => ""
         );

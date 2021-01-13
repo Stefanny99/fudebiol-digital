@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Session;
 
+use App\Helper\Util;
+
 use App\Models\UsuariosModel;
 
 class UsuariosController extends Controller
@@ -32,15 +34,12 @@ class UsuariosController extends Controller
     public function mantenimientoUsuarios(){
     	$model = new UsuariosModel();
     	$result = $model->obtenerUsuarios();
-    	if ( isset( $result[ "exito" ] ) ){
-    		Session::flash( "mensaje" );
-    		Session::flash( "exito", false );
-    		return redirect()->back();
-    	}else{
-    		return view( "app\MantenimientoUsuarios", array(
-    			"usuarios" => $result
-    		) );
+    	if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+    		Session::flash( "error", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) );
     	}
+    	return view( "app\MantenimientoUsuarios", array(
+			"usuarios" => $result[ "resultado" ]
+		) );
     }
      
 	public function insertarUsuario( Request $data ){
