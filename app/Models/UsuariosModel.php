@@ -15,11 +15,12 @@ class UsuariosModel extends Model {
     public function obtenerUsuarios(){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
-            "accion" => "obtenerUsuarios",
-            "razon" => ""
+            "razon" => "",
+            "accion" => "obtenerUsuarios"
         );
         try{
             $data['resultado'] = DB::table('users')->get();
+            
         }catch(Exception $e){
             $data[ 'codigo' ] = 1;
         }
@@ -27,21 +28,28 @@ class UsuariosModel extends Model {
     }
 
     public function eliminarUsuario($request){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "eliminarUsuario"
+        );
         try{
             DB::table('users')->where('id', $request->input('usuario_id'))->delete();
-            $data['resultado'] = "¡Registro eliminado con éxito! ";
-            $data['exito'] = true;
         }catch(Exception $e){
-            $data['resultado'] = "Error al eliminar registro. Por favor inténtelo nuevamente";
-            $data['exito'] = false;
+            $data[ 'codigo' ] = 1;
         }
         return $data;
     }
 
     public function crearUsuario($request){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "crearUsuario"
+        );
         try {
             $date = date('Y-m-d H:i:s');
-            DB::table('users')->insert([
+            $dta['resultado'] = DB::table('users')->insertGetId([ // retorna el id del usuario insertado
                 'name' => $request->input('name'),
                 'username' => $request->input('username'),
                 'email' => $request->input('email'),
@@ -50,16 +58,18 @@ class UsuariosModel extends Model {
                 'created_at' => $date, 
                 'updated_at' => $date
             ]);
-            $data['resultado'] = "¡Datos insertados con éxito!";
-            $data['exito'] = true;
         } catch (Exception $e) {
-            $data['resultado'] = "Error. No se pudo insertar el registro, por favor intentelo nuevamente."; 
-            $data['exito'] = false;
+            $data[ 'codigo' ] = 1;
         }
         return $data;
     }
 
     public function editarUsuario($request){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "editarUsuario"
+        );
         try{
             DB::table('users')->where('id',$request->input('usuario_id'))
             ->update([
@@ -70,11 +80,8 @@ class UsuariosModel extends Model {
                 'role' => $request->input('rol'),
                 'updated_at' => date('Y-m-d H:i:s') 
             ]);
-            $data['resultado'] = "¡Registro actualizado con éxito! ";
-            $data['exito'] = true;
         }catch(Exception $e){
-            $data['resultado'] = "Error al actualizar registro. Por favor inténtelo nuevamente";
-            $data['exito'] = false;
+            $data['codigo'] = 1;
         }
         return $data;
     }

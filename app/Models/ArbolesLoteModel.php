@@ -13,6 +13,7 @@ class LotesModel extends Model {
             $data['resultado'] = "Error al obtener los arboles del lote indicado. Por favor inténtelo nuevamente";
             $data['exito'] = false;
             return $data;
+            
         }
     }
 
