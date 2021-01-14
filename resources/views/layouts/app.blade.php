@@ -26,6 +26,7 @@
     <link href="{{ asset('css/register.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet"  type="text/css" >
      <link href="{{ asset('css/mantenimientoUsuarios.css') }}" rel="stylesheet"  type="text/css" >
+     <link href="{{ asset('css/registroArboles.css') }}" rel="stylesheet"  type="text/css" >
      <link href="{{ asset('css/galeria.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/main-style.css') }}" rel="stylesheet"  type="text/css"> 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap">

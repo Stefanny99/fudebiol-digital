@@ -3,58 +3,99 @@
 @section('content')
     <div id="body_home">     
         <div id="contenido">
-          <input type="checkbox" id="check" checked="checked">
-          <form id="agregarUsuario" method="post" action="{{ route( 'insertarUsuario' ) }}">
-            @csrf
-            <label id="btn_sidebar" for="check">
-              <img src="img/flecha.png">
-            </label>
-             <label id="adduser" for="check">
-               <i class="fas fa-user-plus" id=""></i>
-            </label>
-            <label id="RegUsuarios">Registrar Usuario</label>
-            <label class="texto" for="name">Nombre completo</label>
-            <input type="text" name="name">
-            <label class="texto" for="email">E-mail</label>
-            <input type="text" name="email">
-            <label class="texto" for="username">Usuario</label>
-            <input type="text" name="username">
-            <label class="texto" for="password">Contraseña</label>
-            <input type="password" name="password">
-            <label class="texto" for="password_confirmation">Confirmar Contraseña</label>
-            <input type="password" name="password_confirmation">
-            <label class="texto" for="role">Rol</label>
-            <select name="role">
-                <option value="S">Sitio Web</option>
-                <option value="A">Mi árbol para la vida</option>
-            </select>
-            <button class="btn_guardar">Agregar</button>
+          <div id="fondo" >
+         <div id="titulo">Mi árbol para la vida</div>
+         <div id="caja"> 
+          <form id="cajaArbol">
+            <img id="arbol" src="img/tree.png">
+            <label id="RegArbol">Registro de especies de árboles</label>
+            <label class="texto" for="nombreCientifico">Nombre científico:</label>
+            <input type="text" name="nombreCientifico">
 
+            <label class="texto" for="jiffys">Jiffys:</label>
+            <input type="text" name="jiffys">
 
-          </form>
-          <div id="tabla">
-        <table id="tablaUsuarios" >
-              <caption>Administradores Fudebiol Digital</caption>
+            <label class="texto" for="bolsas">Bolsas:</label>
+            <input type="text" name="bolsas">
+
+            <label class="texto" for="elevacion_maxima">Elevación máxima:</label>
+            <input type="text" name="elevacion_maxima">
+
+            <label class="texto" for="elevacion_minima">Elevación mínima:</label>
+            <input type="text" name="elevacion_minima">
+
+            <button class="btn_registrar">Registrar</button>
+
+          </form>  
+            <div id="tabla">
+              <div id="buscador">
+                <input type="text" name="buscar" placeholder="Buscar un árbol">
+                <button class="btn_buscar"><i class="fas fa-search"></i></button>
+              </div>
+              <table id="tablaArboles" >
+              <caption>Especies de árboles</caption>
               <tbody>
                 <tr>
-                  <th>Nombre</th>
-                  <th>E-mail</th>
-                  <th>Usuario</th>
-                  <th>Rol</th>
+                  <th>Nombre científico</th>
+                  <th>Jiffys</th>
+                  <th>Bolsas</th>
+                  <th>Elevación mínima</th>
+                  <th>Elevación máxima </th>
                 </tr>
-               
+                
                 <tr class="fila">
-                  
+                  <td class="fila">Arbolinus verdus de naranjis</td>
+                  <td class="fila">34</td>
+                  <td class="fila">56</td>
+                  <td class="fila">1000</td>
+                  <td class="fila">2000</td>
+                </tr>
+
+                 <tr class="fila">
+                  <td class="fila">Arbolinus verdus de naranjis</td>
+                  <td class="fila">34</td>
+                  <td class="fila">56</td>
+                  <td class="fila">1000</td>
+                  <td class="fila">2000</td>
+                </tr>
+
+                <tr class="fila">
+                  <td class="fila">Arbolinus verdus de naranjis</td>
+                  <td class="fila">34</td>
+                  <td class="fila">56</td>
+                  <td class="fila">1000</td>
+                  <td class="fila">2000</td>
+                </tr>
+
+                <tr class="fila">
+                  <td class="fila">Arbolinus verdus de naranjis</td>
+                  <td class="fila">34</td>
+                  <td class="fila">56</td>
+                  <td class="fila">1000</td>
+                  <td class="fila">2000</td>
+                </tr>
+                <tr class="fila">
+                  <td class="fila">Arbolinus verdus de naranjis</td>
+                  <td class="fila">34</td>
+                  <td class="fila">56</td>
+                  <td class="fila">1000</td>
+                  <td class="fila">2000</td>
                 </tr>
                
               </tbody>
             </table>
-            <div id="botonesEdicion">
-                <button class="btn_guardar"> Guardar</button>
-                <button class="btn_guardar"> Eliminar</button>
-                <button class="btn_guardar"> Editar</button>
+            <div id="botonesEdicionArboles">
+                <button class="btn_arboles"> Guardar</button>
+                <button class="btn_arboles"> Eliminar</button>
+                <button class="btn_arboles"> Editar</button>
             </div>
           </div>
+          </div>
+
+       
+          </div>
+          
+        </div>
         </div>
     </div>
 @endsection

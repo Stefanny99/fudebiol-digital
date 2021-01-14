@@ -60,7 +60,8 @@ border-radius: 0px 0px 20px 20px;
 
 }
 
-.btn_guardar{  
+.btn_guardar{ 
+margin-top: 30px; 
 cursor: pointer;
 height: 40px;
 width: 130px;

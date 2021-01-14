@@ -1,0 +1,180 @@
+#fondo{
+background-size: cover;
+display: flex;
+background-image:url('/img/arbol.jpg'); 
+background-repeat: no-repeat;	
+height: 100%;
+font-family: 'Quicksand', sans-serif;
+flex-direction: column;
+text-align: center;
+flex: 1;
+padding-bottom: 70px;
+}
+
+#titulo{
+	padding-top: 10px;
+	height: 80px;
+	color: white;
+	font-size: 50px;
+	background-color: rgba(0,0,0,0.6);
+	text-shadow: 0px 0px 5px yellowgreen;
+}
+#cajaArbol
+{	
+	border:2px white solid;
+	display: flex;
+	flex-direction: column;
+	border-radius: 20px;
+	align-items: center;
+	padding: 30px;
+	margin-left: 20px;
+	color: white;
+	width: 30vw;
+	background-color: rgba(0,0,0,0.7);
+}
+#cajaArbol input{
+	width: 200px;
+	font-weight: bold;
+	padding-left: 3px;
+	height: 25px;
+	border-radius: 10px;
+	outline: none;
+	border: 2px yellowgreen solid;
+	background: rgba(255,255,255,0.7);
+}
+
+.btn_registrar{
+margin-top: 30px; 
+cursor: pointer;
+height: 40px;
+width: 200px;
+border:2px yellowgreen double;
+background: yellowgreen;
+color:white;
+border-radius: 10px;
+padding: 4px 22px 5px 22px;
+font-size: 16px;
+font-family: 'Quicksand';
+font-weight: 900;
+outline: none;
+ text-shadow: 0px 0px 5px black;
+
+}
+
+.btn_registrar:hover {
+transition: 0.2s;
+transform: translateY(-3px);
+box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+#RegArbol{
+	font-weight: bold;
+	font-size: 20px;
+	text-shadow: 0px 0px 3px yellowgreen;
+}
+
+#caja{
+	padding-top: 50px;
+	display: flex;
+	flex-direction: row;
+}
+
+.btn_buscar{
+position: relative;
+text-align: center;
+top:7px; 
+cursor: pointer;
+right: 30px;
+height: 40px;
+width: 70px;
+border:none;
+background: yellowgreen;
+color:white;
+border-radius:  0px 10px 10px 0px;
+font-size: 30px;
+font-family: 'Quicksand';
+outline: none;
+text-shadow: 0px 0px 5px black;
+
+}
+
+#buscador
+{
+	margin-bottom: 40px;
+}
+#buscador input{
+	text-align: center;
+	width: 400px;
+	height: 34px;
+	border:2px yellowgreen double;
+	border-radius:10px;
+	outline: none;
+}
+#tablaArboles{
+overflow-y: auto;
+background: rgba(153, 227, 43, 0.5);
+color: white;
+box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93); 
+flex:0;
+margin-left:40px;
+padding: 0px 20px 20px 20px;
+min-width: 700px;
+height: 200px;
+}
+ 
+ #tablaArboles caption{
+background: white;
+border-radius:20px 20px 0px 0px;
+height: 30px;
+color: black;
+font-weight: bold;
+font-size: 20px;
+padding: 5px 0px 5px 0px;
+text-shadow: 0px 0px 5px white;
+}
+#tablaArboles tbody th{
+border-bottom: 1px black solid;
+font-size: 17px;
+
+}
+
+#tablaArboles tbody tr{
+margin-left:50px;
+}
+
+#tablaArboles tbody tr>.fila{
+color: black;
+font-weight: bold;
+
+cursor: pointer;
+
+}
+
+#tablaArboles tbody tr:hover{
+background-color: rgba(255,255,255,0.2);
+}
+#botonesEdicionArboles{
+margin-left: 40px;
+box-shadow: 4px 30px 47px -2px rgba(0,0,0,0.9);
+background: white;
+letter-spacing: 60px;
+padding: 10px 0px 10px 0px;
+border-radius: 0px 0px 20px 20px;
+
+}
+
+.btn_arboles{ 
+cursor: pointer;
+height: 40px;
+width: 100px;
+border:2px yellowgreen double;
+background: yellowgreen;
+color:white;
+border-radius: 10px;
+padding: 4px 22px 5px 22px;
+font-size: 16px;
+font-family: 'Quicksand';
+font-weight: 900;
+outline: none;
+ text-shadow: 0px 0px 5px black;
+}
