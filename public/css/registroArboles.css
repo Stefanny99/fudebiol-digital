@@ -21,6 +21,7 @@ padding-bottom: 70px;
 	font-size: 50px;
 	background-color: rgba(0,0,0,0.6);
 	text-shadow: 0px 0px 5px yellowgreen;
+	flex:1;
 }
 
 #titulo>a{
