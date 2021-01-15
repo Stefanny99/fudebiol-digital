@@ -24,3 +24,6 @@ Route::get('/usuarios', [App\Http\Controllers\FudebiolDigital\UsuariosController
 Route::post('/insertarUsuario', [App\Http\Controllers\FudebiolDigital\UsuariosController::class, 'insertarUsuario'])->name('insertarUsuario');
 /*RUTAS DE MANTENIMIENTO DE ÁRBOLES*/
 Route::get('/registrarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'registrarArbol'])->name('registrarArbol');
+
+/*RUTAS DE MANTENIMIENTOS DE PADRINOS*/
+Route::get('/registrarPadrino', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'mantenimientoPadrinos'])->name('registrarPadrino');

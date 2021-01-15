@@ -10,13 +10,22 @@ flex: 1;
 padding-bottom: 70px;
 }
 
+
+
 #titulo{
+	display: flex;
+	flex-direction: column;
 	padding-top: 10px;
-	height: 80px;
+	height: 100px;
 	color: white;
 	font-size: 50px;
 	background-color: rgba(0,0,0,0.6);
 	text-shadow: 0px 0px 5px yellowgreen;
+}
+
+#titulo>a{
+	color: white;
+	font-size: 20px;
 }
 #cajaArbol
 {	
@@ -175,4 +184,29 @@ font-family: 'Quicksand';
 font-weight: 900;
 outline: none;
  text-shadow: 0px 0px 5px black;
+}
+
+/*Registro padrinos*/
+.tipo1, .tipo2{
+position: relative;
+display: flex;
+flex-direction: row;
+padding: 0px 0px 0px 0px;
+max-width: 100px;
+}
+
+.tipo1{
+	margin-right: 20px;
+}
+
+.tipo1>input:checked, .tipo2>input:checked{
+  background-color: red;
+}
+
+
+
+#contTipo{
+	margin-top: 20px;
+	display: flex;
+	flex-direction: row;
 }

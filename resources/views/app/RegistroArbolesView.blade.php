@@ -4,7 +4,8 @@
     <div id="body_home">     
         <div id="contenido">
           <div id="fondo" >
-         <div id="titulo">Mi árbol para la vida</div>
+         <div id="titulo">Mi árbol para la vida
+          <a href="http://localhost:8000/registrarPadrino">Registrar padrino</a></div>
          <div id="caja"> 
           <form id="cajaArbol">
             <img id="arbol" src="img/tree.png">
