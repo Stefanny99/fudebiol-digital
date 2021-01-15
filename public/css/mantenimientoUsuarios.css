@@ -1,15 +1,26 @@
+#fondo1{
+display: flex;
+background-image: url('/img/fudebiol.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+font-family: 'Quicksand', sans-serif;
+flex-direction: row;
+text-align: center;
+flex: 1;
+}
+
 #tabla{
 	margin: 50px;
 	flex: 0;
 }
 #tablaUsuarios{
-background: white;
+background: rgba(255,255,255,0.8);
 border-radius:0px 0px 0px 0px;
 box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93); 
 flex:0;
 padding: 0px 20px 20px 20px;
 margin: auto;
-min-width: 900px;
+min-width: 800px;
 height: 200px;
 }
  
@@ -18,6 +29,7 @@ height: 200px;
  	color:black;
  	font-weight: bold;
  }
+
 
 
 #tablaUsuarios caption{
@@ -31,7 +43,6 @@ font-weight: bold;
 font-size: 20px;
 }
 #tablaUsuarios tbody th{
-background-color: rgba(255,255,255,0.5);
 border-bottom: 1px black solid;
 font-size: 17px;
 }
@@ -40,17 +51,19 @@ font-size: 17px;
 margin-left:50px;
 }
 
-#tablaUsuarios tbody tr>.fila{
+#tablaUsuarios tbody .fila{
 color: darkgreen;
 font-weight: bold;
 border-radius: 10px;
 cursor: pointer;
 }
 
-#tablaUsuarios tbody tr:hover{
+#tablaUsuarios .fila:hover{
 background-color: rgba(20,167,9,0.2);
 }
-
+.thead:hover{
+background-color: transparent;
+}
 #botonesEdicion{
 box-shadow: 4px 30px 47px -2px rgba(0,0,0,0.9);
 background: radial-gradient(circle, rgba(21,144,14,1) 0%, rgba(0,87,3,1) 100%);
@@ -161,7 +174,7 @@ box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
 	display: none;
 }
 .texto{
-margin-top: 15px;
+margin-top: 10px;
 }
 
 #agregarUsuario input, #agregarUsuario select{
