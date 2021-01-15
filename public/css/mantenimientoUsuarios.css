@@ -47,8 +47,8 @@ border-radius: 10px;
 cursor: pointer;
 }
 
-#tablaUsuarios tbody tr td:hover{
-background-color: rgba(0,0,0,0.2);
+#tablaUsuarios tbody tr:hover{
+background-color: rgba(20,167,9,0.2);
 }
 
 #botonesEdicion{
@@ -171,7 +171,7 @@ border-radius: 5px;
 border: 1px darkgreen solid;
 background-color: rgba(255,255,255,1);
 color: green;
-height: 30px;
+height: 25px;
 outline: none;
 }
 #agregarUsuario select{

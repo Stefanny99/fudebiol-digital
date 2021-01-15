@@ -3,7 +3,6 @@ background-size: cover;
 display: flex;
 background-image:url('/img/arbol.jpg'); 
 background-repeat: no-repeat;	
-height: 100%;
 font-family: 'Quicksand', sans-serif;
 flex-direction: column;
 text-align: center;
@@ -145,7 +144,6 @@ margin-left:50px;
 #tablaArboles tbody tr>.fila{
 color: black;
 font-weight: bold;
-
 cursor: pointer;
 
 }

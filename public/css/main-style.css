@@ -94,7 +94,6 @@ display: flex;
 background: rgb(97,97,97);
 background: radial-gradient(circle, rgba(97,97,97,1) 0%, rgba(0,0,0,1) 100%);
 padding-top: 10px;
-padding-bottom: 70px;	
 height: 100%;
 font-family: 'Quicksand', sans-serif;
 flex-direction: row;
