@@ -5,22 +5,23 @@
         <div id="contenido">
           <div id="fondo" >
          <div id="titulo">Mi árbol para la vida
+          <a href="http://localhost:8000/arboles">Ver árboles</a>
         </div>
          <div id="caja"> 
           <form id="cajaArbol">
             <img id="arbol" src="img/tree.png">
             <label id="RegArbol">Registro de lotes</label>
-            <label class="texto" for="nombreCientifico">Código:</label>
-            <input type="text" name="nombreCientifico">
+            <label class="texto" for="codigo">Código:</label>
+            <input type="text" name="codigo">
 
-            <label class="texto" for="jiffys">Tamaño:</label>
-            <input type="text" name="jiffys">
+            <label class="texto" for="tamaño">Tamaño:</label>
+            <input type="text" name="tamaño">
 
-            <label class="texto" for="bolsas">Cantidad de filas:</label>
-            <input type="text" name="bolsas">
+            <label class="texto" for="filas">Cantidad de filas:</label>
+            <input type="text" name="filas">
 
-            <label class="texto" for="elevacion_maxima">Cantidad de columnas:</label>
-            <input type="text" name="elevacion_maxima">
+            <label class="texto" for="columnas">Cantidad de columnas:</label>
+            <input type="text" name="columnas">
 
             <button class="btn_registrar">Registrar</button>
 

@@ -32,6 +32,9 @@ class LotesController extends Controller
     public function mantenimientoLotes(){
     	return view('app/LotesView');
     }
+     public function arbolesPorLote(){
+        return view('app/ArbolesPorLoteView');
+    }
      
 	
 }

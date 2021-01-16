@@ -30,3 +30,5 @@ Route::get('/registrarPadrino', [App\Http\Controllers\FudebiolDigital\PadrinosCo
 
 /*RUTAS DEMANTENIMIENTO DE LOTES*/
 Route::get('/registrarLote', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'mantenimientoLotes'])->name('registrarLote');
+
+Route::get('/arboles', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'arbolesPorLote'])->name('arboles');
