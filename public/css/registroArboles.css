@@ -1,72 +1,110 @@
 #fondo{
 background-size: cover;
 display: flex;
-background-image:url('/img/arbol.jpg'); 
+background-image:url('/img/arbolparalavida.jpg'); 
 background-repeat: no-repeat;	
 font-family: 'Quicksand', sans-serif;
 flex-direction: column;
 text-align: center;
 flex: 1;
-padding-bottom: 70px;
+
 }
 
 
-
 #titulo{
+	align-items: center;
 	display: flex;
 	flex-direction: column;
 	padding-top: 10px;
-	height: 200px;
 	color: white;
-	font-size: 50px;
+	font-size: 60px;
 	background-color: rgba(0,0,0,0.6);
 	text-shadow: 0px 0px 5px yellowgreen;
 	flex:1;
+	padding: 50px;
 }
 
 #titulo>a{
 	color: white;
 	font-size: 20px;
 }
-#cajaArbol
-{	
+
+#logo{
+	background-color: rgba(0,190,0,0.1);
+	border-radius: 150px;
 	border:2px white solid;
-	display: flex;
-	flex-direction: column;
-	border-radius: 20px;
-	align-items: center;
-	padding: 30px;
-	margin-left: 20px;
-	color: white;
-	width: 30vw;
-	background-color: rgba(0,0,0,0.7);
-}
-#cajaArbol input{
-	width: 200px;
-	font-weight: bold;
-	padding-left: 3px;
-	height: 25px;
-	border-radius: 10px;
-	outline: none;
-	border: 2px yellowgreen solid;
-	background: rgba(255,255,255,0.7);
+	padding:20px 30px 20px 30px;
+	width: 9rem;
+	height: 10rem;
+	border-style: dotted solid;
 }
 
+#cajaArbol
+{	
+	padding-bottom: 20px;
+	font-weight: bold;
+	border-radius: 10px;
+	display: flex;
+	text-align: left;
+	flex-direction: column;
+	
+	color:#008a00 ;
+	width: 30vw;
+	background-color: rgba(255,255,255,1);
+	box-shadow: 0px 8px 20px gray;
+	flex:0;
+}
+#cajaArbol button{
+	text-align: center;
+	margin:auto;
+	margin-top: 20px;
+}
+#treeheader{
+	text-align: center;
+	background-image: url('/img/header.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 10px 10px 0px 0px;
+	flex:1;
+
+}
+#treeheadermascara{
+	padding: 20px;
+	padding-bottom: 50px;
+	padding-top: 50px;
+	text-align: center;
+	padding-bottom: 20px;
+	border-radius: 10px 10px 0px 0px;
+	flex:1;
+	background: linear-gradient(180deg, rgba(0,138,0,0.7707457983193278) 25%,  rgba(89,179,89,0.7147233893557423) 54%, rgba(255,255,255,1) 100%);
+}
+#cajaArbol input{
+	width: 20vw;
+	padding-left: 3px;
+	height: 25px;
+	outline: none;
+	border:none;
+	border-bottom: 1px gray solid;
+	background: rgba(255,255,255,0.7);
+}
+#cajaArbol input, #cajaArbol label{
+	flex:1;
+	margin-left: 20px;
+	margin-right: 20px;
+}
 .btn_registrar{
 margin-top: 30px; 
 cursor: pointer;
 height: 40px;
 width: 200px;
-border:2px yellowgreen double;
-background: yellowgreen;
+background: #008a00;
 color:white;
-border-radius: 10px;
-padding: 4px 22px 5px 22px;
+text-align: center;
 font-size: 16px;
 font-family: 'Quicksand';
 font-weight: 900;
 outline: none;
- text-shadow: 0px 0px 5px black;
+
 
 }
 
@@ -77,9 +115,23 @@ box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 #RegArbol{
+	text-align: center;
 	font-weight: bold;
+	font-size: 25px;
+	color: white;
+	text-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+#TextReg{
+	text-align: center;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 40px;
+	font-weight: bold;
+	max-width: 700px;
+}
+#subText{
 	font-size: 20px;
-	text-shadow: 0px 0px 3px yellowgreen;
 }
 
 #caja{
@@ -90,22 +142,23 @@ box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
 
 .btn_buscar{
 position: relative;
-text-align: center;
-top:7px; 
+text-align: left;
+top:6px; 
 cursor: pointer;
 right: 30px;
 height: 40px;
 width: 70px;
 border:none;
-background: yellowgreen;
-color:white;
+background: white;
+color:black;
 border-radius:  0px 10px 10px 0px;
-font-size: 30px;
+font-size: 20px;
 font-family: 'Quicksand';
 outline: none;
-text-shadow: 0px 0px 5px black;
-
 }
+.btn_buscar:hover{
+color:#008a00;
+	}
 
 #buscador
 {
@@ -115,37 +168,38 @@ text-shadow: 0px 0px 5px black;
 	text-align: center;
 	width: 400px;
 	height: 34px;
-	border:2px yellowgreen double;
-	border-radius:10px;
+	border:none;
+	border-bottom: 1px gray solid;
 	outline: none;
 }
 #tablaArboles{
 overflow-y: auto;
-background: rgba(153, 227, 43, 0.5);
-color: white;
-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93); 
+background:white;
+color: #008a00;
+white-space: nowrap;
+justify-content: space-between;
+box-shadow: 0px 8px 20px gray;
 flex:0;
 margin-left:40px;
 padding: 0px 20px 20px 20px;
-min-width: 700px;
+min-width: 800px;
 height: 200px;
+border:none;
+
 }
+
+
  
  #tablaArboles caption{
 background: white;
-border-radius:20px 20px 0px 0px;
+box-shadow: 0px -3px 10px 1px rgba(161,161,161,1);
 height: 30px;
 color: black;
 font-weight: bold;
 font-size: 20px;
-padding: 5px 0px 5px 0px;
-text-shadow: 0px 0px 5px white;
+padding: 5px 0px 3px 0px;
 }
-#tablaArboles tbody th{
-border-bottom: 1px black solid;
-font-size: 17px;
 
-}
 
 #tablaArboles tbody tr{
 margin-left:50px;
@@ -158,33 +212,47 @@ cursor: pointer;
 
 }
 
-#tablaArboles tbody tr:hover{
-background-color: rgba(255,255,255,0.2);
-}
+
 #botonesEdicionArboles{
 margin-left: 40px;
-box-shadow: 4px 30px 47px -2px rgba(0,0,0,0.9);
+box-shadow: 0px 9px 20px 1px rgba(161,161,161,1);
 background: white;
 letter-spacing: 60px;
 padding: 10px 0px 10px 0px;
-border-radius: 0px 0px 20px 20px;
 
 }
+.action{
+	width: 80px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.delete{
+color:red;
 
+}
+.delete, .edit{
+	padding: 6px;
+	border-radius: 15px;
+	cursor: pointer;
+}
+.edit{
+	color: blue;
+}
 .btn_arboles{ 
 cursor: pointer;
-height: 40px;
+height: 30px;
 width: 100px;
-border:2px yellowgreen double;
-background: yellowgreen;
+border:none;
+border-radius: 5px;
+background: #008a00;
 color:white;
-border-radius: 10px;
+text-align: center;
 padding: 4px 22px 5px 22px;
 font-size: 16px;
 font-family: 'Quicksand';
 font-weight: 900;
 outline: none;
- text-shadow: 0px 0px 5px black;
 }
 
 /*Registro padrinos*/

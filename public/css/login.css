@@ -163,10 +163,12 @@ margin-right: 5px;
 }
 
 #fudebiol{
+	text-shadow: 0px 0px 5px black;
 	font-size: 60px;
 }
 
 #centrobiol{
+	text-shadow: 0px 0px 5px black;
 	font-size: 40px;
 }
 

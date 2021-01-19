@@ -4,14 +4,26 @@
     <div id="body_home">     
         <div id="contenido">
           <div id="fondo" >
-         <div id="titulo">Mi árbol para la vida
-          <a href="http://localhost:8000/registrarPadrino">Registrar padrino</a>
-           <a href="http://localhost:8000/registrarLote">Registrar lote</a>
+           <div id="titulo">
+            <img id="logo" src="img/arbolito.png">
+            MI ÁRBOL PARA LA VIDA
+            <a href="http://localhost:8000/registrarPadrino">Registrar padrino</a>
+            <a href="http://localhost:8000/registrarLote">Registrar lote</a>
+          </div>
         </div>
+        <div class="home">
+          <label id="TextReg">Registro de especies de árboles</label>
+          <label  id="subText">Para FUDEBIOL es vital conservar la vida silvestre, por eso nuestro propósito es devolver al mundo tanta vida como la que nos ha dado.</label>
          <div id="caja"> 
           <form id="cajaArbol">
-            <img id="arbol" src="img/tree.png">
-            <label id="RegArbol">Registro de especies de árboles</label>
+            <!--<img id="arbol" src="img/tree.png">-->
+            <div id="treeheader">
+              <div id="treeheadermascara">
+               <label id="RegArbol">Registra una nueva </label>
+               <label>especie de árbol</label>
+               </div>
+             </div>
+           
             <label class="texto" for="nombreCientifico">Nombre científico:</label>
             <input type="text" name="nombreCientifico">
 
@@ -32,18 +44,19 @@
           </form>  
             <div id="tabla">
               <div id="buscador">
-                <input type="text" name="buscar" placeholder="Buscar un árbol">
+                <input type="text" name="buscar" placeholder="Buscar una especie">
                 <button class="btn_buscar"><i class="fas fa-search"></i></button>
               </div>
               <table id="tablaArboles" >
-              <caption>Especies de árboles</caption>
+              <caption>Especies registradas</caption>
               <tbody>
-                <tr>
+                <tr id="tablehead">
                   <th>Nombre científico</th>
                   <th>Jiffys</th>
                   <th>Bolsas</th>
                   <th>Elevación mínima</th>
                   <th>Elevación máxima </th>
+                  <th>Acción</th>
                 </tr>
                 
                 <tr class="fila">
@@ -52,6 +65,13 @@
                   <td class="fila">56</td>
                   <td class="fila">1000</td>
                   <td class="fila">2000</td>
+                   <td class="fila">
+                    <div class="action">
+                       <label class="edit"><i class="far fa-edit"></i></label>
+                     <label class="delete"><i class="far fa-trash-alt"></i></label>
+                    </div>
+                    
+                   </td>
                 </tr>
 
                  <tr class="fila">
@@ -60,6 +80,13 @@
                   <td class="fila">56</td>
                   <td class="fila">1000</td>
                   <td class="fila">2000</td>
+                  <td class="fila">
+                    <div class="action">
+                       <label class="edit"><i class="far fa-edit"></i></label>
+                     <label class="delete"><i class="far fa-trash-alt"></i></label>
+                    </div>
+                    
+                   </td>
                 </tr>
 
                 <tr class="fila">
@@ -68,6 +95,13 @@
                   <td class="fila">56</td>
                   <td class="fila">1000</td>
                   <td class="fila">2000</td>
+                  <td class="fila">
+                    <div class="action">
+                       <label class="edit"><i class="far fa-edit"></i></label>
+                     <label class="delete"><i class="far fa-trash-alt"></i></label>
+                    </div>
+                    
+                   </td>
                 </tr>
 
                 <tr class="fila">
@@ -76,6 +110,13 @@
                   <td class="fila">56</td>
                   <td class="fila">1000</td>
                   <td class="fila">2000</td>
+                  <td class="fila">
+                    <div class="action">
+                       <label class="edit"><i class="far fa-edit"></i></label>
+                     <label class="delete"><i class="far fa-trash-alt"></i></label>
+                    </div>
+                    
+                   </td>
                 </tr>
                 <tr class="fila">
                   <td class="fila">Arbolinus verdus de naranjis</td>
@@ -83,20 +124,26 @@
                   <td class="fila">56</td>
                   <td class="fila">1000</td>
                   <td class="fila">2000</td>
+                  <td class="fila">
+                    <div class="action">
+                       <label class="edit"><i class="far fa-edit"></i></label>
+                     <label class="delete"><i class="far fa-trash-alt"></i></label>
+                    </div>
+                    
+                   </td>
                 </tr>
                
               </tbody>
             </table>
             <div id="botonesEdicionArboles">
                 <button class="btn_arboles"> Guardar</button>
-                <button class="btn_arboles"> Eliminar</button>
-                <button class="btn_arboles"> Editar</button>
+                
             </div>
           </div>
           </div>
-
+        </div>
        
-          </div>
+          
           
         </div>
         </div>
