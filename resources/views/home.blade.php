@@ -52,7 +52,7 @@
                 <label class="welcome_right">Nuestro entorno</label>
                 <div class="subseccion">
                     <img class="img_derecha" src="/img/entorno.jpg">
-                     <div id="home_texto">Ustes puede disfrutar de cientos de atracciones al rededor de esta reserva natural. Se encuentra a tan solo 15 minutos de la ciudad de San Isidrio de El General donde hay acceso a todos los productos y servicios necesarios.
+                     <div id="home_texto">Usted puede disfrutar de cientos de atracciones al rededor de esta reserva natural. Se encuentra a tan solo 15 minutos de la ciudad de San Isidrio de El General donde hay acceso a todos los productos y servicios necesarios.
 
                     En la comunidad de Quebradas puede encontrar personas dedicadas a los agronegocios, agro turismo, alquiler de caballos, entre otras actividades que puede realizar además de visitar el Centro Biológico. </div>
                 </div>
