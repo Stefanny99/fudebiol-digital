@@ -74,6 +74,7 @@
                 <div class="sitename">
                     <img class="logo" src="img/logob.png">
                 </div>
+                <div class="hiperlinks">
                     <a href="http://localhost:8000/home">
                        
                         <div class="text">Inicio</div>
@@ -95,7 +96,7 @@
                         <div class="text">Información</div>
                     </a>
                   
-                
+                </div>
           
        </div>
     @endguest

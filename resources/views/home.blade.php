@@ -32,7 +32,9 @@
                      <div id="home_texto">FUDEBIOL desarrolla una agenda anual de actividades de educación ambiental, dirigidas a diferentes sectores de la población de la Cuenca del Río Quebradas y del Valle de El General interesadas en impulsar acciones de formación en desarrollo sostenible, con un especial énfasis en los niños y estudiantes, entre ellas la Feria del Agua que se realiza en el mes de marzo. El propósito de la educación ambiental es concienciar sobre la biodiversidad y el recurso hídrico del área, aplicar el Plan de Manejo y Ordenamiento Territorial de la cuenca y potenciar los esfuerzos de estudios, investigaciones ambientales, proyectos productivos sostenibles; con el fin de aprender a enfrentar el futuro, sin cometer los errores generados contra los recursos naturales en el pasado. </div>
                 </div>
               
+                    <div class="cont_btn_derecha">
                     <button class="btn_home_derecha">Ver más</button>
+               </div>
                
                 
                 </div>
@@ -56,8 +58,10 @@
 
                     En la comunidad de Quebradas puede encontrar personas dedicadas a los agronegocios, agro turismo, alquiler de caballos, entre otras actividades que puede realizar además de visitar el Centro Biológico. </div>
                 </div>
-              
+               <div class="cont_btn_derecha">
                     <button class="btn_home_derecha">Ver más</button>
+               </div>
+                   
                
                 
                 </div>

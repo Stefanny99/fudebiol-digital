@@ -40,7 +40,7 @@ flex:1;
 z-index: 2;
 }
 .sitename{
-	position: relative;
+	
 color: white;
 align-items: center;
 background-color: <?php echo $color[ 4 ]?>;
@@ -48,7 +48,7 @@ display: flex;
 flex: 0;
 flex-direction: column;
 padding: 2px;
-right: 50rem;
+
 }
 .sitename>.logo{
 width: 4rem;
@@ -58,15 +58,22 @@ font-size: 1rem;
 white-space: nowrap;
 }
 
+#cabeza>.menu>.hiperlinks{
+background-color: <?php echo $color[ 0 ]; ?>;
+display: flex;
+flex-direction: row;
+}
+
 #cabeza>.menu{
 background-color: <?php echo $color[ 0 ]; ?>;
 display: flex;
 flex: 1;
 flex-direction: row;
-justify-content: flex-end;
+justify-content: space-between;
+
 }
 
-#cabeza>.menu>a{
+#cabeza>.menu>.hiperlinks>a{
 border-bottom: 0.3rem solid transparent;
 color: black;
 cursor: pointer;
@@ -79,7 +86,7 @@ text-decoration: none;
 text-align: right;
 }
 
-#cabeza>.menu>a:hover{
+#cabeza>.menu>.hiperlinks>a:hover{
 color: #00c932;
 }
 
@@ -96,7 +103,7 @@ margin: 0px auto;
 	white-space: nowrap;
 }
 
-#cabeza>.menu>a>.text{
+#cabeza>.menu>.hiperlinks>a>.text{
 font-size: 15px;
 white-space: nowrap;
 }
