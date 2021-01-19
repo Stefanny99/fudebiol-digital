@@ -1,11 +1,12 @@
 html{
 height: 100%;
+
 }
 
 body{
 background: rgb(131,0,61);
 background: linear-gradient(17deg, rgba(131,0,61,1) 6%, rgba(28,0,14,1) 100%);
-font-family: 'Nunito', sans-serif;
+font-family: 'Quicksand', sans-serif;
 margin:0;
 height: 100%;
 flex-direction: column;
@@ -15,7 +16,7 @@ align-items: center;
 } 
 
 header{    
-min-height: 50px;
+height: auto;
 width: 100%;
 background-color: rgb(28, 0, 14);
 display: flex;
@@ -36,7 +37,6 @@ flex-direction: column;
 margin: auto;
 width: 100%;
 height: 100%;
-padding-top: 51px;
 text-align: center;
 
 }
@@ -134,4 +134,122 @@ margin-right: 5px;
 }
 
 
+/*home css*/
+.banner{
+	display: flex;
+	flex:1;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('/img/fude_banner.jpg');
+}
 
+#banner_mascara{
+	background-color: rgba(0,0,0,0.6);
+	flex:1;
+}
+
+#banner_texto{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	color: white;
+	font-weight: bold;
+	padding: 30px;
+}
+
+#banner_texto img{
+	width: 15rem;
+}
+
+#fudebiol{
+	font-size: 60px;
+}
+
+#centrobiol{
+	font-size: 40px;
+}
+
+.home{
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	flex:1;
+	padding: 100px;
+}
+
+.welcome_left{
+	
+	text-align: left;
+	font-size: 30px;
+	font-weight: bold;
+	
+}
+
+.welcome_right{
+	
+	margin-top: 40px;
+	text-align: right;
+	font-size: 30px;
+	font-weight: bold;
+
+}
+.subtitulo{
+	text-align: left;
+	font-size: 14px;
+	font-weight: bold;
+}
+#home_texto{
+	margin-top: 60px;
+	text-align: justify;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+
+
+}
+.seccion{
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px gray solid;
+	border-top: 1px gray solid;
+	padding-bottom: 30px;
+	padding-top: 30px;
+}
+.subseccion{
+display: flex;
+flex-direction: row;
+}
+.img_izquierda{
+	width: 30rem;
+	margin-left: 30px;
+}
+.img_derecha{
+	width:30rem;
+	margin-right:  30px;
+}
+
+.btn_home_izquierda{
+	max-width: 150px;
+	height: 50px;
+	border:none;
+	background-color: green;
+	color: white;
+	cursor: pointer;
+	border-radius: 2px;
+	margin-top: 20px;
+
+}
+
+.btn_home_derecha{
+	margin-top: 20px;
+	position: relative;
+	left:64rem;
+	max-width: 150px;
+	height: 50px;
+	border:none;
+	background-color: green;
+	color: white;
+	cursor: pointer;
+	border-radius: 2px;
+
+}

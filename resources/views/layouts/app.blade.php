@@ -48,50 +48,56 @@
             </li>
         @endif
     @else
+
             <div id="cabeza">
-                <div class="sitename">
-                    <img class="logo" src="img/vector.png">
-                    <div class="text">FUDEBIOL</div>
-                </div>
-                <nav class="menu">
-                    <a href="http://localhost:8000/home">
-                        <img class="icon" src="img/home.png"></img>
-                        <div class="text">Inicio</div>
-                    </a>
-                    <a href="http://localhost:8000/galeria">
-                        <img class="icon" src="img/gallery.png"></img>
-                        <div class="text">Galería</div>
-                    </a>
-                    <a href="http://localhost:8000/registrarArbol">
-                        <img class="icon" src="img/tree.png"></img>
-                        <div class="text">Mi árbol para la vida</div>
-                    </a>
-                    <a href="">
-                        <img class="icon" src="img/investigation.png"></img>
-                        <div class="text">Investigaciones</div>
-                    </a>
-                    <a href="">
-                        <img class="icon" src="img/Information.png"></img>
-                        <div class="text">Información</div>
-                    </a>
-                  
+                <div class="usuario"> 
                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="http://localhost:8000/usuarios" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                 <img class="icon" src="img/user.png"></img>
-                <div class="textUser">  {{ Auth::user()->name }}  </div>
+               
+                <div class="textUser"> 
+                    <i class="fas fa-user"></i>&nbsp
+                 {{ Auth::user()->name }} </div>
                 </a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
 
-                    <img class="icon" src="img/cs.png"></img>
-                    <div class="text">  {{ __('Cerrar sesión') }}  </div>
+                   
+                    <div class="text">  <i class="fas fa-sign-out-alt"></i> </div>
                 </a>
                 </nav>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
             </div>
-       
+               
+                <nav class="menu">
+                <div class="sitename">
+                    <img class="logo" src="img/logob.png">
+                </div>
+                    <a href="http://localhost:8000/home">
+                       
+                        <div class="text">Inicio</div>
+                    </a>
+                    <a href="http://localhost:8000/galeria">
+                       
+                        <div class="text">Galería</div>
+                    </a>
+                    <a href="http://localhost:8000/registrarArbol">
+                       
+                        <div class="text">Mi árbol para la vida</div>
+                    </a>
+                    <a href="">
+                        
+                        <div class="text">Investigaciones</div>
+                    </a>
+                    <a href="">
+                     
+                        <div class="text">Información</div>
+                    </a>
+                  
+                
+          
+       </div>
     @endguest
 </header>
 

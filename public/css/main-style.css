@@ -16,29 +16,41 @@ min-width: 100%;
 -ms-overflow-style: none;  
 scrollbar-width: none; 
 }
+.usuario{
 
+background: rgba(0,0,0,0.8);
+display: flex;
+flex-direction: row;
+text-align: left;
+justify-content: flex-end;
+}
+.usuario>*{
+	padding: 5px 30px 5px 0px;
+	text-decoration: none;
+}
 #cabeza{
-background-color: black;
+background-color: white;
 box-shadow: 0px 0.3rem 1rem black;
 display: flex;
 font-family: 'Quicksand', sans-serif;
-flex-direction: row;
-height: 9.5rem;
+flex-direction: column;
+height: auto;
 min-width: 100%;
 flex:1;
 z-index: 2;
 }
-#cabeza>.sitename{
+.sitename{
+	position: relative;
 color: white;
 align-items: center;
 background-color: <?php echo $color[ 4 ]?>;
 display: flex;
 flex: 0;
 flex-direction: column;
-justify-content: flex-end;
-padding: 1rem;
+padding: 2px;
+right: 50rem;
 }
-#cabeza>.sitename>.logo{
+.sitename>.logo{
 width: 4rem;
 }
 #cabeza>.sitename>.text{
@@ -51,25 +63,24 @@ background-color: <?php echo $color[ 0 ]; ?>;
 display: flex;
 flex: 1;
 flex-direction: row;
+justify-content: flex-end;
 }
 
 #cabeza>.menu>a{
 border-bottom: 0.3rem solid transparent;
-color: white;
+color: black;
 cursor: pointer;
 display: flex;
-flex: 1;
 flex-direction: column;
-justify-content: flex-end;
+justify-content: center;
 outline-style: none;
-padding: 10px;
+padding: 0px 10px 0px 5px;
 text-decoration: none;
-text-align: center;
+text-align: right;
 }
 
 #cabeza>.menu>a:hover{
-border-color: #41a8ff;
-color: #8ccaff;
+color: #00c932;
 }
 
 #cabeza>.menu>a>.icon{
@@ -80,12 +91,13 @@ margin: 0px auto;
 }
 
 .textUser{
-	font-size: 1.1rem;
+	font-size: 15px;
+	text-decoration: none;
 	white-space: nowrap;
 }
 
 #cabeza>.menu>a>.text{
-font-size: 1.1rem;
+font-size: 15px;
 white-space: nowrap;
 }
 
@@ -93,16 +105,15 @@ white-space: nowrap;
 display: flex;
 background: rgb(97,97,97);
 background: radial-gradient(circle, rgba(97,97,97,1) 0%, rgba(0,0,0,1) 100%);
-padding-top: 10px;
 height: 100%;
 font-family: 'Quicksand', sans-serif;
-flex-direction: row;
+flex-direction: column;
 text-align: center;
 flex: 1;
 }
 
 #pie{
-	background-color: black;
+	background-color: rgba(0,0,0,0.8);
 }
 
 #pie>.top>input[ type = "button" ]:hover{
@@ -113,7 +124,7 @@ flex: 1;
 
 #pie>.bottom{
 
-	background-color:black;
+	background-color:rgba(0,0,0,0.8);
 	display: flex;
 	font-family: 'Quicksand', sans-serif;
 	flex-direction: row;
@@ -169,8 +180,8 @@ flex: 1;
 
 #pie>.bottom>.middle>.contact>.icon{
 	background-color: <?php echo $color[ 1 ] ?>;
-	height: 3.5rem;
-	width: 3.5rem;
+	height: 2rem;
+	width: 2rem;
 }
 
 #pie>.bottom>.middle>a.contact:hover>.icon{
@@ -179,7 +190,7 @@ flex: 1;
 
 #pie>.bottom>.middle>.contact>.label{
 	color: white;
-	font-size: 2rem;
+	font-size: 1rem;
 	margin-left: 1rem;
 	white-space: nowrap;
 }
