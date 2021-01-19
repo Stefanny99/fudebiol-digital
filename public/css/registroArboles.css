@@ -22,6 +22,16 @@ flex: 1;
 	text-shadow: 0px 0px 5px yellowgreen;
 	flex:1;
 	padding: 50px;
+	
+}
+#titulo label{
+	overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation: 
+    typing 5s steps(40, end),
+    blink-caret .75s step-end infinite;
 }
 
 #titulo>a{
@@ -128,12 +138,26 @@ box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
 	margin-bottom: 10px;
 	font-size: 40px;
 	font-weight: bold;
-	max-width: 700px;
+	
 }
 #subText{
-	font-size: 20px;
+font-size: 17px;
+
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
 }
 
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: transparent; }
+}
+@keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
 #caja{
 	padding-top: 50px;
 	display: flex;

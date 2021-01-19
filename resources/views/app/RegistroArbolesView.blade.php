@@ -6,7 +6,7 @@
           <div id="fondo" >
            <div id="titulo">
             <img id="logo" src="img/arbolito.png">
-            MI ÁRBOL PARA LA VIDA
+            <label >MI ÁRBOL PARA LA VIDA</label>
             <a href="http://localhost:8000/registrarPadrino">Registrar padrino</a>
             <a href="http://localhost:8000/registrarLote">Registrar lote</a>
           </div>

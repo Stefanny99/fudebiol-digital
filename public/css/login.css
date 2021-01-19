@@ -160,16 +160,34 @@ margin-right: 5px;
 
 #banner_texto img{
 	width: 15rem;
+	 -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeInUp 1s; /* Firefox < 16 */
+        -ms-animation: fadeInUp 1s; /* Internet Explorer */
+         -o-animation: fadeInUp 1s; /* Opera < 12.1 */
+            animation: fadeInUp 1s;
+margin-bottom: 20px;
 }
 
 #fudebiol{
 	text-shadow: 0px 0px 5px black;
 	font-size: 60px;
+	-webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeInUp 1s; /* Firefox < 16 */
+        -ms-animation: fadeInUp 1s; /* Internet Explorer */
+         -o-animation: fadeInUp 1s; /* Opera < 12.1 */
+            animation: fadeInUp 1s;
+margin-bottom: 20px;
 }
 
 #centrobiol{
 	text-shadow: 0px 0px 5px black;
 	font-size: 40px;
+	 -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeInUp 1s; /* Firefox < 16 */
+        -ms-animation: fadeInUp 1s; /* Internet Explorer */
+         -o-animation: fadeInUp 1s; /* Opera < 12.1 */
+            animation: fadeInUp 1s;
+margin-bottom: 20px;
 }
 
 .home{
@@ -210,6 +228,16 @@ margin-right: 5px;
 	overflow-wrap: break-word;
 
 
+}
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
 }
 .seccion{
 	display: flex;
