@@ -285,6 +285,15 @@ align-items: flex-start;
 	border-radius: 2px;
 
 }
+.btn_home_izquierda:hover,.btn_home_derecha:hover {
+border-top:1px green solid;
+border-bottom:1px green solid;
+background-color:white;
+transition-timing-function: ease-in;
+transition: 0.5s;
+color: green;
+}
+
 .cont_btn_derecha{
 	text-align: right;
 }
