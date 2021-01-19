@@ -15,8 +15,8 @@
           <label id="TextReg">Registro de especies de árboles</label>
           <label  id="subText">Para FUDEBIOL es vital conservar la vida silvestre, por eso nuestro propósito es devolver al mundo tanta vida como la que nos ha dado.</label>
          <div id="caja"> 
-          <form id="cajaArbol">
-            <!--<img id="arbol" src="img/tree.png">-->
+          <form id="cajaArbol" class="hvr-float">
+           
             <div id="treeheader">
               <div id="treeheadermascara">
                <label id="RegArbol">Registra una nueva </label>
@@ -42,7 +42,7 @@
             <button class="btn_registrar">Registrar</button>
 
           </form>  
-            <div id="tabla">
+            <div id="tabla" class="hvr-forward">
               <div id="buscador">
                 <input type="text" name="buscar" placeholder="Buscar una especie">
                 <button class="btn_buscar"><i class="fas fa-search"></i></button>
@@ -70,7 +70,6 @@
                        <label class="edit"><i class="far fa-edit"></i></label>
                      <label class="delete"><i class="far fa-trash-alt"></i></label>
                     </div>
-                    
                    </td>
                 </tr>
 
