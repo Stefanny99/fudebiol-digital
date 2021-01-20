@@ -237,7 +237,7 @@ margin-left:50px;
 color: black;
 font-weight: bold;
 cursor: pointer;
-
+text-align: center;
 }
 
 
@@ -250,7 +250,7 @@ padding: 10px 0px 10px 0px;
 
 }
 .action{
-	width: 80px;
+	
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
