@@ -40,11 +40,22 @@ class ArbolesModel extends Model {
             "accion" => "eliminarArbol"
         );
         try{
-            DB::transaction(function () {
+            DB::begintransaction();
+            try {
                 DB::table('fudebiol_arboles')->where('fa_id', $request->input('arbol_id'))->delete();
-                DB::table('fudebiol_arboles_img')->where('fa_arbol_id', $request->input('arbol_id'))->delete();
-            });
-            DB::commit();
+                try {
+                    DB::table('fudebiol_arboles_img')->where('fa_arbol_id', $request->input('arbol_id'))->delete();
+                    DB::commit(); 
+                } catch(Exception $e){
+                    $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+                    $data['razon'] = "Ocurrió un error al eliminar la imagen del árbol";
+                    DB::rollBack();
+                }   
+            } catch (Exception $e) {
+                $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+                $data['razon'] = "Ocurrió un error al eliminar el árbol";
+                DB::rollBack();
+            }    
         }catch(Exception $e){
             DB::rollBack();
             $data[ 'codigo' ] = Util::$codigos[ "ERROR_ELIMINANDO" ];
