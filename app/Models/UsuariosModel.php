@@ -20,9 +20,8 @@ class UsuariosModel extends Model {
         );
         try{
             $data['resultado'] = DB::table('users')->get();
-            
         }catch(Exception $e){
-            $data[ 'codigo' ] = 1;
+            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
         }
         return $data;
     }
@@ -36,7 +35,7 @@ class UsuariosModel extends Model {
         try{
             DB::table('users')->where('id', $request->input('usuario_id'))->delete();
         }catch(Exception $e){
-            $data[ 'codigo' ] = 1;
+            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
         }
         return $data;
     }
@@ -59,7 +58,7 @@ class UsuariosModel extends Model {
                 'updated_at' => $date
             ]);
         } catch (Exception $e) {
-            $data[ 'codigo' ] = 1;
+            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_INSERCION" ];
         }
         return $data;
     }
@@ -81,7 +80,7 @@ class UsuariosModel extends Model {
                 'updated_at' => date('Y-m-d H:i:s') 
             ]);
         }catch(Exception $e){
-            $data['codigo'] = 1;
+            $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
         }
         return $data;
     }

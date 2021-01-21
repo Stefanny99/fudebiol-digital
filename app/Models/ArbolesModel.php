@@ -18,7 +18,7 @@ class ArbolesModel extends Model {
                 'arboles_img' => DB::table('fudebiol_arboles_img')->get(),
             );
         }catch(Exception $e){
-            $data[ 'codigo' ] = 1;
+            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
         }
         return $data;
     }
@@ -47,7 +47,7 @@ class ArbolesModel extends Model {
             DB::commit();
         }catch(Exception $e){
             DB::rollBack();
-            $data[ 'codigo' ] = 1;
+            $data[ 'codigo' ] = Util::$codigos[ "ERROR_ELIMINANDO" ];
         }
         return $data;
     }
@@ -59,7 +59,8 @@ class ArbolesModel extends Model {
             "accion" => "crearArbol"
         );
         try {
-            DB::transaction(function () {
+            DB::begintransaction();
+            try {
                 $arbol_id = DB::table('fudebiol_arboles')->insertGetId([
                     'fa_nombre_cientifico' => $request->input('nombre_cientifico'),
                     'fa_jiffys' => $request->input('jiffys'),
@@ -67,17 +68,27 @@ class ArbolesModel extends Model {
                     'fa_elevacion_minima' => $request->input('elevacion_minima'),
                     'fa_elevacion_maxima' => $request->input('elevacion_maxima'),
                 ]);
-                if ($arbol_id > 0 && $nombre_foto !== ''){ 
-                    DB::table('fudebiol_arboles_img')->insert([
-                        'fai_arbol_id' => $arbol_id,
-                        'fai_img_nombre' => $nombre_foto,
-                    ]);
-                }
-            });   
-            DB::commit(); 
+                try {
+                    if ($arbol_id > 0 && $nombre_foto !== ''){ 
+                        DB::table('fudebiol_arboles_img')->insert([
+                            'fai_arbol_id' => $arbol_id,
+                            'fai_img_nombre' => $nombre_foto,
+                        ]);
+                    } 
+                    DB::commit(); 
+                } catch(Exception $e){
+                    $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+                    $data['razon'] = "Ocurrió un error al insertar la imagen del árbol";
+                    DB::rollBack();
+                }   
+            } catch (Exception $e) {
+                $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+                $data['razon'] = "Ocurrió un error al insertar el árbol";
+                DB::rollBack();
+            }    
         } catch (Exception $e) {
             DB::rollBack();
-            $data['codigo'] = 1;
+            $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
         }
         return $data;
     }
@@ -89,7 +100,8 @@ class ArbolesModel extends Model {
             "accion" => "editarArbol"
         );
         try{
-            DB::transaction(function () {
+            DB::begintransaction();
+            try {
                 DB::table('fudebiol_arboles')->where('fa_id',$request->input('arbol_id'))
                 ->update([
                     'fa_nombre_cientifico' => $request->input('nombre_cientifico'),
@@ -98,16 +110,26 @@ class ArbolesModel extends Model {
                     'fa_elevacion_minima' => $request->input('elevacion_minima'),
                     'fa_elevacion_maxima' => $request->input('elevacion_maxima'), 
                 ]);
-                if ($nombre_foto !== ''){ 
-                    DB::table('fudebiol_arboles_img')->update([
-                        'fai_img_nombre' => $nombre_foto,
-                    ]);
-                }
-            });
-            DB::commit();
+                try {
+                    if ($nombre_foto !== ''){ 
+                        DB::table('fudebiol_arboles_img')->update([
+                            'fai_img_nombre' => $nombre_foto,
+                        ]);
+                    }
+                    DB::commit(); 
+                } catch(Exception $e){
+                    $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+                    $data['razon'] = "Ocurrió un error al insertar la imagen del árbol";
+                    DB::rollBack();
+                }   
+            } catch (Exception $e) {
+                $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+                $data['razon'] = "Ocurrió un error al editar el árbol";
+                DB::rollBack();
+            } 
         }catch(Exception $e){
             DB::rollBack();
-            $data[ 'codigo' ] = 1;
+            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_INSERCION" ];
         }
         return $data;
     }
