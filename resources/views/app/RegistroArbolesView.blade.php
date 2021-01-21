@@ -11,9 +11,16 @@
             <a href="http://localhost:8000/registrarLote">Registrar lote</a>
           </div>
         </div>
-        <div class="home">
-          <label id="TextReg">Registro de especies de árboles</label>
+        <div class="contenedor_textos">
+            <div id="colorMascara">
+              <label class="TextReg">Registro de especies de árboles</label>
           <label  id="subText">Para FUDEBIOL es vital conservar la vida silvestre, por eso nuestro propósito es devolver al mundo tanta vida como la que nos ha dado.</label>
+            </div>
+             
+          </div>
+        <div class="home">
+          
+         
          <div id="caja"> 
           <form id="cajaArbol" class="hvr-float">
            

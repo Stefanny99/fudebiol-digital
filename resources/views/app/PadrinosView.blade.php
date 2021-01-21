@@ -10,8 +10,8 @@
           </div>
          </div>
        <div class="home">
-         <label id="TextReg">Registro de padrinos</label>
-          <label  id="subText">Si eres de quienes ama darle al mundo un respiro, sé parte de nuestra familia y adopta un árbol.</label>
+         <label class="TextReg">Registro de padrinos</label>
+          <label  class="subText">Si eres de quienes ama darle al mundo un respiro, sé parte de nuestra familia y adopta un árbol.</label>
          <div id="caja"> 
           <form id="cajaArbol" class="hvr-float">
             <div id="treeheader">

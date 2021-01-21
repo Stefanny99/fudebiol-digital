@@ -12,8 +12,8 @@
         </div>
 
         <div class="home">
-          <label id="TextReg">Registro de lotes</label>
-          <label  id="subText">La madre tierra nos premia con tantas maravillas ¡Vamos a echarle una mano!</label>
+          <label class="TextReg">Registro de lotes</label>
+          <label  class="subText">La madre tierra nos premia con tantas maravillas ¡Vamos a echarle una mano!</label>
          <div id="caja"> 
           <form id="cajaArbol" class="hvr-float">
             <div id="treeheader">

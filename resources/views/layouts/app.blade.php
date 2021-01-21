@@ -15,14 +15,14 @@
     <script src="{{ asset('js/main-script.js') }}"></script>
     <script src="{{ asset('js/galeria.js') }}"></script>
 
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lobster&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="css/hover.css" rel="stylesheet" media="all">
-
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/register.css') }}" rel="stylesheet"  type="text/css" >

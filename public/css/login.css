@@ -251,6 +251,7 @@ margin-bottom: 20px;
 display: flex;
 flex-direction: row;
 align-items: flex-start;
+margin-bottom: 20px;
 }
 .img_izquierda{
 	width: 30rem;
@@ -296,4 +297,7 @@ color: green;
 
 .cont_btn_derecha{
 	text-align: right;
+}
+.cont_btn_izquierda{
+	text-align: left;
 }

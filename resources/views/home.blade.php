@@ -23,7 +23,11 @@
                     Es un área dedicada a la protección y conservación de los recursos naturales, de una enorme riqueza natural de flora y fauna, característica del bosque pluvial premontano húmedo, y donde se localizan las fuentes de agua del acueducto de la Ciudad de San Isidro de El General.</div>
                     <img class="img_izquierda" src="/img/fudehome.jpg">
                 </div>
-                <button class="btn_home_izquierda">Ver más</button>
+                 <div class="cont_btn_izquierda">
+                    <a class="mcbutton primary" >
+                                    <span>Ver más</span>
+                     </a>
+               </div>
                 </div>
                 <div class="seccion">
                 <label class="welcome_right">Educación</label>
@@ -33,7 +37,9 @@
                 </div>
               
                     <div class="cont_btn_derecha">
-                    <button class="btn_home_derecha">Ver más</button>
+                    <a class="mcbutton primary" >
+                                    <span>Ver más</span>
+                     </a>
                </div>
                
                 
@@ -47,7 +53,11 @@
                      <div id="home_texto">El Centro Biológico Las Quebradas, recibe en toda la época del año voluntarios en forma individual o en grupos, en las modalidades de ECOVOLUNTARIOS e INTERCAMBIO CULTURAL. Los interesados en cooperar en la protección y conservación de los recursos naturales de la Cuenca del Río Quebradas, pueden disfrutar de la amplia diversidad de flora y fauna característica del bosque pluvial premontano húmedo y  convivir en una comunidad rural, con familias amables y de buenas costumbres.</div>
                     <img class="img_izquierda" src="/img/voluntariado.jpg">
                 </div>
-                <button class="btn_home_izquierda">Ver más</button>
+                <div class="cont_btn_izquierda">
+                    <a class="mcbutton primary" >
+                                    <span>Ver más</span>
+                     </a>
+               </div>
                 </div>
 
                 <div class="seccion">
@@ -59,7 +69,9 @@
                     En la comunidad de Quebradas puede encontrar personas dedicadas a los agronegocios, agro turismo, alquiler de caballos, entre otras actividades que puede realizar además de visitar el Centro Biológico. </div>
                 </div>
                <div class="cont_btn_derecha">
-                    <button class="btn_home_derecha">Ver más</button>
+                    <a class="mcbutton primary" >
+                                    <span>Ver más</span>
+                     </a>
                </div>
                    
                

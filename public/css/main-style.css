@@ -110,8 +110,7 @@ white-space: nowrap;
 
 #contenido{
 display: flex;
-background: rgb(97,97,97);
-background: radial-gradient(circle, rgba(97,97,97,1) 0%, rgba(0,0,0,1) 100%);
+background: white;
 height: 100%;
 font-family: 'Quicksand', sans-serif;
 flex-direction: column;
@@ -347,5 +346,78 @@ flex: 1;
 
 #pie>.bottom>.right>.authors>.author:not(:last-child){
 	margin-right: 1.5rem;
+}
+
+
+.mcbutton {
+    padding: 11px 45px;
+    padding-top: 10px;
+    border-radius: 4px;
+    margin-left: auto;
+    color: green;
+  	cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: .7em;
+    position: relative;
+    text-align: center;
+}
+
+.mcbutton::before,
+.mcbutton::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: yellowgreen;
+    transition: all 0.2s ease-in-out;
+   
+}
+
+.mcbutton::before {
+    left: 0;
+    top: 0;
+}
+
+.mcbutton::after {
+    right: 0;
+    bottom: 0;
+}
+
+.mcbutton:hover::before,
+.mcbutton:hover::after {
+    width: 100%;
+    transition: all 0.4s ease-in-out;
+}
+
+.mcbutton span::before,
+.mcbutton span::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 0;
+    background: green;
+    transition: all 0.3s ease-in-out;
+}
+
+.mcbutton span::before {
+    left: 0;
+    top: 0;
+}
+
+.mcbutton span::after {
+    right: 0;
+    bottom: 0;
+}
+
+.mcbutton:hover span::before,
+.mcbutton:hover span::after {
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.mcbutton.primary {
+    background: transparent;
 }
 
