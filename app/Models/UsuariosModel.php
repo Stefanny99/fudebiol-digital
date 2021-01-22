@@ -48,7 +48,7 @@ class UsuariosModel extends Model {
         );
         try {
             $date = date('Y-m-d H:i:s');
-            $dta['resultado'] = DB::table('users')->insertGetId([ // retorna el id del usuario insertado
+            $data['resultado'] = DB::table('users')->insertGetId([ // retorna el id del usuario insertado
                 'name' => $request->input('name'),
                 'username' => $request->input('username'),
                 'email' => $request->input('email'),

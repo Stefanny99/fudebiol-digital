@@ -7,45 +7,58 @@ Use Exception;
 class LotesModel extends Model {
 
     public function obtenerArboles(){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "editarUsuario"
+        );
         try{
-           DB::table('fudebiol_lotes')->get();
+           $data["resultado"] = DB::table('fudebiol_lotes')->get();
         }catch(Exception $e){
-            $data['resultado'] = "Error al obtener lotes. Por favor inténtelo nuevamente";
-            $data['exito'] = false;
-            return $data;
+            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
         }
+        return $data;
     }
 
     public function eliminarLote($request){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "editarUsuario"
+        );
         try{
             DB::table('fudebiol_lotes')->where('fl_id', $request->input('lote_id'))->delete();
-            $data['resultado'] = "¡Registro eliminado con éxito! ";
-            $data['exito'] = true;
         }catch(Exception $e){
-            $data['resultado'] = "Error al eliminar registro. Por favor inténtelo nuevamente";
-            $data['exito'] = false;
+            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
         }
         return $data;
     }
 
     public function crearLote($request){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "editarUsuario"
+        );
         try {
-            DB::table('fudebiol_lotes')->insert([
+            $data['resultado'] = DB::table('fudebiol_lotes')->insertGetId([
                 'fl_nombre' => $request->input('nombre_lote'),
                 'fl_tamano' => $request->input('tamano_lote'),
                 'fl_filas' => $request->input('filas_lote'),
                 'fl_columnas' => $request->input('columnas_lote')
             ]);
-            $data['resultado'] = "¡Datos insertados con éxito!";
-            $data['exito'] = true;
         } catch (Exception $e) {
-            $data['resultado'] = "Error. No se pudo insertar el registro, por favor intentelo nuevamente."; 
-            $data['exito'] = false;
+            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_INSERCION" ];
         }
         return $data;
     }
 
     public function editarLote($request){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "editarUsuario"
+        );
         try{
             DB::table('fudebiol_lotes')->where('fl_id',$request->input('lote_id'))
             ->update([
@@ -54,11 +67,8 @@ class LotesModel extends Model {
                 'fl_filas' => $request->input('filas_lote'),
                 'fl_columnas' => $request->input('columnas_lote')
             ]);
-            $data['resultado'] = "¡Registro actualizado con éxito! ";
-            $data['exito'] = true;
         }catch(Exception $e){
-            $data['resultado'] = "Error al actualizar registro. Por favor inténtelo nuevamente";
-            $data['exito'] = false;
+           $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_INSERCION" ];
         }
         return $data;
     }
