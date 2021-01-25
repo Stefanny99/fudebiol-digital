@@ -7,40 +7,55 @@ Use Exception;
 class PadrinosModel extends Model {
 
     public function obtenerPadrinos(){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "obtenerPadrinos"
+        );
         try{
-            return DB::table('fudebiol_padrinos')->get();
+            $data['resultado'] = DB::table('fudebiol_padrinos')->get();
         }catch(Exception $e){
-            $data['resultado'] = "Error al obtener padrinos. Por favor inténtelo nuevamente";
-            $data['exito'] = false;
-            return $data;
+            $data['codigo'] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
         }
+        return $data;
     }
 
     public function obtenerPadrinoPorCedula($request){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "obtenerPadrinoPorCedula"
+        );
         try{
-            return DB::table('fudebiol_padrinos')->where('fp_cedula', $request->input('cedula'))->first();
+            $data['resultado'] = DB::table('fudebiol_padrinos')->where('fp_cedula', $request->input('cedula'))->first();
         }catch(Exception $e){
-            $data['resultado'] = "Error al obtener dato. Por favor inténtelo nuevamente";
-            $data['exito'] = false;
-            return $data;
+            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
         }
+        return $data;
     }
 
     public function eliminarPadrino($request){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "eliminarPadrino"
+        );
         try{
             DB::table('fudebiol_padrinos')->where('fp_id', $request->input('padrino_id'))->delete();
-            $data['resultado'] = "¡Registro eliminado con éxito! ";
-            $data['exito'] = true;
         }catch(Exception $e){
-            $data['resultado'] = "Error al eliminar registro. Por favor inténtelo nuevamente";
-            $data['exito'] = false;
+            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
         }
         return $data;
     }
 
     public function crearPadrino($request){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "crearPadrino"
+        );
         try {
-            DB::table('fudebiol_padrinos')->insert([
+            $data['resultado'] =  DB::table('fudebiol_padrinos')->insertGetId([
                 'fp_cedula' => $request->input('cedula'),
                 'fp_nombre1' => $request->input('nombre1'),
                 'fp_nombre2' => $request->input('nombre2'),
@@ -48,16 +63,18 @@ class PadrinosModel extends Model {
                 'fp_apellido2' => $request->input('apellido2'),
                 'fp_tipo' => $request->input('tipo')
             ]);
-            $data['resultado'] = "¡Datos insertados con éxito!";
-            $data['exito'] = true;
         } catch (Exception $e) {
-            $data['resultado'] = "Error. No se pudo insertar el registro, por favor intentelo nuevamente."; 
-            $data['exito'] = false;
+            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_INSERCION" ];
         }
         return $data;
     }
 
     public function editarPadrino($request){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "editarPadrino"
+        );
         try{
             DB::table('fudebiol_padrinos')->where('fp_id',$request->input('padrino_id'))
             ->update([
@@ -68,11 +85,8 @@ class PadrinosModel extends Model {
                 'fp_apellido2' => $request->input('apellido2'),
                 'fp_tipo' => $request->input('tipo')
             ]);
-            $data['resultado'] = "¡Registro actualizado con éxito! ";
-            $data['exito'] = true;
         }catch(Exception $e){
-            $data['resultado'] = "Error al actualizar registro. Por favor inténtelo nuevamente";
-            $data['exito'] = false;
+            $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
         }
         return $data;
     }
