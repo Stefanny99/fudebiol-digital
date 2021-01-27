@@ -40,14 +40,11 @@ panel.remove();
 
 
 function nextImage(){
-
-var contenedor2=document.getElementById("contenedor2");
 var contImg=document.getElementById("foto");
 var contDesc=document.getElementById("descripcion");
 var imagen=contImg.src;
 var imagenes=document.getElementById("row").getElementsByTagName("img");
 var ImagenesLista = Array.prototype.slice.call(imagenes);
-var contenedor4=document.getElementById("contenedor2");
             	for(let i = 0; i < imagenes.length; i++)
 				{
 				    if(imagen == imagenes[i].src && i < imagenes.length-1 ){

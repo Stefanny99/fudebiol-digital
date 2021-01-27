@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="body_home">     
+
+    <div id="body_home"> 
       <div id="contenido">
          <div id="fondoGaleria" >
           <div id="tituloGaleria">
-            <label  >Galería</label>
+            <label>Galería</label>
           </div>
          </div>
         <div class="home"></div>

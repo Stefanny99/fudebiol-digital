@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -51,10 +51,9 @@
         @endif
     @else
 
-            <div id="cabeza">
+            <div id="cabeza" class="container-fluid">
                 <div class="usuario"> 
                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="http://localhost:8000/usuarios" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-               
                 <div class="textUser"> 
                     <i class="fas fa-user"></i>&nbsp
                  {{ Auth::user()->name }} </div>
@@ -62,19 +61,17 @@
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
-
-                   
                     <div class="text">  <i class="fas fa-sign-out-alt"></i> </div>
                 </a>
-                </nav>
+              
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
             </div>
                
-                <nav class="menu">
+                <nav class="menu navbar navbar-default">
                 <div class="sitename">
-                    <img class="logo" src="img/logob.png">
+                    <img class="logo embed-responsive" src="img/logob.png">
                 </div>
                 <div class="hiperlinks">
                     <a href="http://localhost:8000/home">
@@ -99,7 +96,7 @@
                     </a>
                   
                 </div>
-          
+          </nav>
        </div>
     @endguest
 </header>
