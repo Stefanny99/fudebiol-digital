@@ -17,9 +17,9 @@ min-width: 100%;
 scrollbar-width: none; 
 }
 .usuario{
-
 background: rgba(0,0,0,0.8);
 display: flex;
+flex:1;
 flex-direction: row;
 text-align: left;
 justify-content: flex-end;
@@ -50,10 +50,7 @@ padding: 1%;
 .sitename>.logo{
 width: 5vw;
 }
-#cabeza>.sitename>.text{
-font-size: 1vw;
-white-space: nowrap;
-}
+
 
 #cabeza>.menu>.hiperlinks{
 background-color: <?php echo $color[ 0 ]; ?>;
@@ -98,8 +95,9 @@ margin: 0px auto;
 	white-space: nowrap;
 }
 
+
 #cabeza>.menu>.hiperlinks>a>.text{
-font-size: 1.2vw;
+font-size: 2.5vh;
 white-space: nowrap;
 }
 
@@ -113,14 +111,12 @@ flex: 1;
 }
 
 #pie{
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.9);
 }
 
 
 
 #pie>.bottom{
-
-	background-color:rgba(0,0,0,0.8);
 	display: flex;
 	font-family: 'Quicksand', sans-serif;
 	flex-direction: row;
@@ -148,7 +144,7 @@ flex: 1;
 
 #pie>.bottom>.left>.sitename{
 	color: white;
-	font-size: 1rem;
+	font-size: 1.7vw;
 	white-space: nowrap;
 }
 
@@ -176,13 +172,18 @@ flex: 1;
 	width: 5vh;
 }
 
+#pie>.bottom>.left>.icon{
+	height: 18vh;
+	width: 18vh;
+}
+
 #pie>.bottom>.middle>a.contact:hover>.icon{
 	background-color: <?php echo $color[ 4 ] ?>;
 }
 
 #pie>.bottom>.middle>.contact>.label{
 	color: white;
-	font-size: 1rem;
+	font-size: 1.7vw;
 	margin-left: 1rem;
 	/*white-space: nowrap;*/
 }
@@ -346,6 +347,7 @@ flex: 1;
     font-size: .7em;
     position: relative;
     text-align: center;
+    text-decoration: none;
 }
 
 .mcbutton::before,

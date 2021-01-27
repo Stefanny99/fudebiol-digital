@@ -2,29 +2,29 @@
 
 @section('content')
     <div id="body_home">     
-        <div id="contenido">
-          <div id="fondo" >
-           <div id="titulo">
-            <img id="logo" src="img/arbolito.png">
-            <label >MI ÁRBOL PARA LA VIDA</label>
+        <div id="contenido" class="container-fluid">
+          <div id="fondo" class="container-fluid" >
+           <div id="titulo" class="container-fluid">
+            <img id="logo" src="img/arbolito.png" class="img-responsive">
+            <label class="container-fluid" >MI ÁRBOL PARA LA VIDA</label>
             <a href="http://localhost:8000/registrarPadrino">Registrar padrino</a>
             <a href="http://localhost:8000/registrarLote">Registrar lote</a>
           </div>
         </div>
-        <div class="contenedor_textos">
-            <div id="colorMascara">
-              <label class="TextReg">Registro de especies de árboles</label>
+        <div class="contenedor_textos container-fluid">
+         
+              <label class="TextReg ">Registro de especies de árboles</label>
           <label  id="subText">Para FUDEBIOL es vital conservar la vida silvestre, por eso nuestro propósito es devolver al mundo tanta vida como la que nos ha dado.</label>
-            </div>
+          
              
           </div>
-        <div class="home">
+        <div class="home container" >
           
          
          <div id="caja"> 
           <form id="cajaArbol" class="hvr-float form-group">
            
-            <div id="treeheader">
+            <div id="treeheader" class="container-fluid">
               <div id="treeheadermascara">
                <label id="RegArbol">Registra una nueva </label>
                <label>especie de árbol</label>
@@ -46,7 +46,7 @@
             <label class="texto" for="elevacion_minima">Elevación mínima:</label>
             <input type="text" name="elevacion_minima">
 
-            <button class="btn_registrar">Registrar</button>
+            <button class="btn_registrar btn">Registrar</button>
 
           </form>  
             <div id="tabla" class="hvr-forward">
@@ -57,7 +57,7 @@
               <table id="tablaArboles">
               <caption>Especies registradas</caption>
               <tbody>
-                <tr id="tablehead">
+                <tr id="tablehead" >
                   <th>Nombre científico</th>
                   <th>Jiffys</th>
                   <th>Bolsas</th>
@@ -66,34 +66,6 @@
                   <th>Acción</th>
                 </tr>
                 
-                <tr class="fila">
-                  <td class="fila">Arbolinus verdus de naranjis</td>
-                  <td class="fila">34</td>
-                  <td class="fila">56</td>
-                  <td class="fila">1000</td>
-                  <td class="fila">2000</td>
-                   <td class="fila">
-                    <div class="action">
-                       <label class="edit"><i class="far fa-edit"></i></label>
-                     <label class="delete"><i class="far fa-trash-alt"></i></label>
-                    </div>
-                   </td>
-                </tr>
-
-                 <tr class="fila">
-                  <td class="fila">Arbolinus verdus de naranjis</td>
-                  <td class="fila">34</td>
-                  <td class="fila">56</td>
-                  <td class="fila">1000</td>
-                  <td class="fila">2000</td>
-                  <td class="fila">
-                    <div class="action">
-                       <label class="edit"><i class="far fa-edit"></i></label>
-                     <label class="delete"><i class="far fa-trash-alt"></i></label>
-                    </div>
-                    
-                   </td>
-                </tr>
 
                 <tr class="fila">
                   <td class="fila">Arbolinus verdus de naranjis</td>

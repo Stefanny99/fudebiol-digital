@@ -24,6 +24,7 @@
     <!-- Styles -->
     <link href="css/hover.css" rel="stylesheet" media="all">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/register.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet"  type="text/css" >
@@ -51,14 +52,14 @@
         @endif
     @else
 
-            <div id="cabeza" class="container-fluid">
+            <div id="cabeza">
                 <div class="usuario"> 
-                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="http://localhost:8000/usuarios" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                 <a href="http://localhost:8000/usuarios" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 <div class="textUser"> 
                     <i class="fas fa-user"></i>&nbsp
                  {{ Auth::user()->name }} </div>
                 </a>
-                <a class="dropdown-item" href="{{ route('logout') }}"
+                <a href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
                     <div class="text">  <i class="fas fa-sign-out-alt"></i> </div>
@@ -69,9 +70,9 @@
                 </form>
             </div>
                
-                <nav class="menu navbar navbar-default">
+                <nav class="menu">
                 <div class="sitename">
-                    <img class="logo embed-responsive" src="img/logob.png">
+                    <img class="logo img-responsive" src="img/logob.png">
                 </div>
                 <div class="hiperlinks">
                     <a href="http://localhost:8000/home">
@@ -103,7 +104,7 @@
 
 <body>
     <div id="app">
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>

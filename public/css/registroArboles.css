@@ -15,13 +15,12 @@ flex: 1;
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	padding-top: 10px;
 	color: white;
-	font-size: 60px;
+	font-size: 5vw;
 	background-color: rgba(0,0,0,0.6);
 	text-shadow: 0px 0px 5px yellowgreen;
 	flex:1;
-	padding: 50px;
+	padding: 5%;
 	
 }
 #titulo label{
@@ -36,7 +35,7 @@ flex: 1;
 
 #titulo>a{
 	color: white;
-	font-size: 20px;
+	font-size: 2vw;
 }
 
 #logo{
@@ -50,36 +49,29 @@ flex: 1;
 }
 .contenedor_textos{
 	border-radius: 0 0 50% 50%;
-	margin-top: 60px;
+	margin-top: 6%;
 	display: flex;
 	flex-direction: column;
 	background-image:;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-#colorMascara{
-	border-radius: 0 0 50% 50% ;
-	/*background: linear-gradient(0deg, rgba(45,200,33,0.5214460784313726) 49%, rgba(255,255,255,1) 100%);padding-bottom: 100px;
-	*/padding-top: 100px;
-	display: flex;
-	flex-direction: column;
-}
-/*#cajaArbol
+
+#cajaArbol
 {	
-	padding-bottom: 20px;
+	padding-bottom: 3%;
 	font-weight: bold;
 	border-radius: 10px;
 	display: flex;
 	text-align: left;
 	flex-direction: column;
 	color:#008a00 ;
-	width: 30vw;
-	background-color: rgba(255,255,255,1);
 	box-shadow: 0px 8px 20px gray;
 	flex:0;
+	font-size: 3vh;
 	
 
-}*/
+}
 
 #cajaArbol button{
 	text-align: center;
@@ -123,12 +115,12 @@ flex: 1;
 .btn_registrar{
 margin-top: 30px; 
 cursor: pointer;
-height: 40px;
-width: 200px;
+height: 4vh;
+width: 20vh;
 background: #008a00;
 color:white;
 text-align: center;
-font-size: 16px;
+font-size: 3vh;
 font-family: 'Quicksand';
 font-weight: 900;
 outline: none;
@@ -145,16 +137,16 @@ box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
 #RegArbol{
 	text-align: center;
 	font-weight: bold;
-	font-size: 25px;
+	font-size: 4vh;
 	color: white;
 	text-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
 }
 .TextReg{
 	text-align: center;
 	margin: auto;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	font-size: 40px;
+	margin-top: 3%;
+	margin-bottom: 3%;
+	font-size: 6vh;
 	font-weight: bold;
 	
 }
@@ -162,7 +154,7 @@ box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
 	color: white;
 }
 #subText{
-font-size: 17px;
+font-size: 4vh;
 
 }
 @keyframes typing {
@@ -286,15 +278,15 @@ color:red;
 }
 .btn_arboles{ 
 cursor: pointer;
-height: 30px;
-width: 100px;
+height: 5vh;
+width: 20vh;
 border:none;
 border-radius: 5px;
 background: #008a00;
 color:white;
 text-align: center;
 padding: 4px 22px 5px 22px;
-font-size: 16px;
+font-size: 3vh;
 font-family: 'Quicksand';
 font-weight: 900;
 outline: none;
