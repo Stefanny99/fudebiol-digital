@@ -47,12 +47,12 @@ class ArbolesModel extends Model {
                     DB::table('fudebiol_arboles_img')->where('fa_arbol_id', $request->input('arbol_id'))->delete();
                     DB::commit(); 
                 } catch(Exception $e){
-                    $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+                    $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
                     $data['razon'] = "Ocurrió un error al eliminar la imagen del árbol";
                     DB::rollBack();
                 }   
             } catch (Exception $e) {
-                $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+                $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
                 $data['razon'] = "Ocurrió un error al eliminar el árbol";
                 DB::rollBack();
             }    
