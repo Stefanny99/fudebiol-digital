@@ -2,30 +2,28 @@
 
 @section('content')
     <div id="body_home">     
-        <div id="contenido" class="container-fluid">
-          <div id="fondo" class="container-fluid" >
-           <div id="titulo" class="container-fluid">
-            <img id="logo" src="img/arbolito.png" class="img-responsive">
-            <label class="container-fluid" >MI ÁRBOL PARA LA VIDA</label>
+        <div id="contenido">
+          <div id="fondo">
+           <div id="titulo">
+            <img id="logo" src="img/arbolito.png" >
+            <label>MI ÁRBOL PARA LA VIDA</label>
             <a href="http://localhost:8000/registrarPadrino">Registrar padrino</a>
             <a href="http://localhost:8000/registrarLote">Registrar lote</a>
           </div>
         </div>
-        <div class="contenedor_textos container-fluid">
+        <div class="contenedor_textos container">
          
               <label class="TextReg ">Registro de especies de árboles</label>
           <label  id="subText">Para FUDEBIOL es vital conservar la vida silvestre, por eso nuestro propósito es devolver al mundo tanta vida como la que nos ha dado.</label>
           
              
           </div>
-        <div class="home container" >
-          
-         
+        <div class="home" >
          <div id="caja"> 
-          <form id="cajaArbol" class="hvr-float form-group">
+          <form id="cajaArbol" class="hvr-float">
            
-            <div id="treeheader" class="container-fluid">
-              <div id="treeheadermascara">
+            <div id="treeheader">
+              <div id="treeheadermascara"  class="container-fluid">
                <label id="RegArbol">Registra una nueva </label>
                <label>especie de árbol</label>
                </div>
@@ -49,13 +47,12 @@
             <button class="btn_registrar btn">Registrar</button>
 
           </form>  
-            <div id="tabla" class="hvr-forward">
+            <div id="tabla" class="hvr-forward container-fluid">
               <div id="buscador">
                 <input type="text" name="buscar" placeholder="Buscar una especie">
                 <button class="btn_buscar"><i class="fas fa-search"></i></button>
               </div>
               <table id="tablaArboles">
-              <caption>Especies registradas</caption>
               <tbody>
                 <tr id="tablehead" >
                   <th>Nombre científico</th>
