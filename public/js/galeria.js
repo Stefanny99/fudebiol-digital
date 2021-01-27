@@ -48,13 +48,13 @@ var ImagenesLista = Array.prototype.slice.call(imagenes);
             	for(let i = 0; i < imagenes.length; i++)
 				{
 				    if(imagen == imagenes[i].src && i < imagenes.length-1 ){
-				    	console.log(imagenes[i+1].src);
 				    	 contImg.src=imagenes[i+1].src;
 				    	 contDesc.innerHTML=imagenes[i+1].getAttribute("data-descripcion");
 				    	 break;
 				    }
 
 				}
+
 
 }
 

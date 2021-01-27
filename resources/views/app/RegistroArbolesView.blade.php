@@ -22,7 +22,7 @@
           
          
          <div id="caja"> 
-          <form id="cajaArbol" class="hvr-float">
+          <form id="cajaArbol" class="hvr-float form-group">
            
             <div id="treeheader">
               <div id="treeheadermascara">
@@ -54,7 +54,7 @@
                 <input type="text" name="buscar" placeholder="Buscar una especie">
                 <button class="btn_buscar"><i class="fas fa-search"></i></button>
               </div>
-              <table id="tablaArboles" >
+              <table id="tablaArboles">
               <caption>Especies registradas</caption>
               <tbody>
                 <tr id="tablehead">

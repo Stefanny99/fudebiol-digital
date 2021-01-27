@@ -136,8 +136,6 @@ margin-right: 5px;
 
 /*home css*/
 .banner{
-	display: flex;
-	flex:1;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-image: url('/img/fude_banner.jpg');
@@ -155,22 +153,21 @@ margin-right: 5px;
 	align-items: center;
 	color: white;
 	font-weight: bold;
-	padding: 30px;
 }
 
 #banner_texto img{
-	width: 15rem;
-	 -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadeInUp 1s; /* Firefox < 16 */
-        -ms-animation: fadeInUp 1s; /* Internet Explorer */
-         -o-animation: fadeInUp 1s; /* Opera < 12.1 */
-            animation: fadeInUp 1s;
+width: 25vw;
+-webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+-moz-animation: fadeInUp 1s; /* Firefox < 16 */
+-ms-animation: fadeInUp 1s; /* Internet Explorer */
+-o-animation: fadeInUp 1s; /* Opera < 12.1 */
+animation: fadeInUp 1s;
 margin-bottom: 20px;
 }
 
 #fudebiol{
 	text-shadow: 0px 0px 5px black;
-	font-size: 60px;
+	font-size: 6vw;
 	-webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadeInUp 1s; /* Firefox < 16 */
         -ms-animation: fadeInUp 1s; /* Internet Explorer */
@@ -181,7 +178,7 @@ margin-bottom: 20px;
 
 #centrobiol{
 	text-shadow: 0px 0px 5px black;
-	font-size: 40px;
+	font-size: 4vw;
 	 -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadeInUp 1s; /* Firefox < 16 */
         -ms-animation: fadeInUp 1s; /* Internet Explorer */
@@ -195,13 +192,13 @@ margin-bottom: 20px;
 	display: flex;
 	flex-direction: column;
 	flex:1;
-	padding: 100px;
+	padding: 5%;
 }
 
 .welcome_left{
 	border-bottom: 3px green solid;
 	text-align: left;
-	font-size: 30px;
+	font-size: 2vw;
 	font-weight: bold;
 	margin-right: auto;
 	
@@ -209,20 +206,17 @@ margin-bottom: 20px;
 
 .welcome_right{
 	border-bottom: 3px green solid;
-	margin-top: 40px;
 	text-align: right;
-	font-size: 30px;
+	font-size: 2vw;
 	font-weight: bold;
 	margin-left: auto;
 
 }
-.subtitulo{
-	text-align: left;
-	font-size: 14px;
-	font-weight: bold;
-}
+
 #home_texto{
-	margin-top: 60px;
+
+	margin-top: 5%;
+	font-size: 1.3vw;
 	text-align: justify;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
@@ -244,55 +238,25 @@ margin-bottom: 20px;
 	flex-direction: column;
 	border-bottom: 1px gray solid;
 	border-top: 1px gray solid;
-	padding-bottom: 30px;
-	padding-top: 30px;
+	padding-bottom: 5%;
+	padding-top: 3%;
 }
 .subseccion{
 display: flex;
 flex-direction: row;
 align-items: flex-start;
-margin-bottom: 20px;
+margin-bottom: 5%;
 }
 .img_izquierda{
-	width: 30rem;
-	margin-left: 30px;
+margin-left: 5%;
 }
 .img_derecha{
-	width:30rem;
-	margin-right:  30px;
+margin-right: 5%;	
 }
-
-.btn_home_izquierda{
-	max-width: 150px;
-	height: 50px;
-	border:none;
-	background-color: green;
-	color: white;
-	cursor: pointer;
-	border-radius: 2px;
-	margin-top: 20px;
-
-}
-
-.btn_home_derecha{
-	margin-top: 20px;
-	max-width: 150px;
-	min-width: 150px;
-	height: 50px;
-	border:none;
-	background-color: green;
-	color: white;
-	cursor: pointer;
-	border-radius: 2px;
-
-}
-.btn_home_izquierda:hover,.btn_home_derecha:hover {
-border-top:1px green solid;
-border-bottom:1px green solid;
-background-color:white;
-transition-timing-function: ease-in;
-transition: 0.5s;
-color: green;
+.img_derecha, .img_izquierda{
+	max-width: 50%;
+	height: auto;
+	margin-top: 2%;
 }
 
 .cont_btn_derecha{
@@ -300,4 +264,8 @@ color: green;
 }
 .cont_btn_izquierda{
 	text-align: left;
+}
+#btn_ver_mas span{
+
+	 font-size: 1.3vw;
 }
