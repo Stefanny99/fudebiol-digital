@@ -5,7 +5,7 @@
         <div id="contenido">
           <div id="fondo1">
           <input type="checkbox" id="check" checked="checked">
-          <form id="agregarUsuario" method="post" action="{{ route( 'insertarUsuario' ) }}">
+          <form id="agregarUsuario" method="post" action="{{ route( 'editarUsuario' ) }}">
             @csrf
             <label id="btn_sidebar" for="check">
               <img src="img/flecha.png">

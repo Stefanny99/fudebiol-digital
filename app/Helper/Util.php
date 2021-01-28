@@ -15,6 +15,10 @@
 					"codigo" => 3,
 					"descripcion" => "Error al eliminar"
 				),
+            "ERROR_DE_ACTUALIZACION" => array(
+               "codigo" => 4,
+               "descripcion" => "Error al actualizar"
+            ),
 				"ERROR_DE_SERVIDOR" => array(
 					"codigo" => 500,
 					"descripcion" => "Error en el servidor"

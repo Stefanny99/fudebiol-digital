@@ -26,14 +26,14 @@ class UsuariosModel extends Model {
         return $data;
     }
 
-    public function eliminarUsuario($request){
+    public function eliminarUsuarios($request){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "eliminarUsuario"
+            "accion" => "eliminarUsuarios"
         );
         try{
-            DB::table('users')->where('id', $request->input('usuario_id'))->delete();
+            DB::table('users')->whereIn('id', $request->input('id'))->delete();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
         }
@@ -70,17 +70,16 @@ class UsuariosModel extends Model {
             "accion" => "editarUsuario"
         );
         try{
-            DB::table('users')->where('id',$request->input('usuario_id'))
-            ->update([
-                'name' => $request->input('nombre_completo'),
-                'username' => $request->input('nombre_usuario'),
+            DB::table('users')->where('id',$request->input('id'))->update([
+                'name' => $request->input('name'),
+                'username' => $request->input('username'),
                 'email' => $request->input('email'),
-                'password' => Hash::make($request->input('contrasena')),
-                'role' => $request->input('rol'),
-                'updated_at' => date('Y-m-d H:i:s') 
+                'password' => Hash::make($request->input('password')),
+                'role' => $request->input('role'),
+                'updated_at' => date('Y-m-d H:i:s')
             ]);
         }catch(Exception $e){
-            $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+            $data['codigo'] = Util::$codigos[ "ERROR_DE_ACTUALIZACION" ];
         }
         return $data;
     }
