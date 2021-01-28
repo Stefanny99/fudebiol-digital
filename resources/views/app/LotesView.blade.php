@@ -10,14 +10,18 @@
           <a href="http://localhost:8000/arboles">Ver árboles</a>
         </div>
         </div>
-
+              <div class="contenedor_textos container">
+         
+              <label class="TextReg">Registro de lotes</label>
+          <label  id="subText">La madre tierra nos premia con tantas maravillas ¡Vamos a echarle una mano!</label>
+          
+          </div>
         <div class="home">
-          <label class="TextReg">Registro de lotes</label>
-          <label  class="subText">La madre tierra nos premia con tantas maravillas ¡Vamos a echarle una mano!</label>
+         
          <div id="caja"> 
           <form id="cajaArbol" class="hvr-float">
             <div id="treeheader">
-              <div id="treeheadermascara">
+              <div id="treeheadermascara" class="container-fluid">
                <label id="RegArbol">Registra un nuevo </label>
                <label>lote</label>
                </div>
@@ -43,7 +47,6 @@
                 <button class="btn_buscar"><i class="fas fa-search"></i></button>
               </div>
               <table id="tablaArboles" >
-              <caption>Especies de árboles</caption>
               <tbody>
                 <tr>
                   <th>Código</th>
