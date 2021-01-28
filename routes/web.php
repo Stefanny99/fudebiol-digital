@@ -13,22 +13,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
  /*RUTA DE INICIO*/
-Route::get('/',  [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-/*RUTAS DE AUTENTICACIÓN*/
 Auth::routes();
-/*RUTA DE GALERIA*/
-Route::get('/galeria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'galeria'])->name('galeria');
-/*RUTA DE MANTENIMIENTO DE USUARIOS*/
-Route::get('/usuarios', [App\Http\Controllers\FudebiolDigital\UsuariosController::class, 'MantenimientoUsuarios'])->name('usuarios');
-Route::post('/insertarUsuario', [App\Http\Controllers\FudebiolDigital\UsuariosController::class, 'insertarUsuario'])->name('insertarUsuario');
-/*RUTAS DE MANTENIMIENTO DE ÁRBOLES*/
-Route::get('/registrarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'registrarArbol'])->name('registrarArbol');
 
-/*RUTAS DE MANTENIMIENTOS DE PADRINOS*/
-Route::get('/registrarPadrino', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'mantenimientoPadrinos'])->name('registrarPadrino');
+Route::group( [ 'middleware' => 'auth' ], function(){
+	Route::get('/',  [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+	/*RUTAS DE AUTENTICACIÓN*/
 
-/*RUTAS DEMANTENIMIENTO DE LOTES*/
-Route::get('/registrarLote', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'mantenimientoLotes'])->name('registrarLote');
+	/*RUTA DE MANTENIMIENTO DE USUARIOS*/
+	Route::get('/usuarios', [App\Http\Controllers\FudebiolDigital\UsuariosController::class, 'MantenimientoUsuarios'])->name('usuarios');
+	Route::post('/insertarUsuario', [App\Http\Controllers\FudebiolDigital\UsuariosController::class, 'insertarUsuario'])->name('insertarUsuario');
+	/*RUTAS DE MANTENIMIENTO DE ÁRBOLES*/
+	Route::get('/registrarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'registrarArbol'])->name('registrarArbol');
 
-Route::get('/arboles', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'arbolesPorLote'])->name('arboles');
+	/*RUTAS DE MANTENIMIENTOS DE PADRINOS*/
+	Route::get('/registrarPadrino', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'mantenimientoPadrinos'])->name('registrarPadrino');
+
+	/*RUTAS DEMANTENIMIENTO DE LOTES*/
+	Route::get('/registrarLote', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'mantenimientoLotes'])->name('registrarLote');
+
+	Route::get('/arboles', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'arbolesPorLote'])->name('arboles');
+});
+// -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
+// -_-_-_-_- RUTAS PÚBLICAS -_-_-_-_-
+// -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
+
+Route::group( [ 'middleware' => 'guest' ], function(){
+	/*RUTA DE GALERIA*/
+	Route::get('/galeria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'galeria'])->name('galeria');
+} );

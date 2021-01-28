@@ -21,7 +21,7 @@ class UsuariosController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        
     }
 
     /**
@@ -37,6 +37,7 @@ class UsuariosController extends Controller
 
     	if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
     		Session::flash( "error", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) );
+    		return redirect()->back();
     	}
     	return view( "app\MantenimientoUsuariosView", array(
 			"usuarios" => $result[ "resultado" ]

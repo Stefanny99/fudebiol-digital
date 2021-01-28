@@ -13,7 +13,7 @@
 				),
 				"ERROR_ELIMINANDO" => array(
 					"codigo" => 3,
-					"descripcion" => "Error al insertar"
+					"descripcion" => "Error al eliminar"
 				),
 				"ERROR_DE_SERVIDOR" => array(
 					"codigo" => 500,
@@ -21,7 +21,7 @@
 				),
    			"NO_ENCONTRADO" => array(
    				"codigo" => 404,
-   				"descripcion" => "No se logró encontrar el recurso"
+   				"descripcion" => "Recurso no encontrado"
    			),
    		);
    }
