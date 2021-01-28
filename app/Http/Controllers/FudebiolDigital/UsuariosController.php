@@ -11,26 +11,12 @@ use App\Helper\Util;
 
 use App\Models\UsuariosModel;
 
-class UsuariosController extends Controller
-{
-
-	/**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+class UsuariosController extends Controller{
     public function __construct()
     {
         
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-
-    /* Llama la vista de mantenimiento de categorías */
     public function mantenimientoUsuarios(){
     	$model = new UsuariosModel();
     	$result = $model->obtenerUsuarios();

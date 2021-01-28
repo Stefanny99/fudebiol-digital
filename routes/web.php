@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
  /*RUTA DE INICIO*/
 Auth::routes();
 
+// -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
+// -_-_-_-_- RUTAS PRIVADAS -_-_-_-_-
+// -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
 Route::group( [ 'middleware' => 'auth' ], function(){
 	Route::get('/',  [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -34,10 +37,11 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 
 	Route::get('/arboles', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'arbolesPorLote'])->name('arboles');
 });
+
+
 // -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
 // -_-_-_-_- RUTAS PÚBLICAS -_-_-_-_-
 // -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
-
 Route::group( [ 'middleware' => 'guest' ], function(){
 	/*RUTA DE GALERIA*/
 	Route::get('/galeria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'galeria'])->name('galeria');
