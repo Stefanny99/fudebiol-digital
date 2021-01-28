@@ -12,16 +12,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
- /*RUTA DE INICIO*/
+
+/*RUTAS DE AUTENTICACIÓN*/
 Auth::routes();
 
 // -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
 // -_-_-_-_- RUTAS PRIVADAS -_-_-_-_-
 // -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
 Route::group( [ 'middleware' => 'auth' ], function(){
+	 /*RUTA DE INICIO*/
 	Route::get('/',  [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-	/*RUTAS DE AUTENTICACIÓN*/
 
 	/*RUTA DE MANTENIMIENTO DE USUARIOS*/
 	Route::get('/usuarios', [App\Http\Controllers\FudebiolDigital\UsuariosController::class, 'MantenimientoUsuarios'])->name('usuarios');
