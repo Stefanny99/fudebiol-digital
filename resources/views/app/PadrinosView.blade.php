@@ -9,13 +9,17 @@
             <label >MI ÁRBOL PARA LA VIDA</label>
           </div>
          </div>
+          <div class="contenedor_textos container">
+           <label class="TextReg">Registro de padrinos</label>
+          <label  id="subText">Si eres de quienes ama darle al mundo un respiro, sé parte de nuestra familia y adopta un árbol.</label>
+          </div>
        <div class="home">
-         <label class="TextReg">Registro de padrinos</label>
-          <label  class="subText">Si eres de quienes ama darle al mundo un respiro, sé parte de nuestra familia y adopta un árbol.</label>
+        
          <div id="caja"> 
+
           <form id="cajaArbol" class="hvr-float">
             <div id="treeheader">
-              <div id="treeheadermascara">
+              <div id="treeheadermascara" class="container-fluid">
                <label id="RegArbol">Apadrina un árbol </label>
                <label>¡Regístrate!</label>
                </div>
@@ -53,21 +57,20 @@
             <button class="btn_registrar">Registrar</button>
 
           </form>  
-            <div id="tabla" class="hvr-forward">
+            <div id="tabla" class="hvr-forward container-fluid">
               <div id="buscador">
                 <input type="text" name="buscar" placeholder="Buscar un padrino">
                 <button class="btn_buscar"><i class="fas fa-search"></i></button>
               </div>
               <table id="tablaArboles" >
-              <caption>Padrinos de adopciones</caption>
               <tbody>
-                <tr>
+                <tr id="tablehead">
                    <th>Tipo</th>
                   <th>Primer nombre</th>
                   <th>Segundo nombre</th>
                   <th>Primer apellido</th>
                   <th>Segundo apellido</th>
-                  <th>Cédula </th>
+                  <th>Cédula</th>
                   <th>Acción</th>
                 </tr>
                 
