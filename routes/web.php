@@ -39,13 +39,13 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 	Route::get('/registrarLote', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'mantenimientoLotes'])->name('registrarLote');
 
 	Route::get('/arboles', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'arbolesPorLote'])->name('arboles');
+
+	Route::get('/galeria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'galeria'])->name('galeria');
 });
 
 
 // -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
 // -_-_-_-_- RUTAS PÚBLICAS -_-_-_-_-
 // -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
-Route::group( [ 'middleware' => 'guest' ], function(){
-	/*RUTA DE GALERIA*/
-	Route::get('/galeria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'galeria'])->name('galeria');
-} );
+
+Route::get('/galeria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'galeria'])->name('galeria');
