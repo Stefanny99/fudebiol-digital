@@ -20,11 +20,13 @@ scrollbar-width: none;
 background: rgba(0,0,0,0.8);
 display: flex;
 flex:1;
+
 flex-direction: row;
 text-align: left;
 justify-content: flex-end;
 }
 .usuario>*{
+	color: white;
 	padding: 5px 30px 5px 0px;
 	text-decoration: none;
 }
