@@ -435,10 +435,11 @@ border:2px white solid;
 }
 
 .arbolVW{
-	width: 3rem;
+	width: 3.5vw;
 	margin-top: 5px;
 	padding: 10px;
 }
+
 #arbolInfo{
 	margin:auto;
 	width: 10rem;
@@ -474,7 +475,7 @@ border:2px white solid;
 	text-align: center;
 	padding-bottom: 40px;
 	border-radius: 10px 10px 0px 0px;
-	flex:1;
+	
 }
 
 .lote label{
@@ -486,7 +487,7 @@ border:2px white solid;
 #mascara{
 background: linear-gradient(180deg, rgba(2,27,38,0.8) 0%, rgba(0,2,43,0.7) 100%);
 flex:1;
-
+height: 85vh;
 }
 
 .adoptado{
