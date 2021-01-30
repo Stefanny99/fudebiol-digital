@@ -2,164 +2,160 @@
 
 @section('content')
     <div id="body_home">     
-        <div id="contenido">
-          <div id="fondo" >
-         <div id="titulo">Visualización de árboles
-        </div>
-         <div id="caja"> 
-          <div id="cajaLote">
-            <label id="RegArbol">Lotes</label>
-            <div id="lotes" >
-           <div class="lote">LA</div>
-           <div class="lote">LB</div>
-           <div class="lote">LC</div>
-           <div class="lote">LD</div>
-           <div class="lote">LE</div>
-           <div class="lote">LF</div>
-           <div class="lote">LG</div>
-           <div class="lote">LH</div>
+      <div id="contenido">
+        <div id="fondoVisualizadorArboles">
+          <div id="textovs">
+            <img id="logovs" src="img/vsa.png" >
+            <label>Visualizador de árboles</label>
           </div>
+        </div>
+        <div class="home">
+          <div id="disponibilidad"> 
+            <label id="libre">Libre:</label>
+            <img class="arbolVW" style="background-color: green;" src="img/lote.png">
+          
+            <label id="adoptado">Adoptado:</label>
+            <img class="arbolVW" style="background-color: red;" src="img/lote.png">
+         </div> 
+
+         <div id="caja">
+          <div id="cajaLote">
+            <div id="treeheadervs">
+              <div id="treeheadermascaravs"  class="container-fluid">
+                <label id="RegArbol">Selecciona un </label>
+                <label>lote</label>
+              </div>
+            </div>
+           
+            <div id="lotes">
+              <div class="lote">
+                <label>L01</label><img src="/img/palo.png"></i>
+              </div>
+
+              <div class="lote">
+                <label>L02</label><img src="/img/palo.png"></i>
+              </div>
+
+              <div class="lote">
+                <label>L03</label><img src="/img/palo.png"></i>
+              </div>
+
+              <div class="lote">
+                <label>L04</label><img src="/img/palo.png"></i>
+              </div>
+
+              <div class="lote">
+                <label>L05</label><img src="/img/palo.png"></i>
+              </div>
+               
+              <div class="lote">
+                <label>LF</label><img src="/img/palo.png"></i>
+              </div>
+           
+            </div>
 
           </div>  
-           <div id="VisualizacionArboles">
+          <div id="VisualizacionArboles">
+            <div id="mascara">
+              <div>
+                <img class="arbolVW disponible" src="img/lote.png">
+                <img class="arbolVW adoptado" src="img/lote.png">
+                <img class="arbolVW disponible" src="img/lote.png">
+                <img class="arbolVW adoptado" src="img/lote.png">
+                <img class="arbolVW adoptado" src="img/lote.png">
+                <img class="arbolVW disponible" src="img/lote.png">
+                <img class="arbolVW disponible" src="img/lote.png">
+                <img class="arbolVW adoptado" src="img/lote.png">
+                <img class="arbolVW adoptado" src="img/lote.png">
+                <img class="arbolVW disponible" src="img/lote.png">
+                <img class="arbolVW disponible" src="img/lote.png">
+                <img class="arbolVW adoptado" src="img/lote.png">
+         
+            </div>
             <div>
-          <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+         
             </div>
-          
-           <div>
-          <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
+         
+            <div>
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+         
             </div>
-          <div>
-          <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
+            <div>
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+         
             </div>
-          
-           <div>
-            <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/r.png">
-          <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/r.png">
-           
-            </div>
-             <div>
-            <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/r.png">
-          <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/r.png">
-           
-           <img class="arbolVW" src="img/v.png">
-            </div>
-          
-           <div>
-          <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-            </div>
-             <div>
-          <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-            </div>
-             <div>
-          <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-           <img class="arbolVW" src="img/r.png">
-           <img class="arbolVW" src="img/v.png">
-            </div>
-           </div>
 
-          
-            <div id="cajaLote">
-           
-            <label id="RegArbol">Información del árbol</label>
-             <img id="arbolInfo" src="img/pino.jpg">
-            <label class="texto">Especie: Pino</label>
-           
-            <label class="texto" for="tamaño">Coordenada N: 195°</label>
-
-            <label class="texto" for="filas">Coordenada W: 65°</label>
-           
-
-            <label class="texto" for="columnas">Fila: 29</label>
-            
-
-            <label class="texto" for="columnas">Columna: 4</label>
-            
-
-            <button class="btn_adoptar">Adoptar</button>
-
-          </div> 
-          
+            <div>
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW disponible" src="img/lote.png">
+              <img class="arbolVW adoptado" src="img/lote.png">
+         
+            </div>
           </div>
+        </div>
 
-       
-          </div>
           
-        </div>
-        </div>
+        <div id="cajaLote">
+           
+          <label id="RegArbol">Información del árbol</label>
+          <img id="arbolInfo" src="img/pino.jpg">
+          <label class="texto">Especie: Pino</label>
+           
+          <label class="texto" for="tamaño">Coordenada N: 195°</label>
+
+          <label class="texto" for="filas">Coordenada W: 65°</label>
+          <label class="texto" for="columnas">Fila: 29</label>
+          <label class="texto" for="columnas">Columna: 4</label>
+          <button class="btn_adoptar">Adoptar</button>
+
+        </div> 
+          
+      </div>
+
+      </div>
+      
     </div>
 @endsection
