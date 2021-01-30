@@ -128,6 +128,7 @@
            
             <label id="RegArbol">Información del árbol</label>
              <img id="arbolInfo" src="img/pino.jpg">
+             <div id="datosArbol">
             <label class="texto">Especie: Pino</label>
            
             <label class="texto" for="tamaño">Coordenada N: 195°</label>
@@ -140,7 +141,7 @@
 
             <label class="texto" for="columnas">Columna: 4</label>
             
-
+            </div>
             <button class="btn_adoptar">Adoptar</button>
 
           </div> 
