@@ -24,6 +24,7 @@
     <!-- Styles -->
     <link href="css/hover.css" rel="stylesheet" media="all">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/informacion.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/register.css') }}" rel="stylesheet"  type="text/css" >
@@ -90,6 +91,10 @@
                     <a href="">
                         
                         <div class="text">Investigaciones</div>
+                    </a>
+                    <a href="http://localhost:8000/informacion">
+                     
+                        <div class="text">Actividades</div>
                     </a>
                     <a href="">
                      

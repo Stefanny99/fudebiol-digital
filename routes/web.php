@@ -41,6 +41,8 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 	Route::get('/arboles', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'arbolesPorLote'])->name('arboles');
 
 	Route::get('/galeria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'galeria'])->name('galeria');
+
+	Route::get('/informacion', [App\Http\Controllers\FudebiolDigital\InformacionController::class, 'informacion'])->name('informacion');
 });
 
 
