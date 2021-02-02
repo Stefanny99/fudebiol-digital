@@ -56,11 +56,12 @@
                   <th>Acción</th>
                 </tr>
                 
+                @foreach ( $lotes as $lote )
                 <tr class="fila">
-                  <td class="fila">LA</td>
-                  <td class="fila">34456 m</td>
-                  <td class="fila">56</td>
-                  <td class="fila">100</td>
+                  <td class="fila">{{ $lote->FL_NOMBRE }}</td>
+                  <td class="fila">{{ $lote->FL_TAMANO }}m<small style="bottom: 0.3rem; position: relative;">2</small></td>
+                  <td class="fila">{{ $lote->FL_FILAS }}</td>
+                  <td class="fila">{{ $lote->FL_COLUMNAS }}</td>
                   <td class="fila">
                     <div class="action">
                        <label class="edit"><i class="far fa-edit"></i></label>
@@ -68,33 +69,7 @@
                     </div>
                    </td>
                 </tr>
-
-                 <tr class="fila">
-                  <td class="fila">LB</td>
-                  <td class="fila">34456 m</td>
-                  <td class="fila">56</td>
-                  <td class="fila">100</td>
-                  <td class="fila">
-                    <div class="action">
-                       <label class="edit"><i class="far fa-edit"></i></label>
-                     <label class="delete"><i class="far fa-trash-alt"></i></label>
-                    </div>
-                   </td>
-                </tr>
-                  <tr class="fila">
-                  <td class="fila">LC</td>
-                  <td class="fila">34456 m</td>
-                  <td class="fila">56</td>
-                  <td class="fila">100</td>
-                  <td class="fila">
-                    <div class="action">
-                       <label class="edit"><i class="far fa-edit"></i></label>
-                     <label class="delete"><i class="far fa-trash-alt"></i></label>
-                    </div>
-                   </td>
-                </tr>
-               
-               
+                @endforeach
               </tbody>
             </table>
             <div id="botonesEdicionArboles">

@@ -4,37 +4,39 @@ namespace App\Http\Controllers\FudebiolDigital;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use Session;
+
 use App\Helper\Util;
 
+use App\Models\LotesModel;
 
-class LotesController extends Controller
-{
+class LotesController extends Controller{
+	public function __construct(){
 
-	/**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+	}
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+	public function mantenimientoLotes(){
+		$model = new LotesModel();
+		$result = $model->obtenerLotes();
+		if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+			return redirect()->back()->with( array(
+				"errores" => $result[ 'codigo' ][ 'descripcion' ] . ", " . $result[ 'razon' ]
+			) );
+		}
+		return view( 'app/LotesView', array(
+			"lotes" => $result[ 'resultado' ]
+		) );
+	}
 
-    /* Llama la vista de mantenimiento de categorías */
-    public function mantenimientoLotes(){
-    	return view('app/LotesView');
-    }
-     public function arbolesPorLote(){
-        return view('app/ArbolesPorLoteView');
-    }
-     
-	
+	public function editarLote( Request $data ){
+		
+	}
+
+	public function eliminarLotes( Request $data ){
+		
+	}
+
+	public function arbolesPorLote(){
+		return view('app/ArbolesPorLoteView');
+	}
 }

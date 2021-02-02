@@ -4,30 +4,33 @@ namespace App\Models;
 use Illuminate\Support\Facades\DB;
 Use Exception;
 
-class LotesModel extends Model {
+use App\Helper\Util;
 
-    public function obtenerArboles(){
+use Illuminate\Database\Eloquent\Model;
+
+class LotesModel extends Model {
+    public function obtenerLotes(){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "editarUsuario"
+            "accion" => "obtenerLotes"
         );
         try{
-           $data["resultado"] = DB::table('fudebiol_lotes')->get();
+            $data["resultado"] = DB::table('fudebiol_lotes')->get();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
         }
         return $data;
     }
 
-    public function eliminarLote($request){
+    public function eliminarLotes($request){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "editarUsuario"
+            "accion" => "eliminarLotes"
         );
         try{
-            DB::table('fudebiol_lotes')->where('fl_id', $request->input('lote_id'))->delete();
+            DB::table('fudebiol_lotes')->whereIn('fl_id', $request->input('ids'))->delete();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
         }
@@ -38,14 +41,14 @@ class LotesModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "editarUsuario"
+            "accion" => "crearLote"
         );
         try {
             $data['resultado'] = DB::table('fudebiol_lotes')->insertGetId([
-                'fl_nombre' => $request->input('nombre_lote'),
-                'fl_tamano' => $request->input('tamano_lote'),
-                'fl_filas' => $request->input('filas_lote'),
-                'fl_columnas' => $request->input('columnas_lote')
+                'fl_nombre' => $request->input('fl_nombre'),
+                'fl_tamano' => $request->input('fl_tamano'),
+                'fl_filas' => $request->input('fl_filas'),
+                'fl_columnas' => $request->input('fl_columnas')
             ]);
         } catch (Exception $e) {
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_INSERCION" ];
@@ -57,18 +60,18 @@ class LotesModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "editarUsuario"
+            "accion" => "editarLote"
         );
         try{
-            DB::table('fudebiol_lotes')->where('fl_id',$request->input('lote_id'))
+            DB::table('fudebiol_lotes')->where('fl_id',$request->input('fl_id'))
             ->update([
-                'fl_nombre' => $request->input('nombre_lote'),
-                'fl_tamano' => $request->input('tamano_lote'),
-                'fl_filas' => $request->input('filas_lote'),
-                'fl_columnas' => $request->input('columnas_lote')
+                'fl_nombre' => $request->input('fl_nombre'),
+                'fl_tamano' => $request->input('fl_tamano'),
+                'fl_filas' => $request->input('fl_filas'),
+                'fl_columnas' => $request->input('fl_columnas')
             ]);
         }catch(Exception $e){
-           $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_INSERCION" ];
+           $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_ACUALIZACION" ];
         }
         return $data;
     }
