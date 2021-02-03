@@ -39,20 +39,11 @@
               
             </div>
           
-            <label class="texto" for="nombreCientifico">Primer nombre:</label>
-            <input type="text" name="nombreCientifico">
+            <label class="texto" for="nombreCompleto">Nombre Completo:</label>
+            <input type="text" name="nombreCompleto">
 
-            <label class="texto" for="jiffys">Segundo nombre:</label>
-            <input type="text" name="jiffys">
-
-            <label class="texto" for="bolsas">Primer apellido:</label>
-            <input type="text" name="bolsas">
-
-            <label class="texto" for="elevacion_maxima">Segundo apellido:</label>
-            <input type="text" name="elevacion_maxima">
-
-            <label class="texto" for="elevacion_minima">Cédula de identidad:</label>
-            <input type="text" name="elevacion_minima">
+            <label class="texto" for="cedula">Cédula de identidad:</label>
+            <input type="text" name="cedula">
 
             <button class="btn_registrar">Registrar</button>
 
@@ -66,20 +57,14 @@
               <tbody>
                 <tr id="tablehead">
                    <th>Tipo</th>
-                  <th>Primer nombre</th>
-                  <th>Segundo nombre</th>
-                  <th>Primer apellido</th>
-                  <th>Segundo apellido</th>
+                  <th>Nombre Completo</th>
                   <th>Cédula</th>
                   <th>Acción</th>
                 </tr>
                 
                 <tr class="fila">
                   <td class="fila">Persona</td>
-                  <td class="fila">Lizeth</td>
-                  <td class="fila">María</td>
-                  <td class="fila">Monge</td>
-                  <td class="fila">Padilla</td>
+                  <td class="fila">Lizeth Monge Padilla</td>
                   <td class="fila">117560371</td>
                    <td class="fila">
                     <div class="action">
@@ -91,10 +76,7 @@
 
                   <tr class="fila">
                     <td class="fila">Empresa</td>
-                  <td class="fila">Diego</td>
-                  <td class="fila">Eduardo</td>
-                  <td class="fila">Tames</td>
-                  <td class="fila">Vargas</td>
+                  <td class="fila">Diego Tames Vargas</td>
                   <td class="fila">117090201</td>
                    <td class="fila">
                     <div class="action">
