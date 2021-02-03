@@ -64,7 +64,7 @@
                 
                 <tr class="fila">
                   <td class="fila">Persona</td>
-                  <td class="fila">Lizeth Monge Padilla</td>
+                  <td class="fila">Liz Monge Padilla</td>
                   <td class="fila">117560371</td>
                    <td class="fila">
                     <div class="action">
