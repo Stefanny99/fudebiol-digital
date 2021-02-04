@@ -7,8 +7,8 @@
            <div id="titulo">
             <img id="logo" src="img/arbolito.png" >
             <label>MI ÁRBOL PARA LA VIDA</label>
-            <a href="http://localhost:8000/registrarPadrino">Registrar padrino</a>
-            <a href="http://localhost:8000/registrarLote">Registrar lote</a>
+            <a href="{{ route( 'registrarPadrino' ) }}">Registrar padrino</a>
+            <a href="{{ route( 'registrarLote' ) }}">Registrar lote</a>
           </div>
         </div>
         <div class="contenedor_textos container">

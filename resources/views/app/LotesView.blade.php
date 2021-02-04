@@ -7,7 +7,7 @@
          <div id="titulo">
           <img id="logo" src="img/arbolito.png">
             <label >MI ÁRBOL PARA LA VIDA</label>
-          <a href="http://localhost:8000/arboles">Ver árboles</a>
+          <a href="{{ route( 'arboles' ) }}">Ver árboles</a>
         </div>
         </div>
               <div class="contenedor_textos container">

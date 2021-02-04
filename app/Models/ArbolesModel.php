@@ -2,8 +2,11 @@
 
 namespace App\Models;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Database\Eloquent\Model;
 Use Exception;
 
+use App\Helper\Util;
 class ArbolesModel extends Model {
 
     public function obtenerArboles(){
@@ -13,12 +16,10 @@ class ArbolesModel extends Model {
             "accion" => "obtenerArboles"
         );
         try{
-            $data['resultado'] = array(
-                'arboles'  => DB::table('fudebiol_arboles')->get(),
-                'arboles_img' => DB::table('fudebiol_arboles_img')->get(),
-            );
+            $data['resultado'] = DB::table('fudebiol_arbole')->get();
         }catch(Exception $e){
             $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }

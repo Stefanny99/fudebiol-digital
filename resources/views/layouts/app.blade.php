@@ -55,7 +55,7 @@
 
             <div id="cabeza">
                 <div class="usuario"> 
-                 <a href="http://localhost:8000/usuarios" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                 <a href="{{ route( 'usuarios' ) }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 <div class="textUser"> 
                     <i class="fas fa-user"></i>&nbsp
                  {{ Auth::user()->name }} </div>
@@ -76,15 +76,15 @@
                     <img class="logo img-responsive" src="img/logob.png">
                 </div>
                 <div class="hiperlinks">
-                    <a href="http://localhost:8000/home">
+                    <a href="{{ route( 'home' ) }}">
                        
                         <div class="text">Inicio</div>
                     </a>
-                    <a href="http://localhost:8000/galeria">
+                    <a href="{{ route( 'galeria' ) }}">
                        
                         <div class="text">Galería</div>
                     </a>
-                    <a href="http://localhost:8000/registrarArbol">
+                    <a href="{{ route( 'registrarArbol' ) }}">
                        
                         <div class="text">Mi árbol para la vida</div>
                     </a>
@@ -92,7 +92,7 @@
                         
                         <div class="text">Investigaciones</div>
                     </a>
-                    <a href="http://localhost:8000/informacion">
+                    <a href="{{ route( 'informacion' ) }}">
                      
                         <div class="text">Actividades</div>
                     </a>
