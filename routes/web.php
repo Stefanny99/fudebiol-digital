@@ -42,7 +42,7 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 
 	Route::get('/galeria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'galeria'])->name('galeria');
 
-	Route::get('/informacion', [App\Http\Controllers\FudebiolDigital\InformacionController::class, 'informacion'])->name('informacion');
+	
 });
 
 
@@ -51,3 +51,5 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 // -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
 
 Route::get('/galeria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'galeria'])->name('galeria');
+Route::get('/introduccion', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'introduccionMAPLV'])->name('introduccion');
+Route::get('/atracciones', [App\Http\Controllers\FudebiolDigital\InformacionController::class, 'informacion'])->name('atracciones');

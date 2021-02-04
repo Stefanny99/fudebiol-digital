@@ -24,6 +24,7 @@
     <!-- Styles -->
     <link href="css/hover.css" rel="stylesheet" media="all">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/MiArbolParaLaVida.css') }}" rel="stylesheet">
      <link href="{{ asset('css/informacion.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet"  type="text/css" >
@@ -92,11 +93,12 @@
                         
                         <div class="text">Investigaciones</div>
                     </a>
-                    <a href="{{ route( 'informacion' ) }}">
+                    
+                    <a href="{{ route('atracciones')}}" >
                      
                         <div class="text">Actividades</div>
                     </a>
-                    <a href="">
+                    <a href="{{ route( 'informacion' ) }}">
                      
                         <div class="text">Información</div>
                     </a>

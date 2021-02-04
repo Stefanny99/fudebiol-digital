@@ -14,4 +14,8 @@ class ArbolesController extends Controller{
 		$model->obtenerArboles();
 		return view('app/RegistroArbolesView');
 	}
+    
+    public function introduccionMAPLV( ){
+        return view('app/MiArbolParaLaVidaView');
+    }
 }
