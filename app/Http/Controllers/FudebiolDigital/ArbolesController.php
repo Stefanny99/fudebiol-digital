@@ -32,5 +32,9 @@ class ArbolesController extends Controller
 	public function registrarArbol( ){
 		
         return view('app/RegistroArbolesView');
-	}
+    }
+    
+    public function introduccionMAPLV( ){
+        return view('app/MiArbolParaLaVidaView');
+    }
 }

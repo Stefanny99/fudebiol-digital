@@ -24,6 +24,7 @@
     <!-- Styles -->
     <link href="css/hover.css" rel="stylesheet" media="all">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/MiArbolParaLaVida.css') }}" rel="stylesheet">
      <link href="{{ asset('css/informacion.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet"  type="text/css" >
@@ -76,15 +77,15 @@
                     <img class="logo img-responsive" src="img/logob.png">
                 </div>
                 <div class="hiperlinks">
-                    <a href="http://localhost:8000/home">
+                    <a action="{{ route('home')}}">
                        
                         <div class="text">Inicio</div>
                     </a>
-                    <a href="http://localhost:8000/galeria">
+                    <a action="{{ route('galeria')}}">
                        
                         <div class="text">Galería</div>
                     </a>
-                    <a href="http://localhost:8000/registrarArbol">
+                    <a  action="{{ route('registrarArbol')}}">
                        
                         <div class="text">Mi árbol para la vida</div>
                     </a>
@@ -92,7 +93,7 @@
                         
                         <div class="text">Investigaciones</div>
                     </a>
-                    <a href="http://localhost:8000/informacion">
+                    <a action="{{ route('atracciones')}}" >
                      
                         <div class="text">Actividades</div>
                     </a>
