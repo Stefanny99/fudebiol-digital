@@ -98,7 +98,7 @@
                      
                         <div class="text">Actividades</div>
                     </a>
-                    <a href="{{ route( 'informacion' ) }}">
+                    <a href="">
                      
                         <div class="text">Información</div>
                     </a>
