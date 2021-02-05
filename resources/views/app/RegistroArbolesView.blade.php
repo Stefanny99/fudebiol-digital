@@ -20,8 +20,7 @@
           </div>
         <div class="home" >
          <div id="caja">
-          {{ json_encode( isset( $errores ) ? : null ) }}
-          {{ json_encode( isset( $mensajes ) ? : null ) }}
+         
           <form id="cajaArbol" class="hvr-float" method="post" action="{{ route( 'editarArbol' ) }}">
             @csrf
             <div id="treeheader">
@@ -49,7 +48,7 @@
             <button class="btn_registrar btn">Registrar</button>
 
           </form>  
-            <div id="tabla" class="hvr-forward container-fluid">
+            <div id="tabla" class="hvr-forward">
               <div id="buscador">
                 <input type="text" name="buscar" placeholder="Buscar una especie">
                 <button class="btn_buscar"><i class="fas fa-search"></i></button>
