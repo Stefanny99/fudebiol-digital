@@ -81,7 +81,7 @@
                        
                         <div class="text">Inicio</div>
                     </a>
-                    <a action="{{ route('galeria')}}">
+                    <a href="{{ route('galeria')}}">
                        
                         <div class="text">Galería</div>
                     </a>
