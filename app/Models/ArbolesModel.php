@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Model;
+use App\Helper\Util;
 Use Exception;
 
-use App\Helper\Util;
 class ArbolesModel extends Model {
 
     public function obtenerArboles(){
