@@ -7,8 +7,8 @@
            <div id="titulo">
             <img id="logo" src="img/arbolito.png" >
             <label>MI ÁRBOL PARA LA VIDA</label>
-            <a href="http://localhost:8000/registrarPadrino">Registrar padrino</a>
-            <a href="http://localhost:8000/registrarLote">Registrar lote</a>
+            <a href="{{ route( 'registrarPadrino' ) }}">Registrar padrino</a>
+            <a href="{{ route( 'registrarLote' ) }}">Registrar lote</a>
           </div>
         </div>
         <div class="contenedor_textos container">
@@ -19,9 +19,11 @@
              
           </div>
         <div class="home" >
-         <div id="caja"> 
-          <form id="cajaArbol" class="hvr-float">
-           
+         <div id="caja">
+          {{ json_encode( isset( $errores ) ? : null ) }}
+          {{ json_encode( isset( $mensajes ) ? : null ) }}
+          <form id="cajaArbol" class="hvr-float" method="post" action="{{ route( 'editarArbol' ) }}">
+            @csrf
             <div id="treeheader">
               <div id="treeheadermascara"  class="container-fluid">
                <label id="RegArbol">Registra una nueva </label>
@@ -30,19 +32,19 @@
              </div>
            
             <label class="texto" for="nombreCientifico">Nombre científico:</label>
-            <input type="text" name="nombreCientifico">
+            <input type="text" name="fa_nombre_cientifico">
 
             <label class="texto" for="jiffys">Jiffys:</label>
-            <input type="text" name="jiffys">
+            <input type="text" name="fa_jiffys">
 
             <label class="texto" for="bolsas">Bolsas:</label>
-            <input type="text" name="bolsas">
+            <input type="text" name="fa_bolsas">
 
             <label class="texto" for="elevacion_maxima">Elevación máxima:</label>
-            <input type="text" name="elevacion_maxima">
+            <input type="text" name="fa_elevacion_maxima">
 
             <label class="texto" for="elevacion_minima">Elevación mínima:</label>
-            <input type="text" name="elevacion_minima">
+            <input type="text" name="fa_elevacion_minima">
 
             <button class="btn_registrar btn">Registrar</button>
 
@@ -63,13 +65,13 @@
                   <th>Acción</th>
                 </tr>
                 
-
+                @foreach ( $arboles as $arbol )
                 <tr class="fila">
-                  <td class="fila">Arbolinus verdus de naranjis</td>
-                  <td class="fila">34</td>
-                  <td class="fila">56</td>
-                  <td class="fila">1000</td>
-                  <td class="fila">2000</td>
+                  <td class="fila">{{ $arbol->FA_NOMBRE_CIENTIFICO }}</td>
+                  <td class="fila">{{ $arbol->FA_JIFFYS }}</td>
+                  <td class="fila">{{ $arbol->FA_BOLSAS }}</td>
+                  <td class="fila">{{ $arbol->FA_ELEVACION_MINIMA }}m</td>
+                  <td class="fila">{{ $arbol->FA_ELEVACION_MAXIMA }}m</td>
                   <td class="fila">
                     <div class="action">
                        <label class="edit"><i class="far fa-edit"></i></label>
@@ -78,35 +80,7 @@
                     
                    </td>
                 </tr>
-
-                <tr class="fila">
-                  <td class="fila">Arbolinus verdus de naranjis</td>
-                  <td class="fila">34</td>
-                  <td class="fila">56</td>
-                  <td class="fila">1000</td>
-                  <td class="fila">2000</td>
-                  <td class="fila">
-                    <div class="action">
-                       <label class="edit"><i class="far fa-edit"></i></label>
-                     <label class="delete"><i class="far fa-trash-alt"></i></label>
-                    </div>
-                    
-                   </td>
-                </tr>
-                <tr class="fila">
-                  <td class="fila">Arbolinus verdus de naranjis</td>
-                  <td class="fila">34</td>
-                  <td class="fila">56</td>
-                  <td class="fila">1000</td>
-                  <td class="fila">2000</td>
-                  <td class="fila">
-                    <div class="action">
-                       <label class="edit"><i class="far fa-edit"></i></label>
-                     <label class="delete"><i class="far fa-trash-alt"></i></label>
-                    </div>
-                    
-                   </td>
-                </tr>
+                @endforeach
                
               </tbody>
             </table>

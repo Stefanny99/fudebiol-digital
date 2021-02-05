@@ -19,6 +19,15 @@
                "codigo" => 4,
                "descripcion" => "Error al actualizar"
             ),
+            "ERROR_SUBIENDO_ARHIVO" => array(
+               "codigo" => 5,
+               "descripcion" => "Error al subir archivos"
+            ),
+            "ERROR_ELIMINANDO_ARCHIVO" => array(
+               "codigo" => 6,
+               "descripcion" => "Error al eliminar archivos"
+            ),
+
 				"ERROR_DE_SERVIDOR" => array(
 					"codigo" => 500,
 					"descripcion" => "Error en el servidor"
