@@ -77,3 +77,7 @@ var ImagenesLista = Array.prototype.slice.call(imagenes);
 				}
 
 }
+
+$(document).ready(function(){
+	$('#tablaArboles').DataTable();
+});
