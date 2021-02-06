@@ -269,19 +269,8 @@ border:none;
 	margin-left: 0.8%;
 }
 
-#tablaArboles>tbody{
-	
-	overflow: auto!important;
-	min-height: 30vh !important;
-	max-height: 30vh !important;
-	padding-right: 2%;
-	
-	
-}
-#tablaArboles thead tr th{
-	
-	/* padding-left:1%; */
-}
+
+
 
 #tablaArboles tbody tr>.fila{
 color: black;
