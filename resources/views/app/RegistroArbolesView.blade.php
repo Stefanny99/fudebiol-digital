@@ -5,12 +5,12 @@
         <div id="contenido">
           <div id="fondo">
            <div id="titulo">
-            <img id="logo" src="img/arbolito.png" >
-            <label>MI ÁRBOL PARA LA VIDA</label>
-            <a href="{{ route( 'registrarPadrino' ) }}">Registrar padrino</a>
-            <a href="{{ route( 'registrarLote' ) }}">Registrar lote</a>
-          </div>
-        </div>
+              <img id="logo" src="img/arbolito.png" >
+              <label>MI ÁRBOL PARA LA VIDA</label>
+              <a href="{{ route( 'registrarPadrino' ) }}">Registrar padrino</a>
+              <a href="{{ route( 'registrarLote' ) }}">Registrar lote</a>
+           </div>
+         </div>
         <div class="contenedor_textos container">
          
               <label class="TextReg ">Registro de especies de árboles</label>

@@ -87,7 +87,7 @@
                        
                         <div class="text">Galería</div>
                     </a>
-                    <a href="{{ route( 'registrarArbol', 1 ) }}">
+                    <a href="{{ route( 'introduccion' ) }}">
                        
                         <div class="text">Mi árbol para la vida</div>
                     </a>

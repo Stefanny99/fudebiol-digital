@@ -325,6 +325,9 @@ margin-bottom: 20px;
 	text-align: justify;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
+	display: flex;
+	flex-direction: column;
+	
 
 
 }
