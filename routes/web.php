@@ -30,7 +30,7 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 	Route::post('/eliminarUsuarios', [App\Http\Controllers\FudebiolDigital\UsuariosController::class, 'eliminarUsuarios'])->name('eliminarUsuarios');
 
 	/*RUTAS DE MANTENIMIENTO DE ÁRBOLES*/
-	Route::get('/registrarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'registrarArbol'])->name('registrarArbol');
+	Route::get('/registrarArbol/{pagina}', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'registrarArbol'])->name('registrarArbol');
 	Route::post('/editarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'editarArbol'])->name('editarArbol');
 
 	/*RUTAS DE MANTENIMIENTOS DE PADRINOS*/
