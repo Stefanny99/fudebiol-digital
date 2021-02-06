@@ -20,7 +20,7 @@
           </div>
         <div class="home" >
          <div id="caja">
-         
+          
           <form id="cajaArbol" class="hvr-float" method="post" action="{{ route( 'editarArbol' ) }}">
             @csrf
             <div id="treeheader">
@@ -48,13 +48,24 @@
             <button class="btn_registrar btn">Registrar</button>
 
           </form>  
-            <div id="tabla" class="hvr-forward">
+            <div id="tabla" class="hvr-forward container-fluid">
               <div id="buscador">
                 <input type="text" name="buscar" placeholder="Buscar una especie">
                 <button class="btn_buscar"><i class="fas fa-search"></i></button>
               </div>
+              <div id="enc">
+            
+                
+                  <div id="nc">Nombre científico</div>
+                  <div id="jiffys">Jiffys</div>
+                  <div id="bolsas">Bolsas</div>
+                  <div id="emi">Elevación mínima</div>
+                  <div id="ema">Elevación máxima </div>
+                  <div id="acc">Acción</div>
+                
+              </div>
               <table id="tablaArboles">
-              <tbody>
+                <thead>
                 <tr id="tablehead" >
                   <th>Nombre científico</th>
                   <th>Jiffys</th>
@@ -63,6 +74,9 @@
                   <th>Elevación máxima </th>
                   <th>Acción</th>
                 </tr>
+                 </thead> 
+              <tbody>
+                
                 
                 @foreach ( $arboles as $arbol )
                 <tr class="fila">
