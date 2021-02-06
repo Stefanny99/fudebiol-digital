@@ -25,15 +25,19 @@ class ArbolesModel extends Model {
         return $data;
     }
 
-    // public function obtenerArbolesPor(){
-    //     try{
-    //         return DB::table('fudebiol_arboles')->get();
-    //     }catch(Exception $e){
-    //         $data['resultado'] = "Error al obtener los árboles. Por favor inténtelo nuevamente";
-    //         $data['exito'] = false;
-    //         return $data;
-    //     }
-    // }
+    public function obtenerArbolesPorNombre(){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "obtenerArbolesPorNombre"
+        );
+        try{
+            $data['resultado'] = DB::table('fudebiol_arboles')->where('fa_nombre_cientifico', 'like', '%'+ $request->input('nombre_arbol') +'%')->get();
+        }catch(Exception $e){
+            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+    }
 
     public function eliminarArbol($request){
         $data = array(
