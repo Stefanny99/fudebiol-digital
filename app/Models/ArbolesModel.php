@@ -9,14 +9,14 @@ use App\Helper\Util;
 Use Exception;
 
 class ArbolesModel extends Model {
-    public function obtenerArboles( $pagina ){
+    public function obtenerArboles( $pagina, $nombre_arbol ){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
             "accion" => "obtenerArboles"
         );
         try{
-            $data['resultado'] = DB::table('fudebiol_arboles')->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
+            $data['resultado'] = DB::table('fudebiol_arboles')->where('fa_nombre_cientifico', 'like', '%'+ $nombre_arbol + '%')->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
         }catch(Exception $e){
             $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
