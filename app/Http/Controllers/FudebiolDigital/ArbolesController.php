@@ -9,14 +9,15 @@ use App\Helper\Util;
 use App\Models\ArbolesModel;
 
 class ArbolesController extends Controller{
-	public function registrarArbol( $pagina = 1 ){
+	public function registrarArbol( $pagina ){
 		$model = new ArbolesModel();
 		$result = $model->obtenerArboles( $pagina );
 		if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
 			return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) );
 		}
 		return view( 'app/RegistroArbolesView', array(
-			"arboles" => $result[ "resultado" ]
+			"arboles" => $result[ "resultado" ],
+			"pagina" => $pagina
 		) );
 	}
 
