@@ -53,17 +53,6 @@
                 <input type="text" name="buscar" placeholder="Buscar una especie">
                 <button class="btn_buscar"><i class="fas fa-search"></i></button>
               </div>
-              <div id="enc">
-            
-                
-                  <div id="nc">Nombre científico</div>
-                  <div id="jiffys">Jiffys</div>
-                  <div id="bolsas">Bolsas</div>
-                  <div id="emi">Elevación mínima</div>
-                  <div id="ema">Elevación máxima </div>
-                  <div id="acc">Acción</div>
-                
-              </div>
               <table id="tablaArboles">
                 <thead>
                 <tr id="tablehead" >
@@ -76,8 +65,6 @@
                 </tr>
                  </thead> 
               <tbody>
-                
-                
                 @foreach ( $arboles as $arbol )
                 <tr class="fila">
                   <td class="fila">{{ $arbol->FA_NOMBRE_CIENTIFICO }}</td>
@@ -99,6 +86,8 @@
             </table>
             <div id="botonesEdicionArboles">
                 <button class="btn_arboles"> Guardar</button>
+                <button class="btn_arboles"> <</button>
+                <button class="btn_arboles"> ></button>
                 
             </div>
           </div>

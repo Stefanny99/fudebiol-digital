@@ -11,13 +11,12 @@ flex: 1;
 }
 
 
-#titulo, #textovs{
-	align-items: center;
+.titulo, #textovs{
+	align-items: flex-end;
 	display: flex;
 	flex-direction: column;
 	color: white;
 	font-size: 5vw;
-	background: linear-gradient(90deg, rgba(0,0,0,0.7259278711484594) 16%, rgba(0,49,204,0.7035189075630253) 100%);
 	text-shadow: 0px 0px 5px yellowgreen;
 	flex:1;
 	padding: 5%;
@@ -38,16 +37,6 @@ flex: 1;
 	font-size: 2vw;
 }
 
-#logo{
-	background-color: rgba(0,190,0,0.1);
-	border-radius: 50%;
-	border:2px white solid;
-	padding:20px 30px 20px 30px;
-	width: 15vw;
-  	height: 15vw;
-	border-style: dotted solid;
-	object-fit: contain;
-}
 
 
 .contenedor_textos{
@@ -223,8 +212,8 @@ font-size: 3vh;
 margin-left:20px;
 border-collapse: unset;
 min-width: 60vw !important;
-min-height: 55vh !important;
-max-height: 55vh !important;
+min-height: 65vh !important;
+max-height: 65vh !important;
 overflow: auto;
 border:none;
 }
@@ -262,7 +251,7 @@ border:none;
 	/* background-color: salmon; */
 }
 #tablaArboles>thead>tr>th{
-	color:transparent;
+	color: #008a00;	
 	
 	
 }
@@ -304,8 +293,12 @@ padding-right: 1%;
 
 
 #botonesEdicionArboles{
-	position:relative;
-	bottom:5px;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content:space-around;
+position:relative;
+bottom:5px;
 margin-left: 20px;
 box-shadow: 0px 6px 20px lightgray;
 background: white;
@@ -333,6 +326,9 @@ color:red;
 	color: blue;
 }
 .btn_arboles{ 
+display: flex;
+justify-content:center;
+align-items:center;
 cursor: pointer;
 height: 5vh;
 width: 20vh;
