@@ -16,7 +16,7 @@ class ArbolesModel extends Model {
             "accion" => "obtenerArboles"
         );
         try{
-            $data['resultado'] = DB::table('fudebiol_arboles')->where('fa_nombre_cientifico', 'like', '%'+ $nombre_arbol + '%')->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
+            $data['resultado'] = DB::table('fudebiol_arboles')->where('fa_nombre_cientifico', 'like', '%'.$nombre_arbol.'%')->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
         }catch(Exception $e){
             $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
