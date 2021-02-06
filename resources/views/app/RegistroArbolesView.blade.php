@@ -88,17 +88,17 @@
               </tbody>
             </table>
             <div id="botonesEdicionArboles">
-                <button class="btn_arboles"> Guardar</button>
-                <a class="btn_arboles" href=" {{ route('registrarArbol', $pagina-1 )}}"> < </a>
-                <a class="btn_arboles" href="{{ route('registrarArbol', $pagina+1 )}}" > > </a>
-                
+                <button class="btn_arboles"><i class="far fa-save"></i></button>
+                <div id="paginacion">
+                  <a class="btn_pag" href=" {{ route('registrarArbol', $pagina-1 )}}"> <i class="fas fa-backward"></i> </a>
+                  <a class="btn_pag" href="{{ route('registrarArbol', $pagina+1 )}}" > <i class="fas fa-forward"></i> </a>
+                </div>
             </div>
           </div>
           </div>
         </div>
        
-          
-          
+       
         </div>
         </div>
     </div>
