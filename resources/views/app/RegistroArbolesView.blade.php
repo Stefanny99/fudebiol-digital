@@ -29,30 +29,33 @@
                <label>especie de árbol</label>
                </div>
              </div>
-           
+             <label id="lblpictree" for="pictureTree">Agrega una foto<i class="far fa-folder-open"></i></i></label>
+            <input type="file" id="pictureTree" name="fa_imagen"> 
+
             <label class="texto" for="nombreCientifico">Nombre científico:</label>
-            <input type="text" name="fa_nombre_cientifico">
+            <input type="text" required name="fa_nombre_cientifico">
 
             <label class="texto" for="jiffys">Jiffys:</label>
-            <input type="text" name="fa_jiffys">
+            <input type="text" required name="fa_jiffys">
 
             <label class="texto" for="bolsas">Bolsas:</label>
-            <input type="text" name="fa_bolsas">
+            <input type="text"  required name="fa_bolsas">
 
             <label class="texto" for="elevacion_maxima">Elevación máxima:</label>
-            <input type="text" name="fa_elevacion_maxima">
+            <input type="text"  required name="fa_elevacion_maxima">
 
             <label class="texto" for="elevacion_minima">Elevación mínima:</label>
-            <input type="text" name="fa_elevacion_minima">
+            <input type="text" required name="fa_elevacion_minima">
 
             <button class="btn_registrar btn">Registrar</button>
 
           </form>  
+
             <div id="tabla" class="hvr-forward container-fluid">
-              <div id="buscador">
+            <form id="buscador" accion="{{route('registrarArbol', $pagina)}}" method="post">
                 <input type="text" name="buscar" placeholder="Buscar una especie">
-                <button class="btn_buscar"><i class="fas fa-search"></i></button>
-              </div>
+                <button  class="btn_buscar"><i class="fas fa-search"></i></button>
+            </form>
               <table id="tablaArboles">
                 <thead>
                 <tr id="tablehead" >
@@ -86,8 +89,8 @@
             </table>
             <div id="botonesEdicionArboles">
                 <button class="btn_arboles"> Guardar</button>
-                <a class="btn_arboles" href=" {{ route('registrarArbol', $pagina-1 )}}"> < </button>
-                <a class="btn_arboles" href="{{ route('registrarArbol', $pagina+1 )}}" > > </button>
+                <a class="btn_arboles" href=" {{ route('registrarArbol', $pagina-1 )}}"> < </a>
+                <a class="btn_arboles" href="{{ route('registrarArbol', $pagina+1 )}}" > > </a>
                 
             </div>
           </div>
