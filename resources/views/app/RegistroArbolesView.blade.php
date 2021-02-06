@@ -86,8 +86,8 @@
             </table>
             <div id="botonesEdicionArboles">
                 <button class="btn_arboles"> Guardar</button>
-                <button class="btn_arboles"> <</button>
-                <button class="btn_arboles"> ></button>
+                <a class="btn_arboles" href=" {{ route('registrarArbol', $pagina-1 )}}"> < </button>
+                <a class="btn_arboles" href="{{ route('registrarArbol', $pagina+1 )}}" > > </button>
                 
             </div>
           </div>
