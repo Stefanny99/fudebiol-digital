@@ -24,7 +24,7 @@ class ArbolesModel extends Model {
         return $data;
     }
 
-    public function obtenerArbolesPorNombre(){
+    public function obtenerArbolesPorNombre( $request ){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
