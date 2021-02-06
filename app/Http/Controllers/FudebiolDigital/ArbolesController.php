@@ -9,7 +9,7 @@ use App\Helper\Util;
 use App\Models\ArbolesModel;
 
 class ArbolesController extends Controller{
-	public function registrarArbol( $pagina ){
+	public function registrarArbol( $pagina = 1 ){
 		$model = new ArbolesModel();
 		$result = $model->obtenerArboles( $pagina );
 		if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
