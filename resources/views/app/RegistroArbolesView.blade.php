@@ -3,11 +3,11 @@
 @section('content')
     <div id="body_home">     
         <div id="contenido"> 
-          <div id="fondoMAPLV" >
+          <div id="fondo" >
                 <div class="titulo tituloMAPLV">
                     <img id="logoMAPLV" src="img/maplv.png">
                     <label >Registro de especies</label>
-                    <label  id="subText">Para FUDEBIOL es vital conservar la vida silvestre, por eso nuestro propósito es devolver al mundo tanta vida como la que nos ha dado.</label>
+                    <label  id="subText"> Nuestro propósito es devolver al mundo tanta vida como la que nos ha dado.</label>
           
                 </div>
             </div>

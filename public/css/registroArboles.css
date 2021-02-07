@@ -1,7 +1,7 @@
 #fondo{
 background-size: cover;
 display: flex;
-background-image:url('/img/arbolparalavida.jpg'); 
+background-image:url('/img/b1.jpg'); 
 background-repeat: no-repeat;	
 font-family: 'Quicksand', sans-serif;
 flex-direction: column;
@@ -37,16 +37,6 @@ flex: 1;
 	font-size: 2vw;
 }
 
-
-
-.contenedor_textos{
-	border-radius: 0 0 50% 50%;
-	margin-top: 6%;
-	display: flex;
-	flex-direction: column;
-	background-size: cover;
-	background-repeat: no-repeat;
-}
 
 #cajaArbol
 {	
