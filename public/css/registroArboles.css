@@ -312,26 +312,6 @@ outline: none;
 	font-size: 1.6rem;
 }
 
-/*Registro padrinos*/
-
-.tipo1, .tipo2{
-margin: auto;
-display: flex;
-flex-direction: column;
-align-items: center;
-
-}
-
-
-
-#contTipo{
-	
-	display: flex;
-	flex:1;
-	flex-direction: row;
-	margin-bottom: 10px;
-	
-}
 
 
 /*Arboles por lote*/
