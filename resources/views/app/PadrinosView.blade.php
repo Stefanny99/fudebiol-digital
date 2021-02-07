@@ -8,8 +8,6 @@
                     <img id="logoMAPLV" src="img/maplv.png">
                     <label >Registro de padrinos</label>
                     <label  id="subText">Si eres de quienes ama darle al mundo un respiro, sé parte de nuestra familia y adopta un árbol.</label>
-                    <a href="{{ route( 'registrarLote' ) }}">Registrar lote</a>
-                    <a href="{{ route( 'registrarArbol', 1 ) }}">Registrar arbol</a>
                 </div>
             </div>
          </div>

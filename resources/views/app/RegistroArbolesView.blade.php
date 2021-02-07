@@ -4,8 +4,8 @@
     <div id="body_home">     
         <div id="contenido"> 
           <div id="fondo" >
-                <div class="titulo tituloMAPLV">
-                    <img id="logoMAPLV" src="img/maplv.png">
+                <div class="titulo tituloRA">
+                    <img id="logoMAPLV" src="img/b2.jpg">
                     <label >Registro de especies</label>
                     <label  id="subText"> Nuestro propósito es devolver al mundo tanta vida como la que nos ha dado.</label>
           

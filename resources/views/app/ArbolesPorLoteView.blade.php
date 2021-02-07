@@ -3,12 +3,14 @@
 @section('content')
     <div id="body_home">     
         <div id="contenido">
-            <div id="fondoVisualizadorArboles">
-           <div id="textovs">
-            <img id="logovs" src="img/vsa.png" >
-            <label>Visualizador de árboles</label>
-          </div>
-        </div>
+          
+        <div id="fondoVisualizadorArboles" >
+                <div class="titulo tituloVS">
+                  <img id="logovs" src="img/vsa.png" >
+                  <label>Visualizador de árboles</label>
+                    
+                </div>
+            </div>
         <div class="home">
           <div id="disponibilidad"> 
           <label id="libre">Libre:</label>

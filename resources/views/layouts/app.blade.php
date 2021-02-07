@@ -27,6 +27,8 @@
     <link href="{{ asset('css/MiArbolParaLaVida.css') }}" rel="stylesheet">
     <link href="{{ asset('css/registroPadrinos.css') }}" rel="stylesheet">
     <link href="{{ asset('css/registroLotes.css') }}" rel="stylesheet">
+    
+    <link href="{{ asset('css/arbolPorLote.css') }}" rel="stylesheet">
      <link href="{{ asset('css/informacion.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet"  type="text/css" >
@@ -105,6 +107,14 @@
                     <a href="">
                      
                         <div class="text">Información</div>
+                    </a>
+                    <a href="{{ route( 'registrarArbol',1 ) }}">
+                       
+                        <div class="text">Registro Especies</div>
+                    </a>
+                    <a href="{{ route( 'registrarLote' ) }}">
+                       
+                        <div class="text">Registro Lotes</div>
                     </a>
                   
                 </div>
