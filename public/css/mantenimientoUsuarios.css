@@ -1,8 +1,6 @@
 #fondo1{
 display: flex;
-background-image: url('/img/fudebiol.jpg');
-background-repeat: no-repeat;
-background-size: cover;
+background-image: url('/img/lbg.jpg');
 font-family: 'Quicksand', sans-serif;
 flex-direction: row;
 text-align: center;
@@ -14,33 +12,29 @@ flex: 1;
 	flex: 0;
 }
 #tablaUsuarios{
-background: rgba(255,255,255,0.8);
-border-radius:0px 0px 0px 0px;
-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93); 
-flex:0;
-padding: 0px 20px 20px 20px;
-margin: auto;
-min-width: 800px;
-height: 200px;
+
+width: 60vw;
+min-height: 30vh;
+color: rgb(4, 192, 4);
+caption-side: top !important; 
+padding:5%;	
+padding-top:3%;	
+background:rgba(0,0,0,0.5);
+white-space: nowrap;
+box-shadow:-1px -0px 25px black;
+font-size: 2.5vh;
+border-collapse: unset;
+	
 }
  
- tbody tr>.number{
- 	
- 	color:black;
- 	font-weight: bold;
- }
-
-
 
 #tablaUsuarios caption{
-background: rgb(21,144,14);
-background: radial-gradient(circle, rgba(21,144,14,1) 0%, rgba(0,87,3,1) 100%);
+	background:rgba(4, 192, 4, 0.5);
 border-radius:20px 20px 0px 0px;
-height: 30px;
-padding: 20px 0px 20px 0px;
+text-align: center;
 color: white;
 font-weight: bold;
-font-size: 20px;
+font-size: 3vh;
 }
 #tablaUsuarios tbody th{
 border-bottom: 1px black solid;
@@ -52,45 +46,47 @@ margin-left:50px;
 }
 
 #tablaUsuarios tbody .fila{
-color: darkgreen;
+	color: white;
 font-weight: bold;
 border-radius: 10px;
 cursor: pointer;
 }
 
-#tablaUsuarios .fila:hover{
-background-color: rgba(20,167,9,0.2);
-}
 .thead:hover{
 background-color: transparent;
 }
 #botonesEdicion{
-box-shadow: 4px 30px 47px -2px rgba(0,0,0,0.9);
-background: radial-gradient(circle, rgba(21,144,14,1) 0%, rgba(0,87,3,1) 100%);
-letter-spacing: 60px;
-padding: 20px 0px 20px 0px;
-border-radius: 0px 0px 20px 20px;
-
+	position:relative;
+	bottom:5px;
+	width:60vw;
+	box-shadow: 0px 16px 20px rgba(0,0,0,0.7);
+	background:rgba(4, 192, 4, 0.5);
+	padding: 10px 0px 10px 0px;
+	z-index: 7;
+	border-radius: 0px 0px 20px 20px;
 }
 
 .btn_guardar{ 
-margin-top: 30px; 
-cursor: pointer;
-height: 40px;
-width: 130px;
-border:2px white solid;
-border-style: inset;
-background: white;
-color:green;
-border-radius: 100px;
-padding: 4px 22px 5px 22px;
-font-size: 16px;
-font-family: 'Quicksand';
-font-weight: 900;
-outline: none;
+
+	margin: auto;
+	cursor: pointer;
+	height: 5vh;
+	width: 20vh;
+	border:none;
+	border-radius: 5px;
+	background: rgb(4, 192, 4);
+	color:white;
+	text-align: center;
+	font-size: 2.5vh;
+	font-family: 'Quicksand';
+	font-weight: 900;
+	outline-style: none;
+	border-style: none!important;
 
 }
-
+.crecer{
+	font-size: 3.5vh !important;
+}
 
 .btn_guardar:hover,.btn_eliminar:hover, .btn_editar:hover  {
 transition: 0.2s;
@@ -105,12 +101,16 @@ box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
 }
 
 #agregarUsuario{
+	margin-top: 20pX;
+	margin-bottom:20px;
 	position: relative;
 	left: 0;
+	height:90vh;
 	transition: 0.5s;
 	border: 1px white solid;
 	align-items: center;
-    background: radial-gradient(circle, rgba(21,144,14,1) 0%, rgba(0,87,3,1) 100%);
+	justify-content:left;
+	background:rgba(0,0,0,0.5);
     padding: 0px 50px 50px 50px;
 	display: flex;
 	flex-direction: column;
@@ -119,6 +119,17 @@ box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
 	-webkit-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93);
 	-moz-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93);
 	box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93); 
+}
+
+#agregarUsuarioCont{
+	display: flex;
+	flex-direction: column;
+	justify-content:left;
+
+}
+
+#agregarUsuario input[type="text"], #agregarUsuario label {
+	text-align:left;
 }
 
 
@@ -145,7 +156,7 @@ box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
 	position: relative;
 	cursor: pointer;
 	left: 70px;
-	top:160px;
+	top:130px;
 	margin-bottom:10px;
 	transition: 0.5s;
 	transition-property: color;
@@ -180,10 +191,10 @@ margin-top: 10px;
 #agregarUsuario input, #agregarUsuario select{
 padding: 3px;
 text-align: center;
-border-radius: 5px;
-border: 1px darkgreen solid;
-background-color: rgba(255,255,255,1);
-color: green;
+border:none;
+border-bottom: 1px white solid;
+background-color: transparent;
+color: white;
 height: 25px;
 outline: none;
 }
@@ -191,6 +202,14 @@ outline: none;
  width: 180px;
  height: 40px;
 }
+
+#agregarUsuario select *{
+	background:rgba(0, 0, 0, 0.8);
+	border:none;                
+	color: white;
+}
+
+
  #RegUsuarios{
  	font-weight: bold;
  	font-size: 20px;

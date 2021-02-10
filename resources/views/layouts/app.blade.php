@@ -14,6 +14,7 @@
     <script src="{{ asset('js/common-script.js') }}"></script>
     <script src="{{ asset('js/main-script.js') }}"></script>
     <script src="{{ asset('js/galeria.js') }}"></script>
+    <script src="{{ asset('js/select.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -27,7 +28,7 @@
     <link href="{{ asset('css/MiArbolParaLaVida.css') }}" rel="stylesheet">
     <link href="{{ asset('css/registroPadrinos.css') }}" rel="stylesheet">
     <link href="{{ asset('css/registroLotes.css') }}" rel="stylesheet">
-    
+    <link href="{{ asset('css/aboutUs.css') }}" rel="stylesheet">
     <link href="{{ asset('css/arbolPorLote.css') }}" rel="stylesheet">
      <link href="{{ asset('css/informacion.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
@@ -78,7 +79,7 @@
                
                 <nav class="menu">
                 <div class="sitename">
-                    <img class="logo img-responsive" src="img/logob.png">
+                    <img class="logo img-responsive" src="{{ asset('img/logob.png')}}">
                 </div>
                 <div class="hiperlinks">
                     <a href="{{ route( 'home' ) }}">
@@ -104,7 +105,7 @@
                      
                         <div class="text">Actividades</div>
                     </a>
-                    <a href="">
+                    <a href="{{ route( 'sobreNosotros' ) }}">
                      
                         <div class="text">Información</div>
                     </a>

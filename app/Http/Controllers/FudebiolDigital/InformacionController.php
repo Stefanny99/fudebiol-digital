@@ -32,6 +32,9 @@ class InformacionController extends Controller
     public function informacion(){
     	return view('app/InformacionView');
     }
+    public function sobreNosotros(){
+    	return view('app/aboutUsView');
+    }
     
 	
 }

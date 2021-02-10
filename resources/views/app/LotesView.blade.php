@@ -46,6 +46,7 @@
                 <button  class="btn_buscarRL"><i class="fas fa-search"></i></button>
             </form>
               <table id="tablaArbolesRL">
+              <caption>Lotes registrados</caption>
                 <thead>
                 <tr id="tablehead" >
                   <th>Código</th>

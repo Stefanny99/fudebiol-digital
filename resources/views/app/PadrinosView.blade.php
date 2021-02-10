@@ -50,10 +50,11 @@
 
             <div id="tabla" class="hvr-forward container-fluid">
             <form id="buscador" accion="{{route('registrarPadrino')}}" method="post">
-                <input type="text" name="buscar" placeholder="Buscar una padrino">
+                <input type="text" name="buscar" placeholder="Buscar un padrino">
                 <button  class="btn_buscarRP"><i class="fas fa-search"></i></button>
             </form>
               <table id="tablaArbolesRP">
+              <caption>Padrinos registrados</caption>
                 <thead>
                 <tr id="tablehead" >
                   <th>Nombre completo</th>

@@ -5,7 +5,7 @@
         <div id="contenido"> 
           <div id="fondo" >
                 <div class="titulo tituloRA">
-                    <img id="logoMAPLV" src="img/b2.jpg">
+                    <img id="logoMAPLV" src="{{asset('img/maplv.png')}}">
                     <label >Registro de especies</label>
                     <label  id="subText"> Nuestro propósito es devolver al mundo tanta vida como la que nos ha dado.</label>
           
@@ -39,7 +39,7 @@
                 <label class="texto" for="elevacion_minima">Elevación mínima:</label>
                 <input type="text" required name="fa_elevacion_minima">
 
-                <button class="btn_registrar btn">Registrar</button>
+                <button class="btn_registrar">Registrar</button>
 
               </form>  
 
@@ -49,6 +49,7 @@
                     <button  class="btn_buscar"><i class="fas fa-search"></i></button>
                 </form>
                 <table id="tablaArboles">
+                <caption>Especies registradas</caption>
                   <thead>
                     <tr id="tablehead" >
                       <th>Nombre científico</th>

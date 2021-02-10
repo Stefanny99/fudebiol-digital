@@ -5,8 +5,11 @@
         <div id="contenido">
             <div id="fondoMAPLV" >
                 <div class="titulo tituloMAPLV">
+                   
                     <img id="logoMAPLV" src="img/maplv.png">
                     <label >MI ÁRBOL PARA LA VIDA</label>
+                  
+                    <a href="#salto" id="jumpTo">Adoptar un árbol</a>
                 </div>
             </div>
             <div class="home">
@@ -79,34 +82,36 @@
                 </div>
             
              </div> <!--cierre de home -->
+             <a name="salto" id="salto"></a>
             <div id="instrucciones" >
                 <div class="titulo tituloMAPLV">
                     <br><label >¿Comó apadrinar uno de nuestros árboles?</label><br>
                 </div>
             </div>
             <div class="home">
+            
                 <div class="instruccion">
                     <div class="directrices d1">
                          <i class="fas fa-users"></i>
-                        <h3>Paso 1</h3>
+                        <h1>Paso 1</h1>
                         <p>Regístrate como un padrino.</p>
                         <a href="{{route('registrarPadrino')}}">Registrarme</a>
                     </div>
                     <div  class="directrices d2">
                         <i class="fab fa-pagelines"></i>
-                        <h3>Paso 2</h3>
+                        <h1>Paso 2</h1>
                         <p>Mira los árboles disponibles en nuestros lotes</p>
                         <a href="{{route('arboles')}}">Ver árboles</a>
                     </div>
                     <div  class="directrices d3">
                         <i class="fas fa-hand-pointer"></i>
-                        <h3>Paso 3</h3>
+                        <h1>Paso 3</h1>
                         <p>Selecciona el árbol y adóptalo</p>
                         
                     </div>
                     <div  class="directrices d4">
                         <i class="fas fa-certificate"></i>
-                        <h3>Paso 4</h3>
+                        <h1>Paso 4</h1>
                         <p>Después de dar tu contribución se te enviará el certificado de apadrinado</p>
                         
                     </div>

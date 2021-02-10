@@ -6,7 +6,7 @@
             <div class="banner">
                 <div id="banner_mascara" class="container-fluid">
                     <div id="banner_texto" class="container-fluid">
-                        <img src="/img/logo.png" class="img-responsive">
+                        <img src="/img/arboles.png" class="img-responsive">
                         <label id="fudebiol" class="container-fluid">FUDEBIOL</label>
                         <label id="centrobiol" class="container-fluid">CENTRO BIOLÓGICO LAS QUEBRADAS</label>
                     </div>
@@ -54,7 +54,7 @@
                     <img class="img_izquierda img-responsive" src="/img/voluntariado.jpg">
                 </div>
                 <div class="cont_btn_izquierda">
-                    <a class="mcbutton primary" id="btn_ver_mas" >
+                    <a  class="mcbutton primary" id="btn_ver_mas" >
                                     <span>Ver más</span>
                      </a>
                </div>

@@ -4,13 +4,13 @@
     <div id="body_home">     
         <div id="contenido">
           
-        <div id="fondoVisualizadorArboles" >
+          <div id="fondoAboutUs" >
                 <div class="titulo tituloVS">
                   <img id="logovs" src="img/vsa.png" >
                   <label>Visualizador de árboles</label>
                     
                 </div>
-            </div>
+          </div>
         <div class="home">
           <div id="disponibilidad"> 
           <label id="libre">Libre:</label>

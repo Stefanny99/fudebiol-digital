@@ -115,14 +115,15 @@ flex: 1;
         position: relative;
         bottom:  30vh;
         padding:3%;
-        max-width: 18vw;
+        max-width: 15vw;
         border:1px gray solid;
         transform: translateY(0);
         transition:0.3s;
+        font-size: 2.5vh;
     }
 
     .directrices i{
-        font-size: 50px;
+        font-size: 8vh;
     }
     .directrices a{
         text-decoration:underline !important;
@@ -196,3 +197,24 @@ flex: 1;
         margin-left: auto;
         margin-right: auto;
     }
+
+    #jumpTo{
+        font-size:3vh;
+        text-decoration: none;
+        color: white;
+        background-color: rgb(17, 189, 40);
+        border-radius:30px;
+       padding: 1% 2% 1% 2%;
+        text-shadow: none;
+        position: relative;
+        right:80%;
+        bottom: 60px;
+        cursor: pointer;
+    }
+
+    #jumpTo:hover{
+        background-color: rgba(18, 136, 190, 0.911);
+        transition:0.5s;
+    }
+
+   
