@@ -9,31 +9,19 @@
 }
 
 #fondoGaleria{
-background-size: cover;
-display: flex;
+
 background-image:url('/img/fude1.jpg'); 
-background-repeat: no-repeat; 
-font-family: 'Dancing Script', cursive;
-font-family: 'Lobster', cursive
-flex-direction: column;
-text-align: center;
-flex: 1;
+
 
 }
-#tituloGaleria{
-  align-items: flex-end;
-  display: flex;
-  flex-direction: column;
-  color: white;
-  font-size: 10vw;
-  background-color: rgba(0,0,0,0.4);
-  text-shadow: 0px 0px 10px #00d9ff;
-  flex:1;
-  left: 0;
-  padding: 25vh;
-
- 
+.tituloGaleria{
+  background: linear-gradient(90deg, rgba(0,0,0,0.9164040616246498) 0%, rgba(0,83,1,0.7539390756302521) 100%);
 }
+.tituloGaleria>#logoMAPLV{
+  position: relative;
+  left:40px;
+}
+
 #tituloGaleria label
 {
 
