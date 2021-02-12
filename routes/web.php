@@ -34,7 +34,8 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 	Route::post('/editarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'editarArbol'])->name('editarArbol');
 
 	/*RUTAS DE MANTENIMIENTOS DE PADRINOS*/
-	Route::get('/registrarPadrino', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'mantenimientoPadrinos'])->name('registrarPadrino');
+	Route::get('/verPadrinos', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'mantenimientoPadrinos'])->name('verPadrino');
+	Route::get('/registrarPadrino', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'registrarPadrinos'])->name('registrarPadrino');
 
 	/*RUTAS DEMANTENIMIENTO DE LOTES*/
 	Route::get('/registrarLote', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'mantenimientoLotes'])->name('registrarLote');

@@ -117,6 +117,10 @@
                        
                         <div class="text">Registro Lotes</div>
                     </a>
+                    <a href="{{ route( 'verPadrino' ) }}">
+                       
+                        <div class="text">Registro Padrinos</div>
+                    </a>
                   
                 </div>
           </nav>

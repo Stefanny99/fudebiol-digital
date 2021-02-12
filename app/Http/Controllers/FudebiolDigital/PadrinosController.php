@@ -32,6 +32,10 @@ class PadrinosController extends Controller
     public function mantenimientoPadrinos(){
     	return view('app/PadrinosView');
     }
+
+    public function registrarPadrinos(){
+    	return view('app/RegistrarPadrinosView');
+    }
      
 	
 }
