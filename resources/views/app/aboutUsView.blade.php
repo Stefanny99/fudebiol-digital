@@ -65,21 +65,33 @@
       <a href="#carousel__slide3"
          class="carousel__next">Go to next slide</a>
     </li>
-    <!-- <li id="carousel__slide3"
+    <li id="carousel__slide3"
         tabindex="0"
         class="carousel__slide">
       <div class="carousel__snapper">
-      <img class="fotocarrusel" src="{{ asset('/img/b11.jpg')}}">
-         <div>Hola jdfhgsjd fsdgf hjgsdjhf gsdg fsdgffsdhjfg sdhjfg
-             sdgvfhsdgfhjgsdf sdf 
-             ds get_defined_constantsdfg dfg dfg
+      <img class="fotocarrusel" src="{{ asset('/img/ave22.jpg')}}">
+         <div>
+         <h1>Ubicación</h1>
+         <p>
+         El Centro Biológico Las Quebradas, situado a 136 kilómetros al sur
+          de San José, es una reserva natural comunal administrada por 
+          FUDEBIOL. Se ubica en la cuenca del Río San Isidro cuya altitud 
+          esta entre los 1100 y los 2400 m.s.n.m. formando parte de las 
+          estribaciones de la Cordillera de Talamanca, sector Pacífico.
+          Es un área dedicada a la protección y conservación de los recursos
+          naturales, de una enorme riqueza natural de flora y fauna, 
+          característica del bosque pluvial premontano húmedo, y donde se 
+          localizan las fuentes de agua del acueducto de la Ciudad de San 
+           de El General.
+         </p>
          </div>
-      </div>
+      
+</div>
       <a href="#carousel__slide2"
          class="carousel__prev">Go to previous slide</a>
-      <a href="#carousel__slide4"
+      <a href="#carousel__slide1"
          class="carousel__next">Go to next slide</a>
-    </li> -->
+    </li>
     <!-- <li id="carousel__slide4"
         tabindex="0"
         class="carousel__slide">
@@ -110,11 +122,11 @@
         <a href="#carousel__slide2"
            class="carousel__navigation-button">Go to slide 2</a>
       </li>
-      <!-- <li class="carousel__navigation-item">
+      <li class="carousel__navigation-item">
         <a href="#carousel__slide3"
            class="carousel__navigation-button">Go to slide 3</a>
       </li>
-      <li class="carousel__navigation-item">
+      <!-- <li class="carousel__navigation-item">
         <a href="#carousel__slide4"
            class="carousel__navigation-button">Go to slide 4
            </a>
@@ -124,8 +136,46 @@
   </aside>
 </section>
 </div> <!-- carrusel --> 
+  
 </div> <!-- FIN DE HOME-->
-            
+<div id="fondoAboutUs_colaboradores" >
+                <div class="tituloAU_colaboradores">
+                    <label >Nuestros representantes</label>
+                    <div id="colaboradores">
+
+                        <div class="colaborador">
+                           <img src="{{asset('/img/jorge.png')}}">
+                           <h4>Jorge Valverde</h4>
+                           <h5>Presidente de FUDEBIOL</h5>
+
+                        </div>
+
+                        <div class="colaborador">
+                           <img src="{{asset('/img/gilberth.jpg')}}">
+                           <h4>Gilberth Fallas</h4>
+                           <h5>Vicepresidente de FUDEBIOL</h5>
+
+                        </div>
+
+                        </div>
+                  </div>
+                </div>
+            </div>
+            <div class="home"><!--Segundo Home--> 
+            <h1 id="txt_colaboradores">¡Envíanos tus dudas o comentarios!</h1>
+               <img id="flecha" src="{{ asset('/img/felcha.png')}}">
+             <div id="caja3">
+                <div id="caja2" >
+                  <form id="caja_comentario">
+                     <label>Tu correo electrónico:</label>
+                     <input type="text">
+                     <label>Tu comentario:</label>
+                     <textarea></textarea>
+                     <button id="btn_send">Enviar</button>
+                  </form>
+                  </div>
+               </div>
+            </div><!-- cierre Segundo Home-->    
         </div>
     </div>
 @endsection
