@@ -167,10 +167,12 @@
              <div id="caja3">
                 <div id="caja2" >
                   <form id="caja_comentario">
-                     <label>Tu correo electrónico:</label>
+                     <label id="user_correo">Tu correo electrónico:</label>
+                     <input type="text">
+                     <label id="user_telefono">Número de teléfono:</label>
                      <input type="text">
                      <label>Tu comentario:</label>
-                     <textarea></textarea>
+                     <textarea id="comentario"></textarea>
                      <button id="btn_send">Enviar</button>
                   </form>
                   </div>
