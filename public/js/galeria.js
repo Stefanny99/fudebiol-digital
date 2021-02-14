@@ -93,7 +93,7 @@ function addMessage(){
 	var mesage_mail= document.createElement("div");
 	mesage_mail.className="mesage_mail";
 	var de= document.createElement("label");
-	de.innerHTML="De:";
+	de.innerHTML="De:&nbsp";
 	var correo= document.createElement("label");
 	// correo.innerHTML=correoUsuario.innerHTML;
 	correo.innerHTML="lizmonge15@gmail.com";
@@ -102,7 +102,7 @@ function addMessage(){
 	var phone_mail= document.createElement("div");
 	phone_mail.className="phone_mail";
 	var telefono= document.createElement("label");
-	telefono.innerHTML="Telefono:";
+	telefono.innerHTML="Telefono:&nbsp";
 	var numero= document.createElement("label");
 	// numero.innerHTML=telefonoUsuario.innerHTML;
 	numero.innerHTML="85316649";
