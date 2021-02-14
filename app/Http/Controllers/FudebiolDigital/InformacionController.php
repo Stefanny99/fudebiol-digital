@@ -38,6 +38,9 @@ class InformacionController extends Controller
     public function mensajes(){
     	return view('app/MensajesView');
     }
+    public function notificaciones(){
+    	return view('app/NotificacionesView');
+    }
     
 	
 }

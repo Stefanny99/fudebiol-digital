@@ -47,7 +47,9 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 	Route::get('/introduccion', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'introduccionMAPLV'])->name('introduccion');
 	/*RUTAS DE MENSAJES*/
 	Route::get('/mensajes', [App\Http\Controllers\FudebiolDigital\InformacionController::class, 'mensajes'])->name('mensajes');
-
+	/*RUTA DE NOTIFICIONES*/
+	Route::get('/notificaciones', [App\Http\Controllers\FudebiolDigital\InformacionController::class, 'notificaciones'])->name('notificaciones');
+	
 });
 
 

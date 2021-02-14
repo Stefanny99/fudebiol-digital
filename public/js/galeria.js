@@ -134,4 +134,106 @@ function addMessage(){
 	mensajeria.appendChild(mesage);
 }
 
+function addNotification(){
+	var mensajeria= document.getElementById("contenedor_mensajesN");
+
+	var mesage= document.createElement("div");
+	mesage.className="mesageN";
+
+	var unread= document.createElement("div");
+	unread.id="unreadN";
+
+	var mesage_content= document.createElement("div");
+	mesage_content.className="mesage_contentN";
+	mesage_content.innerHTML="<h2>¡Hay una nueva adopción!</h2>";
+	// mesage_content.innerHTML=sms.innerHTML;
+
+	var mesage_data= document.createElement("div");
+	mesage_data.className="mesage_data";
+	
+
+	var a= document.createElement("label");
+	a.innerHTML="<b>A nombre de:&nbsp</b>";
+	var nombre= document.createElement("label");
+	// correo.innerHTML=correoUsuario.innerHTML;
+	nombre.innerHTML="Stefanny Barrantes Vargas";
+
+	var cedula= document.createElement("label");
+	cedula.innerHTML="<b>&nbspCédula:&nbsp</b>";
+	var numero= document.createElement("label");
+	// correo.innerHTML=correoUsuario.innerHTML;
+	numero.innerHTML="117360616";
+
+	var delArbol= document.createElement("label");
+	delArbol.innerHTML="<b>&nbspDel árbol:&nbsp</b>";
+	var arbol= document.createElement("label");
+	// correo.innerHTML=correoUsuario.innerHTML;
+	arbol.innerHTML="L2B23";
+
+	var espec= document.createElement("label");
+	espec.innerHTML="<b>&nbspEspecie:&nbsp</b>";
+	var especie= document.createElement("label");
+	// correo.innerHTML=correoUsuario.innerHTML;
+	especie.innerHTML="Manzanillo";
+
+	var coorW= document.createElement("label");
+	coorW.innerHTML="<b>&nbspCoordenada W:&nbsp</b>";
+	var w= document.createElement("label");
+	// correo.innerHTML=correoUsuario.innerHTML;
+	w.innerHTML='34"45"89';
+
+	var coorN= document.createElement("label");
+	coorN.innerHTML="<b>&nbspCoordenada N:&nbsp</b>";
+	var n= document.createElement("label");
+	// correo.innerHTML=correoUsuario.innerHTML;
+	n.innerHTML='27"49"72';
+
+	var leido= document.createElement("label");
+	leido.htmlFor="leidoN";
+	leido.innerHTML="Leído";
+
+	var leidock= document.createElement("input");
+	leidock.id="leidoN";
+	leidock.type="checkbox";
+
+	var eliminar= document.createElement("label");
+	eliminar.htmlFor="eliminarN";
+	eliminar.innerHTML="Eliminar";
+
+	var eliminarck= document.createElement("input");
+	eliminarck.id="eliminarN";
+	eliminarck.type="checkbox";
+	mesage_data.append(a,nombre,cedula,numero,delArbol,arbol,espec, especie,coorW,w,coorN,n);
+	mesage.append(unread,mesage_content,mesage_data,leido,leidock,eliminar, eliminarck);
+	mensajeria.appendChild(mesage);
+
+}
            
+
+// <div class="mesageN">
+//                     <div id="unreadN"></div>
+//                     <div class="mesage_contentN">
+//                         <H2>¡Hay una nueva adopción!</H2>
+//                     </div>
+//                     <div class="mesage_data">
+//                         <label><b>A nombre de:</b></label>
+//                         <label>Lizeth Monge Padilla</label>
+//                         <label><b>&nbspCédula:</b></label>
+//                         <label>117560371</label>
+//                         <label><b>&nbspDel árbol:</b></label>
+//                         <label>L1B13</label>
+//                         <label><b>Especie:</b></label>
+//                         <label>Guayabo</label>
+//                         <label><b>&nbspCoordenada W:</b></label>
+//                         <label>55"43"56</label>
+//                         <label><b>&nbspCoordenada N:</b></label>
+//                         <label>55"78"56</label>
+//                     </div>
+                   
+                    
+//                     <label for="leidoN">Leído</label>
+//                     <input type="checkbox" id="leidoN"> 
+//                     <label for="eliminarN">Eliminar</label>
+//                     <input type="checkbox" id="eliminarN">    
+                    
+//                </div>

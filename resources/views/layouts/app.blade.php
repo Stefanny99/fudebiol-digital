@@ -126,6 +126,10 @@
                        
                         <div class="text">Mensajes</div>
                     </a>
+                    <a href="{{ route( 'notificaciones' ) }}">
+                       
+                        <div class="text">Notificaciones</div>
+                    </a>
                   
                 </div>
           </nav>
