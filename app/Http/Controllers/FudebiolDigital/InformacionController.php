@@ -35,6 +35,9 @@ class InformacionController extends Controller
     public function sobreNosotros(){
     	return view('app/aboutUsView');
     }
+    public function mensajes(){
+    	return view('app/MensajesView');
+    }
     
 	
 }

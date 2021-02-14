@@ -78,3 +78,60 @@ var ImagenesLista = Array.prototype.slice.call(imagenes);
 
 }
 
+function addMessage(){
+	var mensajeria= document.getElementById("contenedor_mensajes");
+	var correoUsuario= document.getElementById("user_correo");
+	var telefonoUsuario= document.getElementById("user_telefono");
+	var sms= document.getElementById("comentario");
+
+	var mesage= document.createElement("div");
+	mesage.className="mesage";
+
+	var unread= document.createElement("div");
+	unread.id="unread";
+
+	var mesage_mail= document.createElement("div");
+	mesage_mail.className="mesage_mail";
+	var de= document.createElement("label");
+	de.innerHTML="De:";
+	var correo= document.createElement("label");
+	// correo.innerHTML=correoUsuario.innerHTML;
+	correo.innerHTML="lizmonge15@gmail.com";
+	mesage_mail.append(de,correo);
+
+	var phone_mail= document.createElement("div");
+	phone_mail.className="phone_mail";
+	var telefono= document.createElement("label");
+	telefono.innerHTML="Telefono:";
+	var numero= document.createElement("label");
+	// numero.innerHTML=telefonoUsuario.innerHTML;
+	numero.innerHTML="85316649";
+	phone_mail.append(telefono, numero)
+
+	var mesage_content= document.createElement("div");
+	mesage_content.className="mesage_content";
+	mesage_content.innerHTML="Hola, yuju! Esto es desde JavaScript...probando 1,2,3.."
+	// mesage_content.innerHTML=sms.innerHTML;
+
+	
+	var leido= document.createElement("label");
+	leido.htmlFor="leido";
+	leido.innerHTML="Leído";
+
+	var leidock= document.createElement("input");
+	leidock.id="leido";
+	leidock.type="checkbox";
+
+	var eliminar= document.createElement("label");
+	eliminar.htmlFor="eliminar";
+	eliminar.innerHTML="Eliminar";
+
+	var eliminarck= document.createElement("input");
+	eliminarck.id="eliminar";
+	eliminarck.type="checkbox";
+
+	mesage.append(unread,mesage_mail, phone_mail, mesage_content, leido, leidock, eliminar, eliminarck)
+	mensajeria.appendChild(mesage);
+}
+
+           

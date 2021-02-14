@@ -30,6 +30,7 @@
     <link href="{{ asset('css/registroLotes.css') }}" rel="stylesheet">
     <link href="{{ asset('css/aboutUs.css') }}" rel="stylesheet">
     <link href="{{ asset('css/arbolPorLote.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/mensajes.css') }}" rel="stylesheet">
      <link href="{{ asset('css/informacion.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet"  type="text/css" >
@@ -120,6 +121,10 @@
                     <a href="{{ route( 'verPadrino' ) }}">
                        
                         <div class="text">Registro Padrinos</div>
+                    </a>
+                    <a href="{{ route( 'mensajes' ) }}">
+                       
+                        <div class="text">Mensajes</div>
                     </a>
                   
                 </div>

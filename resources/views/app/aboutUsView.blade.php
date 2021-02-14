@@ -139,45 +139,45 @@
   
 </div> <!-- FIN DE HOME-->
 <div id="fondoAboutUs_colaboradores" >
-                <div class="tituloAU_colaboradores">
-                    <label >Nuestros representantes</label>
-                    <div id="colaboradores">
+   <div class="tituloAU_colaboradores">
+      <label >Nuestros representantes</label>
+      <div id="colaboradores">
 
-                        <div class="colaborador">
-                           <img src="{{asset('/img/jorge.png')}}">
-                           <h4>Jorge Valverde</h4>
-                           <h5>Presidente de FUDEBIOL</h5>
+         <div class="colaborador">
+            <img src="{{asset('/img/jorge.png')}}">
+            <h4>Jorge Valverde</h4>
+            <h5>Presidente de FUDEBIOL</h5>
 
-                        </div>
+         </div>
 
-                        <div class="colaborador">
-                           <img src="{{asset('/img/gilberth.jpg')}}">
-                           <h4>Gilberth Fallas</h4>
-                           <h5>Vicepresidente de FUDEBIOL</h5>
+         <div class="colaborador">
+            <img src="{{asset('/img/gilberth.jpg')}}">
+            <h4>Gilberth Fallas</h4>
+            <h5>Vicepresidente de FUDEBIOL</h5>
 
-                        </div>
+         </div>
 
-                        </div>
-                  </div>
-                </div>
-            </div>
-            <div class="home"><!--Segundo Home--> 
-            <h1 id="txt_colaboradores">¡Envíanos tus dudas o comentarios!</h1>
-               <img id="flecha" src="{{ asset('/img/felcha.png')}}">
-             <div id="caja3">
-                <div id="caja2" >
-                  <form id="caja_comentario">
-                     <label id="user_correo">Tu correo electrónico:</label>
-                     <input type="text">
-                     <label id="user_telefono">Número de teléfono:</label>
-                     <input type="text">
-                     <label>Tu comentario:</label>
-                     <textarea id="comentario"></textarea>
-                     <button id="btn_send">Enviar</button>
-                  </form>
-                  </div>
-               </div>
-            </div><!-- cierre Segundo Home-->    
+      </div>
+   </div>
+</div>
+</div>
+<div class="home"><!--Segundo Home--> 
+<h1 id="txt_colaboradores">¡Envíanos tus dudas o comentarios!</h1>
+   <img id="flecha" src="{{ asset('/img/felcha.png')}}">
+   <div id="caja3">
+      <div id="caja2" >
+      <form id="caja_comentario">
+         <label >Tu correo electrónico:</label>
+         <input id="user_correo" type="text">
+         <label >Número de teléfono:</label>
+         <input id="user_telefono" type="text">
+         <label>Tu comentario:</label>
+         <textarea id="comentario"></textarea>
+         <button id="btn_send">Enviar</button>
+      </form>
+      </div>
+   </div>
+</div><!-- cierre Segundo Home-->    
         </div>
     </div>
 @endsection
