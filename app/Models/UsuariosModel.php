@@ -33,9 +33,10 @@ class UsuariosModel extends Model {
             "accion" => "eliminarUsuarios"
         );
         try{
-            DB::table('users')->whereIn('id', $request->input('id'))->delete();
+            DB::table('users')->whereIn('id', $request->input('ids'))->delete();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }
@@ -70,14 +71,17 @@ class UsuariosModel extends Model {
             "accion" => "editarUsuario"
         );
         try{
-            DB::table('users')->where('id',$request->input('id'))->update([
+            $user_data = array(
                 'name' => $request->input('name'),
                 'username' => $request->input('username'),
                 'email' => $request->input('email'),
-                'password' => Hash::make($request->input('password')),
                 'role' => $request->input('role'),
                 'updated_at' => date('Y-m-d H:i:s')
-            ]);
+            );
+            if ( $request->has( "password" ) && strlen( trim( $request->input( "password" ) ) ) > 0 ){
+                $user_data[ 'password' ] = Hash::make( $request->input( 'password' ) );
+            }
+            DB::table('users')->where('id',$request->input('id'))->update( $user_data );
         }catch(Exception $e){
             $data['codigo'] = Util::$codigos[ "ERROR_DE_ACTUALIZACION" ];
         }

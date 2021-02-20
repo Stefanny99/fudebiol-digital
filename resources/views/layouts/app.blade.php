@@ -14,6 +14,7 @@
     <script src="{{ asset('js/common-script.js') }}"></script>
     <script src="{{ asset('js/main-script.js') }}"></script>
     <script src="{{ asset('js/galeria.js') }}"></script>
+    <script src="{{ asset('js/mantenimiento-usuarios.js') }}"></script>
     <script src="{{ asset('js/select.js') }}"></script>
 
     <!-- Fonts -->

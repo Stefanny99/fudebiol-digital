@@ -31,38 +31,51 @@ class UsuariosController extends Controller{
     }
 
 	public function editarUsuario( Request $data ){
-		$validator = Validator::make( $data->all(), [
-			'name' => [ 'required', 'string', 'max:255' ],
-			'username' => [ 'required', 'string', 'max:15','unique:users' ],
-			'email' => [ 'required', 'string', 'email', 'max:255', 'unique:users' ],
-			'role' => [ 'required', 'string', 'max:1' ],
-			'password' => [ 'required', 'string', 'min:8', 'confirmed' ],
-		]);
-		if ( $validator->fails() ){
-			return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $data->input() );
-		}else if ( !$data->has( "id" ) ){
-			$model = new UsuariosModel();
-			$result = $model->crearUsuario( $data );
-			if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-				return redirect()->back()->with( "errores", array(
-					$result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
-				) );
+		if ( !$data->has( "id" ) || $data->input( "id" ) <= 0 ){
+			$validator = Validator::make( $data->all(), [
+				'name' => [ 'required', 'string', 'max:255' ],
+				'username' => [ 'required', 'string', 'max:15','unique:users' ],
+				'email' => [ 'required', 'string', 'email', 'max:255', 'unique:users' ],
+				'role' => [ 'required', 'string', 'max:1' ],
+				'password' => [ 'required', 'string', 'min:8', 'confirmed' ],
+			]);
+			if ( $validator->fails() ){
+				return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $data->input() );
 			}else{
-				return redirect()->back()->with( "mensajes", array(
-					"Usuario insertado exitosamente"
-				) );
+				$model = new UsuariosModel();
+				$result = $model->crearUsuario( $data );
+				if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+					return redirect()->back()->with( "errores", array(
+						$result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
+					) );
+				}else{
+					return redirect()->back()->with( "mensajes", array(
+						"Usuario insertado exitosamente"
+					) );
+				}
 			}
 		}else{
-			$model = new UsuariosModel();
-			$result = $model->editarUsuario( $data );
-			if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-				return redirect()->back()->with( "errores", array(
-					$result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
-				) );
+			$validator = Validator::make( $data->all(), [
+				'name' => [ 'required', 'string', 'max:255' ],
+				'username' => [ 'required', 'string', 'max:15' ],
+				'email' => [ 'required', 'string', 'email', 'max:255' ],
+				'role' => [ 'required', 'string', 'max:1' ],
+				'password' => [ 'nullable', 'string', 'min:8', 'confirmed' ],
+			]);
+			if ( $validator->fails() ){
+				return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $data->input() );
 			}else{
-				return redirect()->back()->with( "mensajes", array(
-					"Usuario actualizado exitosamente"
-				) );
+				$model = new UsuariosModel();
+				$result = $model->editarUsuario( $data );
+				if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+					return redirect()->back()->with( "errores", array(
+						$result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
+					) );
+				}else{
+					return redirect()->back()->with( "mensajes", array(
+						"Usuario actualizado exitosamente"
+					) );
+				}
 			}
 		}
 	}
