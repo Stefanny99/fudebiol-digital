@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'FUDEBIOL DIGITAL') }}</title>
+    <title>{{ config('', 'FUDEBIOL DIGITAL') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -113,15 +113,15 @@
                     </a>
                     <a href="{{ route( 'registrarArbol',1 ) }}">
                        
-                        <div class="text">Registro Especies</div>
+                        <div class="text">Reg.Especies</div>
                     </a>
                     <a href="{{ route( 'registrarLote' ) }}">
                        
-                        <div class="text">Registro Lotes</div>
+                        <div class="text">Reg.Lotes</div>
                     </a>
                     <a href="{{ route( 'verPadrino' ) }}">
                        
-                        <div class="text">Registro Padrinos</div>
+                        <div class="text">Reg.Padrinos</div>
                     </a>
                     <a href="{{ route( 'mensajes' ) }}">
                        

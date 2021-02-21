@@ -32,6 +32,9 @@ class PublicacionesController extends Controller
     public function publicaciones(){
     	return view('app/PublicacionesView');
     }
+    public function editorPublicaciones(){
+    	return view('app/EditorPublicacionesView');
+    }
 
     
      

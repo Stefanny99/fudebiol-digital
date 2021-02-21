@@ -3,13 +3,6 @@
 @section('content')
     <div id="body_home">     
         <div id="contenido">
-          
-            <!-- <div id="fondoPub" >
-                <div class="titulo tituloPub">
-                    <label>Publicaciones</label>
-                    
-                </div>
-            </div> -->
             <div class="home publicacion-fondo">
                 <div id="contenedor-publicaciones">
                     <div class="publicacion-base">

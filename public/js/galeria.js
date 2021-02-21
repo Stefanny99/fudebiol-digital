@@ -250,9 +250,7 @@ function nextImage2(){
 							 break;
 						}
 	
-					}
-	
-	
+					}	
 	}
 	
 	function prevImage2(){
@@ -272,31 +270,3 @@ function nextImage2(){
 	
 	}
            
-
-// <div class="mesageN">
-//                     <div id="unreadN"></div>
-//                     <div class="mesage_contentN">
-//                         <H2>¡Hay una nueva adopción!</H2>
-//                     </div>
-//                     <div class="mesage_data">
-//                         <label><b>A nombre de:</b></label>
-//                         <label>Lizeth Monge Padilla</label>
-//                         <label><b>&nbspCédula:</b></label>
-//                         <label>117560371</label>
-//                         <label><b>&nbspDel árbol:</b></label>
-//                         <label>L1B13</label>
-//                         <label><b>Especie:</b></label>
-//                         <label>Guayabo</label>
-//                         <label><b>&nbspCoordenada W:</b></label>
-//                         <label>55"43"56</label>
-//                         <label><b>&nbspCoordenada N:</b></label>
-//                         <label>55"78"56</label>
-//                     </div>
-                   
-                    
-//                     <label for="leidoN">Leído</label>
-//                     <input type="checkbox" id="leidoN"> 
-//                     <label for="eliminarN">Eliminar</label>
-//                     <input type="checkbox" id="eliminarN">    
-                    
-//                </div>
