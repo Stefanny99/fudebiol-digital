@@ -69,38 +69,16 @@ class ArbolesModel extends Model {
                     'fa_bolsas' => $request->input('fa_bolsas'),
                     'fa_elevacion_minima' => $request->input('fa_elevacion_minima'),
                     'fa_elevacion_maxima' => $request->input('fa_elevacion_maxima'),
+                    'fa_imagen_formato' => $request->file( 'imagen' )->extension(),
                 ]);
-                if ( $request->hasFile( 'imagenes' ) ){
-                    foreach ( $request->file( "imagenes" ) as $imagen ){
-                        try{
-                            $imagen_id = DB::table( 'fudebiol_arboles_img' )->insertGetId( array(
-                                "fai_arbol_id" => $arbol_id,
-                                "fai_formato" => $imagen->extension()
-                            ) );
-                            try{
-                                $imagen->storeAs( "public/img/fudebiol_arboles_img", $imagen_id . '.' . $imagen->extension() );
-                            }catch ( Exception $e ){
-                                $data[ "codigo" ] = Util::$codigos[ "ERROR_AL_SUBIR_ARHIVO" ];
-                                $data[ "razon" ] = "Ocurrió un error al subir la imagen " . $imagen->getClientOriginalName();
-                                Log::error( $e->getMessage(), $data );
-                                DB::rollBack();
-                                break;
-                            }
-                        }catch ( Exception $e ){
-                            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_INSERCION" ];
-                            $data[ "razon" ] = "Ocurrió un error al guardar la imagen " . $imagen->getClientOriginalName();
-                            Log::error( $e->getMessage(), $data );
-                            DB::rollBack();
-                            break;
-                        }
-                    }
-                    if ( $data[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-                        DB::rollBack();
-                    }else{
-                        DB::commit();
-                    }
-                }else{
+                try{
+                    $request->file( 'imagen' )->storeAs( "public/img/fudebiol_arboles_img", $arbol_id . '.' . $request->file( 'imagen' )->extension() );
                     DB::commit();
+                }catch ( Exception $e ){
+                    $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
+                    $data[ "razon" ] = "Ocurrió un error al subir la imagen " . $imagen->getClientOriginalName();
+                    Log::error( $e->getMessage(), $data );
+                    DB::rollBack();
                 }
             } catch (Exception $e) {
                 $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
@@ -130,70 +108,28 @@ class ArbolesModel extends Model {
                     'fa_jiffys' => $request->input('fa_jiffys'),
                     'fa_bolsas' => $request->input('fa_bolsas'),
                     'fa_elevacion_minima' => $request->input('fa_elevacion_minima'),
-                    'fa_elevacion_maxima' => $request->input('fa_elevacion_maxima'), 
+                    'fa_elevacion_maxima' => $request->input('fa_elevacion_maxima'),
+                    'fa_imagen_formato' => $request->file( "imagen" )->extension(),
                 ]);
-                if ( $request->has( "imagenes_eliminadas" ) ){
+                if ( $request->hasFile( 'imagen' ) ){
                     try{
-                        $imagenes = DB::table( "fudebiol_imagenes" )->wehereIn( 'fa_id', $request->input( "imagenes_eliminadas" ) )->get();
-                        if ( count( $imagenes ) > 0 ){
+                        $request->file( 'imagen' )->storeAs( "public/img/fudebiol_arboles_img", $arbol_id . '.' . $request->file( 'imagen' )->extension() );
+                        DB::commit();
+                        if ( $request->file( 'imagen' )->extension() != $request->input( 'fa_imagen_formato' ) ){
                             try{
-                                DB::table( "fudebiol_imagenes" )->wehereIn( "fa_id", $request->input( "imagenes_eliminadas" ) )->delete();
-                                try{
-                                    foreach ( $imagenes as $imagen ){
-                                        Storage::delete( "public/img/fudebiol_arboles_img/" . $imagen->FA_ID . $imagen->FA_FORMATO );
-                                    }
-                                }catch ( Exception $e ){
-                                    $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO_ARCHIVO" ];
-                                    $data['razon'] = "Ocurrió un error al eliminar los archivos de imágenes";
-                                    Log::error( $e->getMessage(), $data );
-                                    DB::rollBack();
-                                }
+                                Storage::delete( "public/img/fudebiol_arboles_img/" . $request->input( 'fa_id' ) . "." . $request->input( 'fa_imagen_formato' ) );
                             }catch ( Exception $e ){
-                                $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
-                                $data['razon'] = "Ocurrió un error al eliminar las imágenes";
-                                Log::error( $e->getMessage(), $data );
-                                DB::rollBack();
+                                Log::error( $e->getMessage(), array(
+                                    'codigo' => Util::$codigos[ "ERROR_ELIMINANDO_ARCHIVO" ],
+                                    'razon' => "Ocurrió un error al eliminar la imagen 'public/img/fudebiol_arboles_img/" . $request->input( 'fa_id' ) . "." . $request->input( 'fa_imagen_formato' ) . "'",
+                                ) );
                             }
                         }
-                    }catch ( Exception $e ){
-                        $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
-                        $data['razon'] = "Ocurrió un error al eliminar las imágenes";
+                    }catch( Exception $e ){
+                        $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
+                        $data[ "razon" ] = "Ocurrió un error al subir la imagen " . $imagen->getClientOriginalName();
                         Log::error( $e->getMessage(), $data );
                         DB::rollBack();
-                    }
-                }
-                if ( $data[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-                    if ( $request->hasFile( 'imagenes' ) ){
-                        foreach ( $request->file( "imagenes" ) as $imagen ){
-                            try{
-                                $imagen_id = DB::table( 'fudebiol_arboles_img' )->insertGetId( array(
-                                    "fai_arbol_id" => $arbol_id,
-                                    "fai_formato" => $imagen->extension()
-                                ) );
-                                try{
-                                    $imagen->storeAs( "public/img/fudebiol_arboles_img", $imagen_id . '.' . $imagen->extension() );
-                                }catch ( Exception $e ){
-                                    $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
-                                    $data[ "razon" ] = "Ocurrió un error al subir la imagen " . $imagen->getClientOriginalName();
-                                    Log::error( $e->getMessage(), $data );
-                                    DB::rollBack();
-                                    break;
-                                }
-                            }catch ( Exception $e ){
-                                $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_INSERCION" ];
-                                $data[ "razon" ] = "Ocurrió un error al guardar la imagen " . $imagen->getClientOriginalName();
-                                Log::error( $e->getMessage(), $data );
-                                DB::rollBack();
-                                break;
-                            }
-                        }
-                        if ( $data[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-                            DB::rollBack();
-                        }else{
-                            DB::commit();
-                        }
-                    }else{
-                        DB::commit();
                     }
                 }
             } catch (Exception $e) {

@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="body_home">     
-        <div id="contenido"> 
+        <div id="contenido">
           <div id="fondo" >
                 <div class="titulo tituloRA">
                     <img id="logoMAPLV" src="{{asset('img/maplv.png')}}">
@@ -44,9 +44,9 @@
               </form>  
 
               <div id="tabla" class="hvr-forward container-fluid">
-                <form id="buscador" accion="{{route('registrarArbol', $pagina)}}" method="post">
-                    <input type="text" name="buscar" placeholder="Buscar una especie">
-                    <button  class="btn_buscar"><i class="fas fa-search"></i></button>
+                <form id="buscador" action="{{route('registrarArbol', 1)}}" method="get">
+                    <input type="text" name="buscar" placeholder="Buscar una especie" value="{{ $buscar }}">
+                    <button type="submit" class="btn_buscar"><i class="fas fa-search"></i></button>
                 </form>
                 <table id="tablaArboles">
                 <caption>Especies registradas</caption>
@@ -82,10 +82,10 @@
                 </table>
                 <div id="botonesEdicionArboles">
                     <button class="btn_arboles"><i class="far fa-save"></i></button>
-                    <div id="paginacion">
-                      <a class="btn_pag" href=" {{ route('registrarArbol', $pagina-1 )}}"> <i class="fas fa-backward"></i> </a>
-                      <a class="btn_pag" href="{{ route('registrarArbol', $pagina+1 )}}" > <i class="fas fa-forward"></i> </a>
-                    </div>
+                    <form id="paginacion" >
+                      <a class="btn_pag" href="{{ route('registrarArbol', max( 1, $pagina - 1 ) ) }}?buscar={{ $buscar }}"> <i class="fas fa-backward"></i> </a>
+                      <a class="btn_pag" href="{{ route('registrarArbol', $pagina + ( count( $arboles ) == 8 ) ) }}?buscar={{ $buscar }}" > <i class="fas fa-forward"></i> </a>
+                    </form>
                 </div>
             </div>
           </div>

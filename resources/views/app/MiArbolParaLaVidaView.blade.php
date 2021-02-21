@@ -6,7 +6,7 @@
             <div id="fondoMAPLV" >
                 <div class="titulo tituloMAPLV">
                    
-                    <img id="logoMAPLV" src="img/maplv.png">
+                    <img id="logoMAPLV" src="{{ asset( 'img/maplv.png' ) }}">
                     <label >MI ÁRBOL PARA LA VIDA</label>
                   
                     <a href="#salto" id="jumpTo">Adoptar un árbol</a>
@@ -17,7 +17,7 @@
                 <div class="seccionAV">
                     
                     <div class="subseccionAV">
-                        <img class="img_derechaAV img-responsive" src="/img/b1.jpg">
+                        <img class="img_derechaAV img-responsive" src="{{ asset( '/img/b1.jpg' ) }}">
                         <div id="home_textoAV" class="container-fluid">
                             <label class="welcome_right">¿Qué es mi árbol para la vida?</label>
                             <p class="contenidotextual"> La fundación para el desarrollo biológico de las quebradas FUDEBIOL de Pérez Zeledón,
@@ -37,7 +37,7 @@
                                   micro cuenca del río Quebradas.
                             </p>      
                         </div>
-                            <img class="img_izquierdaAV img-responsive" src="/img/b2.jpg">
+                            <img class="img_izquierdaAV img-responsive" src="{{ asset( '/img/b2.jpg' ) }}">
                             
                         
                         
@@ -46,7 +46,7 @@
                 </div>
                 <div class="seccionAV">
                     <div class="subseccionAV">
-                        <img class="img_derechaAV img-responsive" src="/img/b3.jpg">
+                        <img class="img_derechaAV img-responsive" src="{{ asset( '/img/b3.jpg' ) }}">
                         <div id="home_textoAV" class="container-fluid">
                             <label class="welcome_right">Beneficios al adoptar un árbol</label>
                             <p class="contenidotextual"> 
@@ -67,17 +67,17 @@
                  <div id="row">
                     
                     <div class="inner">
-                    <img class="img-responsive" src="/img/b10.jpg" alt="image" data-descripcion="Sembramos estos árboles con todo el corazón por un mejor mundo." onclick="mostrarFoto(this);" />
+                    <img class="img-responsive" src="{{ asset( '/img/b10.jpg' ) }}" alt="image" data-descripcion="Sembramos estos árboles con todo el corazón por un mejor mundo." onclick="mostrarFoto(this);" />
                     </div>
                     
                     <div class="inner">
-                        <img src="/img/b12.jpg" class="img-responsive"  data-descripcion="Siéntete de la mano con la naturaleza" alt="image" onclick="mostrarFoto(this);" /> 
+                        <img src="{{ asset( '/img/b12.jpg' ) }}" class="img-responsive"  data-descripcion="Siéntete de la mano con la naturaleza" alt="image" onclick="mostrarFoto(this);" /> 
                     </div>
                     <div class="inner">
-                        <img src="/img/b13.jpg" class="img-responsive"  alt="image" data-descripcion="Ún sitio siempre verde.." onclick="mostrarFoto(this);"/>
+                        <img src="{{ asset( '/img/b13.jpg' ) }}" class="img-responsive"  alt="image" data-descripcion="Ún sitio siempre verde.." onclick="mostrarFoto(this);"/>
                     </div>
                     <div class="inner">
-                        <img src="/img/b14.jpg" class="img-responsive"  alt="image" data-descripcion="Un ambiente de paz..."  onclick="mostrarFoto(this);"/>
+                        <img src="{{ asset( '/img/b14.jpg' ) }}" class="img-responsive"  alt="image" data-descripcion="Un ambiente de paz..."  onclick="mostrarFoto(this);"/>
                     </div>
                 </div>
             
