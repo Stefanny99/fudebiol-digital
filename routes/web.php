@@ -49,7 +49,9 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 	Route::get('/mensajes', [App\Http\Controllers\FudebiolDigital\InformacionController::class, 'mensajes'])->name('mensajes');
 	/*RUTA DE NOTIFICIONES*/
 	Route::get('/notificaciones', [App\Http\Controllers\FudebiolDigital\InformacionController::class, 'notificaciones'])->name('notificaciones');
-	
+	/*RUTA DE PUBLICACIONES*/
+	Route::get('/editorPublicaciones', [App\Http\Controllers\FudebiolDigital\PublicacionesController::class, 'editorPublicaciones'])->name('editorPublicaciones');
+
 });
 
 
