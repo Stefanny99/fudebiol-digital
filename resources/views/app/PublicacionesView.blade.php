@@ -4,6 +4,7 @@
     <div id="body_home">     
         <div id="contenido">
             <div class="home publicacion-fondo">
+                <a href="{{route('editorPublicaciones')}}" class="crear-publicacion">Crear una nueva publicación</a>
                 <div id="contenedor-publicaciones">
                     <div class="publicacion-base">
                         <div class="publicacion-encabezado">
