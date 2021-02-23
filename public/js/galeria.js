@@ -216,6 +216,7 @@ function mostrarFotoSinDescripcion(foto){
 	contenedor2.id="contenedor2";
 	var imagen=document.createElement("img");
 	imagen.id="foto";
+	imagen.setAttribute("data-id", 1);
 	imagen.src=foto.src;
 	var botones= document.createElement("div");
 	botones.id="botones";
@@ -241,7 +242,7 @@ function mostrarFotoSinDescripcion(foto){
 function nextImage2(){
 	var contImg=document.getElementById("foto");
 	var imagen=contImg.src;
-	var imagenes=document.getElementById("publicacion-imagenes").getElementsByTagName("img");
+	var imagenes=document.getElementById("publicacion-imagenes-"+contImg.getAttribute("data-id")).getElementsByTagName("img");
 	var ImagenesLista = Array.prototype.slice.call(imagenes);
 					for(let i = 0; i < imagenes.length; i++)
 					{
@@ -256,7 +257,7 @@ function nextImage2(){
 	function prevImage2(){
 	var contImg=document.getElementById("foto");
 	var imagen=contImg.src;
-	var imagenes=document.getElementById("publicacion-imagenes").getElementsByTagName("img");
+	var imagenes=document.getElementById("publicacion-imagenes-"+contImg.getAttribute("data-id")).getElementsByTagName("img");
 	var ImagenesLista = Array.prototype.slice.call(imagenes);
 					for(let i = 0; i < imagenes.length; i++)
 					{

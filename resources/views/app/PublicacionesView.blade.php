@@ -19,7 +19,7 @@
                         respirar aire fresco, recuerda que ahora abrimos de 7am a 3pm, sábados 
                         y domingos. Los esperamos!
                         </div>
-                        <div id="publicacion-imagenes">
+                        <div id="publicacion-imagenes" class="publicacion-imagenes">
                             <div class="inner"  >
                                 <img class="img-responsive" src="/img/fude1.jpg" alt="image"   onclick="mostrarFotoSinDescripcion(this);" />
                             </div>
@@ -46,7 +46,7 @@
                         respirar aire fresco, recuerda que ahora abrimos de 7am a 3pm, sábados 
                         y domingos. Los esperamos!
                         </div>
-                        <div id="publicacion-imagenes">
+                        <div id="publicacion-imagenes" class="publicacion-imagenes">
                             <div class="inner"  >
                                 <img class="img-responsive" src="/img/fude4.jpg" alt="image"   onclick="mostrarFotoSinDescripcion(this);" />
                             </div>
@@ -60,7 +60,7 @@
                         </div>
                         
                     </div>
-                    <div class="publicacion-base">
+                    <div class="publicacion-base" class="publicacion-imagenes">
                         <div class="publicacion-encabezado">
                             <img class="publicacion-logo" src="{{ asset('/img/logo.jpg')}}">
                             <div class="titulo-fecha">
@@ -73,16 +73,16 @@
                         respirar aire fresco, recuerda que ahora abrimos de 7am a 3pm, sábados 
                         y domingos. Los esperamos!
                         </div>
-                        <div id="publicacion-imagenes">
+                        <div id="publicacion-imagenes-1" class="publicacion-imagenes">
                             <div class="inner"  >
-                                <img class="img-responsive" src="/img/b11.jpg" alt="image"   onclick="mostrarFotoSinDescripcion(this);" />
+                                <img class="img-responsive" data-id="1" src="/img/b11.jpg" alt="image"   onclick="mostrarFotoSinDescripcion(this);" />
                             </div>
                             <div class="inner">
-                                <img class="img-responsive" src="/img/b10.jpg" alt="image" onclick="mostrarFotoSinDescripcion(this);" />
+                                <img class="img-responsive" data-id="1" src="/img/b10.jpg" alt="image" onclick="mostrarFotoSinDescripcion(this);" />
                             </div>
                             
                             <div class="inner">
-                                <img class="img-responsive"  src="/img/b8.jpg"  alt="image" onclick="mostrarFotoSinDescripcion(this);" />
+                                <img class="img-responsive" data-id="1" src="/img/b8.jpg"  alt="image" onclick="mostrarFotoSinDescripcion(this);" />
                             </div>       
                         </div>
                         
