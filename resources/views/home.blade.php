@@ -13,10 +13,39 @@
                 </div>
             </div>
             <div class="home">
+                <!-- -------------------------------------------------------------------------------------------- -->
+                <div style="height: 400px; width: 700px">
+                    <div id="mapid" style="height: 400px; width: 700px; z-index: 10"></div>
+                </div>
+                <script>
+                var lat = 9+(26/60)+(35.5/3600);
+                var long = -(83+(41/60)+(31.1/3600));
+                    var mymap = L.map('mapid').setView([lat, long], 16);
+                    L.tileLayer("http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}", {
+                        minZoom: 2,
+                        maxZoom: 20,
+                        subdomains:['mt0','mt1','mt2','mt3'],
+                        attribution:
+                            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    }).addTo(mymap);
+                    const mIcon = L.icon({
+                    iconUrl: 'img/lote.png',
+                    iconSize: [35, 35],
+                    });
+                    var marker = new L.Marker([9.4374409, -83.6909455], { draggable: true, icon: mIcon });
+                    mymap.addLayer(this.marker);
+                    var popup = L.popup().setContent(lat + " , " + long);
+
+                    marker.bindPopup(popup).openPopup();
+                    marker.on('dragend', function (e) {
+                        lat = marker.getLatLng().lat;
+                        long = marker.getLatLng().lng;
+                        console.log(marker.getLatLng().lat, marker.getLatLng().lng);
+                    });
+                </script> 
+                <!-- -------------------------------------------------------------------------------------------- -->
                 <div class="seccion" >
                 <label class="welcome_left">Bienvenidos a FUDEBIOL</label>
-
-
                 <div class="subseccion">
                      <div id="home_texto">El Centro Biológico Las Quebradas, situado a 136 kilómetros al sur de San José, es una reserva natural comunal administrada por FUDEBIOL. Se ubica en la cuenca del Río San Isidro cuya altitud esta entre los 1100 y los 2400 m.s.n.m. formando parte de las estribaciones de la Cordillera de Talamanca, sector Pacífico.
 
