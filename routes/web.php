@@ -2,17 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 /*RUTAS DE AUTENTICACIÓN*/
 Auth::routes();
 
@@ -38,7 +27,9 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 	Route::get('/registrarPadrino', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'registrarPadrinos'])->name('registrarPadrino');
 
 	/*RUTAS DEMANTENIMIENTO DE LOTES*/
-	Route::get('/registrarLote', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'mantenimientoLotes'])->name('registrarLote');
+	Route::get( 'lotes', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'mantenimientoLotes'] )->name( 'lotes' );
+	Route::post('/editarLote', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'editarLote'])->name('editarLote');
+	Route::post('/eliminarLotes', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'eliminarLotes'])->name('eliminarLotes');
 
 	Route::get('/arboles', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'arbolesPorLote'])->name('arboles');
 
