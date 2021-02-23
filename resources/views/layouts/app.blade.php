@@ -11,11 +11,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/common-script.js') }}"></script>
-    <script src="{{ asset('js/main-script.js') }}"></script>
     <script src="{{ asset('js/galeria.js') }}"></script>
     <script src="{{ asset('js/mantenimiento-usuarios.js') }}"></script>
-    <script src="{{ asset('js/select.js') }}"></script>
+    <script src="{{ asset('js/publicaciones.js') }}"></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

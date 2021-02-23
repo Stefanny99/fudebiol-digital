@@ -1,17 +1,4 @@
-#fondoPub{
-    background-image: url('/img/landscape.jpg');
-   background-repeat: no-repeat;
-   background-size: 100%;
-}
 
-.tituloPub{
-display:flex;
-justify-content: center !important;
-align-items:center !important;
-padding-top:35vh !important;
-padding-bottom:35vh !important;
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,209,189,0.8267682072829132) 49%, rgba(0,206,255,0.5466561624649859) 100%);
-}
 .publicacion-base{
     background-color: white;
     padding:4%;
@@ -41,14 +28,15 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,209,189,0.826768207
     text-align:left;
 
 }
-.publicacion-titulo{
+#publicacion-titulo{
     font-size:1.5rem;
+    font-weight: bold;
 }
 .publicacion-fecha{
     color:gray;
 
 }
-.publicacion-descripcion{
+#publicacion-descripcion{
     margin-top: 4%;
     text-align: justify;
 
@@ -64,10 +52,9 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,209,189,0.826768207
 }
 
 .publicacion-fondo{
-   
     background-image: url('/img/lbg.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
 }
 #contenedor-publicaciones{
     margin-top:20px;
@@ -152,7 +139,7 @@ outline:none;
     background-color: rgb(4, 155, 79);
 
 }
-#vista-previa:hover, #guardar-publicacion:hover{
+#vista-previa:hover, #guardar-publicacion:hover,#agregar-fotos:hover{
     transition:0.1s;
     box-shadow: 0px 0px 5px gray;
 }
@@ -176,4 +163,27 @@ outline:none;
     background-color:rgba(0,0,0,0.5);
     color:white;
     border-radius:25px;
+}
+.container-style{
+    border-radius: 10px;
+    overflow: hidden;
+    padding-left:10px;
+    outline:none;
+    border: 1px solid gray;
+}
+.image-preview{
+width:5vw;
+height:5vw;
+margin-left:5px;
+margin-bottom: 5px;
+}
+#vista-previa-fotos{
+    height:20vh;
+    width:20vw;
+    overflow: auto;
+    margin-top:3%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:center;
 }
