@@ -32,7 +32,7 @@
     font-size:1.5rem;
     font-weight: bold;
 }
-.publicacion-fecha{
+#publicacion-fecha{
     color:gray;
 
 }
@@ -82,11 +82,11 @@
 /*Editor de publicaciones*/
 .editor-base{
     display:flex;
-    flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
 }
 .editor-herramientas{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     padding:2%;
     display: flex;
     flex-direction: column;
@@ -121,22 +121,18 @@
     margin-bottom: 20px;
 }
 #vista-previa, #guardar-publicacion{
-margin-left: auto;
-margin-right: auto;
 border-radius: 10px;
-height:3vw;
 color:white;
-width:100%;
 border:none;
 outline:none;
+width:18vh;
+height:6vh;
 }
 #vista-previa{
     background-color: rgb(17, 116, 182);
-    margin-top: 50px;
-    margin-bottom: 30px;
 }
 #guardar-publicacion{
-    
+    margin-left: 2%;
     background-color: rgb(4, 155, 79);
 
 }
@@ -200,4 +196,36 @@ margin-bottom: 5px;
     position: relative;
     left:13vh;
     bottom:6vh;
+}
+.editor-fondo{
+    background-image: url('/img/lbg.jpg');
+}
+.content-row{
+    margin-top: 2%;
+    width:100%;
+   display: flex;
+   align-items: center;
+   justify-content:center;
+}
+.editor-titulo{
+    margin-left: auto;
+    margin-right: auto;
+    width:100%;
+    color:white;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(0,0,0,0.3407738095238095) 19%, rgba(2, 50, 197, 0.342) 100%);
+     
+    /* border-radius: 0% 0% 50% 50%; */
+    box-shadow: 0px 0px 15px black;
+    margin-bottom: 2%;
+    padding:2%;
+}
+
+.editor-mascara{
+
+    background: rgb(0,167,67);
+    /* background: radial-gradient(circle, rgba(0,167,67,0.8071603641456583) 0%, rgba(0,51,201,0.6362920168067228) 100%);    padding-bottom: 2%; */
+    /* background: linear-gradient(90deg, rgba(0,0,0,0.5407738095238095) 19%, rgba(2, 207, 197, 0.642) 100%); */
+    background: linear-gradient(90deg, rgba(0,0,0,0.6407738095238095) 19%, rgba(2, 50, 197, 0.742) 100%);
+     padding-bottom:2%;
 }

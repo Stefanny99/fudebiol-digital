@@ -38,7 +38,7 @@
             <input type="text" id="columnas_lote" name="fl_columnas">
 
             <div id="botonRL">
-              <button type="submit" class="btn_registrarRL">Guardar</button>
+              <button type="submit" class="btn_guardar">Guardar</button>
               <button type="button" class="btn_limpiar" onclick="limpiarLote();">Limpiar</button>
             </div>
           </form> 

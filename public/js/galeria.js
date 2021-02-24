@@ -216,7 +216,7 @@ function mostrarFotoSinDescripcion(foto){
 	contenedor2.id="contenedor2";
 	var imagen=document.createElement("img");
 	imagen.id="foto";
-	imagen.setAttribute("data-id", 1);
+	imagen.setAttribute("data-id", getAttribute("data-id"));
 	imagen.src=foto.src;
 	var botones= document.createElement("div");
 	botones.id="botones";

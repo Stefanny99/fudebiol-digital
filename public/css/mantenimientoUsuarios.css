@@ -60,18 +60,18 @@ background-color: transparent;
 	bottom:5px;
 	width:60vw;
 	box-shadow: 0px 16px 20px rgba(0,0,0,0.7);
-	background:rgba(4, 192, 4, 0.5);
+	background:rgba(4, 192, 4, 0.2);
 	padding: 10px 0px 10px 0px;
 	z-index: 7;
 	border-radius: 0px 0px 20px 20px;
 }
 
-.btn_guardar, .btn_limpiar{ 
+.btn_guardar, .btn_limpiar, .btn_eliminarUsuario{ 
 
 	margin: auto;
 	cursor: pointer;
 	height: 5vh;
-	width: 20vh;
+	width: 14vh;
 	border:none;
 	border-radius: 5px;
 	background: rgb(4, 192, 4);
@@ -84,22 +84,31 @@ background-color: transparent;
 	border-style: none!important;
 
 }
-
-.btn_limpiar{
-	background: rgb(207, 62, 50);
+.btn_eliminarUsuario{
+	
+	background: rgb(207, 62, 50)!important;
 }
 
+.btn_limpiar{
+	background: rgb(50, 136, 207)!important;
+	margin-left: 5px;
+}
+.botones{
+	display:flex;
+	margin-top: 20px;
+	flex-direction:row;
+}
 .crecer{
 	font-size: 3.5vh !important;
 }
 
-.btn_guardar:hover, .btn_limpiar:hover,.btn_eliminar:hover, .btn_editar:hover  {
+.btn_guardar:hover, .btn_limpiar:hover,.btn_eliminar:hover, .btn_editar:hover, .btn_limpiar:hover,.btn_eliminarUsuario:hover  {
 transition: 0.2s;
 transform: translateY(-3px);
 box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
 }
  
-.btn_guardar:active, .btn_limpiar:active, .btn_eliminar:active, .btn_editar:active {
+.btn_guardar:active, .btn_limpiar:active, .btn_eliminar:active, .btn_editar:active, .btn_limpiar:active, .btn_eliminarUsuario:active {
 transition: 0,2s;
 transform: translateY(-1px);
 box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);

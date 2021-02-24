@@ -73,7 +73,8 @@
 	}
 	.btn_registrarRL{
 	cursor: pointer;
-	width: 20vh;
+	width: 14vh;
+	height:5vh;
 	background: rgba(0,92,152);
 	color:white;
 	font-size: 2.5vh;

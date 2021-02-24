@@ -1,4 +1,5 @@
 function vistaPrevia(){
+  var today = new Date();
   var titulo= document.getElementById("titulo-publicacion");
   var descripcion= document.getElementById("descripcion-publicacion");
   var tituloPublicacion= document.getElementById("publicacion-titulo");
@@ -7,6 +8,8 @@ function vistaPrevia(){
   descripcionPublicacion.innerHTML=descripcion.value;
   var contentFotos= document.getElementById("vista-previa-fotos").getElementsByTagName("img"); 
   var publicacionGaleria= document.getElementById("publicacion-imagenes-1"); 
+  var fecha_publicacion= document.getElementById("publicacion-fecha");
+  fecha_publicacion.innerHTML= today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
 
   var ImagenesLista = Array.prototype.slice.call(contentFotos);
             	for(let i = 0; i < contentFotos.length; i++)
@@ -17,14 +20,10 @@ function vistaPrevia(){
           var foto= document.createElement("img");
           foto.classList.add("img-responsive");
           foto.classList.add("size");
-          foto.setAttribute("data-id",1);
           foto.src=contentFotos[i].src;
-          foto.onclick=()=>mostrarFotoSinDescripcion(foto);
           inner.append(foto);
           publicacionGaleria.appendChild(inner);
-
 	    
-
 				}
 
   
