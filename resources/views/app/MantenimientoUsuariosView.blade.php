@@ -31,9 +31,10 @@
                 </select>
               
              </div> 
-            <button type="submit" class="btn_guardar">Guardar</button>
-            <button type="button" class="btn_limpiar" onclick="limpiarUsuario();">Limpiar</button>
-
+             <div class="botones">
+              <button type="submit" class="btn_guardar">Guardar</button>
+              <button type="button" class="btn_limpiar" onclick="limpiarUsuario();">Limpiar</button>
+            </div>
 
           </form>
           <div id="tabla">
@@ -65,7 +66,7 @@
                 </tbody>
               </table>
               <div id="botonesEdicion">
-                <button type="delete" class="btn_guardar crecer"><i class="far fa-trash-alt"></i></button>
+                <button type="delete" class="btn_eliminarUsuario crecer"><i class="far fa-trash-alt"></i></button>
               </div>
             </form>
           </div>

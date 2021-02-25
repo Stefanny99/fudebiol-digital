@@ -12,11 +12,7 @@ use App\Helper\Util;
 use App\Models\UsuariosModel;
 
 class UsuariosController extends Controller{
-	public function __construct()
-	{
-	}
-
-    public function mantenimientoUsuarios(){
+	public function mantenimientoUsuarios(){
 		$model = new UsuariosModel();
 		$result = $model->obtenerUsuarios();
 

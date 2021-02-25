@@ -10,9 +10,11 @@
     <title>{{ config('', 'FUDEBIOL DIGITAL') }}</title>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/alertify.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/galeria.js') }}"></script>
     <script src="{{ asset('js/mantenimiento-usuarios.js') }}"></script>
+    <script src="{{ asset('js/mantenimiento-lotes.js') }}"></script>
     <script src="{{ asset('js/publicaciones.js') }}"></script>
 
 
@@ -24,6 +26,8 @@
 
     <!-- Styles -->
     <link href="css/hover.css" rel="stylesheet" media="all">
+    <link href="{{ asset('css/alertify.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/themes/default.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/MiArbolParaLaVida.css') }}" rel="stylesheet">
     <link href="{{ asset('css/registroPadrinos.css') }}" rel="stylesheet">
@@ -120,7 +124,7 @@
                        
                         <div class="text">Reg.Especies</div>
                     </a>
-                    <a href="{{ route( 'registrarLote' ) }}">
+                    <a href="{{ route( 'lotes' ) }}">
                        
                         <div class="text">Reg.Lotes</div>
                     </a>
@@ -149,6 +153,16 @@
 </header>
 
 <body>
+    @if ( Session::has( "errores" ) )
+    @foreach ( Session::get( "errores" ) as $error )
+    <script>alertify.notify( "{{ $error }}", "error" )</script>
+    @endforeach
+    @endif
+    @if ( Session::has( "mensajes" ) )
+    @foreach ( Session::get( "mensajes" ) as $mensaje )
+    <script>alertify.notify( "{{ $mensaje }}", "success" )</script>
+    @endforeach
+    @endif
     <div id="app">
         <main>
             @yield('content')
