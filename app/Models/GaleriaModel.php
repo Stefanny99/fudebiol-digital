@@ -43,8 +43,18 @@ class GaleriaModel extends Model {
                             'fi_formato' => $request->file( 'imagen' )->extension(),
                         ]);
                         try{
-                            $request->file( 'imagen' )->storeAs( "public/img/fudebiol_galeria/", $imagen_id . '.' . $request->file( 'imagen' )->extension() );
-                            DB::commit();
+                            $data['resultado'] = DB::table('fudebiol_galeria')->insertGetId([
+                                'fg_imagen_id' => $imagen_id
+                            ]);
+                            try{
+                                $request->file( 'imagen' )->storeAs( "public/img/fudebiol_galeria/", $imagen_id . '.' . $request->file( 'imagen' )->extension() );
+                                DB::commit();
+                            } catch( Exception $e ){
+                                $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
+                                $data[ "razon" ] = "Ocurrió un error al subir la imagen " . $imagen->getClientOriginalName();
+                                Log::error( $e->getMessage(), $data );
+                                DB::rollBack();
+                            } 
                         } catch ( Exception $e ){
                             $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
                             $data[ "razon" ] = "Ocurrió un error al guardar en galería ";
@@ -53,7 +63,7 @@ class GaleriaModel extends Model {
                         }
                     } catch (Exception $e) {
                         $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
-                        $data['razon'] = "Ocurrió un error al subir la imagen" . $imagen->getClientOriginalName();
+                        $data['razon'] = "Ocurrió un error al guardar la imagen" . $imagen->getClientOriginalName();
                         Log::error( $e->getMessage(), $data );
                         DB::rollBack();
                     }
@@ -86,13 +96,13 @@ class GaleriaModel extends Model {
                                 }
                             }catch ( Exception $e ){
                                 $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO_ARCHIVO" ];
-                                $data['razon'] = "Ocurrió un error al eliminar los archivos de imágenes";
+                                $data['razon'] = "Ocurrió un error al eliminar la imagen";
                                 Log::error( $e->getMessage(), $data );
                                 DB::rollBack();
                             }
                         }catch (Exception $e){
                             $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
-                            $data['razon'] = "Ocurrió un error al eliminar en galería";
+                            $data['razon'] = "Ocurrió un error al eliminar las imagenes de galería";
                             Log::error( $e->getMessage(), $data );
                             DB::rollBack();
                         }
