@@ -18,13 +18,15 @@
                     <div id="mapid" style="height: 400px; width: 700px; z-index: 10"></div>
                 </div>
                 <script>
-                var lat = 9+(26/60)+(35.5/3600);
-                var long = -(83+(41/60)+(31.1/3600));
+                // var lat = 9+(26/60)+(35.5/3600);
+                // var long = -(83+(41/60)+(31.1/3600));
+                var lat = 9.3733942;
+                var long = -83.701957;
                     var mymap = L.map('mapid').setView([lat, long], 16);
-                    L.tileLayer("http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}", {
+                    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
                         minZoom: 2,
                         maxZoom: 20,
-                        subdomains:['mt0','mt1','mt2','mt3'],
+                        // subdomains:['mt0','mt1','mt2','mt3'],
                         attribution:
                             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     }).addTo(mymap);
@@ -32,7 +34,7 @@
                     iconUrl: 'img/lote.png',
                     iconSize: [35, 35],
                     });
-                    var marker = new L.Marker([9.4374409, -83.6909455], { draggable: true, icon: mIcon });
+                    var marker = new L.Marker([this.lat, this.long], { draggable: true, icon: mIcon });
                     mymap.addLayer(this.marker);
                     var popup = L.popup().setContent(lat + " , " + long);
 
