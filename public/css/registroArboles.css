@@ -54,11 +54,14 @@ flex: 1;
 	box-shadow: 0px 8px 20px gray;
 	flex:0;
 	font-size: 2.5vh;
-	height:90vh;
+	height:auto;
 	
 
 }
-
+.overflow-hidden{
+	max-width: 5vw;
+	overflow:hidden;
+}
 #cajaArbol button{
 	text-align: center;
 	margin:auto;

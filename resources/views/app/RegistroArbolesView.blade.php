@@ -27,6 +27,9 @@
                 <label class="texto" for="nombreCientifico">Nombre científico:</label>
                 <input type="text" required name="fa_nombre_cientifico">
 
+                <label class="texto" for="nombreComun">Nombre comun:</label>
+                <input type="text" required name="fa_nombre_comun">
+
                 <label class="texto" for="jiffys">Jiffys:</label>
                 <input type="text" required name="fa_jiffys">
 
@@ -53,6 +56,7 @@
                   <thead>
                     <tr id="tablehead" >
                       <th>Nombre científico</th>
+                      <th>Nombre comun</th>
                       <th>Jiffys</th>
                       <th>Bolsas</th>
                       <th>Elevación mínima</th>
@@ -64,6 +68,7 @@
                     @foreach ( $arboles as $arbol )
                     <tr class="fila">
                       <td class="fila">{{ $arbol->FA_NOMBRE_CIENTIFICO }}</td>
+                      <td class="fila overflow-hidden">Ciprés dfsdfsd sdfsdsd</td>
                       <td class="fila">{{ $arbol->FA_JIFFYS }}</td>
                       <td class="fila">{{ $arbol->FA_BOLSAS }}</td>
                       <td class="fila">{{ $arbol->FA_ELEVACION_MINIMA }}m</td>
