@@ -9,6 +9,16 @@
     margin-bottom:40px;
 
 }
+.publicacion-base-adm{
+    background-color: white;
+    padding:4%;
+    margin:auto;
+    border-radius: 40px;
+    width:20%;
+    border:2px solid black;
+    margin-bottom:40px;
+
+}
 .publicacion-encabezado{
     display:flex;
     flex-direction:row;
@@ -20,17 +30,29 @@
     border-radius:50%;
     box-shadow: 0px 0px 10px gray;
 }
+.publicacion-logo-size{
+    width:4vw;
+    height:4vw;
+    
+}
 
 .titulo-fecha{
     margin-left: 2%;
     display:flex;
     flex-direction:column;
     text-align:left;
-
+}
+.titulo-fecha-size{
+    font-size:14px !important;
+    margin-left:1vw;
 }
 #publicacion-titulo{
     font-size:1.5rem;
     font-weight: bold;
+}
+.publicacion-titulo-size{
+    font-size:1rem !important;
+   
 }
 #publicacion-fecha{
     color:gray;
@@ -73,6 +95,7 @@
     margin:auto;
     width:60vw;
     padding:2%;
+    margin-bottom: 1%;
     text-decoration: none;
 }
 .crear-publicacion:hover{
@@ -80,10 +103,15 @@
 }
 
 /*Editor de publicaciones*/
-.editor-base{
+
+.pub_container{
+    padding:1%;
     display:flex;
+    flex-wrap: wrap;
+    flex:1;
     align-items: center;
-    justify-content: space-around;
+    justify-content:space-between;
+    flex-direction: row;
 }
 .editor-herramientas{
     background-color: rgb(255, 255, 255);
@@ -103,7 +131,14 @@
 }
 .publicacion-base-size{
 
-    width:60vw !important;
+    width:20vw !important;
+    margin-left:10px;
+}
+.publicacion-size{
+
+    min-width:20vw;
+    padding:20px;
+    
 }
 
 .size{
@@ -199,6 +234,8 @@ margin-bottom: 5px;
 }
 .editor-fondo{
     background-image: url('/img/lbg.jpg');
+    flex:1;
+    display:flex;
 }
 .content-row{
     margin-top: 2%;
@@ -228,4 +265,63 @@ margin-bottom: 5px;
     /* background: linear-gradient(90deg, rgba(0,0,0,0.5407738095238095) 19%, rgba(2, 207, 197, 0.642) 100%); */
     background: linear-gradient(90deg, rgba(0,0,0,0.6407738095238095) 19%, rgba(2, 50, 197, 0.742) 100%);
      padding-bottom:2%;
+     flex:1;
+}
+
+#buscador_publicaciones{
+    margin: auto;
+    background:transparent;
+    width:20vw;
+    display:flex;
+    flex-direction:row;
+}
+#buscador_publicaciones input{
+    background-color: transparent;
+    border:none;
+    outline:none;
+    border-bottom: 1px white solid;
+    color:white;
+    font-size:1rem;
+}
+#buscador_publicaciones input:-webkit-autofill,
+#buscador_publicaciones input:-webkit-autofill:hover, 
+#buscador_publicaciones input:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+#buscador_publicaciones i{
+    font-size:1.2rem;
+    color:white;
+}
+.btn_buscar_publicacion{
+    background-color: transparent;
+    border:none;
+}
+.edit-style{
+    color:white;
+    background-color:green;
+    padding:5px;
+    border-radius: 50%;
+    width:1.5vw;
+    height:1.5vw;
+    font-size:10px;
+}
+.delete-style{
+    margin-left: 5px;
+    color:white;
+    background-color:#bb2a35;
+    padding:5px;
+    border-radius: 50%;
+    width:1.5vw;
+    height:1.5vw;
+    font-size:13px;
+}
+
+.opciones{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    text-align:center;
+    margin-bottom:1vh;
 }

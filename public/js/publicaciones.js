@@ -43,7 +43,6 @@ window.onload=()=>{
   }
 }
 
-
 function updateImageChooser( imageChooser ){
 	if ( imageChooser.files.length > 0 && FileReader ){
 		var container = document.getElementById("vista-previa-fotos");
