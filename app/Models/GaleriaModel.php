@@ -84,16 +84,17 @@ class GaleriaModel extends Model {
         );
         if ( $request->hasFile( 'imagenes_eliminadas' ) ){
             try {
-                $imagenes = DB::table( "fudebiol_imagenes" )->wehereIn( 'fa_id', $request->input( "imagenes_eliminadas" ) )->get();
+                $imagenes = DB::table( "fudebiol_imagenes" )->wehereIn( 'fi_id', $request->input( "imagenes_eliminadas" ) )->get();
                 if ( count( $imagenes ) > 0 ){
                     try {
-                        DB::table( "fudebiol_imagenes" )->wehereIn( "fa_id", $request->input( "imagenes_eliminadas" ) )->delete();
+                        DB::table( "fudebiol_imagenes" )->wehereIn( "fi_id", $request->input( "imagenes_eliminadas" ) )->delete();
                         try {
                             DB::table( "fudebiol_galeria" )->wehereIn( "fg_imagen_id", $request->input( "imagenes_eliminadas" ) )->delete();
                             try{
                                 foreach ( $imagenes as $imagen ){
-                                    Storage::delete( "public/img/fudebiol_galeria/" . $imagen->FA_ID . $imagen->FA_FORMATO );
+                                    Storage::delete( "public/img/fudebiol_galeria/" . $imagen->FI__ID . $imagen->FI_FORMATO );
                                 }
+                                DB::commit();
                             }catch ( Exception $e ){
                                 $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO_ARCHIVO" ];
                                 $data['razon'] = "Ocurrió un error al eliminar la imagen";

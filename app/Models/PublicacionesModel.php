@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use App\Helper\Util;
 Use Exception;
 
-// fp_titulo descriocion y decha
-
 class PublicacionesModel extends Model {
   public function obtenerPublicaciones( ){
     $data = array(
@@ -91,5 +89,57 @@ class PublicacionesModel extends Model {
     }
     return $data;  
   }   
-    
+  public function eliminar( $request ) {
+    $data = array(
+      "codigo" => Util::$codigos[ "EXITO" ],
+      "razon" => "",
+      "accion" => "eliminarPublicacion"
+    );
+    try{
+      DB::table('fudebiol_publicaciones')->whereIn('fp_id', $request->input('fp_id'))->delete();
+      try{
+        $imagenes = DB::table( "fudebiol_imagenes" )->wehereIn('fi_id', $request->input( "imagenes_eliminadas" ) )->get();
+        if ( count( $imagenes ) > 0 ){
+          try {
+            DB::table( "fudebiol_imagenes" )->wehereIn( "fi_id", $request->input( "imagenes_eliminadas" ) )->delete();
+            try{
+                DB::table( "fudebiol_publicaciones_img" )->wehereIn( "fpi_imagen_id", $request->input( "imagenes_eliminadas" ) )->delete();
+              try{
+                foreach ( $imagenes as $imagen ){
+                  Storage::delete( "public/img/fudebiol_publicaciones/" . $imagen->FI_ID . $imagen->FI_FORMATO );
+                }
+                DB::commit();
+              }catch ( Exception $e ){
+                $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO_ARCHIVO" ];
+                $data['razon'] = "Ocurrió un error eliminando archivos";
+                Log::error( $e->getMessage(), $data );
+                DB::rollBack();
+              }
+            } catch (Exception $e){
+              $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
+              $data['razon'] = "Ocurrió un error al eliminar en fudebiol_publicaciones_img";
+              Log::error( $e->getMessage(), $data );
+              DB::rollBack();
+            }
+          } catch (Exception $e){
+            $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
+            $data['razon'] = "Ocurrió un error al eliminar en fudebiol_imagenes";
+            Log::error( $e->getMessage(), $data );
+            DB::rollBack();
+          }
+        }  
+      } catch (Exception $e){
+          $data['codigo'] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+          $data['razon'] = "Ocurrió un error al obtener las imagenes";
+          Log::error( $e->getMessage(), $data );
+          DB::rollBack();
+      }
+    }catch(Exception $e){
+      $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
+      $data['razon'] = "Ocurrió un error al eliminar en fudebiol_publicaciones";
+      Log::error( $e->getMessage(), $data );
+      DB::rollBack();
+    }
+    return $data;
+  }
 }
