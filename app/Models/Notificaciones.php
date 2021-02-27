@@ -77,8 +77,8 @@ class NotificacionesModel extends Model {
         try {
             DB::table('fudebiol_notificaciones')->insert([
                 'fn_fecha' => date('Y-m-d H:i:s'),
-                'fn_desecripcion' => $request->input('descripcion'),
-                'fn_tipo' => $request->input('notificacion_tipo'),
+                'fn_desecripcion' => $request->input('fn_desecripcion'),
+                'fn_tipo' => $request->input('fn_tipo'),
                 'fn_estado' => 1
             ]);
         } catch (Exception $e) {
