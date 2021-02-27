@@ -22,6 +22,7 @@ class UsuariosModel extends Model {
             $data['resultado'] = DB::table('users')->get();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }
@@ -60,6 +61,7 @@ class UsuariosModel extends Model {
             ]);
         } catch (Exception $e) {
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_INSERCION" ];
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }
@@ -84,6 +86,7 @@ class UsuariosModel extends Model {
             DB::table('users')->where('id',$request->input('id'))->update( $user_data );
         }catch(Exception $e){
             $data['codigo'] = Util::$codigos[ "ERROR_DE_ACTUALIZACION" ];
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }
