@@ -2,13 +2,10 @@
 
 namespace App\Models;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Hash;
-Use Exception;
-
-use App\Helper\Util;
-
+use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
+use Exception;
+use App\Helper\Util;
 
 class InformacionFudebiolModel extends Model {
 

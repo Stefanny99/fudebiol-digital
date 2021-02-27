@@ -2,6 +2,9 @@
 
 namespace App\Models;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Database\Eloquent\Model;
+use App\Helper\Util;
 Use Exception;
 
 class PadrinosArbolesModel extends Model {
