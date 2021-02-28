@@ -3,10 +3,9 @@
 namespace App\Models;
 use Illuminate\Support\Facades\DB;
 Use Exception;
-
 use App\Helper\Util;
-
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 
 class LotesModel extends Model {
     public function obtenerLotes(){
