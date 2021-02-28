@@ -18,7 +18,7 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 	Route::post('/editarUsuario', [App\Http\Controllers\FudebiolDigital\UsuariosController::class, 'editarUsuario'])->name('editarUsuario');
 	Route::post('/eliminarUsuarios', [App\Http\Controllers\FudebiolDigital\UsuariosController::class, 'eliminarUsuarios'])->name('eliminarUsuarios');
 
-	/*RUTAS DE MANTENIMIENTO DE ÁRBOLES*/
+	/*RUTAS DE MANTENIMIENTO DE ESPECIES*/
 	Route::get('/registrarArbol/{pagina}', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'registrarArbol'])->name('registrarArbol');
 	Route::post('/editarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'editarArbol'])->name('editarArbol');
 
@@ -43,15 +43,20 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 	/*RUTA DE PUBLICACIONES*/
 	Route::get('/editorPublicaciones', [App\Http\Controllers\FudebiolDigital\PublicacionesController::class, 'editorPublicaciones'])->name('editorPublicaciones');
 	Route::get('/administrarPublicaciones', [App\Http\Controllers\FudebiolDigital\PublicacionesController::class, 'administrarPublicaciones'])->name('administrarPublicaciones');
+/*RUTA DE GALERIA*/
+	Route::get('/editorGaleria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'editarGaleria'])->name('editorGaleria');
+	/*RUTA DE ARBOLES */
+	Route::get('/registroArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'registroArbol'])->name('registroArbol');
 
 });
 
 
 // -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
 // -_-_-_-_- RUTAS PÚBLICAS -_-_-_-_-
-// -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
+// -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_- 
 
 Route::get('/galeria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'galeria'])->name('galeria');
 Route::get('/atracciones', [App\Http\Controllers\FudebiolDigital\InformacionController::class, 'informacion'])->name('atracciones');
 Route::get('/fudebiol', [App\Http\Controllers\FudebiolDigital\InformacionController::class, 'sobreNosotros'])->name('sobreNosotros');
 Route::get('/publicaciones', [App\Http\Controllers\FudebiolDigital\PublicacionesController::class, 'publicaciones'])->name('publicaciones');
+Route::get('/investigaciones', [App\Http\Controllers\FudebiolDigital\InvestigacionesController::class, 'investigaciones'])->name('investigaciones');

@@ -35,13 +35,7 @@ function removePhoto(contenedorPadre){
   contenedor.removeChild(contenedorPadre);
 }
 
-window.onload=()=>{
-  var inputFile= document.getElementById("fotos-publicacion");
- inputFile.onchange = function(event) {
-  updateImageChooser(event.target);
-  
-  }
-}
+
 
 function updateImageChooser( imageChooser ){
 	if ( imageChooser.files.length > 0 && FileReader ){

@@ -39,7 +39,7 @@
                     </div>
                     
                     <div class="inner">
-                        <img src="/img/fude7.jpg" class="img-responsive"  alt="image"  data-descripcion="Hermosas esculturas..." onclick="mostrarFoto(this);"/>
+                        <img src="/img/fude7.jpg" class="img-responsive"  alt="image"  data-descripcion="gola" onclick="mostrarFoto(this);"/>
                     </div>
                     
                     <div class="inner">

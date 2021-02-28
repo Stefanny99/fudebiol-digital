@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Session;
+use App\Helper\Util;
 
-class GaleriaController extends Controller
+
+class InvestigacionesController extends Controller
 {
 
 	/**
@@ -17,7 +19,7 @@ class GaleriaController extends Controller
      */
     public function __construct()
     {
-        
+        $this->middleware('auth');
     }
 
     /**
@@ -27,12 +29,9 @@ class GaleriaController extends Controller
      */
 
     /* Llama la vista de mantenimiento de categorías */
-    public function galeria(){
-          return view('app\GaleriaView');
+    public function investigaciones(){
+    	return view('app/InvestigacionesView');
     }
-    public function editarGaleria(){
-      return view('app\EditarGaleriaView');
-}
-     
-        
+    
+	
 }

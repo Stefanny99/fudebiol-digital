@@ -28,7 +28,10 @@ function mostrarFoto(foto){
 	exit.onclick=remover;
 	exit.innerHTML="<i class='fas fa-times'></i>";
 	botones.append(next, prev, exit);
-	contenedor2.append(imagen,descripcion);
+	contenedor2.append(imagen);
+	if(!foto.getAttribute("data-descripcion")===''){
+		contenedor2.append(descripcion);
+	}
 	contenedor.append(contenedor2, botones);
 	base.appendChild(contenedor);
 }
@@ -49,7 +52,9 @@ var ImagenesLista = Array.prototype.slice.call(imagenes);
 				{
 				    if(imagen == imagenes[i].src && i < imagenes.length-1 ){
 				    	 contImg.src=imagenes[i+1].src;
-				    	 contDesc.innerHTML=imagenes[i+1].getAttribute("data-descripcion");
+							 if(!imagenes[i+1].getAttribute("data-descripcion")===''){
+				    	 	contDesc.innerHTML=imagenes[i+1].getAttribute("data-descripcion");
+							 }
 				    	 break;
 				    }
 
@@ -271,3 +276,34 @@ function nextImage2(){
 	
 	}
            
+function enableInput(edit){
+	var pencil=edit;
+	var input=pencil.previousSibling.previousSibling;
+	input.removeAttribute('disabled');
+}
+
+function chargePicture(foto){
+	var contImg=document.getElementById("eg_foto_pw");
+	var imagen=foto.src;
+	contImg.src=imagen;
+}
+
+
+
+function updateImages( imageChooser ){
+	if ( imageChooser.files.length > 0 && FileReader ){
+		var container = document.getElementById("eg_fotos_nuevas");
+		container.innerHTML = "";
+		[ ... imageChooser.files ].forEach( file => {
+			var reader = new FileReader();
+			reader.onload = () => {
+        var photo= document.createElement( "img");
+        photo.src= reader.result;
+				photo.onclick=()=>chargePicture(photo);
+        photo.className= "eg_foto_galeria";
+				container.appendChild( photo );
+			};
+			reader.readAsDataURL( file );
+		} );
+	}
+}

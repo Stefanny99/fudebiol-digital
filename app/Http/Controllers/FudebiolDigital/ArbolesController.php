@@ -55,4 +55,8 @@ class ArbolesController extends Controller{
     public function introduccionMAPLV(){
         return view( 'app/MiArbolParaLaVidaView' );
     }
+
+		public function registroArbol(){
+			return view( 'app/RegistroArbolesIndividualesView' );
+	}
 }
