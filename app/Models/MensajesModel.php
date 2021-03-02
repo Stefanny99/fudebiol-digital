@@ -16,7 +16,7 @@ class MensajesModel extends Model {
             "accion" => "obtenerMensajes"
         );
         try{
-           DB::table('fudebiol_mensajes')->get();
+           DB::table('fudebiol_mensajes')->orderBy('fm_id', 'desc')->get();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
         }

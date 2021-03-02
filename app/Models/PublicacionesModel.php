@@ -9,6 +9,7 @@ use App\Helper\Util;
 Use Exception;
 
 class PublicacionesModel extends Model {
+
   public function obtenerPublicaciones( ){
     $data = array(
       "codigo" => Util::$codigos[ "EXITO" ],
@@ -26,7 +27,7 @@ class PublicacionesModel extends Model {
       Log::error( $e->getMessage(), $data );
     }
     return $data;
-    }
+  }
 
   public function agregarPublicacion( $request ){
     $data = array(
@@ -88,7 +89,8 @@ class PublicacionesModel extends Model {
         Log::error( $e->getMessage(), $data );
     }
     return $data;  
-  }   
+  }  
+   
   public function eliminar( $request ) {
     $data = array(
       "codigo" => Util::$codigos[ "EXITO" ],

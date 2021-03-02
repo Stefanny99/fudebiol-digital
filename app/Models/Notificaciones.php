@@ -16,7 +16,7 @@ class NotificacionesModel extends Model {
             "accion" => "obtenerNotificaciones"
         );
         try{
-           DB::table('fudebiol_notificaciones')->get();
+           DB::table('fudebiol_notificaciones')->orderBy('fn_id', 'desc')->get();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
         }

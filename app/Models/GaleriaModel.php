@@ -9,7 +9,7 @@ use App\Helper\Util;
 Use Exception;
 
 class GaleriaModel extends Model {
-    public function obtenerImagenes( ){
+    public function obtenerImagenes(){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
@@ -27,50 +27,41 @@ class GaleriaModel extends Model {
         return $data;
     }
 
-    public function agregarImagenes( $request ){
+    public function agregarImagen( $request ){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "agregarImagenes"
+            "accion" => "agregarImagen"
         );
-        if ( $request->hasFile( 'imagenes' ) ){
-            try {
-                DB::begintransaction();
-                foreach ( $request->file( "imagenes" ) as $imagen ){
+        if ( $request->hasFile( 'imagen' ) ){
+            DB::begintransaction();
+            try{
+                $imagen_id = DB::table('fudebiol_imagenes')->insertGetId([
+                    'fi_descripcion' => $request->input('fi_descripcion'),
+                    'fi_formato' => $request->file( 'imagen' )->extension(),
+                ]);
+                try{
+                    $data['resultado'] = DB::table('fudebiol_galeria')->insertGetId(['fg_imagen_id' => $imagen_id]);
                     try{
-                        $imagen_id = DB::table('fudebiol_imagenes')->insertGetId([
-                            'fi_descripcion' => $request->input('fi_descripcion'),
-                            'fi_formato' => $request->file( 'imagen' )->extension(),
-                        ]);
-                        try{
-                            $data['resultado'] = DB::table('fudebiol_galeria')->insertGetId([
-                                'fg_imagen_id' => $imagen_id
-                            ]);
-                            try{
-                                $request->file( 'imagen' )->storeAs( "public/img/fudebiol_galeria/", $imagen_id . '.' . $request->file( 'imagen' )->extension() );
-                                DB::commit();
-                            } catch( Exception $e ){
-                                $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
-                                $data[ "razon" ] = "Ocurrió un error al subir la imagen " . $imagen->getClientOriginalName();
-                                Log::error( $e->getMessage(), $data );
-                                DB::rollBack();
-                            } 
-                        } catch ( Exception $e ){
-                            $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
-                            $data[ "razon" ] = "Ocurrió un error al guardar en galería ";
-                            Log::error( $e->getMessage(), $data );
-                            DB::rollBack();
-                        }
-                    } catch (Exception $e) {
-                        $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
-                        $data['razon'] = "Ocurrió un error al guardar la imagen" . $imagen->getClientOriginalName();
+                        $request->file( 'imagen' )->storeAs( "public/img/fudebiol_galeria/", $imagen_id . '.' . $request->file( 'imagen' )->extension() );
+                        DB::commit();
+                    } catch( Exception $e ){
+                        $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
+                        $data[ "razon" ] = "Ocurrió un error al subir la imagen " . $request->file( 'imagen' )->getClientOriginalName();
                         Log::error( $e->getMessage(), $data );
                         DB::rollBack();
-                    }
+                    } 
+                } catch ( Exception $e ){
+                    $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
+                    $data[ "razon" ] = "Ocurrió un error al guardar en galería ";
+                    Log::error( $e->getMessage(), $data );
+                    DB::rollBack();
                 }
             } catch (Exception $e) {
-                $data['codigo'] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+                $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+                $data['razon'] = "Ocurrió un error al guardar la imagen" . $imagen->getClientOriginalName();
                 Log::error( $e->getMessage(), $data );
+                DB::rollBack();
             }
         }
         return $data;  
@@ -82,43 +73,59 @@ class GaleriaModel extends Model {
             "razon" => "",
             "accion" => "eliminarImagen"
         );
-        if ( $request->hasFile( 'imagenes_eliminadas' ) ){
-            try {
-                $imagenes = DB::table( "fudebiol_imagenes" )->wehereIn( 'fi_id', $request->input( "imagenes_eliminadas" ) )->get();
-                if ( count( $imagenes ) > 0 ){
+        try {
+            $imagen = DB::table( "fudebiol_imagenes" )->where( 'fi_id', $request->input( "fi_id" ) )->get();
+            if ( $imagen ) {
+                DB::begintransaction();
+                try {
+                    DB::table( "fudebiol_imagenes" )->where( "fi_id", $request->input( "fi_id" ) )->delete();
                     try {
-                        DB::table( "fudebiol_imagenes" )->wehereIn( "fi_id", $request->input( "imagenes_eliminadas" ) )->delete();
-                        try {
-                            DB::table( "fudebiol_galeria" )->wehereIn( "fg_imagen_id", $request->input( "imagenes_eliminadas" ) )->delete();
-                            try{
-                                foreach ( $imagenes as $imagen ){
-                                    Storage::delete( "public/img/fudebiol_galeria/" . $imagen->FI__ID . $imagen->FI_FORMATO );
-                                }
-                                DB::commit();
-                            }catch ( Exception $e ){
-                                $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO_ARCHIVO" ];
-                                $data['razon'] = "Ocurrió un error al eliminar la imagen";
-                                Log::error( $e->getMessage(), $data );
-                                DB::rollBack();
-                            }
-                        }catch (Exception $e){
-                            $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
-                            $data['razon'] = "Ocurrió un error al eliminar las imagenes de galería";
+                        DB::table( "fudebiol_galeria" )->wehereIn( "fg_imagen_id", $request->input( "fi_id" ) )->delete();
+                        try{
+                            Storage::delete( "public/img/fudebiol_galeria/" . $request->input('fi_id') . $imagen->FI_FORMATO );
+                            DB::commit();
+                        }catch ( Exception $e ){
+                            $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO_ARCHIVO" ];
+                            $data['razon'] = "Ocurrió un error al eliminar archivo";
                             Log::error( $e->getMessage(), $data );
                             DB::rollBack();
                         }
                     } catch (Exception $e){
                         $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
-                        $data['razon'] = "Ocurrió un error al eliminar las imágenes";
+                        $data['razon'] = "Ocurrió un error al eliminar la imagen en galería";
                         Log::error( $e->getMessage(), $data );
                         DB::rollBack();
                     }
+                } catch (Exception $e){
+                    $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
+                    $data['razon'] = "Ocurrió un error al eliminar la imagen";
+                    Log::error( $e->getMessage(), $data );
+                    DB::rollBack();
                 }
-            } catch(Exception $e){
-                DB::rollBack();
-                $data[ 'codigo' ] = Util::$codigos[ "ERROR_ELIMINANDO" ];
-            }
-        }            
+            } else {
+                $data['codigo'] = Util::$codigos[ "NO_ENCONTRADO" ];
+            }   
+        } catch(Exception $e){
+            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }          
+        return $data;
+    }
+
+    public function editarImagen($request){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "editarImagen"
+        );
+        try {
+            DB::table('fudebiol_imagenes')
+            ->where('fi_id',$request->input('fi_id'))
+            ->update(['fi_descripcion' => $request->input('fi_descripcion')]);
+        } catch (Exception $e) {
+            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+        Log::error( $e->getMessage(), $data );
+        } 
         return $data;
     }
 }

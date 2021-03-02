@@ -24,14 +24,17 @@ class PadrinosModel extends Model {
         return $data;
     }
 
-    public function obtenerPadrinoPorCedula($request){
+    public function buscarPadrino($busqueda){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "obtenerPadrinoPorCedula"
+            "accion" => "buscarPadrino"
         );
         try{
-            $data['resultado'] = DB::table('fudebiol_padrinos')->where('fp_cedula', $request->input('fp_cedula'))->first();
+            $data['resultado'] = DB::table('fudebiol_padrinos')
+            ->where('fp_cedula', 'like', '%'.$busqueda.'%')
+            ->orWhere('fp_nombre_completo', 'like', '%'.$busqueda.'%')
+            ->first();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
@@ -62,10 +65,7 @@ class PadrinosModel extends Model {
         try {
             $data['resultado'] =  DB::table('fudebiol_padrinos')->insertGetId([
                 'fp_cedula' => $request->input('fp_cedula'),
-                'fp_nombre1' => $request->input('fp_nombre1'),
-                'fp_nombre2' => $request->input('fp_nombre2'),
-                'fp_apellido1' => $request->input('fp_apellido1'),
-                'fp_apellido2' => $request->input('fp_apellido2'),
+                'fp_nombre_completo' => $request->input('fp_nombre_completo'),
                 'fp_tipo' => $request->input('fp_tipo')
             ]);
         } catch (Exception $e) {
@@ -81,13 +81,10 @@ class PadrinosModel extends Model {
             "accion" => "editarPadrino"
         );
         try{
-            DB::table('fudebiol_padrinos')->where('fp_id',$request->input('padrino_id'))
+            DB::table('fudebiol_padrinos')->where('fp_id',$request->input('fp_id'))
             ->update([
                 'fp_cedula' => $request->input('fp_cedula'),
-                'fp_nombre1' => $request->input('fp_nombre1'),
-                'fp_nombre2' => $request->input('fp_nombre2'),
-                'fp_apellido1' => $request->input('fp_apellido1'),
-                'fp_apellido2' => $request->input('fp_apellido2'),
+                'fp_nombre_completo' => $request->input('fp_nombre_completo'),
                 'fp_tipo' => $request->input('fp_tipo')
             ]);
         }catch(Exception $e){
