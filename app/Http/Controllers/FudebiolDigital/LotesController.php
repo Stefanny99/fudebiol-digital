@@ -12,16 +12,17 @@ use App\Helper\Util;
 use App\Models\LotesModel;
 
 class LotesController extends Controller{
-	public function mantenimientoLotes(){
+	public function mantenimientoLotes( Request $request ){
 		$model = new LotesModel();
-		$result = $model->obtenerLotes();
+		$result = $model->obtenerLotes($request->input( "buscar", "" ));
 		if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
 			return redirect()->back()->with( array(
 				"errores" => $result[ 'codigo' ][ 'descripcion' ] . ", " . $result[ 'razon' ]
 			) );
 		}
 		return view( 'app/LotesView', array(
-			"lotes" => $result[ 'resultado' ]
+			"lotes" => $result[ 'resultado' ],
+			"buscar" => $request->input( "buscar", "" )
 		) );
 	}
 

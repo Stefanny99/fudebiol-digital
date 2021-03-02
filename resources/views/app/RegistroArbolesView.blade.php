@@ -56,7 +56,7 @@
                   <thead>
                     <tr id="tablehead" >
                       <th>Nombre científico</th>
-                      <th>Nombre comun</th>
+                      <th>Nombre común</th>
                       <th>Jiffys</th>
                       <th>Bolsas</th>
                       <th>Elevación mínima</th>
@@ -68,7 +68,7 @@
                     @foreach ( $arboles as $arbol )
                     <tr class="fila">
                       <td class="fila">{{ $arbol->FA_NOMBRE_CIENTIFICO }}</td>
-                      <td class="fila overflow-hidden">Ciprés dfsdfsd sdfsdsd</td>
+                      <td class="fila overflow-hidden">{{ $arbol->FA_NOMBRES_COMUNES }}</td>
                       <td class="fila">{{ $arbol->FA_JIFFYS }}</td>
                       <td class="fila">{{ $arbol->FA_BOLSAS }}</td>
                       <td class="fila">{{ $arbol->FA_ELEVACION_MINIMA }}m</td>
