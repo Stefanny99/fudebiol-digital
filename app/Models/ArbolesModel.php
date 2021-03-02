@@ -85,7 +85,9 @@ class ArbolesModel extends Model {
                         Log::error( $e->getMessage(), $data );
                         DB::rollBack();
                     }
-                }    
+                } else {
+                    DB::commit();
+                }   
             } catch (Exception $e) {
                 $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
                 $data['razon'] = "Ocurrió un error al insertar el árbol";

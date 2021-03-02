@@ -37,7 +37,7 @@ class ArbolesController extends Controller{
 			return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $request->input() );
 		}else {
 			$model = new ArbolesModel();
-			if ( !$request->has( "fa_id" ) ){
+			if ( !$request->has( "fa_id" ) || $request->input( "fa_id" ) < 1 ){
 				$result = $model->crearArbol( $request );
 				if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
 					return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) )->withInput( $request->input() );
