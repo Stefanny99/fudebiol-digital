@@ -107,7 +107,7 @@
                        
                         <div class="text">Mi árbol para la vida</div>
                     </a>
-                    <a href="">
+                    <a href="{{ route( 'investigaciones' ) }}">
                         
                         <div class="text">Investigaciones</div>
                     </a>

@@ -87,7 +87,7 @@ flex: 1;
 	flex:1;
 	background: linear-gradient(180deg, rgba(0,138,0,0.7707457983193278) 25%,  rgba(89,179,89,0.7147233893557423) 54%, rgba(255,255,255,1) 100%);
 }
-#cajaArbol input[type=text]{
+#cajaArbol input[type=text],  #cajaArbol select{
 	width: 20vw;
 	padding-left: 3px;
 	outline: none;
@@ -96,11 +96,17 @@ flex: 1;
 	background: rgba(255,255,255,0.7);
 	margin-bottom: 2%;
 }
-#cajaArbol input[type=text], #cajaArbol label{
+#cajaArbol input[type=text], #cajaArbol label,  #cajaArbol select{
 	
 	margin-left: 20px;
 	margin-right: 20px;
 }
+#cajaArbol select > *{
+background-color: white;
+color: green;
+
+}
+
 .btn_registrar{
 	margin-left: auto;
 	cursor: pointer;
@@ -330,4 +336,328 @@ outline: none;
 
 
 
-/*Arboles por lote*/
+/*Registro árboles individuales*/
+#fondoRAI{
+	background-size: cover;
+	display: flex;
+	background-image:url('/img/b2.jpg'); 
+	background-repeat: no-repeat;	
+	font-family: 'Quicksand', sans-serif;
+	flex-direction: column;
+	text-align: center;
+	flex: 1;
+	
+	}
+	
+	
+	.titulo, #textovs{
+		align-items: flex-end;
+		display: flex;
+		flex-direction: column;
+		color: white;
+		font-size: 5vw;
+		text-shadow: 0px 0px 5px yellowgreen;
+		flex:1;
+		padding: 5%;
+		
+	}
+	.tituloRAI{
+		background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(96,0,163,0.5466561624649859) 100%);	
+	}
+	#titulo label{
+		overflow: hidden; /* Ensures the content is not revealed until the animation */
+		border-right: .15em solid orange; /* The typwriter cursor */
+		white-space: nowrap; /* Keeps the content on a single line */
+		margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+		animation: 
+			typing 5s steps(40, end),
+			blink-caret .75s step-end infinite;
+	}
+	
+	#titulo>a{
+		color: white;
+		font-size: 2vw;
+	}
+	
+	
+	#cajaArbolRAI
+	{	
+		padding-bottom: 3%;
+		margin-top: 5%;
+		font-weight: bold;
+		border-radius: 10px;
+		display: flex;
+		text-align: left;
+		flex-direction: column;
+		color:#6000a3 ;
+		box-shadow: 0px 8px 20px gray;
+		flex:0;
+		font-size: 2.5vh;
+		height:auto;
+		
+	
+	}
+	.overflow-hidden{
+		max-width: 5vw;
+		overflow:hidden;
+	}
+	#cajaArbolRAI button{
+		text-align: center;
+		margin:auto;
+		margin-top: 20px;
+	
+	}
+	#treeheaderRAI{
+		display: flex;
+		text-align: center;
+		background-image: url('/img/header.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		border-radius: 10px 10px 0px 0px;
+		flex:1;
+	
+	}
+	#treeheadermascaraRAI{
+		padding: 20px;
+		padding-top: 50px;
+		text-align: center;
+		padding-bottom: 20px;
+		border-radius: 10px 10px 0px 0px;
+		flex:1;
+		background: linear-gradient(180deg, rgba(96,0,163,0.7707457983193278) 25%,  rgba(96,0,163,0.7147233893557423) 54%, rgba(255,255,255,1) 100%);
+	}
+	#cajaArbolRAI input[type=text],  #cajaArbolRAI select{
+		width: 20vw;
+		padding-left: 3px;
+		outline: none;
+		border:none;
+		border-bottom: 1px gray solid;
+		background: rgba(255,255,255,0.7);
+		margin-bottom: 2%;
+	}
+	#cajaArbolRAI input[type=text], #cajaArbolRAI label,  #cajaArbolRAI select{
+		
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	#cajaArbolRAI select > *{
+	background-color: white;
+	color: green;
+	
+	}
+	
+	.btn_registrarRAI{
+		margin-left: auto;
+		cursor: pointer;
+		height: 5vh;
+		width: 20vh;
+		border:none;
+		border-radius: 5px;
+		background: #6000a3;
+		color:white;
+		text-align: center;
+		font-size: 2.5vh;
+		font-family: 'Quicksand';
+		font-weight: 900;
+		outline-style: none;
+		border-style: none!important;
+	}
+	
+	.btn_registrar:hover,.btn_arboles:hover {
+	transition: 0.2s;
+	transform: translateY(-3px);
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+	}
+	
+	#RegArbol{
+		text-align: center;
+		font-weight: bold;
+		font-size: 3.5vh;
+		color: white;
+		text-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+	}
+	.TextReg{
+		text-align: center;
+		margin: auto;
+		margin-top: 3%;
+		margin-bottom: 3%;
+		font-size: 6vh;
+		font-weight: bold;
+		
+	}
+	.blanco{
+		color: white;
+	}
+	#subText{
+	font-size: 4vh;
+	
+	}
+	
+	#caja{
+		
+		display: flex;
+		flex-direction: row;
+	}
+	
+	.btn_buscarRAI{
+	position: relative;
+	text-align: left;
+	top:6px; 
+	cursor: pointer;
+	right: 30px;
+	height: 40px;
+	width: 70px;
+	border:none;
+	background: white;
+	color:black;
+	border-radius:  0px 10px 10px 0px;
+	font-size: 20px;
+	font-family: 'Quicksand';
+	outline: none;
+	}
+	.btn_buscarRAI:hover{
+		color:#6000a3;
+	}
+	
+	#buscador
+	{
+		margin-bottom: 4%;
+		font-size: 3vh;
+	}
+	#buscador input{
+		text-align: center;
+		width: 400px;
+		height: 34px;
+		border:none;
+		border-bottom: 1px gray solid;
+		outline: none;
+	}
+	#tablaArbolesRAI{
+		padding:5%;	
+		padding-top:3%;	
+		background:white;
+		white-space: nowrap;
+		flex:0;
+		box-shadow:-1px -0px 25px lightgray;
+		font-size: 2.5vh;
+		margin-left:20px;
+		border-collapse: unset;
+		min-width: 60vw !important;
+		min-height: 65vh !important;
+		max-height: 65vh !important;
+		border:none;
+		caption-side: top;
+	}
+	#tablaArbolesRAI caption{
+		background:#6000a3;	
+		color:white;
+		text-align: center;
+		font-size: 3vh;
+		font-weight: bold;
+		border-radius: 20px 20px 0% 0%;
+	
+	}
+	#tablaArbolesRAI>thead>tr>th{
+		color: #6000a3;		
+	}
+	
+	#tablaArbolesRAI tbody tr>.fila{
+		color: black;
+		font-weight: bold;
+		cursor: pointer;
+		text-align: center;
+		padding-right: 1%;
+	}
+	
+	#botonesEdicionArbolesRAI{
+		display: flex;
+		flex-direction: row;
+		position:relative;
+		bottom:5px;
+		margin-left: 20px;
+		box-shadow: 0px 6px 20px lightgray;
+		background: white;
+		letter-spacing: 60px;
+		padding: 10px 0px 10px 0px;
+		z-index: 7;
+		border-radius: 0px 0px 20px 20px;
+	
+	}
+	
+	#paginacion {
+		margin-left:auto;
+		align-items: center;
+		justify-content: flex-end;
+		display: flex;
+		word-spacing: 20px;
+		flex-direction: row;
+	}
+	.action{
+		padding-right: 1%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.delete{
+		color:red;
+	
+	}
+	.delete, .edit{
+		padding: 6px;
+		border-radius: 15px;
+		cursor: pointer;
+	}
+	.edit{
+		color: blue;
+	}
+	.btn_arbolesRAI{ 
+		margin-left: auto;
+		cursor: pointer;
+		height: 5vh;
+		width: 20vh;
+		border:none;
+		border-radius: 5px;
+		background: #6000a3;
+		color:white;
+		text-align: center;
+		font-size: 3.5vh;
+		font-family: 'Quicksand';
+		font-weight: 900;
+		outline-style: none;
+		border-style: none!important;
+	} 
+	
+	.btn_pagRAI{
+		margin-left: 10%;
+		margin-right:20%;
+		cursor: pointer;
+		height: 5vh;
+		width: 10vh;
+		border:none;
+		border-radius: 5px;
+		background: #6000a3;
+		color:white;
+		text-align: center;
+		padding: 4px 22px 5px 22px;
+		font-size: 2vh;
+		font-family: 'Quicksand';
+		font-weight: 900;
+		text-decoration: none;
+		outline-style: none;
+		border-style: none!important;	
+	}
+	#pictureTree{
+		display: none;
+	}
+	#lblpictree{
+		display: flex;
+		justify-content:space-between;
+		align-items:center;
+	}
+	#lblpictree>i{
+		margin-top:1%;
+		cursor:pointer;
+		font-size: 1.6rem;
+	}
+	

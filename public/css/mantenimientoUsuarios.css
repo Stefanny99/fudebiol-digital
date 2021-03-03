@@ -101,6 +101,9 @@ background-color: transparent;
 .crecer{
 	font-size: 3.5vh !important;
 }
+#especie, #lote{
+
+}
 
 .btn_guardar:hover, .btn_limpiar:hover,.btn_eliminar:hover, .btn_editar:hover, .btn_limpiar:hover,.btn_eliminarUsuario:hover  {
 transition: 0.2s;

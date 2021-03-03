@@ -1,3 +1,163 @@
+@media(max-width:768px){
+	#fondoInfo{
+		background-image: url('/img/ave.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 100%;
+	}
+	
+	#tituloInfo{
+		background: linear-gradient(90deg, rgba(0,0,0,0.7259278711484594) 16%, rgba(38,187,0,0.7035189075630253) 100%);
+		height: 20vh;
+		display: flex;
+		flex-direction: column;
+		justify-content:center;
+		text-align: center;
+		align-items: center;
+	}
+	
+	#tituloInfo label{
+		font-weight: bold;
+		color: white;
+		font-size: 6vw;
+		text-shadow: 0px 0px 6px black;
+	}
+	#tituloInfo img{
+		margin-left: 1vh;
+		width: 30vw;
+		border-radius: 50%;
+	}
+	
+	.actividades{
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: center;
+	}
+	
+	.cajitaInformativa{
+		margin: 6vh;
+		padding: 10px;
+		width: 15vw;
+		height: 40vh;
+		border:2px green solid;
+		display: flex;
+		flex-direction: column;
+		box-shadow: 0px 0px 10px gray ;
+	}
+	.cajitaInformativa i{
+		color: white;
+		font-size: 8vh;
+		padding: 3vh;
+		position: relative;
+		bottom: 10vh;
+		border-radius: 40px;
+		background-color: green;
+		animation: flotar 2s alternate-reverse infinite;
+		box-shadow: 0px 0px 10px black inset;
+	}
+	
+	
+	
+	.actividad{
+		padding-top: 4vh;
+		position: relative;
+		bottom: 8vh;
+		font-weight: bold;
+		color: green;
+		font-size: 4vh;
+	}
+	
+	.explicacion{
+		font-weight: bold;
+		position: relative;
+		bottom: 9vh;
+		font-size: 2.5vh;
+		text-align: justify;
+	}
+}
+
+
+
+@media(min-width:769px){
+	#fondoInfo{
+		background-image: url('/img/ave.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 100%;
+	}
+	
+	#tituloInfo{
+		background: linear-gradient(90deg, rgba(0,0,0,0.7259278711484594) 16%, rgba(38,187,0,0.7035189075630253) 100%);
+		height: 20vh;
+		display: flex;
+		flex-direction: column;
+		justify-content:center;
+		text-align: center;
+		align-items: center;
+	}
+	
+	#tituloInfo label{
+		font-weight: bold;
+		color: white;
+		font-size: 6vw;
+		text-shadow: 0px 0px 6px black;
+	}
+	#tituloInfo img{
+		margin-left: 1vh;
+		width: 30vw;
+		border-radius: 50%;
+	}
+	
+	.actividades{
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: center;
+	}
+	
+	.cajitaInformativa{
+		margin: 6vh;
+		padding: 10px;
+		width: 15vw;
+		height: 40vh;
+		border:2px green solid;
+		display: flex;
+		flex-direction: column;
+		box-shadow: 0px 0px 10px gray ;
+	}
+	.cajitaInformativa i{
+		color: white;
+		font-size: 8vh;
+		padding: 3vh;
+		position: relative;
+		bottom: 10vh;
+		border-radius: 40px;
+		background-color: green;
+		animation: flotar 2s alternate-reverse infinite;
+		box-shadow: 0px 0px 10px black inset;
+	}
+	
+	
+	
+	.actividad{
+		padding-top: 4vh;
+		position: relative;
+		bottom: 8vh;
+		font-weight: bold;
+		color: green;
+		font-size: 4vh;
+	}
+	
+	.explicacion{
+		font-weight: bold;
+		position: relative;
+		bottom: 9vh;
+		font-size: 2.5vh;
+		text-align: justify;
+	}
+}
+
 #fondoInfo{
 	background-image: url('/img/ave.jpg');
 	background-repeat: no-repeat;
@@ -88,3 +248,4 @@
 	
 	}
 }
+
