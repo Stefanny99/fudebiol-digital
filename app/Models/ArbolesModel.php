@@ -27,18 +27,21 @@ class ArbolesModel extends Model {
         return $data;
     }
 
-    public function eliminarArbol($request){
+    public function eliminarArboles($request){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "eliminarArbol"
+            "accion" => "eliminarArboles"
         );
-        try{
+        try {
+            $imagenes = DB::table( "fudebiol_imagenes" )->whereIn( 'fa_id', $request->input( "ids" ) )->get();
             DB::begintransaction();
             try {
-                DB::table('fudebiol_arboles')->where('fa_id', $request->input('arbol_id'))->delete();
+                DB::table('fudebiol_arboles')->whereIn('fa_id', $request->input('ids'))->delete();
                 try {
-                    DB::table('fudebiol_arboles_img')->where('fa_arbol_id', $request->input('arbol_id'))->delete();
+                    foreach ($imagenes as $imagen) {
+                        Storage::delete( "public/img/fudebiol_arboles/" . $imagen->FA_ID . $imagen->FA_IMAGEN_FORMATO );
+                    }
                     DB::commit(); 
                 } catch(Exception $e){
                     $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
@@ -51,8 +54,8 @@ class ArbolesModel extends Model {
                 DB::rollBack();
             }    
         }catch(Exception $e){
-            DB::rollBack();
-            $data[ 'codigo' ] = Util::$codigos[ "ERROR_ELIMINANDO" ];
+            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }
