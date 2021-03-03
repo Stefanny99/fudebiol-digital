@@ -25,18 +25,19 @@ class ArbolesController extends Controller{
 	public function editarArbol( Request $request ){
 		$validator = Validator::make( $request->all(), [
 			'fa_nombre_cientifico' => [ 'required', 'string', 'max:30' ],
+			'fa_nombres_comunes' => [ 'string', 'max:150'],
 			'fa_jiffys' => [ 'required', 'numeric' ],
 			'fa_bolsas' => [ 'required', 'numeric' ],
 			'fa_elevacion_minima' => [ 'required', 'numeric' ],
 			'fa_elevacion_maxima' => [ 'required', 'numeric' ],
-			'imagenes' => [ 'image' ],
-			'imagenes_eliminadas' => [ 'numeric' ],
+			'imagen' => [ 'image' ],
+			'imagen_eliminada' => [ 'numeric' ],
 		]);
 		if ( $validator->fails() ){
 			return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $request->input() );
 		}else {
 			$model = new ArbolesModel();
-			if ( !$request->has( "fa_id" ) ){
+			if ( !$request->has( "fa_id" ) || $request->input( "fa_id" ) < 1 ){
 				$result = $model->crearArbol( $request );
 				if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
 					return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) )->withInput( $request->input() );

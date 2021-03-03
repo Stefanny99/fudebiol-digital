@@ -31,7 +31,7 @@ class PadrinosArbolesModel extends Model {
             "accion" => "eliminarPadrinoArbol"
         );
         try{
-            DB::table('fudebiol_padrinos_arboles')->where('fpa_id', $request->input('padrino_arbol_id'))->delete();
+            DB::table('fudebiol_padrinos_arboles')->where('fpa_id', $request->input('fpa_id'))->delete();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
         }

@@ -8,14 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 
 class LotesModel extends Model {
-    public function obtenerLotes(){
+    public function obtenerLotes($nombre_lote){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
             "accion" => "obtenerLotes"
         );
         try{
-            $data["resultado"] = DB::table('fudebiol_lotes')->get();
+            $data["resultado"] = DB::table('fudebiol_lotes')
+            ->where('fl_nombre', 'like', '%'.$nombre_lote.'%')
+            ->get();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
         }

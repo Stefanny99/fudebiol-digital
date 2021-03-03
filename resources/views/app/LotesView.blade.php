@@ -44,8 +44,8 @@
           </form> 
 
             <div id="tabla" class="hvr-forward container-fluid">
-            <form id="buscador" accion="{{route('registrarPadrino')}}" method="post">
-                <input type="text" name="buscar" placeholder="Buscar un lote">
+            <form id="buscador" accion="{{route('lotes')}}" method="get">
+                <input type="text" name="buscar" placeholder="Buscar un lote" value="{{ $buscar }}">
                 <button  class="btn_buscarRL"><i class="fas fa-search"></i></button>
             </form>
             <form action="{{ route( 'eliminarLotes' ) }}" method="post">  

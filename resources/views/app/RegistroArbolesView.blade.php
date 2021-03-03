@@ -15,6 +15,7 @@
             <div id="caja">
               <form id="cajaArbol" class="hvr-float" method="post" action="{{ route( 'editarArbol' ) }}">
                 @csrf
+                <input type="hidden" id="id_arbol" name="fa_id" value="0">
                 <div id="treeheader">
                   <div id="treeheadermascara"  class="container-fluid">
                     <label id="RegArbol">Registra una nueva </label>
@@ -25,22 +26,22 @@
                 <input type="file" id="pictureTree" name="fa_imagen"> 
 
                 <label class="texto" for="nombreCientifico">Nombre científico:</label>
-                <input type="text" required name="fa_nombre_cientifico">
+                <input type="text" id="nombreCientifico" required name="fa_nombre_cientifico">
 
                 <label class="texto" for="nombreComun">Nombre comun:</label>
-                <input type="text" required name="fa_nombre_comun">
+                <input type="text" id="nombreComun" required name="fa_nombres_comunes">
 
                 <label class="texto" for="jiffys">Jiffys:</label>
-                <input type="text" required name="fa_jiffys">
+                <input type="text" id="jiffys" required name="fa_jiffys">
 
                 <label class="texto" for="bolsas">Bolsas:</label>
-                <input type="text"  required name="fa_bolsas">
+                <input type="text"  id="bolsas" required name="fa_bolsas">
 
                 <label class="texto" for="elevacion_maxima">Elevación máxima:</label>
-                <input type="text"  required name="fa_elevacion_maxima">
+                <input type="text"  id="elevacion_maxima" required name="fa_elevacion_maxima">
 
                 <label class="texto" for="elevacion_minima">Elevación mínima:</label>
-                <input type="text" required name="fa_elevacion_minima">
+                <input type="text" id="elevacion_minima" required name="fa_elevacion_minima">
 
                 <button class="btn_registrar">Registrar</button>
 
@@ -56,7 +57,7 @@
                   <thead>
                     <tr id="tablehead" >
                       <th>Nombre científico</th>
-                      <th>Nombre comun</th>
+                      <th>Nombre común</th>
                       <th>Jiffys</th>
                       <th>Bolsas</th>
                       <th>Elevación mínima</th>
@@ -66,16 +67,25 @@
                   </thead> 
                   <tbody>
                     @foreach ( $arboles as $arbol )
-                    <tr class="fila">
+                    <tr class="fila" 
+                        id="arbol_{{ $arbol->FA_ID }}" 
+                        data-id="{{ $arbol->FA_ID }}" 
+                        data-nombre_cientifico="{{ $arbol->FA_NOMBRE_CIENTIFICO }}" 
+                        data-nombres_comunes="{{ $arbol->FA_NOMBRES_COMUNES }}" 
+                        data-jiffys="{{ $arbol->FA_JIFFYS }}" 
+                        data-bolsas="{{ $arbol->FA_BOLSAS }}"
+                        data-elevacion_minima="{{ $arbol->FA_ELEVACION_MINIMA }}"
+                        data-elevacion_maxima="{{ $arbol->FA_ELEVACION_MAXIMA }}"
+                    >
                       <td class="fila">{{ $arbol->FA_NOMBRE_CIENTIFICO }}</td>
-                      <td class="fila overflow-hidden">Ciprés dfsdfsd sdfsdsd</td>
+                      <td class="fila overflow-hidden">{{ $arbol->FA_NOMBRES_COMUNES }}</td>
                       <td class="fila">{{ $arbol->FA_JIFFYS }}</td>
                       <td class="fila">{{ $arbol->FA_BOLSAS }}</td>
                       <td class="fila">{{ $arbol->FA_ELEVACION_MINIMA }}m</td>
                       <td class="fila">{{ $arbol->FA_ELEVACION_MAXIMA }}m</td>
                       <td class="fila">
                         <div class="action">
-                          <label class="edit"><i class="far fa-edit"></i></label>
+                          <label class="edit" onclick="editarArbol( 'arbol_{{ $arbol->FA_ID }}' )"><i class="far fa-edit"></i></label>
                         <label class="delete"><i class="far fa-trash-alt"></i></label>
                         </div>
                         

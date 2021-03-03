@@ -82,14 +82,14 @@
                         <img class="icon img-responsive" src="img/facebook.png"></img>
                         <div class="label">@FUDEBIOL</div>
                     </a>
-                    <a class="whatsapp contact" href="">
+                    <a class="whatsapp contact" href="https://wa.me/+50672659372">
                         <img class="icon img-responsive" src="img/whatsapp.png"></img>
                         <div class="label">7265-9372</div>
                     </a>
-                    <span class="email contact">
+                    <a class="email contact" href="mailto:udebiol@gmail.com">
                         <img class="icon img-responsive" src="img/email.png"></img>
                         <div class="label">fudebiol@gmail.com</div>
-                    </span>
+                    </a>
                 </div>
                
             </div>
