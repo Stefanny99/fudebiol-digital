@@ -13,7 +13,7 @@
             </div>
           <div class="home" >
             <div id="caja">
-              <form id="cajaArbol" class="hvr-float" method="post" action="{{ route( 'editarArbol' ) }}">
+              <form id="cajaArbol" class="hvr-float" method="post" action="{{ route( 'editarArbol' ) }}" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" id="id_arbol" name="fa_id" value="0">
                 <div id="treeheader">

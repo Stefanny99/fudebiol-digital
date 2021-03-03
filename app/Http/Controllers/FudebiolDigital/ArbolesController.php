@@ -30,7 +30,7 @@ class ArbolesController extends Controller{
 			'fa_bolsas' => [ 'required', 'numeric' ],
 			'fa_elevacion_minima' => [ 'required', 'numeric' ],
 			'fa_elevacion_maxima' => [ 'required', 'numeric' ],
-			'imagen' => [ 'image' ],
+			'fa_imagen' => [ 'image' ],
 			'imagen_eliminada' => [ 'numeric' ],
 		]);
 		if ( $validator->fails() ){
