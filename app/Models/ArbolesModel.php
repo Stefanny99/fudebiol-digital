@@ -13,7 +13,7 @@ class ArbolesModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "obtenerArboles"
+            "accion" => "ArbolesModel:obtenerArboles"
         );
         try{
             $data['resultado'] = DB::table('fudebiol_arboles')
@@ -27,11 +27,29 @@ class ArbolesModel extends Model {
         return $data;
     }
 
+    public function cantidadPaginas( $nombre_arbol ){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "ArbolesModel:cantidadPaginas"
+        );
+        try{
+            $data[ "resultado" ] = ceil( DB::table( "fudebiol_arboles" )
+            ->where('fa_nombre_cientifico', 'like', '%'.$nombre_arbol.'%')
+            ->orWhere('fa_nombres_comunes', 'like', '%'.$nombre_arbol.'%')
+            ->count() / 8 );
+        }catch ( Exception $e ){
+            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
+
     public function eliminarArboles($request){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "eliminarArboles"
+            "accion" => "ArbolesModel:eliminarArboles"
         );
         try {
             $imagenes = DB::table( "fudebiol_imagenes" )->whereIn( 'fa_id', $request->input( "ids" ) )->get();
@@ -64,7 +82,7 @@ class ArbolesModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "crearArbol"
+            "accion" => "ArbolesModel:crearArbol"
         );
         try {
             DB::begintransaction();
@@ -108,7 +126,7 @@ class ArbolesModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "editarArbol"
+            "accion" => "ArbolesModel:editarArbol"
         );
         try{
             DB::begintransaction();

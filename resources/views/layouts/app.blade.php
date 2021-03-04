@@ -121,11 +121,11 @@
                      
                         <div class="text">Información</div>
                     </a>
-                    <a href="{{ route( 'registrarArbol',1 ) }}">
+                    <a href="{{ route( 'registrarArbol', 1 ) }}">
                        
                         <div class="text">Reg.Especies</div>
                     </a>
-                    <a href="{{ route( 'lotes' ) }}">
+                    <a href="{{ route( 'lotes', 1 ) }}">
                        
                         <div class="text">Reg.Lotes</div>
                     </a>

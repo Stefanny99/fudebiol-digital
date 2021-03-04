@@ -12,16 +12,17 @@ use App\Helper\Util;
 use App\Models\LotesModel;
 
 class LotesController extends Controller{
-	public function mantenimientoLotes( Request $request ){
+	public function mantenimientoLotes( $pagina, Request $request ){
 		$model = new LotesModel();
-		$result = $model->obtenerLotes($request->input( "buscar", "" ));
+		$result = $model->obtenerLotes( max( 1, $pagina ), $request->input( "buscar", "" ) );
 		if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-			return redirect()->back()->with( array(
-				"errores" => $result[ 'codigo' ][ 'descripcion' ] . ", " . $result[ 'razon' ]
-			) );
+			return redirect()->back()->with( "errores", $result[ 'codigo' ][ 'descripcion' ] . ", " . $result[ 'razon' ] );
 		}
+		$cantidadPaginas = $model->cantidadPaginas( $request->input( "buscar", "" ) );
 		return view( 'app/LotesView', array(
 			"lotes" => $result[ 'resultado' ],
+			"pagina" => max( 1, $pagina ),
+			"cantidadPaginas" => $cantidadPaginas[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ? 1 : $cantidadPaginas[ "resultado" ],
 			"buscar" => $request->input( "buscar", "" )
 		) );
 	}

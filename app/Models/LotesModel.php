@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 
 class LotesModel extends Model {
-    public function obtenerLotes($nombre_lote){
+    public function obtenerLotes( $pagina, $nombre_lote ){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
@@ -17,9 +17,26 @@ class LotesModel extends Model {
         try{
             $data["resultado"] = DB::table('fudebiol_lotes')
             ->where('fl_nombre', 'like', '%'.$nombre_lote.'%')
-            ->get();
+            ->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+        }
+        return $data;
+    }
+
+    public function cantidadPaginas( $nombre_lote ){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "LotesModel:cantidadPaginas"
+        );
+        try{
+            $data[ "resultado" ] = ceil( DB::table( "fudebiol_lotes" )
+            ->where('fl_nombre', 'like', '%'.$nombre_lote.'%')
+            ->count() / 8 );
+        }catch ( Exception $e ){
+            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }

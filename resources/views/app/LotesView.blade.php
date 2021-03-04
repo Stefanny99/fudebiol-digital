@@ -44,7 +44,7 @@
           </form> 
 
             <div id="tabla" class="hvr-forward container-fluid">
-            <form id="buscador" accion="{{route('lotes')}}" method="get">
+            <form id="buscador" accion="{{ route( 'lotes', $pagina ) }}" method="get">
                 <input type="text" name="buscar" placeholder="Buscar un lote" value="{{ $buscar }}">
                 <button  class="btn_buscarRL"><i class="fas fa-search"></i></button>
             </form>
@@ -78,8 +78,9 @@
             <div id="botonesEdicionArbolesRL">
                 <button type="submit" class="btn_arbolesRL"><i class="far fa-trash-alt"></i></button>
                 <div id="paginacion">
-                  <a class="btn_pagRL" href=" {{ route('registrarPadrino' )}}"> <i class="fas fa-backward"></i> </a>
-                  <a class="btn_pagRL" href="{{ route('registrarPadrino')}}" > <i class="fas fa-forward"></i> </a>
+                  <a class="btn_pagRL" href=" {{ route( 'lotes', max( 1, $pagina - 1 ) ) }}?buscar={{ $buscar }}"> <i class="fas fa-backward"></i> </a>
+                  <span style="letter-spacing: normal; text-align: center; word-spacing: normal; white-space: nowrap; margin-right: 10%;">{{ $pagina }} de {{ $cantidadPaginas }}</span>
+                  <a class="btn_pagRL" href="{{ route( 'lotes', min( $pagina + 1, $cantidadPaginas ) ) }}?buscar={{ $buscar }}" > <i class="fas fa-forward"></i> </a>
                 </div>
             </div>
           </form>

@@ -11,13 +11,15 @@ use App\Models\ArbolesModel;
 class ArbolesController extends Controller{
 	public function registrarArbol( $pagina, Request $request ){
 		$model = new ArbolesModel();
-		$result = $model->obtenerArboles( $pagina, $request->input( "buscar", "" ) );
+		$result = $model->obtenerArboles( max( 1, $pagina ), $request->input( "buscar", "" ) );
 		if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
 			return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) );
 		}
+		$cantidadPaginas = $model->cantidadPaginas( $request->input( "buscar", "" ) );
 		return view( 'app/RegistroArbolesView', array(
 			"arboles" => $result[ "resultado" ],
 			"pagina" => max( 1, $pagina ),
+			"cantidadPaginas" => $cantidadPaginas[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ? 1 : $cantidadPaginas[ "resultado" ],
 			"buscar" => $request->input( "buscar", "" )
 		) );
 	}
