@@ -30,16 +30,13 @@
 	background-image: url('/img/fude15.jpg');
 }
 #VisualizacionArboles{
-	/* background-image: url('/img/arbol.jpg'); */
 	background:white;
 	display: flex;
 	flex-direction: column;
-	height: 30vw;
-	box-shadow: 0px 0px 15px gray;
 	color: white;
-	width: 35vw;
+	width: 50vw;
 	border-radius: 10px;
-	padding:20px;
+	padding:10px;
 	border:2px white solid;
 }
 #lotes{
@@ -191,7 +188,9 @@ color: #808080;
 font-size: 20px;
 }
 
-
+.center-text{
+	text-align: center;
+}
 .disponible{
 color:green;
 font-size: 20px;
@@ -204,9 +203,8 @@ font-size: 20px;
 	width:15vw;
 	display: flex;
 	flex-direction: column;
-	text-align: center;
+	text-align: left;
 	border-radius: 0px 10px 10px 0px;
-	align-items: center;
 	justify-content:center;
 	box-shadow: 0px 10px 20px black;
 }
@@ -254,4 +252,36 @@ align-items:center;
 justify-content:center;
 padding:20px;
 /* background-color: blue; */
+}
+
+.tab_container{
+	display:flex;
+	flex-direction:column;
+	background-color:white;
+	box-shadow: 0px 0px 15px gray;
+	padding: 20px;
+	height:40vw;
+	border-radius: 10px;
+}
+.tab_buttons{
+	display:flex;
+	justify-content:space-around;
+	flex-direction: row;
+}
+
+.tab_buttons button, .tab_buttons button:focus{
+	width:20%;
+	background-color: white;
+	border:none;
+	outline:none;
+	border-bottom: 2px solid white;
+	transition:0.5s;
+
+}
+
+.tab_buttons button:focus {
+	border:none;
+	outline: none;
+	border-bottom: 2px solid black;
+	transition:0.5s;
 }
