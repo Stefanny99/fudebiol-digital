@@ -29,12 +29,12 @@
                         <div id="contTipo">
                             <div class="tipo1">
                                 <label class="texto" for="persona">Persona</label>
-                                <input type="checkbox" name="persona">
+                                <input type="radio" name="tipo">
                             </div>
                         
                             <div class="tipo2">
                                 <label class="texto" for="empresa">Empresa</label>
-                                <input type="checkbox" name="empresa">
+                                <input type="radio" name="tipo">
                             </div>
                         </div>
                     
@@ -43,6 +43,9 @@
 
                         <label class="texto" for="cedula">Cédula de identidad:</label>
                         <input type="text" name="cedula">
+
+                        <label class="texto" for="correo">Dirección de correo electrónico:</label>
+                        <input type="text" name="correo">
                         <div id="botonRP">
                             <button class="btn_registrarRP">Registrar</button>
                         </div>

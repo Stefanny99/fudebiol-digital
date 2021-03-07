@@ -16,7 +16,8 @@
     <script src="{{ asset('js/mantenimiento-usuarios.js') }}"></script>
     <script src="{{ asset('js/mantenimiento-lotes.js') }}"></script>
     <script src="{{ asset('js/publicaciones.js') }}"></script>
-    <script src="{{ asset('js/mantenimiento-arboles.js') }}"></script>
+    <script src="{{ asset('js/mantenimiento-arboles.js') }}"></script>                                        
+    <script src="{{ asset('js/Chart.min.js') }}"></script>
 
 
     <!-- Fonts -->

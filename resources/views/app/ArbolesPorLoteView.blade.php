@@ -511,6 +511,7 @@
                 <label class="texto" for="filas"><b>Coordenada W:</b> 65°</label>
                 <label class="texto" for="columnas"><b>Fila:</b> 29</label>
                 <label class="texto" for="columnas"><b>Columna:</b> 4</label>
+                <a href="{{route('adoptarArbol')}}"class="btn_adoptar">Adoptar</a>
               </div>
             </div>
         </div>

@@ -38,6 +38,7 @@ function removePhoto(contenedorPadre){
 
 
 function updateImageChooser( imageChooser ){
+ 
 	if ( imageChooser.files.length > 0 && FileReader ){
 		var container = document.getElementById("vista-previa-fotos");
 		container.innerHTML = "";
@@ -54,6 +55,23 @@ function updateImageChooser( imageChooser ){
         deletePhoto.onclick=()=>removePhoto(image);
         image.append(deletePhoto, photo);
 				container.appendChild( image );
+			};
+			reader.readAsDataURL( file );
+		} );
+	}
+}
+
+
+function seeVoucher( imageChooser ){
+  console.log( imageChooser.files);
+  if ( imageChooser.files.length > 0 && FileReader ){
+		var container = document.getElementById("pdf_img");
+		[ ... imageChooser.files ].forEach( file => {
+			var reader = new FileReader();
+			reader.onload = () => {
+			
+        container.src= reader.result;
+        
 			};
 			reader.readAsDataURL( file );
 		} );

@@ -60,3 +60,5 @@ Route::get('/atracciones', [App\Http\Controllers\FudebiolDigital\InformacionCont
 Route::get('/fudebiol', [App\Http\Controllers\FudebiolDigital\InformacionController::class, 'sobreNosotros'])->name('sobreNosotros');
 Route::get('/publicaciones', [App\Http\Controllers\FudebiolDigital\PublicacionesController::class, 'publicaciones'])->name('publicaciones');
 Route::get('/investigaciones', [App\Http\Controllers\FudebiolDigital\InvestigacionesController::class, 'investigaciones'])->name('investigaciones');
+Route::get('/adoptarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'adoptarArbol'])->name('adoptarArbol');
+Route::get('/comprobante', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'comprobante'])->name('comprobante');

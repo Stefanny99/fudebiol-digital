@@ -22,13 +22,13 @@
                   </div>
                 </div>
 
-                <label class="texto" for="especie">Rol</label>
+                <label class="texto" for="especie">Especie</label>
                 <select id="especie" name="role">
                     <option value="1">Guayabo</option>
                     <option value="2">Amarillon</option>
                 </select>
                
-                <label class="texto" for="lote">Rol</label>
+                <label class="texto" for="lote">Lote</label>
                 <select id="lote" name="role">
                     <option value="1">L1</option>
                     <option value="2">L2</option>
