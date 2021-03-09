@@ -130,7 +130,20 @@ padding: 1%;
 border-radius: 6px;
 margin-bottom: 2%;
 text-align: left;
+width: 100%;
 }
+#password div{
+flex:1;
+display: flex;
+justify-content: space-between;
+}
+#password div i{
+	color:gray;
+	position: relative;
+	top:25px;
+	right:5px;
+	cursor: pointer;
+	}
 
 #user input, #password input{
 	border-radius: 0px;

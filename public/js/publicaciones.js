@@ -1,3 +1,4 @@
+var show=false;
 function vistaPrevia(){
   var today = new Date();
   var titulo= document.getElementById("titulo-publicacion");
@@ -76,4 +77,21 @@ function seeVoucher( imageChooser ){
 			reader.readAsDataURL( file );
 		} );
 	}
+}
+
+
+function showPassword(eye){
+  show=!show;
+  var see= document.getElementById("clave");
+  var eyes= document.getElementById("show");
+  if(show==false){
+    see.type="password";
+    eyes.classList.add("fa-eye");
+    eyes.classList.remove("fa-eye-slash");
+  }else{
+    see.type="text";
+    eyes.classList.add("fa-eye-slash");
+    eyes.classList.remove("fa-eye");
+  }
+
 }
