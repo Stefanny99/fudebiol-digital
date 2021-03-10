@@ -43,7 +43,10 @@
                 <label class="texto" for="elevacion_minima">Elevación mínima:</label>
                 <input type="text" id="elevacion_minima" required name="fa_elevacion_minima">
 
-                <button class="btn_registrar">Registrar</button>
+                <div id="botonRL">
+                  <button type="submit" class="btn_registrar">Registrar</button>
+                  <button type="button" class="btn_registrar" onclick="limpiarArbol();">Limpiar</button>
+                </div>
 
               </form>  
 

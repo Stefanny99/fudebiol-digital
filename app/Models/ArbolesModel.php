@@ -138,12 +138,12 @@ class ArbolesModel extends Model {
                     'fa_bolsas' => $request->input('fa_bolsas'),
                     'fa_elevacion_minima' => $request->input('fa_elevacion_minima'),
                     'fa_elevacion_maxima' => $request->input('fa_elevacion_maxima'),
-                    'fa_imagen_formato' => $request->hasFile( 'fa_imagen' ) ? $request->file( "imagen" )->extension() : '',
+                    'fa_imagen_formato' => !$request->hasFile( 'fa_imagen' ) ? $request->file( "fa_imagen" )->extension() : '',
                     'fa_nombres_comunes' => $request->input('fa_nombres_comunes'),
                 ]);
                 if ( $request->hasFile( 'fa_imagen' ) ){
                     try{
-                        $request->file( 'fa_imagen' )->storeAs( "public/img/fudebiol_arboles/", $arbol_id . '.' . $request->file( 'fa_imagen' )->extension() );
+                        $request->file( 'fa_imagen' )->storeAs( "public/img/fudebiol_arboles/", $request->input( "fa_id" ) . '.' . $request->file( 'fa_imagen' )->extension() );
                         DB::commit();
                         if ( $request->file( 'fa_imagen' )->extension() != $request->input( 'fa_imagen_formato' ) ){
                             try{
@@ -157,7 +157,7 @@ class ArbolesModel extends Model {
                         }
                     }catch( Exception $e ){
                         $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
-                        $data[ "razon" ] = "Ocurrió un error al subir la imagen " . $imagen->getClientOriginalName();
+                        $data[ "razon" ] = "Ocurrió un error al subir la imagen " . $request->file( "fa_imagen" )->getClientOriginalName();
                         Log::error( $e->getMessage(), $data );
                         DB::rollBack();
                     }
