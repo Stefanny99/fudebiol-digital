@@ -89,7 +89,8 @@
                       <td class="fila">
                         <div class="action">
                           <label class="edit" onclick="editarArbol( 'arbol_{{ $arbol->FA_ID }}' )"><i class="far fa-edit"></i></label>
-                        <label class="delete"><i class="far fa-trash-alt"></i></label>
+                          <label class="report"><i class="fas fa-chart-bar"></i></label>
+                          <label class="delete"><i class="far fa-trash-alt"></i></label>
                         </div>
                         
                       </td>

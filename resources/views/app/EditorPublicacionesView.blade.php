@@ -36,6 +36,7 @@
                             <label><b>Agrega fotografías</b></label>
                             <label id="agregar-fotos" for="fotos-publicacion" >Agregar fotografías</label>
                             <input type="file" onchange="updateImageChooser(this)" id="fotos-publicacion" multiple="multiple"> 
+                            
                             <div id="vista-previa-fotos">
                             </div>
                             <div class="content-row">

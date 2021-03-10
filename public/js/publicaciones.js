@@ -1,3 +1,4 @@
+var show=false;
 function vistaPrevia(){
   var today = new Date();
   var titulo= document.getElementById("titulo-publicacion");
@@ -38,6 +39,7 @@ function removePhoto(contenedorPadre){
 
 
 function updateImageChooser( imageChooser ){
+ 
 	if ( imageChooser.files.length > 0 && FileReader ){
 		var container = document.getElementById("vista-previa-fotos");
 		container.innerHTML = "";
@@ -58,4 +60,38 @@ function updateImageChooser( imageChooser ){
 			reader.readAsDataURL( file );
 		} );
 	}
+}
+
+
+function seeVoucher( imageChooser ){
+  console.log( imageChooser.files);
+  if ( imageChooser.files.length > 0 && FileReader ){
+		var container = document.getElementById("pdf_img");
+		[ ... imageChooser.files ].forEach( file => {
+			var reader = new FileReader();
+			reader.onload = () => {
+			
+        container.src= reader.result;
+        
+			};
+			reader.readAsDataURL( file );
+		} );
+	}
+}
+
+
+function showPassword(eye){
+  show=!show;
+  var see= document.getElementById("clave");
+  var eyes= document.getElementById("show");
+  if(show==false){
+    see.type="password";
+    eyes.classList.add("fa-eye");
+    eyes.classList.remove("fa-eye-slash");
+  }else{
+    see.type="text";
+    eyes.classList.add("fa-eye-slash");
+    eyes.classList.remove("fa-eye");
+  }
+
 }

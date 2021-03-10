@@ -50,6 +50,12 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 	/*RUTA DE ARBOLES */
 	Route::get('/registroArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'registroArbol'])->name('registroArbol');
 
+		/*RUTA DE REPORTES */
+	Route::get('/reporteArboles', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'reporteGlobal'])->name('reporteArboles');
+	Route::get('/reporteEspecies', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'reporteEspecifico'])->name('reporteEspecies');
+	Route::get('/reportePadrinos', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'reporteGlobal'])->name('reportePadrinos');
+	Route::get('/reportePadrino', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'reporteEspecifico'])->name('reportePadrino');
+
 });
 
 
@@ -62,3 +68,5 @@ Route::get('/atracciones', [App\Http\Controllers\FudebiolDigital\InformacionCont
 Route::get('/fudebiol', [App\Http\Controllers\FudebiolDigital\InformacionController::class, 'sobreNosotros'])->name('sobreNosotros');
 Route::get('/publicaciones', [App\Http\Controllers\FudebiolDigital\PublicacionesController::class, 'publicaciones'])->name('publicaciones');
 Route::get('/investigaciones', [App\Http\Controllers\FudebiolDigital\InvestigacionesController::class, 'investigaciones'])->name('investigaciones');
+Route::get('/adoptarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'adoptarArbol'])->name('adoptarArbol');
+Route::get('/comprobante', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'comprobante'])->name('comprobante');

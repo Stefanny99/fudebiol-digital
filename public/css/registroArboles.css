@@ -276,7 +276,7 @@ outline: none;
 	color:red;
 
 }
-.delete, .edit{
+.delete, .edit,.report{
 	padding: 6px;
 	border-radius: 15px;
 	cursor: pointer;

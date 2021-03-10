@@ -28,6 +28,7 @@
                         <H2>¡Hay una nueva adopción!</H2>
                     </div>
                     <div class="mesage_data">
+                        
                         <label><b>A nombre de:</b></label>
                         <label>Lizeth Monge Padilla</label>
                         <label><b>&nbspCédula:</b></label>
@@ -42,7 +43,7 @@
                         <label>55"78"56</label>
                     </div>
                    
-                    
+                    <a href="">Descargar comprobante de pago</a>
                     <label for="leidoN">Leído</label>
                     <input type="checkbox" id="leidoN"> 
                     <label for="eliminarN">Eliminar</label>

@@ -16,7 +16,8 @@
     <script src="{{ asset('js/mantenimiento-usuarios.js') }}"></script>
     <script src="{{ asset('js/mantenimiento-lotes.js') }}"></script>
     <script src="{{ asset('js/publicaciones.js') }}"></script>
-    <script src="{{ asset('js/mantenimiento-arboles.js') }}"></script>
+    <script src="{{ asset('js/mantenimiento-arboles.js') }}"></script>                                        
+    <script src="{{ asset('js/Chart.min.js') }}"></script>
 
 
     <!-- Fonts -->
@@ -33,6 +34,7 @@
     <link href="{{ asset('css/MiArbolParaLaVida.css') }}" rel="stylesheet">
     <link href="{{ asset('css/registroPadrinos.css') }}" rel="stylesheet">
     <link href="{{ asset('css/registroLotes.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/reportes.css') }}" rel="stylesheet">
     <link href="{{ asset('css/publicaciones.css') }}" rel="stylesheet">
     <link href="{{ asset('css/aboutUs.css') }}" rel="stylesheet">
     <link href="{{ asset('css/arbolPorLote.css') }}" rel="stylesheet">
