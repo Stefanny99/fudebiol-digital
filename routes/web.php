@@ -51,6 +51,8 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 		/*RUTA DE REPORTES */
 	Route::get('/reporteArboles', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'reporteGlobal'])->name('reporteArboles');
 	Route::get('/reporteEspecies', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'reporteEspecifico'])->name('reporteEspecies');
+	Route::get('/reportePadrinos', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'reporteGlobal'])->name('reportePadrinos');
+	Route::get('/reportePadrino', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'reporteEspecifico'])->name('reportePadrino');
 
 });
 
