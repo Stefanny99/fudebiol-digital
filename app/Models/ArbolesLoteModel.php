@@ -16,7 +16,11 @@ class LotesModel extends Model {
             "accion" => "obtenerArbolesPorLote"
         );
         try{
-            $data['resultado'] = DB::table('fudebiol_arboles_lote')->where('fal_lote_id', $request->input('fal_lote_id'))->get();
+            $data['resultado'] = DB::table('fudebiol_arboles_lote')
+            ->join('fudebiol_arboles', 'fudebiol_arboles_lote.fal_arbol_id', '=', 'fudebiol_arboles.fa_id')
+            ->select('fudebiol_arboles_lote.*','fudebiol_arboles.*','fudebiol_lotes.*')
+            ->where('fal_lote_id', $request->input('fal_lote_id'))
+            ->get();
         }catch(Exception $e){
             $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
