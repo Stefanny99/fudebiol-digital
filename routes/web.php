@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 /*RUTAS DE AUTENTICACIÓN*/
-Auth::routes();
+Auth::routes( [ 'register' => false, 'verify' => false ] );
 
 // -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
 // -_-_-_-_- RUTAS PRIVADAS -_-_-_-_-
