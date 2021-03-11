@@ -45,12 +45,16 @@ Route::group( [ 'middleware' => 'auth' ], function(){
 	Route::get('/administrarPublicaciones', [App\Http\Controllers\FudebiolDigital\PublicacionesController::class, 'administrarPublicaciones'])->name('administrarPublicaciones');
 /*RUTA DE GALERIA*/
 	Route::get('/editorGaleria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'editarGaleria'])->name('editorGaleria');
+	Route::post('/guardarFotos', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'guardarFotos'])->name('guardarFotos');
+	Route::post('/editarFoto', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'editarFoto'])->name('editarFoto');
 	/*RUTA DE ARBOLES */
 	Route::get('/registroArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'registroArbol'])->name('registroArbol');
 
 		/*RUTA DE REPORTES */
 	Route::get('/reporteArboles', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'reporteGlobal'])->name('reporteArboles');
 	Route::get('/reporteEspecies', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'reporteEspecifico'])->name('reporteEspecies');
+	Route::get('/reportePadrinos', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'reporteGlobal'])->name('reportePadrinos');
+	Route::get('/reportePadrino', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'reporteEspecifico'])->name('reportePadrino');
 
 });
 

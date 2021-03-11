@@ -276,34 +276,57 @@ function nextImage2(){
 	
 	}
            
-function enableInput(edit){
-	var pencil=edit;
-	var input=pencil.previousSibling.previousSibling;
-	input.removeAttribute('disabled');
+function enableInput( id ){
+	document.getElementById( "eg_descripcion_img" + id ).disabled = false;
+	document.getElementById( "eg_btn_guardar_img" + id ).disabled = false;
 }
 
-function chargePicture(foto){
-	var contImg=document.getElementById("eg_foto_pw");
-	var imagen=foto.src;
+function chargePicture( cont ){
+	let contImg=document.getElementById("eg_foto_pw");
+	let descripcion = document.getElementById( "eg_descripcion_pw" );
+	let imagen= document.getElementById( "eg_foto_" + cont ).src;
 	contImg.src=imagen;
+	descripcion.value = document.getElementById( "eg_descripcion_" + cont ).value;
+	descripcion.setAttribute( "data-id", "eg_descripcion_" + cont );
 }
-
-
 
 function updateImages( imageChooser ){
 	if ( imageChooser.files.length > 0 && FileReader ){
-		var container = document.getElementById("eg_fotos_nuevas");
+		eg_reiniciar_foto();
+		let container = document.getElementById("eg_fotos_nuevas");
+		let descripciones = document.getElementById("eg_descripciones_nuevas");
+		let eg_foto_cont = 0;
 		container.innerHTML = "";
+		descripciones.innerHTML = "";
+		eg_foto_cont = 0;
 		[ ... imageChooser.files ].forEach( file => {
-			var reader = new FileReader();
+			let reader = new FileReader();
 			reader.onload = () => {
-        var photo= document.createElement( "img");
-        photo.src= reader.result;
-				photo.onclick=()=>chargePicture(photo);
-        photo.className= "eg_foto_galeria";
+		        let photo= document.createElement( "img");
+		        let descripcion = document.createElement( "input" );
+		        descripcion.name = "descripciones[]";
+		        descripcion.type = "checkbox";
+		        descripcion.style = "display: none;";
+		        descripcion.checked = true;
+		        descripcion.value = "";
+		        let cont = eg_foto_cont++;
+		        photo.id = "eg_foto_" + cont;
+		        descripcion.id = "eg_descripcion_" + cont;
+		        photo.src = reader.result;
+				photo.onclick = () => chargePicture( cont );
+		        photo.className = "eg_foto_galeria";
 				container.appendChild( photo );
+				descripciones.appendChild( descripcion );
 			};
 			reader.readAsDataURL( file );
 		} );
+	}
+}
+
+function sincronizarDescripcion(){
+	let descripcion_pw = document.getElementById( "eg_descripcion_pw" )
+	let descripcion = document.getElementById( descripcion_pw.getAttribute( "data-id" ) );
+	if ( descripcion ){
+		descripcion.value = descripcion_pw.value;
 	}
 }

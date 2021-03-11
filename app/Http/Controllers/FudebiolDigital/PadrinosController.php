@@ -36,6 +36,13 @@ class PadrinosController extends Controller
     public function registrarPadrinos(){
     	return view('app/RegistrarPadrinosView');
     }
+
+    public function reporteGlobal(){
+    	return view('app/ReportePadrinoGlobalView');
+    }
+    public function reporteEspecifico(){
+    	return view('app/ReportePadrinoEspecificoView');
+    }
      
 	
 }

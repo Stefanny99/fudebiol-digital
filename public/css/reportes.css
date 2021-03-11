@@ -28,6 +28,13 @@
 .tree_pic_size{
   width:10vw;
 }
+.user_pic_size{
+  width:15vw;
+}
+
+.ml{
+  margin-left: 20px;
+}
 
 .circle{
   font-weight: bold;

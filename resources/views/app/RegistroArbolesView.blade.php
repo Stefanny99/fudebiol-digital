@@ -43,7 +43,10 @@
                 <label class="texto" for="elevacion_minima">Elevación mínima:</label>
                 <input type="text" id="elevacion_minima" required name="fa_elevacion_minima">
 
-                <button class="btn_registrar">Registrar</button>
+                <div id="botonRL">
+                  <button type="submit" class="btn_registrar">Registrar</button>
+                  <button type="button" class="btn_registrar" onclick="limpiarArbol();">Limpiar</button>
+                </div>
 
               </form>  
 
@@ -86,7 +89,8 @@
                       <td class="fila">
                         <div class="action">
                           <label class="edit" onclick="editarArbol( 'arbol_{{ $arbol->FA_ID }}' )"><i class="far fa-edit"></i></label>
-                        <label class="delete"><i class="far fa-trash-alt"></i></label>
+                          <label class="report"><i class="fas fa-chart-bar"></i></label>
+                          <label class="delete"><i class="far fa-trash-alt"></i></label>
                         </div>
                         
                       </td>
