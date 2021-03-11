@@ -9,7 +9,7 @@ Use Exception;
 
 class LotesModel extends Model {
 
-    public function obtenerArbolesPorLote($request){
+    public function obtenerArbolesPorLote($request, $pagina){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
@@ -19,8 +19,10 @@ class LotesModel extends Model {
             $data['resultado'] = DB::table('fudebiol_arboles_lote')
             ->join('fudebiol_arboles', 'fudebiol_arboles_lote.fal_arbol_id', '=', 'fudebiol_arboles.fa_id')
             ->select('fudebiol_arboles_lote.*','fudebiol_arboles.*','fudebiol_lotes.*')
-            ->where('fal_lote_id', $request->input('fal_lote_id'))
-            ->get();
+            ->where('fudebiol_lotes.fl_nombre', '=', $request->input('fl_nombre'))
+            ->where('fudebiol_arboles.fal_fila', 'like', '%'.$request->input('fal_fila').'%')
+            ->where('fudebiol_arboles.fal_fila', 'like', '%'.$request->input('fal_columna').'%')
+            ->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
         }catch(Exception $e){
             $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
