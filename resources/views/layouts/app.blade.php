@@ -59,37 +59,28 @@
         crossorigin=""></script>
 </head>
 <header>
-    @guest
-        @if (Route::has('login'))
-           
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-          
-        @endif
-        
-        @if (Route::has('register'))
-            
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
-            
-        @endif
-    @else
+    @if ( Route::current()->getName() != 'login' )
 
             <div id="cabeza">
+                @guest
+                @else
                 <div class="usuario"> 
-                 <a href="{{ route( 'usuarios' ) }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                <div class="textUser"> 
-                    <i class="fas fa-user"></i>&nbsp
-                 {{ Auth::user()->name }} </div>
-                </a>
-                <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                    <div class="text">  <i class="fas fa-sign-out-alt"></i> </div>
-                </a>
-              
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </div>
+                     <a href="{{ route( 'usuarios' ) }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <div class="textUser"> 
+                        <i class="fas fa-user"></i>&nbsp
+                     {{ Auth::user()->name }} </div>
+                    </a>
+                    <a href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        <div class="text">  <i class="fas fa-sign-out-alt"></i> </div>
+                    </a>
+                  
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+                @endguest
                
                 <nav class="menu">
                 <div class="sitename">
@@ -123,6 +114,11 @@
                      
                         <div class="text">Información</div>
                     </a>
+                    @guest
+                    <!-- Solo visitantes -->
+                    @else
+                    <!-- Solo usuarios -->
+                    @if ( Auth::user()->role == 'A' )
                     <a href="{{ route( 'registrarArbol', 1 ) }}">
                        
                         <div class="text">Reg.Especies</div>
@@ -135,6 +131,7 @@
                        
                         <div class="text">Reg.Padrinos</div>
                     </a>
+                    @endif
                     <a href="{{ route( 'mensajes' ) }}">
                        
                         <div class="text">Mensajes</div>
@@ -147,12 +144,12 @@
                        
                         <div class="text">Publicaciones</div>
                     </a>
-                    
+                    @endguest
                   
                 </div>
           </nav>
        </div>
-    @endguest
+    @endif
 </header>
 
 <body>

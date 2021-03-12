@@ -52,9 +52,26 @@
               </form>  
 
               <div id="tabla" class="hvr-forward container-fluid">
-                <form id="buscador" action="{{route('registrarArbol', 1)}}" method="get">
-                    <input type="text" name="buscar" placeholder="Buscar un árbol">
-                    <button type="submit" class="btn_buscarRAI"><i class="fas fa-search"></i></button>
+                <form class="row_container centrar" id="buscadorA" action="{{route('registrarArbol', 1)}}" method="get">
+                  <div class="row_container w-25 centrar" >  
+                    <label class="texto" for="lote"><b>Lote:</b></label>
+                    <select name="lote" class="ml">
+                        <option value="1">L1</option>
+                        <option value="2">L2</option>
+                        <option value="2">L3</option>
+                        <option value="2">L4</option>
+                    </select>
+                  </div>
+                  <div class="row_container w-25 centrar">
+                    <label class="texto" for="lote"><b>Fila:</b></label>
+                    <input type="text" name="buscar" class="ml">
+                  </div>
+                  <div class="row_container w-25 ml centrar">
+                  <label class="texto" for="lote"><b>Columna:</b></label>
+                  <input type="text" name="buscar" class="ml">
+                  </div>
+                  <button type="submit" class="btn_buscarRAI ml"><i class="fas fa-search"></i></button>
+                  
                 </form>
                 <table id="tablaArbolesRAI">
                 <caption>Árboles registrados</caption>
