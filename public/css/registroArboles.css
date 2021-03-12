@@ -193,14 +193,14 @@ outline: none;
 	color:#008a00;
 }
 
-#buscador
+#buscadorA
 {
 	margin-bottom: 4%;
 	font-size: 3vh;
 }
-#buscador input{
+#buscadorA input{
 	text-align: center;
-	width: 400px;
+	width: 100px;
 	height: 34px;
 	border:none;
 	border-bottom: 1px gray solid;
@@ -518,6 +518,15 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(96,0,163,0.54665616246
 	}
 	.btn_buscarRAI:hover{
 		color:#6000a3;
+	}
+	.centrar{
+		align-items: center;
+		justify-content:center;
+	}
+	#buscadorA select{
+ 	border:none;
+ 	outline:none;
+	 border-bottom: 1px solid gray;
 	}
 	
 	#buscador
