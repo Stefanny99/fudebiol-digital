@@ -14,13 +14,14 @@ class PublicacionesModel extends Model {
     $data = array(
       "codigo" => Util::$codigos[ "EXITO" ],
       "razon" => "",
-      "accion" => "obtenerPublicaciones"
+      "accion" => "PublicacionesModel:obtenerPublicaciones"
     );
     try{
       $data['resultado'] = DB::table('fudebiol_publicaciones')
                               ->join('fudebiol_publicaciones_img', 'fudebiol_publicaciones_img.fpi_publicacion_id', '=', 'fudebiol_publicaciones.fp_id')
                               ->join('fudebiol_imagenes', 'fudebiol_publicaciones_img.fpi_imagen_id', '=', 'fudebiol_imagenes.fi_id')
                               ->select('fudebiol_imagenes.*', 'fudebiol_publicaciones.*')
+                              ->orderBy('fudebiol_publicaciones.fp_fecha')
                               ->get();
     }catch(Exception $e){
       $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
@@ -33,7 +34,7 @@ class PublicacionesModel extends Model {
     $data = array(
       "codigo" => Util::$codigos[ "EXITO" ],
       "razon" => "",
-      "accion" => "agregarPublicacion"
+      "accion" => "PublicacionesModel:agregarPublicacion"
     );
     try {
       DB::begintransaction();
@@ -50,33 +51,30 @@ class PublicacionesModel extends Model {
                 'fi_descripcion' => '',
                 'fi_formato' => $request->file( 'imagen' )->extension(),
               ]);
+              DB::table('fudebiol_publicaciones_img')->insert([
+                'fpi_publicacion_id' => $publicacion_id,
+                'fpi_imagen_id' =>  $imagen_id,
+              ]);
               try{
-                $imagen_id = DB::table('fudebiol_publicaciones_img')->insertGetId([
-                  'fpi_publicacion_id' => $publicacion_id,
-                  'fpi_imagen_id' =>  $imagen_id,
-                ]);
-                try{
-                  $request->file( 'imagen' )->storeAs( "public/img/fudebiol_publicaciones/", $imagen_id . '.' . $request->file( 'imagen' )->extension() );
-                  DB::commit();
-                } catch ( Exception $e ){
-                  $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
-                  $data[ "razon" ] = "Ocurrió un error al un error al subir imagen" . $imagen->getClientOriginalName();
-                  Log::error( $e->getMessage(), $data );
-                  DB::rollBack();
-                }
-              } catch (Exception $e){
-                $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
-                $data['razon'] = "Ocurrió un error al guardar la imagen de la publicación";
+                $imagen->storeAs( "public/img/fudebiol_imagenes/", $imagen_id . '.' . $imagen->extension() );
+              } catch ( Exception $e ){ 
+                $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
+                $data[ "razon" ] = "Ocurrió un error al un error al subir imagen" . $imagen->getClientOriginalName();
                 Log::error( $e->getMessage(), $data );
                 DB::rollBack();
+                break;
               }
             } catch (Exception $e) {
               $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
               $data['razon'] = "Ocurrió un error al guardar la imagen" . $imagen->getClientOriginalName();
               Log::error( $e->getMessage(), $data );
               DB::rollBack();
+              break;
             }
           }
+        }
+        if ( $data[ "codigo" ][ "codigo" ] == Util::$codigos[ "EXITO" ][ "codigo" ] ){
+          DB::commit();
         }
       } catch (Exception $e){
         $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
@@ -95,7 +93,7 @@ class PublicacionesModel extends Model {
     $data = array(
       "codigo" => Util::$codigos[ "EXITO" ],
       "razon" => "",
-      "accion" => "eliminarPublicacion"
+      "accion" => "PublicacionesModel:eliminarPublicacion"
     );
     try{
       DB::table('fudebiol_publicaciones')->whereIn('fp_id', $request->input('fp_id'))->delete();
@@ -104,28 +102,21 @@ class PublicacionesModel extends Model {
         if ( count( $imagenes ) > 0 ){
           try {
             DB::table( "fudebiol_imagenes" )->wehereIn( "fi_id", $request->input( "imagenes_eliminadas" ) )->delete();
+            DB::table( "fudebiol_publicaciones_img" )->wehereIn( "fpi_imagen_id", $request->input( "imagenes_eliminadas" ) )->delete();
             try{
-                DB::table( "fudebiol_publicaciones_img" )->wehereIn( "fpi_imagen_id", $request->input( "imagenes_eliminadas" ) )->delete();
-              try{
-                foreach ( $imagenes as $imagen ){
-                  Storage::delete( "public/img/fudebiol_publicaciones/" . $imagen->FI_ID . $imagen->FI_FORMATO );
-                }
-                DB::commit();
-              }catch ( Exception $e ){
-                $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO_ARCHIVO" ];
-                $data['razon'] = "Ocurrió un error eliminando archivos";
-                Log::error( $e->getMessage(), $data );
-                DB::rollBack();
+              foreach ( $imagenes as $imagen ){
+                Storage::delete( "public/img/fudebiol_publicaciones/" . $imagen->FI_ID . $imagen->FI_FORMATO );
               }
-            } catch (Exception $e){
-              $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
-              $data['razon'] = "Ocurrió un error al eliminar en fudebiol_publicaciones_img";
+              DB::commit();
+            }catch ( Exception $e ){
+              $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO_ARCHIVO" ];
+              $data['razon'] = "Ocurrió un error eliminando archivos";
               Log::error( $e->getMessage(), $data );
               DB::rollBack();
             }
           } catch (Exception $e){
             $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
-            $data['razon'] = "Ocurrió un error al eliminar en fudebiol_imagenes";
+            $data['razon'] = "Ocurrió un error al eliminar imagenes";
             Log::error( $e->getMessage(), $data );
             DB::rollBack();
           }
