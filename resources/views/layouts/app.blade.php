@@ -131,7 +131,6 @@
                        
                         <div class="text">Reg.Padrinos</div>
                     </a>
-                    @endif
                     <a href="{{ route( 'mensajes' ) }}">
                        
                         <div class="text">Mensajes</div>
@@ -140,10 +139,13 @@
                        
                         <div class="text">Notificaciones</div>
                     </a>
+                   
+                    @endif
                     <a href="{{ route( 'publicaciones' ) }}">
                        
-                        <div class="text">Publicaciones</div>
-                    </a>
+                       <div class="text">Publicaciones</div>
+                   </a>
+                    
                     @endguest
                   
                 </div>

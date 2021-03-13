@@ -12,9 +12,8 @@
     <div  class="logIn">
         <div class="cardi">
             <div>
-                <div class="log">{{ __('Login') }}
-                   
-                </div>
+            <div class="log">{{ __('Login') }}
+            </div>
             </div>
             <div class="card-body">
                 <form class="form_size"method="POST" action="{{ route('login') }}">
@@ -49,7 +48,7 @@
 
                     <div id="remember"> 
                         <div class="col-md-6 offset-md-4">
-                            <div class="form-check">
+                            <div class="f">
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                 <label class="form-check-label" for="remember">

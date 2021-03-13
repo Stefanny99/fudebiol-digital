@@ -15,54 +15,51 @@
                <div class="actividades">
 
                 <div class="cajitaInformativa">
-                  <i class="fas fa-hiking"></i>
-                  <label class="actividad">Senderismo</label>
-                   <label class="explicacion">Senderos en bosque primarios y secundarios</label>
-                </div>
-
-
-
-                <div class="cajitaInformativa">
-                  <i class="fas fa-water"></i>
-                  <label class="actividad">Cataratas</label>
-                   <label class="explicacion">Gran cantidad de cataratas</label>
-                </div>
-
-
-                <div class="cajitaInformativa">
-                 <i class="fas fa-binoculars"></i>
-                  <label class="actividad">Vistas</label>
-                   <label class="explicacion">Vistas panorámicas desde el bosque premontano</label>
+                  <h2 class="actividad">Senderismo</h2>
+                  <img class=" image_activity img-responsive" src="/img/senderos.png">
+                  <label class="explicacion">Senderos en bosque primarios y secundarios</label>
                 </div>
 
                 <div class="cajitaInformativa">
-                  <i class="fas fa-crow"></i>
-                  <label class="actividad">Fauna</label>
-                   <label class="explicacion">Avistamiento de aves (más de 175 especies), mamiferos, mariposas e insectos</label>
+                  <h2 class="actividad">Cataratas</h2>
+                  <img class="  image_activity img-responsive" src="/img/cataratas.jpg">
+                  <label class="explicacion">Gran cantidad de cataratas dentro de nuestra reserva</label>
                 </div>
 
                 <div class="cajitaInformativa">
-                  <i class="fas fa-seedling"></i>
-                  <label class="actividad">Ambiente</label>
-                   <label class="explicacion">Jardín sensorial, mariposario y cancha deportiva</label>
+                  <h2 class="actividad">Vistas</h2>
+                  <img class="  image_activity img-responsive" src="/img/fude17.jpg">
+                  <label class="explicacion">Vistas panorámicas desde el bosque premontano</label>
                 </div>
 
                 <div class="cajitaInformativa">
-                  <i class="fas fa-tram"></i>
-                  <label class="actividad">Andarivel</label>
-                   <label class="explicacion">Andarivel donde podrá admirar la belleza del bosque tropical desde las alturas</label>
+                  <h2 class="actividad">Fauna</h2>
+                  <img class="  image_activity img-responsive" src="/img/fauna.png">
+                  <label class="explicacion">Avistamiento de aves (más de 175 especies), mamiferos, mariposas e insectos</label>
                 </div>
 
                 <div class="cajitaInformativa">
-                  <i class="fas fa-school"></i>
-                  <label class="actividad">Escuela</label>
-                   <label class="explicacion">Escuela de la naturaleza para organización de eventos y ferias</label>
+                  <h2 class="actividad">Ambiente</h2>
+                  <img class="  image_activity img-responsive" src="/img/fude18.jpg">
+                  <label class="explicacion">Jardín sensorial, mariposario y cancha deportiva</label>
                 </div>
 
                 <div class="cajitaInformativa">
-                 <i class="fas fa-umbrella-beach"></i>
-                  <label class="actividad">Cercanías</label>
-                   <label class="explicacion">Cercanía a playas, ríos y parques nacional del Pacífico Sur de Costa Rica</label>
+                  <h2 class="actividad">Andarivel</h2>
+                  <img class="  image_activity img-responsive" src="/img/andarivel.png">
+                  <label class="explicacion">Andarivel donde podrá admirar la belleza del bosque tropical desde las alturas</label>
+                </div>
+
+                <div class="cajitaInformativa">
+                  <h2 class="actividad">Escuela</h2>
+                  <img class="  image_activity img-responsive" src="/img/escuela.jpg">
+                  <label class="explicacion">Escuela de la naturaleza para organización de eventos y ferias</label>
+                </div>
+
+                <div class="cajitaInformativa">
+                  <h2 class="actividad">Cercanías</h2>
+                  <img class="  image_activity img-responsive" src="/img/b3.jpg">
+                  <label class="explicacion">Cercanía a playas, ríos y parques nacional del Pacífico Sur de Costa Rica</label>
                 </div>
 
                </div>
