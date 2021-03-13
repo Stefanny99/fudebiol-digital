@@ -149,10 +149,7 @@ box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
 .blanco{
 	color: white;
 }
-#subText{
-font-size: 4vh;
 
-}
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
@@ -490,7 +487,7 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(96,0,163,0.54665616246
 		color: white;
 	}
 	#subText{
-	font-size: 4vh;
+	font-size: 25px;
 	
 	}
 	
