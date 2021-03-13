@@ -14,7 +14,7 @@
             </div>
             <div class="home">
                 <!-- -------------------------------------------------------------------------------------------- -->
-                <div style="height: 400px; width: 700px">
+                <!-- <div style="height: 400px; width: 700px">
                     <div id="mapid" style="height: 400px; width: 700px; z-index: 10"></div>
                 </div>
                 <script>
@@ -44,7 +44,7 @@
                         long = marker.getLatLng().lng;
                         console.log(marker.getLatLng().lat, marker.getLatLng().lng);
                     });
-                </script> 
+                </script>  -->
                 <!-- -------------------------------------------------------------------------------------------- -->
                 <div class="seccion" >
                 <label class="welcome_left">Bienvenidos a FUDEBIOL</label>

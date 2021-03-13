@@ -282,7 +282,7 @@ font-weight: bold;
 	}
 	.welcome_window img{
 		margin-top: 10px;
-		width: 30vw;
+		width: 25vw;
 		border-radius: 50%;
 		margin-bottom: 5vh;
 		animation: fadeIn 0.3s;
@@ -330,6 +330,7 @@ font-weight: bold;
 		color: white;
 		background-color: rgba(0,90,0,0.5);
 		flex:1;
+		width:90vw;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -506,142 +507,273 @@ margin-right: auto;
 	}
 	}
 	
+@media (min-width: 769px){
 
-/*home css*/
-.banner{
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-image: url('/img/fude_banner.jpg');
-}
+	/*home css*/
+	.banner{
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-image: url('/img/fude_banner.jpg');
+	}
 
-#banner_mascara{
-	background-color: rgba(0,0,0,0.6);
-	flex:1;
-}
+	#banner_mascara{
+		background-color: rgba(0,0,0,0.6);
+		flex:1;
+	}
 
-#banner_texto{
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	align-items: center;
-	color: white;
-	font-weight: bold;
-}
+	#banner_texto{
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		align-items: center;
+		color: white;
+		font-weight: bold;
+	}
 
-#banner_texto img{
-width: 25vw;
--webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
--moz-animation: fadeInUp 1s; /* Firefox < 16 */
--ms-animation: fadeInUp 1s; /* Internet Explorer */
--o-animation: fadeInUp 1s; /* Opera < 12.1 */
-animation: fadeInUp 1s;
-margin-bottom: 20px;
-}
-
-#fudebiol{
-	text-shadow: 0px 0px 5px black;
-	font-size: 6vw;
+	#banner_texto img{
+	width: 25vw;
 	-webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadeInUp 1s; /* Firefox < 16 */
-        -ms-animation: fadeInUp 1s; /* Internet Explorer */
-         -o-animation: fadeInUp 1s; /* Opera < 12.1 */
-            animation: fadeInUp 1s;
-margin-bottom: 20px;
-}
+	-moz-animation: fadeInUp 1s; /* Firefox < 16 */
+	-ms-animation: fadeInUp 1s; /* Internet Explorer */
+	-o-animation: fadeInUp 1s; /* Opera < 12.1 */
+	animation: fadeInUp 1s;
+	margin-bottom: 20px;
+	}
 
-#centrobiol{
-	text-shadow: 0px 0px 5px black;
-	font-size: 4vw;
-	 -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadeInUp 1s; /* Firefox < 16 */
-        -ms-animation: fadeInUp 1s; /* Internet Explorer */
-         -o-animation: fadeInUp 1s; /* Opera < 12.1 */
-            animation: fadeInUp 1s;
-margin-bottom: 20px;
-}
+	#fudebiol{
+		text-shadow: 0px 0px 5px black;
+		font-size: 6vw;
+		-webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+				-moz-animation: fadeInUp 1s; /* Firefox < 16 */
+					-ms-animation: fadeInUp 1s; /* Internet Explorer */
+					-o-animation: fadeInUp 1s; /* Opera < 12.1 */
+							animation: fadeInUp 1s;
+	margin-bottom: 20px;
+	}
 
-.home{
-	background-color: white;
+	#centrobiol{
+		text-shadow: 0px 0px 5px black;
+		font-size: 4vw;
+		-webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+				-moz-animation: fadeInUp 1s; /* Firefox < 16 */
+					-ms-animation: fadeInUp 1s; /* Internet Explorer */
+					-o-animation: fadeInUp 1s; /* Opera < 12.1 */
+							animation: fadeInUp 1s;
+	margin-bottom: 20px;
+	}
+
+	.home{
+		background-color: white;
+		display: flex;
+		flex-direction: column;
+		flex:1;
+		padding: 5%;
+	}
+
+	.welcome_left{
+		border-bottom: 3px green solid;
+		text-align: left;
+		font-size: 2vw;
+		font-weight: bold;
+		margin-right: auto;
+		
+	}
+
+	.welcome_right{
+		border-bottom: 3px green solid;
+		text-align: right;
+		font-size: 2vw;
+		font-weight: bold;
+		margin-left: auto;
+
+	}
+
+	#home_texto{
+
+		margin-top: 5%;
+		font-size: 1.3vw;
+		text-align: justify;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		display: flex;
+		flex-direction: column;
+		
+
+
+	}
+	@keyframes fadeInUp {
+			from {
+					transform: translate3d(0,40px,0)
+			}
+
+			to {
+					transform: translate3d(0,0,0);
+					opacity: 1
+			}
+	}
+	.seccion{
+		display: flex;
+		flex-direction: column;
+		border-bottom: 1px gray solid;
+		border-top: 1px gray solid;
+		padding-bottom: 5%;
+		padding-top: 3%;
+	}
+	.subseccion{
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	margin-bottom: 5%;
+	}
+	.img_izquierda{
+	margin-left: 5%;
+	}
+	.img_derecha{
+	margin-right: 5%;	
+	}
+	.img_derecha, .img_izquierda{
+		max-width: 50%;
+		height: auto;
+		margin-top: 2%;
+	}
+
+	.cont_btn_derecha{
+		text-align: right;
+	}
+	.cont_btn_izquierda{
+		text-align: left;
+	}
+	#btn_ver_mas span{
+
+		font-size: 1.3vw;
+	}
+}
+@media (max-width: 768px){
+
+	/*home css*/
+	.banner{
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-image: url('/img/fude_banner.jpg');
+	}
+
+	#banner_mascara{
+		background: linear-gradient(90deg, rgba(0, 0, 0, 0.916) 0%, rgba(14, 116, 5, 0.653) 100%);
+		flex:1;
+	}
+
+	#banner_texto{
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		align-items: center;
+		color: white;
+		font-weight: bold;
+		
+	}
+
+	#banner_texto img{
+	width: 45vw;
+	-webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+	-moz-animation: fadeInUp 1s; /* Firefox < 16 */
+	-ms-animation: fadeInUp 1s; /* Internet Explorer */
+	-o-animation: fadeInUp 1s; /* Opera < 12.1 */
+	animation: fadeInUp 1s;
+	}
+
+	#fudebiol{
+		text-shadow: 0px 0px 5px black;
+		font-size: 30px;
+		-webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+				-moz-animation: fadeInUp 1s; /* Firefox < 16 */
+					-ms-animation: fadeInUp 1s; /* Internet Explorer */
+					-o-animation: fadeInUp 1s; /* Opera < 12.1 */
+							animation: fadeInUp 1s;
+	margin-bottom: 10px;
+	}
+
+	#centrobiol{
+		text-shadow: 0px 0px 5px black;
+		font-size: 20px;
+		-webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+				-moz-animation: fadeInUp 1s; /* Firefox < 16 */
+					-ms-animation: fadeInUp 1s; /* Internet Explorer */
+					-o-animation: fadeInUp 1s; /* Opera < 12.1 */
+							animation: fadeInUp 1s;
+	margin-bottom: 20px;
+	/* display:none; */
+	}
+
+	.home{
+		background-color: white;
+		display: flex;
+		flex-direction: column;
+		flex:1;
+		padding: 5%;
+	}
+
+	.welcome_left{
+		border-bottom: 3px green solid;
+		text-align: center;
+		font-size: 18px;
+		font-weight: bold;
+		margin: auto;
+		
+	}
+
+	.welcome_right{
+		border-bottom: 3px green solid;
+		text-align: center;
+		font-size: 18px;
+		font-weight: bold;
+		margin: auto;
+		margin-bottom: 20px;
+	}
+
+	#home_texto{
+
+		margin-top: 5%;
+		font-size: 15px;
+		text-align: justify;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		display: flex;
+		flex-direction: column;
+		
+
+
+	}
+	@keyframes fadeInUp {
+			from {
+					transform: translate3d(0,40px,0)
+			}
+
+			to {
+					transform: translate3d(0,0,0);
+					opacity: 1
+			}
+	}
+	.seccion{
+		display: flex;
+		flex-direction: column;
+		border-bottom: 0.5px lightgray solid;
+		border-top: 0.5px lightgray solid;
+		padding-bottom: 5%;
+		padding-top: 3%;
+	}
+	.subseccion{
 	display: flex;
 	flex-direction: column;
-	flex:1;
-	padding: 5%;
-}
+	align-items: flex-start;
+	margin-bottom: 5%;
+	}
 
-.welcome_left{
-	border-bottom: 3px green solid;
-	text-align: left;
-	font-size: 2vw;
-	font-weight: bold;
-	margin-right: auto;
-	
-}
+	.img_derecha, .img_izquierda{
+		max-width: 100%;
+		margin: auto;
+		margin-bottom: 10px;
+		margin-top:10px;
 
-.welcome_right{
-	border-bottom: 3px green solid;
-	text-align: right;
-	font-size: 2vw;
-	font-weight: bold;
-	margin-left: auto;
+	}
 
-}
-
-#home_texto{
-
-	margin-top: 5%;
-	font-size: 1.3vw;
-	text-align: justify;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	display: flex;
-	flex-direction: column;
-	
-
-
-}
-@keyframes fadeInUp {
-    from {
-        transform: translate3d(0,40px,0)
-    }
-
-    to {
-        transform: translate3d(0,0,0);
-        opacity: 1
-    }
-}
-.seccion{
-	display: flex;
-	flex-direction: column;
-	border-bottom: 1px gray solid;
-	border-top: 1px gray solid;
-	padding-bottom: 5%;
-	padding-top: 3%;
-}
-.subseccion{
-display: flex;
-flex-direction: row;
-align-items: flex-start;
-margin-bottom: 5%;
-}
-.img_izquierda{
-margin-left: 5%;
-}
-.img_derecha{
-margin-right: 5%;	
-}
-.img_derecha, .img_izquierda{
-	max-width: 50%;
-	height: auto;
-	margin-top: 2%;
-}
-
-.cont_btn_derecha{
-	text-align: right;
-}
-.cont_btn_izquierda{
-	text-align: left;
-}
-#btn_ver_mas span{
-
-	 font-size: 1.3vw;
 }
