@@ -40,7 +40,7 @@ class PublicacionesModel extends Model {
       DB::begintransaction();
       try{
         $publicacion_id = DB::table('fudebiol_publicaciones')->insertGetId([
-          'fp_titulo' => '',
+          'fp_titulo' => $request->input( 'fp_titulo' ),
           'fp_descripcion' => $request->input( 'fp_descripcion' ),
           'fp_fecha' => date('d/m/Y'),
         ]);
@@ -49,7 +49,7 @@ class PublicacionesModel extends Model {
             try{
               $imagen_id = DB::table('fudebiol_imagenes')->insertGetId([
                 'fi_descripcion' => '',
-                'fi_formato' => $request->file( 'imagen' )->extension(),
+                'fi_formato' => $imagen->extension(),
               ]);
               DB::table('fudebiol_publicaciones_img')->insert([
                 'fpi_publicacion_id' => $publicacion_id,
@@ -134,5 +134,64 @@ class PublicacionesModel extends Model {
       DB::rollBack();
     }
     return $data;
+  }
+
+  public function editarPublicacion( $request ){
+    $data = array(
+      "codigo" => Util::$codigos[ "EXITO" ],
+      "razon" => "",
+      "accion" => "PublicacionesModel:editarPublicacion"
+    );
+    try {
+      DB::begintransaction();
+      try{
+        DB::table('fudebiol_publicaciones')->where('fp_id',$request->input('fp_id'))
+        ->update([
+          'fp_titulo' => $request->input( 'fp_titulo' ),
+          'fp_descripcion' => $request->input( 'fp_descripcion' )
+        ]);
+        if ( $request->hasFile( 'imagenes' ) ){
+          foreach ( $request->file( "imagenes" ) as $imagen ){
+            try{
+              $imagen_id = DB::table('fudebiol_imagenes')->insertGetId([
+                'fi_descripcion' => '',
+                'fi_formato' => $imagen->extension(),
+              ]);
+              DB::table('fudebiol_publicaciones_img')->insert([
+                'fpi_publicacion_id' => $request->input('fp_id'),
+                'fpi_imagen_id' =>  $imagen_id,
+              ]);
+              try{
+                $imagen->storeAs( "public/img/fudebiol_imagenes/", $imagen_id . '.' . $imagen->extension() );
+              } catch ( Exception $e ){ 
+                $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
+                $data[ "razon" ] = "Ocurrió un error al un error al subir imagen" . $imagen->getClientOriginalName();
+                Log::error( $e->getMessage(), $data );
+                DB::rollBack();
+                break;
+              }
+            } catch (Exception $e) {
+              $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+              $data['razon'] = "Ocurrió un error al guardar la imagen" . $imagen->getClientOriginalName();
+              Log::error( $e->getMessage(), $data );
+              DB::rollBack();
+              break;
+            }
+          }
+        }
+        if ( $data[ "codigo" ][ "codigo" ] == Util::$codigos[ "EXITO" ][ "codigo" ] ){
+          DB::commit();
+        }
+      } catch (Exception $e){
+        $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+        $data['razon'] = "Ocurrió un error al guardar publicación";
+        Log::error( $e->getMessage(), $data );
+        DB::rollBack();
+      }
+    } catch (Exception $e) {
+        $data['codigo'] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+        Log::error( $e->getMessage(), $data );
+    }
+    return $data;  
   }
 }
