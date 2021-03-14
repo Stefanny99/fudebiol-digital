@@ -30,6 +30,8 @@
                 </div>
                 <div class="seccionAV" >
                    <div class="subseccionAV">
+                   <img class="img_izquierdaAV1 img-responsive" src="{{ asset( '/img/b2.jpg' ) }}">
+                            
                         <div id="home_textoAV" class="container-fluid">
                             <label class="welcome_left">¿Cuál es el objetivo de este proyecto?</label>
                             <p class="contenidotextual"> Crear un fondo para la compra de
