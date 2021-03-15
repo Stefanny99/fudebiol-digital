@@ -1,4 +1,4 @@
-
+@media(min-width:769px){
 .publicacion-base{
     background-color: white;
     padding:4%;
@@ -100,6 +100,113 @@
 }
 .crear-publicacion:hover{
     color:lime;
+}
+}
+
+@media(max-width:768px){
+.publicacion-base{
+    background-color: white;
+    margin:auto;
+    width:100%;
+    border:2px solid black;
+    margin-bottom:40px;
+    padding-bottom: 20px;
+
+}
+.publicacion-base-adm{
+    background-color: white;
+    padding:4%;
+    margin:auto;
+    border-radius: 40px;
+    width:20%;
+    border:2px solid black;
+    margin-bottom:40px;
+
+}
+.publicacion-encabezado{
+    display:flex;
+    flex-direction:row;
+    margin-top: 20px;
+    align-items: center;
+
+}
+.publicacion-logo{
+    width:15vw;
+    height:15vw;
+    margin-left: 20px;
+   
+    border-radius:50%;
+    box-shadow: 0px 0px 10px gray;
+}
+
+.titulo-fecha{
+    margin-left: 20px;
+    display:flex;
+    flex-direction:column;
+    text-align:left;
+}
+.titulo-fecha-size{
+    font-size:14px !important;
+    margin-left:1vw;
+}
+#publicacion-titulo{
+    font-size:1.5rem;
+    font-weight: bold;
+}
+.publicacion-titulo-size{
+    font-size:1rem !important;
+   
+}
+#publicacion-fecha{
+    color:gray;
+
+}
+#publicacion-descripcion{
+    margin-top: 4%;
+    margin-left: 20px;
+    margin-right:20px;
+    text-align: justify;
+    font-size: 15px;
+
+}
+.publicacion-imagenes{
+    margin-top:5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: hidden;
+    justify-content: center;
+
+}
+
+
+.publicacion-fondo{
+    background-image: url('/img/lbg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#contenedor-publicaciones{
+    margin-top:20px;
+    height:90vh;
+    /* background-color: yellow; */
+    overflow: auto;
+    display:flex;
+    flex-direction: column;
+}
+.crear-publicacion{
+    background-color:rgba(0,0,0,0.6);
+    border-radius:20px;
+   cursor:pointer;
+    color:white;
+    margin:auto;
+    width:60vw;
+    padding:2%;
+    margin-bottom: 1%;
+    text-decoration: none;
+}
+.crear-publicacion:hover{
+    color:lime;
+}
 }
 
 /*Editor de publicaciones*/
