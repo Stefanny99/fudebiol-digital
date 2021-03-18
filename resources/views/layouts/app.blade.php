@@ -101,10 +101,6 @@
                        
                         <div class="text">Mi árbol para la vida</div>
                     </a>
-                    <a href="{{ route( 'investigaciones' ) }}">
-                        
-                        <div class="text">Investigaciones</div>
-                    </a>
                     
                     <a href="{{ route('atracciones')}}" >
                      

@@ -64,7 +64,7 @@ flex: 1;
   }
     .img_derechaAV, .img_izquierdaAV{
         object-fit:fill;
-        height:70vh;
+        height:30vw;
         
     }
 
@@ -77,8 +77,6 @@ flex: 1;
         transition: 0.5s;
     }
     .seccionAV{
-        
-        
         border-top:1px lightgray solid;
         display: flex;
         flex-direction: column;
@@ -188,7 +186,7 @@ flex: 1;
         color: white;
         background-color: rgb(17, 189, 40);
         border-radius:30px;
-       padding: 1% 2% 1% 2%;
+        padding: 1% 2% 1% 2%;
         text-shadow: none;
         position: relative;
         right:80%;
