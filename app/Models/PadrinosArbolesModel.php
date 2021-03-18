@@ -16,7 +16,7 @@ class PadrinosArbolesModel extends Model {
             "accion" => "PadrinosArbolesModel:obtenerPadrinosArbol"
         );
         try{
-           DB::table('fudebiol_padrinos_arboles')->where('fpa_arbol_lote_id', $request->input('fpa_arbol_lote_id'))->get();
+            $data['resultado'] = DB::table('fudebiol_padrinos_arboles')->where('fpa_arbol_lote_id', $request->input('fpa_arbol_lote_id'))->get();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
@@ -31,18 +31,22 @@ class PadrinosArbolesModel extends Model {
             "accion" => "PadrinosArbolesModel:eliminarPadrinoArbol"
         );
         try {
-            $imagen = DB::table( "fudebiol_imagenes" )->where( 'fi_id', $request->input( "fi_id" ) )->get();
+            $padrino_arbol = DB::table( "fudebiol_padrinos_arboles" )->where( 'fpa_id', $request->input( "fpa_id" ) )->get();
             DB::begintransaction();
             try {
-                DB::table('fudebiol_padrinos_arboles')->where('fpa_id', $request->input('fpa'))->delete();
-                try {
-                    Storage::delete( "public/img/fudebiol_adopciones/" . $imagen->FA_ID . $imagen->FA_IMAGEN_FORMATO );
-                    DB::commit(); 
-                } catch(Exception $e){
-                    $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
-                    $data['razon'] = "Ocurrió un error al eliminar la imagen del árbol";
-                    DB::rollBack();
-                }   
+                DB::table('fudebiol_padrinos_arboles')->where('fpa_id', $request->input('fpa_id'))->delete();
+                if ($padrino_arbol->FPA_IMAGEN_FORMATO){
+                    try {
+                        Storage::delete( "public/img/fudebiol_adopciones/" . $padrino_arbol->FPA_ID . $padrino_arbol->FPA_IMAGEN_FORMATO );
+                        DB::commit(); 
+                    } catch(Exception $e){
+                        $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
+                        $data['razon'] = "Ocurrió un error al eliminar el comprobante de la adopción";
+                        DB::rollBack();
+                    }  
+                }else {
+                    DB::commit();
+                }  
             } catch (Exception $e) {
                 $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
                 $data['razon'] = "Ocurrió un error al eliminar la adopción";
@@ -51,12 +55,6 @@ class PadrinosArbolesModel extends Model {
         }catch(Exception $e){
             $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
-        }
-
-        try{
-            DB::table('fudebiol_padrinos_arboles')->where('fpa_id', $request->input('fpa_id'))->delete();
-        }catch(Exception $e){
-            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
         }
         return $data;
     }
@@ -113,6 +111,25 @@ class PadrinosArbolesModel extends Model {
             ]);
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_ACTUALIZACION" ];
+        }
+        return $data;
+    }
+
+    public function reporteSegunCantidadDeAdopciones() { //el de la interfaz verde
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "PadrinosArbolesModel:reporteSegunCantidadDeAdopciones"
+        );
+        try{
+            $data['resultado'] = DB::table('fudebiol_padrinos_arboles')
+            ->join('fudebiol_padrinos', 'fudebiol_padrinos_arboles.fa_padrino_id', '=', 'fudebiol_padrinos.fp_id')
+            ->select('fp_nombre_completo', DB::raw('count(fpa_padrino_id) as cantidad'))           
+            ->groupBy('fp_nombre_completo')
+            ->take(3)->get();
+        }catch(Exception $e){
+            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }
