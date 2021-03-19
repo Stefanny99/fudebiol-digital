@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="home">    
-               <div class="row_container">
+               <div class="cartas_container">
                <div class="carta-box">
                   <div class="carta">    
                   <div class="cara">
@@ -24,10 +24,7 @@
                         es una organización de carácter social, sin fines de lucro, constituida el 13 de
                         mayo de 1989, bajo el marco legal de la Ley de Fundaciones No. 5338 en Costa Rica;
                         con el propósito de proteger y conservar los recursos naturales de la Cuenca 
-                        Superior del Río Quebradas, por el potencial que representa el Bosque Nuboso 
-                        Tropical Premontano Húmedo de la Cordillera de Talamanca - Sector Pacífico, así 
-                        como el área de recarga acuífera del acueducto de agua potable que abastece a 
-                        100.000 habitantes en la Ciudad de San Isidro de El General.
+                        Superior del Río Quebradas.
                         </p>
                   </div>    
                   </div>
@@ -65,7 +62,6 @@
                   </div>    
                   </div>
                </div>
-
                </div>
                <div class="column_container center-content">
                   <h2><b>Informes e investigaciones hechas o promovidas por FUDEBIOL</b></h2>
@@ -105,13 +101,6 @@
                   <i class="fas fa-search"></i> Riqueza específica y abundancia proporcional en los senderos; los pioneros, árbol gigante, y una de tigre del Centro Biológico Las Quebradas. UTN Tatiana Vega Hidalgo,2021.<br>
 
 
-
-
-
-
- 
-
-
                   </p>
                </div>
                
@@ -121,10 +110,11 @@
    <div class="tituloAU_colaboradores">
       <div class="column_container">
          <label >¡Envíanos tus dudas o comentarios!</label>
-         <i class="far fa-hand-point-right"></i>
+         <i class="rightI far fa-hand-point-right"></i>
+         <i class="downI far fa-hand-point-down"></i>
       </div>
       
-      <div id="colaboradores column_container">
+     
       <div id="caja2" >
       <form id="caja_comentario">
          <label ><b>Tu correo electrónico:</b></label>
@@ -136,12 +126,7 @@
          <button id="btn_send">Enviar</button>
       </form>
       </div>
-   
 
-         
-
-
-   </div>
 </div>
 </div>
 

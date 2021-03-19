@@ -5,10 +5,8 @@
         <div id="contenido">
             <div id="fondoMAPLV" >
                 <div class="titulo tituloMAPLV">
-                   
                     <img id="logoMAPLV" src="{{ asset( 'img/maplv.png' ) }}">
                     <label >MI ÁRBOL PARA LA VIDA</label>
-                  
                     <a href="#salto" id="jumpTo">Adoptar un árbol</a>
                 </div>
             </div>
