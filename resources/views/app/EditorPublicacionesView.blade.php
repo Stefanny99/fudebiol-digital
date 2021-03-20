@@ -19,7 +19,7 @@
                                 <div id="publicacion-descripcion">
                                     
                                 </div>
-                                <div id="publicacion-imagenes-1" class="publicacion-imagenes">  
+                                <div id="publicacion-imagenes-1" class="publicacion-imagenes pub">  
 
                                 </div>
                                 

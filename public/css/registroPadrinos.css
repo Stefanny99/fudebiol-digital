@@ -1,144 +1,271 @@
 /*Registro padrinos*/
-.baseRP{
-	/* background-image: url('/img/lbg.jpg');	 */
-	background-repeat:no-repeat;
-	background-size: cover;
-}
-.tituloRP{
-	background: linear-gradient(90deg, rgba(0,0,0,0.9164040616246498) 0%, rgba(152,0,0,0.7539390756302521) 100%);    
-}
+@media(min-width:769px){
+	#fondoRP{
+		background-image: url('/img/b12.jpg');
+	}
+	.tituloRP{
+		background: linear-gradient(90deg, rgba(0,0,0,0.9164040616246498) 0%, rgba(152,0,0,0.7539390756302521) 100%);    
+	}
+	.baseRP{
+		background-repeat:no-repeat;
+		background-size: cover;
+	}
+	#cajaRP{
+		display:flex;
+		flex-direction:row;
+		flex:1;
+		margin: auto;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.welcome_windowRP{	
+		box-shadow: -3px 8px 20px gray;
+		background-size: cover;
+		object-fit: all ;
+		background-repeat: no-repeat;
+		margin-bottom: auto;
+		margin-top: auto;
+		background-image: url('/img/b4.jpg');
+		display: flex;
+		flex-direction: column;
+		height: 80vh;
+		width: 25vw;
+	}
+	#txt_welcomeRP{
+		font-size: 5vh;
+		font-weight: bold;
+	}
+	#txt_welcome2RP
+	{
+		padding: 1%;
+		color: lightcoral;
+		font-size: 3vh;
+		font-weight: bold;
+	}
 
-#fondoRP{
-	background-image: url('/img/b12.jpg');
-}
-.tipo1, .tipo2{
-margin-left: auto;
-margin-right: auto;
-display: flex;
-flex-direction: column;
-align-items: center;
-
-}
-
-#contTipo{
-    display: flex;
-	flex:1;
-	flex-direction: row;
-	max-height:10vh;
-}
-	
-	
-	#cajaArbolRP
-	{	
+	#cajaArbolRP{	
 		background-color: white;
 		display:flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content:center;
-		/* margin:auto; */
 		font-weight: bold;
-		/* border-radius: 10px; */
-        text-align: left;
+		text-align: left;
 		color:rgba(152,0,0) ;
 		box-shadow: 0px 8px 20px gray;
 		font-size: 2.5vh;
-        height:80vh;
-	
-	}
-    #botonRP
-	{	
+		height:80vh;
 		
-		padding-top: 15%;
-        text-align: center;
-		
-	
 	}
-	
-	
-	#treeheaderRP{
-		text-align: center;
-		background-image: url('/img/header.jpg');
-		background-repeat: no-repeat;
-		background-size: cover;
-		/* border-radius: 10px 10px 0px 0px; */
+	#contTipo{
+		display: flex;
 		flex:1;
-		max-height:20vh;
-	
+		flex-direction: row;
+		max-height:10vh;
 	}
-	#treeheadermascaraRP{
-		height:20vh;
-        display: flex;
-        flex-direction: column;
-		padding: 20px;
-		padding-bottom: 50px;
-		padding-top: 50px;
-		text-align: center;
-		/* padding-bottom: 20px; */
-		/* border-radius: 10px 10px 0px 0px; */
-		background: linear-gradient(180deg, rgba(152,0,0,0.7707457983193278) 25%,  rgba(152, 0, 0, 0.52) 54%, rgba(255,255,255,1) 100%);
+	.check-size{
+		width:20px;
+		height:20px;
 	}
-	#cajaArbolRP input[type=text]{
-		width: 20vw;
-		padding-left: 3px;
-		height: 25px;
-		outline: none;
-        margin-top: 2%;
-		border:none;
-		border-bottom: 1px gray solid;
-		
-	}
-	#cajaArbolRP input[type=text], #cajaArbolRP label{
-		margin-left: 20px;
-		margin-right: 20px;
-	}
-	#cajaArbolRP input[type=text]{
-		text-align: center;
-		margin-bottom: 2%;
+	.tipo1, .tipo2{
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
-	#cajaArbolRP input[type=checkbox]{
-		margin-bottom: 3%;
-		width:30px;
-		height: 40px;
+	#botonRP{			
+		padding-top: 15%;
+		text-align: center;	
 	}
 	.btn_registrarRP{
-	cursor: pointer;
-	width: 20vh;
-	background: rgba(152,0,0);
-	color:white;
-	font-size: 2.5vh;
-	font-family: 'Quicksand';
-	font-weight: 900;
-	outline: none;
-    border:none;
-    border-radius: 5px;
+		cursor: pointer;
+		width: 20vh;
+		background: rgba(152,0,0);
+		color:white;
+		font-size: 2.5vh;
+		font-family: 'Quicksand';
+		font-weight: 900;
+		outline: none;
+		border:none;
+		border-radius: 5px;
+	}
+}
+/*css movil*/
+@media(max-width:768px){
+	#fondoRP{
+		background-image: url('/img/b12.jpg');
+		height:100vh;
+	}
+	.tituloRP{
+		height:100vh;
+		display:flex;
+		align-items:center !important;
+		justify-content:center !important;
+		background: linear-gradient(90deg, rgba(0,0,0,0.9164040616246498) 0%, rgba(152,0,0,0.7539390756302521) 100%);    
+	}
+	.tituloRP label{
+		font-size: 35px;
+		font-weight: bold;
 	}
 	
-	.btn_registrarRP:hover,.btn_arbolesRP:hover {
+	#cajaRP{
+		display:flex;
+		flex-direction:column;
+		flex:1;
+		margin: auto;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.welcome_windowRP{	
+		box-shadow: -3px 8px 20px gray;
+		background-size: cover;
+		object-fit: all ;
+		background-repeat: no-repeat;
+		margin-bottom: auto;
+		margin-top: auto;
+		background-image: url('/img/b4.jpg');
+		display: flex;
+		flex-direction: column;
+		height: 40vh;
+		width: 90vw;
+	}
+
+	#txt_welcomeRP{
+		font-size: 4vh;
+		font-weight: bold;
+	}
+	#txt_welcome2RP
+	{
+		padding: 1%;
+		color: lightcoral;
+		font-size: 3vh;
+		font-weight: bold;
+	}
+
+	#cajaArbolRP{	
+		background-color: white;
+		display:flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content:center;
+		font-weight: bold;
+		text-align: left;
+		color:rgba(152,0,0) ;
+		box-shadow: 0px 8px 20px gray;
+		font-size: 2.5vh;
+		height:70vh;
+		width:90vw;
+		
+	}
+	.check-size{
+		width:20px;
+		height:20px;
+	}
+	#contTipo{
+		display: flex;
+		flex:1;
+		flex-direction: row;
+		max-height:10vh;
+	}
+	.tipo1, .tipo2{
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.input-width{
+		width:70% !important;
+	}
+
+	#botonRP{			
+		padding-top: 15%;
+		text-align: center;	
+	}
+	.btn_registrarRP{
+		cursor: pointer;
+		width: 20vh;
+		background: rgba(152,0,0);
+		color:white;
+		font-size: 2.5vh;
+		font-family: 'Quicksand';
+		font-weight: 900;
+		outline: none;
+		border:none;
+		border-radius: 5px;
+	}
+}
+/*CSS TABLAS*/	
+#treeheaderRP{
+	text-align: center;
+	background-image: url('/img/header.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	flex:1;
+	max-height:20vh;
+}
+#treeheadermascaraRP{
+	height:20vh;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	padding-bottom: 50px;
+	padding-top: 50px;
+	text-align: center;
+	background: linear-gradient(180deg, rgba(152,0,0,0.7707457983193278) 25%,  rgba(152, 0, 0, 0.52) 54%, rgba(255,255,255,1) 100%);
+}
+#cajaArbolRP input[type=text]{
+	width: 20vw;
+	padding-left: 3px;
+	height: 25px;
+	outline: none;
+	margin-top: 2%;
+	border:none;
+	border-bottom: 1px gray solid;
+}
+#cajaArbolRP input[type=text], #cajaArbolRP label{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+#cajaArbolRP input[type=text]{
+	text-align: center;
+	margin-bottom: 2%;
+}
+
+#cajaArbolRP input[type=checkbox]{
+	margin-bottom: 3%;
+	width:30px;
+	height: 40px;
+}
+
+
+.btn_registrarRP:hover,.btn_arbolesRP:hover {
 	transition: 0.2s;
 	transform: translateY(-3px);
 	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-	}
+}
+
+#RegArbol{
+	text-align: center;
+	font-weight: bold;
+	font-size: 3.5vh;
+	color: white;
+	text-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+.TextReg{
+	text-align: center;
+	margin: auto;
+	margin-top: 3%;
+	margin-bottom: 3%;
+	font-size: 6vh;
+	font-weight: bold;
 	
-	#RegArbol{
-		text-align: center;
-		font-weight: bold;
-		font-size: 3.5vh;
-		color: white;
-		text-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-	}
-	.TextReg{
-		text-align: center;
-		margin: auto;
-		margin-top: 3%;
-		margin-bottom: 3%;
-		font-size: 6vh;
-		font-weight: bold;
-		
-	}
-	
-	
-	.btn_buscarRP{
+}
+
+
+.btn_buscarRP{
 	position: relative;
 	text-align: left;
 	top:6px; 
@@ -153,211 +280,172 @@ align-items: center;
 	font-size: 20px;
 	font-family: 'Quicksand';
 	outline: none;
-	}
-	.btn_buscarRP:hover{
-		color: rgba(152,0,0);
-	}
-	
-	#buscador
-	{
-		margin-bottom: 4%;
-		font-size: 3vh;
-	}
-	#buscador input{
-		text-align: center;
-		width: 400px;
-		height: 34px;
-		border:none;
-		border-bottom: 1px gray solid;
-		outline: none;
-	}
-	#tablaArbolesRP{
-		padding:5%;	
-		padding-top:3%;	
-		background:white;
-		white-space: nowrap;
-		flex:0;
-		margin-right: 30px;
-		margin-left: 30px;
-		box-shadow:-1px -0px 25px lightgray;
-		font-size: 2.5vh;
-		border-collapse: unset;
-		min-width: 40vw !important;
-		min-height: 50vh !important;
-		max-height: 50vh !important;
-		border:none;
-		caption-side: top;
-	}
-	#tablaArbolesRP caption{
-		background:rgba(152,0,0);	
-		color:white;
-		text-align: center;
-		font-size: 3vh;
-		font-weight: bold;
-		border-radius: 20px 20px 0% 0%;
+}
+.btn_buscarRP:hover{
+	color: rgba(152,0,0);
+}
 
-	}
-	#tablaArbolesRP>thead>tr>th{
-		color: rgba(152,0,0);	
-		padding-right: 6%;
-	}
-	
-	#tablaArbolesRP tbody tr>.fila{
-		color: black;
-		font-weight: bold;
-		cursor: pointer;
-		text-align: center;
-		
-		padding-right: 6%;
-	}
-	#tablaRP{
-		margin:auto;
-	}
-	
-	#botonesEdicionArbolesRP{
-		display: flex;
-		flex-direction: row;
-		position:relative;
-		bottom:5px;
-		margin-right: 30px;
-		margin-left: 30px;
-		box-shadow: 0px 6px 20px lightgray;
-		background: white;
-		letter-spacing: 60px;
-		padding: 10px 0px 10px 0px;
-		z-index: 7;
-		border-radius: 0px 0px 20px 20px;
-	}
-	
-	#paginacion {
-		margin-left:auto;
-		align-items: center;
-		justify-content: flex-end;
-		display: flex;
-		word-spacing: 20px;
-		flex-direction: row;
-	}
-	.action{
-		padding-right: 1%;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-	}
-	
-	.btn_arbolesRP{ 
-		margin-left: auto;
-		cursor: pointer;
-		height: 5vh;
-		width: 20vh;
-		border:none;
-		border-radius: 5px;
-		background: rgba(152,0,0);;
-		color:white;
-		text-align: center;
-		font-size: 3.0vh;
-		font-family: 'Quicksand';
-		font-weight: 900;
-		outline-style: none;
-		border-style: none!important;
-	}
-	.btn_pagRP{
-		margin-left: 10%;
-		margin-right:20%;
-		cursor: pointer;
-		height: 5vh;
-		width: 10vh;
-		border:none;
-		border-radius: 5px;
-		background: rgba(152,0,0);
-		color:white;
-		text-align: center;
-		padding: 4px 22px 5px 22px;
-		font-size: 2vh;
-		font-family: 'Quicksand';
-		font-weight: 900;
-		text-decoration: none;
-		outline-style: none;
-		border-style: none!important;	
-	}
-	.fotosRP{
-		height:80vh;
-		width: 30vw;
-	}
+#buscador{
+	margin-bottom: 4%;
+	font-size: 3vh;
+}
+#buscador input{
+	text-align: center;
+	width: 400px;
+	height: 34px;
+	border:none;
+	border-bottom: 1px gray solid;
+	outline: none;
+}
+#tablaArbolesRP{
+	padding:5%;	
+	padding-top:3%;	
+	background:white;
+	white-space: nowrap;
+	flex:0;
+	margin-right: 30px;
+	margin-left: 30px;
+	box-shadow:-1px -0px 25px lightgray;
+	font-size: 2.5vh;
+	border-collapse: unset;
+	min-width: 40vw !important;
+	min-height: 50vh !important;
+	max-height: 50vh !important;
+	border:none;
+	caption-side: top;
+}
+#tablaArbolesRP caption{
+	background:rgba(152,0,0);	
+	color:white;
+	text-align: center;
+	font-size: 3vh;
+	font-weight: bold;
+	border-radius: 20px 20px 0% 0%;
 
-	.fotosRP div{
-		height:80vh;
-		width: 30vw;
-	}
+}
+#tablaArbolesRP>thead>tr>th{
+	color: rgba(152,0,0);	
+	padding-right: 6%;
+}
+
+#tablaArbolesRP tbody tr>.fila{
+	color: black;
+	font-weight: bold;
+	cursor: pointer;
+	text-align: center;
 	
+	padding-right: 6%;
+}
+#tablaRP{
+	margin:auto;
+}
 	
+#botonesEdicionArbolesRP{
+	display: flex;
+	flex-direction: row;
+	position:relative;
+	bottom:5px;
+	margin-right: 30px;
+	margin-left: 30px;
+	box-shadow: 0px 6px 20px lightgray;
+	background: white;
+	letter-spacing: 60px;
+	padding: 10px 0px 10px 0px;
+	z-index: 7;
+	border-radius: 0px 0px 20px 20px;
+}
 
-	#contFotosRP{
-		display: none;
-	}
+#paginacion {
+	margin-left:auto;
+	align-items: center;
+	justify-content: flex-end;
+	display: flex;
+	word-spacing: 20px;
+	flex-direction: row;
+}
+.action{
+	padding-right: 1%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
 
-
-	.welcome_windowRP img{
-		width: 18vw;
-		padding: 5%;
-		padding-left:10%;
-		padding-right:10%;
-		border-radius: 47%;
-		animation: fadeIn 0.3s;
-		-moz-animation: fadeIn 0.3s; /* Firefox < 16 */
+.btn_arbolesRP{ 
+	margin-left: auto;
+	cursor: pointer;
+	height: 5vh;
+	width: 20vh;
+	border:none;
+	border-radius: 5px;
+	background: rgba(152,0,0);;
+	color:white;
+	text-align: center;
+	font-size: 3.0vh;
+	font-family: 'Quicksand';
+	font-weight: 900;
+	outline-style: none;
+	border-style: none!important;
+}
+.btn_pagRP{
+	margin-left: 10%;
+	margin-right:20%;
+	cursor: pointer;
+	height: 5vh;
+	width: 10vh;
+	border:none;
+	border-radius: 5px;
+	background: rgba(152,0,0);
+	color:white;
+	text-align: center;
+	padding: 4px 22px 5px 22px;
+	font-size: 2vh;
+	font-family: 'Quicksand';
+	font-weight: 900;
+	text-decoration: none;
+	outline-style: none;
+	border-style: none!important;	
+}
+.fotosRP{
+	height:80vh;
+	width: 30vw;
+}
+.fotosRP div{
+	height:80vh;
+	width: 30vw;
+}
+#contFotosRP{
+	display: none;
+}
+.welcome_windowRP img{
+	width: 18vw;
+	padding: 5%;
+	padding-left:10%;
+	padding-right:10%;
+	border-radius: 47%;
+	animation: fadeIn 0.3s;
+	-moz-animation: fadeIn 0.3s; /* Firefox < 16 */
 	-ms-animation: fadeIn 0.3s; /* Internet Explorer */
 	-o-animation: fadeIn 0.3s; /* Opera < 12.1 */
 	animation: fadeIn 0.3s;
 	box-shadow: 0px 0px 20px black;
-	}
-	#txt_welcomeRP
-	{
-		font-size: 5vh;
-		font-weight: bold;
-	}
-	#txt_welcome2RP
-	{
-		padding: 1%;
-		color: lightcoral;
-		font-size: 3vh;
-		font-weight: bold;
-	}
-	
-	.welcome_windowRP
-	{	
-		box-shadow: -3px 8px 20px gray;
-		background-size: cover;
-		object-fit: all ;
-		background-repeat: no-repeat;
-		margin-bottom: auto;
-		margin-top: auto;
-		background-image: url('/img/b4.jpg');
-		display: flex;
-		flex-direction: column;
-		height: 80vh;
-		width: 25vw;
-	}
-	
-	.welcome_windowRP div{
-		color: white;
-		background-color: rgba(150,0,0,0.7);
-		flex:1;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
+}
 
-	#cajaArbolRP>#txt_welcomeRP{
-		margin-bottom: 10%;
-	}
 
-	#cajaRP{
-		display:flex;
-		flex-direction:row;
-		flex:1;
-		margin: auto;
-		align-items: center;
-		justify-content: space-between;
-	}
-	
-	
+
+
+
+.welcome_windowRP div{
+	color: white;
+	background-color: rgba(150,0,0,0.7);
+	flex:1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#cajaArbolRP>#txt_welcomeRP{
+	margin-bottom: 10%;
+}
+
+

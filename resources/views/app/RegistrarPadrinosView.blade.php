@@ -17,7 +17,7 @@
                 <div id="cajaRP"> 
                 <div class="welcome_windowRP">
                     <div>
-                        <img src="img\maplv.png">
+                        <img src="{{ asset('img\maplv.png') }}" >
                         <label id="txt_welcomeRP">Apadrina un árbol </label>
                         
                     <label id="txt_welcome2RP">¡Regístrate!</label>
@@ -29,23 +29,23 @@
                         <div id="contTipo">
                             <div class="tipo1">
                                 <label class="texto" for="persona">Persona</label>
-                                <input type="radio" name="tipo">
+                                <input type="radio" name="tipo" class="check-size">
                             </div>
                         
                             <div class="tipo2">
                                 <label class="texto" for="empresa">Empresa</label>
-                                <input type="radio" name="tipo">
+                                <input type="radio" name="tipo"class="check-size" >
                             </div>
                         </div>
                     
                         <label class="texto" for="nombreCompleto">Nombre Completo:</label>
-                        <input type="text" name="nombreCompleto">
+                        <input type="text" name="nombreCompleto" class="input-width">
 
                         <label class="texto" for="cedula">Cédula de identidad:</label>
-                        <input type="text" name="cedula">
+                        <input type="text" name="cedula" class="input-width">
 
                         <label class="texto" for="correo">Dirección de correo electrónico:</label>
-                        <input type="text" name="correo">
+                        <input type="text" name="correo" class="input-width">
                         <div id="botonRP">
                             <button class="btn_registrarRP">Registrar</button>
                         </div>
