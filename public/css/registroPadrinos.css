@@ -31,6 +31,20 @@
 		height: 80vh;
 		width: 25vw;
 	}
+	.welcome_windowRP img{
+		width: 18vw;
+		padding: 5%;
+		padding-left:10%;
+		padding-right:10%;
+		border-radius: 47%;
+		animation: fadeIn 0.3s;
+		-moz-animation: fadeIn 0.3s; /* Firefox < 16 */
+		-ms-animation: fadeIn 0.3s; /* Internet Explorer */
+		-o-animation: fadeIn 0.3s; /* Opera < 12.1 */
+		animation: fadeIn 0.3s;
+		box-shadow: 0px 0px 20px black;
+	}
+	
 	#txt_welcomeRP{
 		font-size: 5vh;
 		font-weight: bold;
@@ -131,6 +145,20 @@
 		height: 40vh;
 		width: 90vw;
 	}
+	.welcome_windowRP img{
+		width: 40vw;
+		padding: 5%;
+		padding-left:10%;
+		padding-right:10%;
+		border-radius: 47%;
+		animation: fadeIn 0.3s;
+		-moz-animation: fadeIn 0.3s; /* Firefox < 16 */
+		-ms-animation: fadeIn 0.3s; /* Internet Explorer */
+		-o-animation: fadeIn 0.3s; /* Opera < 12.1 */
+		animation: fadeIn 0.3s;
+		box-shadow: 0px 0px 20px black;
+	}
+	
 
 	#txt_welcomeRP{
 		font-size: 4vh;
@@ -177,7 +205,7 @@
 		align-items: center;
 	}
 	.input-width{
-		width:70% !important;
+		width:80% !important;
 	}
 
 	#botonRP{			
@@ -415,19 +443,6 @@
 }
 #contFotosRP{
 	display: none;
-}
-.welcome_windowRP img{
-	width: 18vw;
-	padding: 5%;
-	padding-left:10%;
-	padding-right:10%;
-	border-radius: 47%;
-	animation: fadeIn 0.3s;
-	-moz-animation: fadeIn 0.3s; /* Firefox < 16 */
-	-ms-animation: fadeIn 0.3s; /* Internet Explorer */
-	-o-animation: fadeIn 0.3s; /* Opera < 12.1 */
-	animation: fadeIn 0.3s;
-	box-shadow: 0px 0px 20px black;
 }
 
 
