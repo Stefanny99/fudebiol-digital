@@ -42,28 +42,28 @@
           @csrf
           <table id="tablaUsuarios" >
                 <caption>Administradores Fudebiol Digital</caption>
-                <thead>
-                    <th class="thread"></th>
-                    <th class="thead" >Nombre</th>
-                    <th class="thead">E-mail</th>
-                    <th class="thead">Usuario</th>
-                    <th class="thead">Rol</th>
-                    <th class="thead">Acción</th>
-                </thead>
-                <tbody>
-                  @foreach ( $usuarios as $usuario )
-                  <tr class="fila" id="usuario_{{ $usuario->id }}" data-id="{{ $usuario->id }}" data-name="{{ $usuario->name }}" data-email="{{ $usuario->email }}" data-username="{{ $usuario->username }}" data-role="{{ $usuario->role }}">
-                    <td><input name="ids[]" type="checkbox" value="{{ $usuario->id }}"></td>
-                    <td >{{ $usuario->name }}</td>
-                    <td >{{ $usuario->email }}</td>
-                    <td >{{ $usuario->username }}</td>
-                    <td >{{ $usuario->role }}</td>
-                    <td>
-                         <label class="edit" onclick="editarUsuario( 'usuario_{{ $usuario->id }}' )"><i class="far fa-edit"></i></label>
-                    </td>
-                  </tr>
-                  @endforeach
-                </tbody>
+                  <thead>
+                      <th class="thread"></th>
+                      <th class="thead" >Nombre</th>
+                      <th class="thead">E-mail</th>
+                      <th class="thead">Usuario</th>
+                      <th class="thead">Rol</th>
+                      <th class="thead">Acción</th>
+                  </thead>
+                  <tbody>
+                    @foreach ( $usuarios as $usuario )
+                    <tr class="fila" id="usuario_{{ $usuario->id }}" data-id="{{ $usuario->id }}" data-name="{{ $usuario->name }}" data-email="{{ $usuario->email }}" data-username="{{ $usuario->username }}" data-role="{{ $usuario->role }}">
+                      <td><input name="ids[]" type="checkbox" value="{{ $usuario->id }}"></td>
+                      <td style="width:15vw;" >{{ $usuario->name }}</td>
+                      <td class="campo_size_email" >{{ $usuario->email }}</td>
+                      <td >{{ $usuario->username }}</td>
+                      <td >{{ $usuario->role }}</td>
+                      <td class="edit-size">
+                          <label class="edit"  onclick="editarUsuario( 'usuario_{{ $usuario->id }}' )"><i class="far fa-edit"></i></label>
+                      </td>
+                    </tr>
+                    @endforeach
+                  </tbody>  
               </table>
               <div id="botonesEdicion">
                 <button type="delete" class="btn_eliminarUsuario crecer"><i class="far fa-trash-alt"></i></button>

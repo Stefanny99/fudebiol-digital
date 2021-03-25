@@ -40,9 +40,8 @@
             </div>
          
 
-          <div class="escoger_lote">
-          <iframe  id="pdf_img" src="/img/sincontenido.png"/></iframe>
-            <div id="datosArbol">
+          <div class="escoger_lote column">
+            <div id="datosComprobante">
               <div id="c_datos">
                 <h5><b>Subir comprobante de transferencia por $50</b></h5>
                 <div>
@@ -52,6 +51,7 @@
                 </div>
               </div>
             </div>
+            <iframe  id="pdf_img" ></iframe>
           </div>
         </div>
       </div>

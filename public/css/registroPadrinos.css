@@ -45,6 +45,9 @@
 		box-shadow: 0px 0px 20px black;
 	}
 	
+	#cajaArbolRP>#txt_welcomeRP{
+		margin-bottom: 10%;
+	}
 	#txt_welcomeRP{
 		font-size: 5vh;
 		font-weight: bold;
@@ -158,6 +161,10 @@
 		animation: fadeIn 0.3s;
 		box-shadow: 0px 0px 20px black;
 	}
+	#cajaArbolRP>#txt_welcomeRP{
+		margin-top: 50px;
+		margin-bottom:10px;
+	}
 	
 
 	#txt_welcomeRP{
@@ -215,6 +222,7 @@
 	.btn_registrarRP{
 		cursor: pointer;
 		width: 20vh;
+		height:5vh;
 		background: rgba(152,0,0);
 		color:white;
 		font-size: 2.5vh;
@@ -223,6 +231,7 @@
 		outline: none;
 		border:none;
 		border-radius: 5px;
+		margin-bottom: 50px;
 	}
 }
 /*CSS TABLAS*/	
@@ -448,7 +457,6 @@
 
 
 
-
 .welcome_windowRP div{
 	color: white;
 	background-color: rgba(150,0,0,0.7);
@@ -459,8 +467,5 @@
 	align-items: center;
 }
 
-#cajaArbolRP>#txt_welcomeRP{
-	margin-bottom: 10%;
-}
 
 
