@@ -212,7 +212,7 @@
 
 	#agregarUsuario input, #agregarUsuario select{
 	padding: 3px;
-	text-align: center;
+	text-align: left;
 	border:none;
 	border-bottom: 1px white solid;
 	background-color: transparent;
@@ -444,7 +444,7 @@
 
 	#agregarUsuario input, #agregarUsuario select{
 	padding: 3px;
-	text-align: center;
+	text-align: left;
 	border:none;
 	border-bottom: 1px white solid;
 	background-color: transparent;
