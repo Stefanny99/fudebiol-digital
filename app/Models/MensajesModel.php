@@ -9,56 +9,61 @@ Use Exception;
 
 class MensajesModel extends Model {
 
-    public function obtenerMensajes($request){
+    public function obtenerMensajes($pagina){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "obtenerMensajes"
+            "accion" => "MensajesModel:obtenerMensajes"
         );
         try{
-           DB::table('fudebiol_mensajes')->orderBy('fm_id', 'desc')->get();
+            $data["resultado"] = DB::table('fudebiol_mensajes')
+            ->orderBy('fm_estado', 'desc')
+            ->orderBy('fm_id', 'desc')
+            ->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
         }
         return $data;
     }
 
-    public function obtenerMensajesNoLeidos(){
+    public function cantidadPaginas( ){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "obtenerMensajesNoLeidos"
+            "accion" => "MensajesModel:cantidadPaginas"
         );
         try{
-           DB::table('fudebiol_mensajes')->where('fm_estado', 1)->get();
-        }catch(Exception $e){
-            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_INSERCION" ];
+            $data[ "resultado" ] = ceil( DB::table( "fudebiol_mensajes" )
+            ->count() / 8 );
+        }catch ( Exception $e ){
+            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }
 
-    public function eliminarMensaje($request){
+    public function eliminarMensajes($request){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "eliminarMensaje"
+            "accion" => "MensajesModel:eliminarMensajes"
         );
         try{
-            DB::table('fudebiol_mensajes')->where('fm_id', $request->input('fm_id'))->delete();
+            DB::table('fudebiol_mensajes')->whereIn('fm_id', $request->input('ids'))->delete();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
         }
         return $data;
     }
 
-    public function marcarMensajeComoLeido($request){
+    public function marcarMensajeComoLeidos($request){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "marcarMensajeComoLeido"
+            "accion" => "MensajesModel:marcarMensajeComoLeidos"
         );
         try{
-            DB::table('fudebiol_mensajes')->where('fm_id', $request->input('fm_id'))
+            DB::table('fudebiol_mensajes')->whereIn('fm_id', $request->input('ids'))
             ->update(['fm_estado' => 0]);
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_ACUALIZACION" ];

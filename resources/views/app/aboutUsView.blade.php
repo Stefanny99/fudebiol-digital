@@ -116,13 +116,14 @@
       
      
       <div id="caja2" >
-      <form id="caja_comentario">
+      <form id="caja_comentario" action="{{ route( 'enviarMensaje' ) }}" method="post">
+         @csrf
          <label ><b>Tu correo electrónico:</b></label>
-         <input id="user_correo" type="text" placeholder="Escribe aquí">
+         <input id="user_correo" type="text" placeholder="Escribe aquí" name="fm_correo">
          <label ><b>Número de teléfono:</b></label>
-         <input id="user_telefono" type="text" placeholder="Escribe aquí">
+         <input id="user_telefono" type="text" placeholder="Escribe aquí" name="fm_telefono">
          <label><b>Tu comentario:</b></label>
-         <textarea id="comentario" placeholder="Escribe aquí"></textarea>
+         <textarea id="comentario" placeholder="Escribe aquí" name="fm_texto"></textarea>
          <button id="btn_send">Enviar</button>
       </form>
       </div>

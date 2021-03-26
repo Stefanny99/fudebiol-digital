@@ -127,7 +127,7 @@
                        
                         <div class="text">Reg.Padrinos</div>
                     </a>
-                    <a href="{{ route( 'mensajes' ) }}">
+                    <a href="{{ route( 'mensajes', 1 ) }}">
                        
                         <div class="text">Mensajes</div>
                     </a>

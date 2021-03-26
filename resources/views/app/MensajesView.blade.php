@@ -14,39 +14,40 @@
             </div>
             <div class="home">
                <div class="mensajes">
-              
-                 
-                <div class="mascaramensajes">
-                <div id="etc">
-                       <label>Mensajes no leídos: 23</label>
-                       <button id="btn_send" onclick="addMessage()">Eliminar seleccionados</button>
-                   </div> 
-                <div id="contenedor_mensajes">
-               <div class="mesage">
-                    <div id="unread"></div>
-                    <div class="mesage_mail">
-                        <label>De:</label>
-                        <label>lizmonge15@gmail.com</label>
-                    </div>
-                    <div class="phone_mail">
-                        <label>Teléfono:</label>
-                        <label>85316649</label>
-                    </div>
-                    <div class="mesage_content">
-                        ¡Hola, ¿qué tal?!
-                        Pasaba a decirles que este es el mejor sitio del mundo de mundial
-                    </div>
-                    <label for="leido">Leído</label>
-                    <input type="checkbox" id="leido"> 
-                    <label for="eliminar">Eliminar</label>
-                    <input type="checkbox" id="eliminar">    
-                    
-               </div>
-
-              
-           
-               </div>
-               </div>
+                    <!-- <div class="mascaramensajes"> -->
+                        <form lass="mascaramensajes" action="{{ route( 'eliminarMensajes' ) }}" method="post">  
+                            @csrf
+                            <div id="etc">
+                                <label>Mensajes no leídos: 23</label>
+                                <button id="btn_send" name="eliminar_btn">Eliminar seleccionados</button>
+                                <button id="btn_send" name="leidos_btn" formaction="/marcarLeidos">Marcar como leidos</button>
+                            </div> 
+                            <div id="contenedor_mensajes">
+                                @foreach ( $mensajes as $mensaje )
+                                <div class="mesage">
+                                    <div id="unread"></div>
+                                    <div class="mesage_mail">
+                                        <label>De:</label>
+                                        <label>{{ $mensaje->FM_CORREO }}</label>
+                                    </div>
+                                    <div class="phone_mail">
+                                        <label>Teléfono:</label>
+                                        <label>{{ $mensaje->FM_TELEFONO }}</label>
+                                    </div>
+                                    <div class="mesage_content">
+                                        {{ $mensaje->FM_TEXTO }}
+                                    </div>
+                                    @if ( $mensaje ->FM_ESTADO === 1)
+                                    <label for="leido">Leído</label>
+                                    <input name="ids[]"  id="leido" type="checkbox" value="{{ $mensaje->FM_ID }}"> 
+                                    @endif
+                                    <label for="eliminar">Eliminar</label> 
+                                    <input name="ids[]"  id="eliminar" type="checkbox" value="{{ $mensaje->FM_ID }}"> 
+                                </div>
+                                @endforeach
+                            </div>
+                        </form>    
+                    <!-- </div> -->
                </div> 
             </div> <!--cierre de home-->
       
