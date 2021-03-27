@@ -120,7 +120,7 @@ class PublicacionesModel extends Model {
         );
         try{
             $date = new \DateTime();
-            $temp = DB::table( "fudebiol_imagenes_temp" )->whereDate( "fit_fecha", "<", $date->sub( new \DateInterval( "PT3H" ) ) )->get();
+            $temp = DB::table( "fudebiol_imagenes_temp" )->whereDate( "fit_fecha", "<", $date->sub( new \DateInterval( "PT1H" ) ) )->get();
             $temp_i = 0;
             DB::beginTransaction();
             foreach ( $request->file( "imagenes" ) as $imagen ){
@@ -136,12 +136,12 @@ class PublicacionesModel extends Model {
                         ] );
                     }else{
                         $imagen_id = $temp[ $temp_i++ ]->FIT_IMAGEN_ID;
-                        DB::table( "fudebiol_imagenes" )->update( [
+                        DB::table( "fudebiol_imagenes" )->where( "fi_id", "=", $imagen_id )->update( [
                             "fi_formato" => $imagen->extension()
-                        ] )->where( "fi_id", "=", $imagen_id );
-                        DB::table( "fudebiol_imagenes_temp" )->update( [
+                        ] );
+                        DB::table( "fudebiol_imagenes_temp" )->where( "fit_imagen_id", "=", $imagen_id )->update( [
                             "fit_fecha" => $date->format( "Y-m-d H:i:s" )
-                        ] )->where( "fit_imagen_id", "=", $imagen_id );
+                        ] );
                     }
                     try{
                         $imagen->storeAs( "public/img/fudebiol_imagenes/", $imagen_id . "." . $imagen->extension() );

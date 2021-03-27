@@ -41,8 +41,8 @@
                             <textarea class="container-style" id="descripcion-publicacion" name="fp_descripcion"></textarea>
                             <label><b>Agrega fotografías</b></label>
                             <label id="agregar-fotos" for="fotos-publicacion" >Agregar fotografías</label>
-                            <input type="file" onchange="updateImageChooser(this)" id="fotos-publicacion" multiple="multiple"> 
-                            
+                            <input type="file" onchange="updateImageChooser(this)" id="fotos-publicacion" multiple="multiple">
+                            <div id="imagenes-eliminadas" style="display: none;"></div>
                             <div id="vista-previa-fotos">
                             </div>
                             <div class="content-row">
