@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/alertify.min.js') }}"></script>
+    <script src="{{ asset('js/axios.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/galeria.js') }}"></script>
     <script src="{{ asset('js/mantenimiento-usuarios.js') }}"></script>
