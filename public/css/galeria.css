@@ -200,22 +200,27 @@ right: 2vw;
   #fondoGaleria{
   
   background-image:url('/img/fude1.jpg'); 
+  height:100vh;
   
   
   }
   .tituloGaleria{
     background: linear-gradient(90deg, rgba(0,0,0,0.9164040616246498) 0%, rgba(0,83,1,0.7539390756302521) 100%);
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .tituloGaleria>#logoMAPLV{
     position: relative;
     left:10px;
-    width:30vw;
-    height:30vw;
+    width:50vw;
+    height:50vw;
   }
   
   .tituloGaleria label
   {
-    font-size:35px;  
+    font-size:50px;  
     animation: fadeIn 1s;
   }
   @keyframes fadeIn {

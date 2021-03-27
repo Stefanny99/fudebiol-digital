@@ -5,10 +5,8 @@
         <div id="contenido">
             <div id="fondoMAPLV" >
                 <div class="titulo tituloMAPLV">
-                   
                     <img id="logoMAPLV" src="{{ asset( 'img/maplv.png' ) }}">
                     <label >MI ÁRBOL PARA LA VIDA</label>
-                  
                     <a href="#salto" id="jumpTo">Adoptar un árbol</a>
                 </div>
             </div>
@@ -20,9 +18,14 @@
                         <img class="img_derechaAV img-responsive" src="{{ asset( '/img/b1.jpg' ) }}">
                         <div id="home_textoAV" class="container-fluid">
                             <label class="welcome_right">¿Qué es mi árbol para la vida?</label>
-                            <p class="contenidotextual"> La fundación para el desarrollo biológico de las quebradas FUDEBIOL de Pérez Zeledón,
-                            desde el 2012 trabaja el proyecto "mi árbol para la vida" el cual consite en la reforestación
-                            de árboles para ayudar a nuestro medio ambiente.
+                            <p class="contenidotextual"> El proyecto consiste en la reforestación
+                                 de un área de 3 has. de pastos, en una de las propiedades de Fudebiol,
+                                  con la siembra de 25 especies de árboles nativos. Estos se dan en 
+                                  adopción a personas, empresas u organizaciones, quienes pagan 50$ por 
+                                  una sola vez, por árbol adoptado; los recursos se manejan en un fondo
+                                   especial, para el mantenimiento del proyecto y la adquisición de nuevas
+                                    áreas para seguir ampliando la compra de tierras para protección de los 
+                                    recursos naturales de la cuenca del Río Quebradas
                             </p> 
                         </div>
                     </div>

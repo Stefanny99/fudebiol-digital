@@ -84,6 +84,7 @@
 		background-image: url('/img/ave23.jpg');
 		background-repeat: no-repeat;
 		background-size: cover;
+		height:100vh;
 	}
 	.image_activity{
 		width:100%;
@@ -93,22 +94,21 @@
 	
 	#tituloInfo{
 		background: linear-gradient(90deg, rgba(0,0,0,0.9259278711484594) 16%, rgba(38,187,0,0.7035189075630253) 100%);
-		height: 30vh;
+		height: 100vh;
 		display: flex;
 		flex-direction: column;
 		justify-content:center;
-		text-align: left;
-		align-items: flex-start;
+		align-items: center;
 	}
 	
 	#tituloInfo label{
 		font-weight: bold;
 		color: white;
-		font-size: 9vw;
+		font-size: 40px;
 		text-shadow: 0px 0px 6px black;
 	}
 	#tituloInfo img{
-		width: 40vw;
+		width: 70vw;
 		border-radius: 50%;
 	}
 	

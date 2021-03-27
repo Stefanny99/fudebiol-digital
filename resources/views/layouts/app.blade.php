@@ -102,10 +102,6 @@
                        
                         <div class="text">Mi árbol para la vida</div>
                     </a>
-                    <a href="{{ route( 'investigaciones' ) }}">
-                        
-                        <div class="text">Investigaciones</div>
-                    </a>
                     
                     <a href="{{ route('atracciones')}}" >
                      
@@ -132,7 +128,7 @@
                        
                         <div class="text">Reg.Padrinos</div>
                     </a>
-                    <a href="{{ route( 'mensajes' ) }}">
+                    <a href="{{ route( 'mensajes', 1 ) }}">
                        
                         <div class="text">Mensajes</div>
                     </a>

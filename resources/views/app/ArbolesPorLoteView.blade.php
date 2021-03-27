@@ -20,8 +20,9 @@
                 <button type="button">L3</button>
                 <button type="button">L4</button>
               </div>
+              <h6>(Desliza hacia la derecha)</h6>
               <div id="VisualizacionArboles">
-                <div id="mascara">
+               
                   <div>
                     <i class="fas fa-tree disponible"></i>
                     <i class="fas fa-tree adoptado"></i>
@@ -498,8 +499,6 @@
                     <i class="fas fa-tree disponible"></i>
                     <i class="fas fa-tree disponible"></i>
                   </div>
-                  
-                </div>
               </div>  
             </div>
             <div class="escoger_lote">
