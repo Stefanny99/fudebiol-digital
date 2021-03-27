@@ -133,4 +133,8 @@ class PadrinosArbolesModel extends Model {
         }
         return $data;
     }
+
+    public function reporteAdopcionesSegunPadrino() { //el de la interfaz naranja
+        // select count nombre_padrino, count(adopciones), count(especies), count(cada especie) group by where estado=aprobado
+    }
 }

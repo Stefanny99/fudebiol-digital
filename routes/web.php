@@ -30,13 +30,18 @@ Route::group( [ 'middleware' => [ 'auth', 'rolecheck' ] ], function(){
 
 	
 	/*RUTAS DE MENSAJES*/
-	Route::get('/mensajes', [App\Http\Controllers\FudebiolDigital\InformacionController::class, 'mensajes'])->name('mensajes');
+	Route::get('/mensajes/{pagina}', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\MensajesController@mantenimientoMensajes', 'role' => 'A' ])->name('mensajes');
+	Route::post('/eliminarMensajes', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\MensajesController@eliminarMensajes', 'role' => 'A' ])->name('eliminarMensajes');
+	Route::post('/marcarLeidos', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\MensajesController@marcarMensajeComoLeidos', 'role' => 'A' ])->name('marcarLeidos');
 	/*RUTA DE NOTIFICIONES*/
 	Route::get('/notificaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\InformacionController@notificaciones', 'role' => 'A' ])->name('notificaciones');
+
 	/*RUTA DE PUBLICACIONES*/
 	Route::get('/editorPublicaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@editorPublicaciones', 'role' => 'S' ])->name('editorPublicaciones');
 	Route::get('/administrarPublicaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@administrarPublicaciones', 'role' => 'S'])->name('administrarPublicaciones');
-	/*RUTA DE GALERIA*/
+    Route::post( "/agregarImagenesTemporales", [ "uses" => "App\Http\Controllers\FudebiolDigital\PublicacionesController@agregarImagenesTemporales", "role" => "S" ] )->name( "agregarImagenesTemporales" );
+	
+    /*RUTA DE GALERIA*/
 	Route::get('/editorGaleria', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\GaleriaController@editarGaleria', 'role' => 'S' ])->name('editorGaleria');
 	Route::post('/guardarFotos', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\GaleriaController@guardarFotos', 'role' => 'S' ])->name('guardarFotos');
 	Route::post('/editarFoto', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\GaleriaController@editarFoto', 'role' => 'S' ])->name('editarFoto');
@@ -66,3 +71,4 @@ Route::get('/registrarPadrino', [App\Http\Controllers\FudebiolDigital\PadrinosCo
 Route::get('/arboles', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'arbolesPorLote'])->name('arboles');
 Route::get('/adoptarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'adoptarArbol'])->name('adoptarArbol');
 Route::get('/comprobante', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'comprobante'])->name('comprobante');
+Route::post('/enviarMensaje', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\MensajesController@enviarMensaje'])->name('enviarMensaje');
