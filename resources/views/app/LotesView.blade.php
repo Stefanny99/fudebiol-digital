@@ -4,7 +4,7 @@
       <div id="contenido">
         <div id="fondoRL" >
           <div class="titulo tituloRL">
-              <img id="logoMAPLV" src="img/maplv.png">
+              <img id="logoMAPLV" src="{{asset('img/maplv.png')}}">
               <label >Registro de lotes</label>
               <label  id="subText">La madre tierra nos premia con tantas maravillas ¡Vamos a echarle una mano!</label>
             </div>
