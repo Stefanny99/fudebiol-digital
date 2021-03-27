@@ -79,8 +79,8 @@
                     <tr id="tablehead" >
                       <th>Especie</th>
                       <th>Lote</th>
-                      <th>Coordenada N</th>
-                      <th>Coordenada W </th>
+                      <th>Coord N</th>
+                      <th>Coord W </th>
                       <th>Fila</th>
                       <th>Columna</th>
                       <th>Acción</th>
@@ -98,7 +98,6 @@
                       <td class="fila">
                         <div class="action">
                           <label class="edit"><i class="far fa-edit"></i></label>
-                        <label class="delete"><i class="far fa-trash-alt"></i></label>
                         </div>
                         
                       </td>
@@ -108,7 +107,7 @@
                   </tbody>
                 </table>
                 <div id="botonesEdicionArbolesRAI">
-                    <button class="btn_arbolesRAI"><i class="far fa-save"></i></button>
+                    <button class="btn_arbolesRAI"><i class="far fa-trash-alt"></i></button>
                     <form id="paginacion" >
                       <a class="btn_pagRAI"> <i class="fas fa-backward"></i> </a>
                       <a class="btn_pagRAI"> <i class="fas fa-forward"></i> </a>
