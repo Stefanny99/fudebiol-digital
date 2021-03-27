@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="body_home">     
+    <script>
+        var routes = {
+            "agregarImagenesTemporales": "{{ route( 'agregarImagenesTemporales' ) }}",
+            "fudebiol_imagenes": "{{ asset( 'storage/img/fudebiol_imagenes' ) }}"
+        };
+    </script>
+    <div id="body_home">
         <div id="contenido">
             <div class="editor-fondo">
                 <div class="editor-mascara">  
@@ -27,23 +33,23 @@
                         </div>
 
                         <!-- pasar este div a form-->
-                        <div class="editor-herramientas">
+                        <form class="editor-herramientas">
                             <h4 class="herramientas-titulo"><b>Herramientas de edición</b></h4>
                             <label for="titulo-publicacion" ><b>Título</b></label>
-                            <input type="text" id="titulo-publicacion" class="container-style">
+                            <input type="text" id="titulo-publicacion" class="container-style" name="fp_titulo">
                             <label for="descripcion-publicacion"><b>Descripción</b></label>
-                            <textarea class="container-style" id="descripcion-publicacion"></textarea>
+                            <textarea class="container-style" id="descripcion-publicacion" name="fp_descripcion"></textarea>
                             <label><b>Agrega fotografías</b></label>
                             <label id="agregar-fotos" for="fotos-publicacion" >Agregar fotografías</label>
-                            <input type="file" onchange="updateImageChooser(this)" id="fotos-publicacion" multiple="multiple"> 
-                            
+                            <input type="file" onchange="updateImageChooser(this)" id="fotos-publicacion" multiple="multiple">
+                            <div id="imagenes-eliminadas" style="display: none;"></div>
                             <div id="vista-previa-fotos">
                             </div>
                             <div class="content-row">
-                                <button id="vista-previa" onclick="vistaPrevia()">Vista previa</button>  
-                                <button id="guardar-publicacion">Guardar</button>
+                                <button type="button" id="vista-previa" onclick="vistaPrevia()">Vista previa</button>  
+                                <button type="button" id="guardar-publicacion" onclick="guardarPublicacion()">Guardar</button>
                             </div>
-                        </div>  
+                        </form>  
 
                     </div>
                 </div>  

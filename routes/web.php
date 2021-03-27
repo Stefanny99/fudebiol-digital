@@ -35,10 +35,13 @@ Route::group( [ 'middleware' => [ 'auth', 'rolecheck' ] ], function(){
 	Route::post('/marcarLeidos', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\MensajesController@marcarMensajeComoLeidos', 'role' => 'A' ])->name('marcarLeidos');
 	/*RUTA DE NOTIFICIONES*/
 	Route::get('/notificaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\InformacionController@notificaciones', 'role' => 'A' ])->name('notificaciones');
+
 	/*RUTA DE PUBLICACIONES*/
 	Route::get('/editorPublicaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@editorPublicaciones', 'role' => 'S' ])->name('editorPublicaciones');
 	Route::get('/administrarPublicaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@administrarPublicaciones', 'role' => 'S'])->name('administrarPublicaciones');
-	/*RUTA DE GALERIA*/
+    Route::post( "/agregarImagenesTemporales", [ "uses" => "App\Http\Controllers\FudebiolDigital\PublicacionesController@agregarImagenesTemporales", "role" => "S" ] )->name( "agregarImagenesTemporales" );
+	
+    /*RUTA DE GALERIA*/
 	Route::get('/editorGaleria', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\GaleriaController@editarGaleria', 'role' => 'S' ])->name('editorGaleria');
 	Route::post('/guardarFotos', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\GaleriaController@guardarFotos', 'role' => 'S' ])->name('guardarFotos');
 	Route::post('/editarFoto', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\GaleriaController@editarFoto', 'role' => 'S' ])->name('editarFoto');
