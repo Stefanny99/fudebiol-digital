@@ -19,11 +19,13 @@ class PublicacionesModel extends Model {
             $data[ "resultado" ] = DB::table( "fudebiol_publicaciones" )->where( "fp_id", $id )->first();
             if ( $data[ "resultado" ] ){
                 $data[ "resultado" ] = ( object )array_merge( ( array )$data[ "resultado" ],
-                    DB::table( "fudebiol_publicaciones_img AS p" )
-                    ->join( "fudebiol_imagenes AS img", "p.fpi_imagen_id", "=", "img.fi_id" )
-                    ->where( "p.fpi_publicacion_id", "=", $id )
-                    ->orderBy( "img.fi_id" )
-                    ->get() );
+                    array( "imagenes" => DB::table( "fudebiol_publicaciones_img AS p" )
+                        ->join( "fudebiol_imagenes AS img", "p.fpi_imagen_id", "=", "img.fi_id" )
+                        ->where( "p.fpi_publicacion_id", "=", $id )
+                        ->orderBy( "img.fi_id" )
+                        ->select( "img.fi_id AS FI_ID", "img.fi_formato AS FI_FORMATO" )
+                        ->get()
+                    ) );
             }
         }catch ( Exception $e ){
             $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
@@ -54,56 +56,55 @@ class PublicacionesModel extends Model {
 
     public function agregarPublicacion( $request ){
         $data = array(
-        "codigo" => Util::$codigos[ "EXITO" ],
-        "razon" => "",
-        "accion" => "PublicacionesModel:agregarPublicacion"
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "PublicacionesModel:agregarPublicacion"
         );
         try {
-        DB::begintransaction();
-        try{
-            $publicacion_id = DB::table('fudebiol_publicaciones')->insertGetId([
-            'fp_titulo' => $request->input( 'fp_titulo' ),
-            'fp_descripcion' => $request->input( 'fp_descripcion' ),
-            'fp_fecha' => date('d/m/Y'),
-            ]);
-            if ( $request->hasFile( 'imagenes' ) ){
-                foreach ( $request->file( "imagenes" ) as $imagen ){
-                    try{
-                        $imagen_id = DB::table('fudebiol_imagenes')->insertGetId([
-                            'fi_descripcion' => '',
-                            'fi_formato' => $imagen->extension(),
-                        ]);
-                        DB::table('fudebiol_publicaciones_img')->insert([
-                            'fpi_publicacion_id' => $publicacion_id,
-                            'fpi_imagen_id' =>  $imagen_id,
-                        ]);
-                        try{
-                            $imagen->storeAs( "public/img/fudebiol_imagenes/", $imagen_id . '.' . $imagen->extension() );
-                        } catch ( Exception $e ){ 
-                            $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
-                            $data[ "razon" ] = "Ocurrió un error al un error al subir imagen" . $imagen->getClientOriginalName();
-                            Log::error( $e->getMessage(), $data );
-                            DB::rollBack();
-                            break;
-                        }
-                    } catch (Exception $e) {
-                        $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
-                        $data['razon'] = "Ocurrió un error al guardar la imagen" . $imagen->getClientOriginalName();
-                        Log::error( $e->getMessage(), $data );
-                        DB::rollBack();
-                        break;
-                    }
+            DB::begintransaction();
+            $imagenes_temporales = $request->input( "fp-imagenes-temporales", array() );
+            DB::table( "fudebiol_imagenes_temp" )->whereIn( "fit_imagen_id", $imagenes_temporales )->delete();
+            try{
+                $publicacion_id = DB::table('fudebiol_publicaciones')->insertGetId([
+                    'fp_titulo' => $request->input( 'fp_titulo' ),
+                    'fp_descripcion' => $request->input( 'fp_descripcion' ),
+                    'fp_fecha' => date( 'Y-m-d H:i:s' ),
+                ]);
+                foreach ( $imagenes_temporales as $imagen_id ){
+                    DB::table( 'fudebiol_publicaciones_img' )->insert( [
+                        'fpi_publicacion_id' => $publicacion_id,
+                        'fpi_imagen_id' =>  $imagen_id,
+                    ] );
                 }
+                try{
+                    $imagenes_eliminadas_ids = $request->input( "fp-imagenes-eliminadas-ids", array() );
+                    $imagenes_eliminadas_formatos = $request->input( "fp-imagenes-eliminadas-ids", array() );
+                    DB::table( "fudebiol_publicaciones_img" )->whereIn( "fit_imagen_id", $imagenes_eliminadas_ids )->delete();
+                    DB::table( "fudebiol_imagenes" )->whereIn( "fi_id", $imagenes_eliminadas_ids )->delete();
+                    for ( $i = 0; $i < count( $imagenes_eliminadas_ids ); ++$i ){
+                        Storage::delete( "public/img/fudebiol_imagenes/" . $imagenes_eliminadas_ids[ $i ] . "." . $imagenes_eliminadas_formatos[ $i ] );
+                    }
+                    $imagenes_temporales_eliminadas_ids = $request->input( "fp-imagenes-temporales-eliminadas-ids", array() );
+                    $imagenes_temporales_eliminadas_formatos = $request->input( "fp-imagenes-temporales-eliminadas-ids", array() );
+                    DB::table( "fudebiol_imagenes_temp" )->whereIn( "fit_imagen_id", $imagenes_temporales_eliminadas_ids )->delete();
+                    DB::table( "fudebiol_imagenes" )->whereIn( "fi_id", $imagenes_temporales_eliminadas_ids )->delete();
+                    for ( $i = 0; $i < count( $imagenes_temporales_eliminadas_ids ); ++$i ){
+                        Storage::delete( "public/img/fudebiol_imagenes/" . $imagenes_temporales_eliminadas_ids[ $i ] . "." . $imagenes_temporales_eliminadas_formatos[ $i ] );
+                    }
+                    DB::commit();
+                    $data[ "resultado" ] = $publicacion_id;
+                }catch ( Exception $e ){
+                    $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
+                    $data['razon'] = "Ocurrió un error al eliminar las imágenes'";
+                    Log::error( $e->getMessage(), $data );
+                    DB::rollBack();
+                }
+            } catch (Exception $e){
+                $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+                $data['razon'] = "Ocurrió un error al guardar publicación";
+                Log::error( $e->getMessage(), $data );
+                DB::rollBack();
             }
-            if ( $data[ "codigo" ][ "codigo" ] == Util::$codigos[ "EXITO" ][ "codigo" ] ){
-                DB::commit();
-            }
-        } catch (Exception $e){
-            $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
-            $data['razon'] = "Ocurrió un error al guardar publicación";
-            Log::error( $e->getMessage(), $data );
-            DB::rollBack();
-        }
         } catch (Exception $e) {
             $data['codigo'] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
@@ -120,7 +121,7 @@ class PublicacionesModel extends Model {
         );
         try{
             $date = new \DateTime();
-            $temp = DB::table( "fudebiol_imagenes_temp" )->whereDate( "fit_fecha", "<", $date->sub( new \DateInterval( "PT3H" ) ) )->get();
+            $temp = DB::table( "fudebiol_imagenes_temp" )->whereDate( "fit_fecha", "<", $date->sub( new \DateInterval( "PT1H" ) ) )->get();
             $temp_i = 0;
             DB::beginTransaction();
             foreach ( $request->file( "imagenes" ) as $imagen ){
@@ -136,12 +137,12 @@ class PublicacionesModel extends Model {
                         ] );
                     }else{
                         $imagen_id = $temp[ $temp_i++ ]->FIT_IMAGEN_ID;
-                        DB::table( "fudebiol_imagenes" )->update( [
+                        DB::table( "fudebiol_imagenes" )->where( "fi_id", "=", $imagen_id )->update( [
                             "fi_formato" => $imagen->extension()
-                        ] )->where( "fi_id", "=", $imagen_id );
-                        DB::table( "fudebiol_imagenes_temp" )->update( [
+                        ] );
+                        DB::table( "fudebiol_imagenes_temp" )->where( "fit_imagen_id", "=", $imagen_id )->update( [
                             "fit_fecha" => $date->format( "Y-m-d H:i:s" )
-                        ] )->where( "fit_imagen_id", "=", $imagen_id );
+                        ] );
                     }
                     try{
                         $imagen->storeAs( "public/img/fudebiol_imagenes/", $imagen_id . "." . $imagen->extension() );
