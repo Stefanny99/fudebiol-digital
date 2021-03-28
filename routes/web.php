@@ -39,6 +39,7 @@ Route::group( [ 'middleware' => [ 'auth', 'rolecheck' ] ], function(){
 	/*RUTA DE PUBLICACIONES*/
 	Route::get('/editorPublicaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@editorPublicaciones', 'role' => 'S' ])->name('editorPublicaciones');
 	Route::get('/administrarPublicaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@administrarPublicaciones', 'role' => 'S'])->name('administrarPublicaciones');
+    Route::post( '/guardarPublicacion', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@guardarPublicacion', 'role' => 'S' ] )->name( 'guardarPublicacion' );
     Route::post( "/agregarImagenesTemporales", [ "uses" => "App\Http\Controllers\FudebiolDigital\PublicacionesController@agregarImagenesTemporales", "role" => "S" ] )->name( "agregarImagenesTemporales" );
 	
     /*RUTA DE GALERIA*/
