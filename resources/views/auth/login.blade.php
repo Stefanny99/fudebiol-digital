@@ -49,7 +49,7 @@
                     <div id="remember"> 
                         <div class="col-md-6 offset-md-4">
                             <div class="f">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <input class="form-check-input" id="remember" type="checkbox" name="remember"  {{ old('remember') ? 'checked' : '' }}>
 
                                 <label class="form-check-label" for="remember">
                                     {{ __('Recordar sesión') }}
