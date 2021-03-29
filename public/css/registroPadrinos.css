@@ -84,7 +84,7 @@
 		width:20px;
 		height:20px;
 	}
-	.tipo1, .tipo2{
+	.tipo1, .tipo2, .tipo3 {
 		margin-left: auto;
 		margin-right: auto;
 		display: flex;
@@ -204,7 +204,7 @@
 		flex-direction: row;
 		max-height:10vh;
 	}
-	.tipo1, .tipo2{
+	.tipo1, .tipo2, .tipo3{
 		margin-left: auto;
 		margin-right: auto;
 		display: flex;
