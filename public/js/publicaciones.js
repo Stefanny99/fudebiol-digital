@@ -28,11 +28,12 @@ function vistaPrevia(){
     }
 }
 
-function removePhoto( contenedorPadre ){
+function removePhoto( id ){
+    let contenedorPadre = document.getElementById( "fp-imagen-" + id );
     let contenedor = document.getElementById( "vista-previa-fotos" );
     let temp = contenedorPadre.hasAttribute( "data-temp" ) ? "temporales-" : "";
-    document.getElementById( "imagenes-eliminadas" ).append( '<input type="checkbox" name="imagenes-' + temp + 'eliminadas-ids[]" value="' + contenedorPadre.getAttribute( "data-id" ) + '" checked>' );
-    document.getElementById( "imagenes-eliminadas" ).append( '<input type="checkbox" name="imagenes-' + temp + 'eliminadas-formatos[]" value="' + contenedorPadre.getAttribute( "data-formato" ) + '" checked>' );
+    document.getElementById( "imagenes-eliminadas" ).append( '<input type="checkbox" name="fp-imagenes-' + temp + 'eliminadas-ids[]" value="' + contenedorPadre.getAttribute( "data-id" ) + '" checked>' );
+    document.getElementById( "imagenes-eliminadas" ).append( '<input type="checkbox" name="fp-imagenes-' + temp + 'eliminadas-formatos[]" value="' + contenedorPadre.getAttribute( "data-formato" ) + '" checked>' );
     contenedor.removeChild( contenedorPadre );
 }
 
@@ -49,6 +50,7 @@ function updateImageChooser( imageChooser ){
             if ( response.data.exito ){
                 response.data.imagenes.forEach( imagen => {
                     let image = document.createElement( "div" );
+                    image.id = "fp-imagen-" + imagen.FI_ID;
                     image.className = "delete-photo";
                     image.setAttribute( "data-temp", "temp" );
                     image.setAttribute( "data-id", imagen.FI_ID );
@@ -58,37 +60,20 @@ function updateImageChooser( imageChooser ){
                     photo.className = "image-preview";
                     let deletePhoto = document.createElement( "i" );
                     deletePhoto.className = "fas fa-times";
-                    deletePhoto.onclick = () => removePhoto( image, f );
+                    deletePhoto.onclick = () => removePhoto( imagen.FI_ID );
                     let tempCheckbox = document.createElement( "input" );
-                    tempCheckbox.name = "imagenes-temporales[]";
+                    tempCheckbox.name = "fp-imagenes-temporales[]";
                     tempCheckbox.style = "display: none;";
                     tempCheckbox.type = "checkbox"
-                    tempCheckbox.setAttribute( "checked", "checked" );
+                    tempCheckbox.value = imagen.FI_ID;
+                    tempCheckbox.checked = true;
                     image.append( deletePhoto, photo, tempCheckbox );
                     container.appendChild( image );
                 } );
             }else if ( response.data.errores ){
                 response.data.errores.forEach( error => alertify.notify( error, "error" ) );
             }
-        } )
-		//[ ... imageChooser.files ].forEach( file => {
-        //    let f = file
-        //    imagenesPublicaciones.push( file );
-		//	let reader = new FileReader();
-		//	reader.onload = () => {
-		//		let image = document.createElement( "div" );
-		//		image.className = "delete-photo";
-        //        let photo= document.createElement( "img");
-        //        photo.src= reader.result;
-        //        photo.className= "image-preview";
-        //        let deletePhoto= document.createElement("i");
-        //        deletePhoto.className="fas fa-times";
-        //        deletePhoto.onclick=()=>removePhoto(image, f);
-        //        image.append(deletePhoto, photo);
-		//		container.appendChild( image );
-		//	};
-		//	reader.readAsDataURL( file );
-		//} );
+        } );
 	}
 }
 

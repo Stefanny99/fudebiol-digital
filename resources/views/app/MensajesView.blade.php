@@ -15,7 +15,7 @@
             <div class="home">
                <div class="mensajes">
                     <!-- <div class="mascaramensajes"> -->
-                        <form lass="mascaramensajes" action="{{ route( 'eliminarMensajes' ) }}" method="post">  
+                        <form class="mascaramensajes" action="{{ route( 'eliminarMensajes' ) }}" method="post">  
                             @csrf
                             <div id="etc">
                                 <label>Mensajes no leídos: 23</label>
@@ -27,11 +27,11 @@
                                 <div class="mesage">
                                     <div id="unread"></div>
                                     <div class="mesage_mail">
-                                        <label>De:</label>
+                                        <label><b>De:</b></label>
                                         <label>{{ $mensaje->FM_CORREO }}</label>
                                     </div>
                                     <div class="phone_mail">
-                                        <label>Teléfono:</label>
+                                        <label><b>Teléfono:</b></label>
                                         <label>{{ $mensaje->FM_TELEFONO }}</label>
                                     </div>
                                     <div class="mesage_content">
