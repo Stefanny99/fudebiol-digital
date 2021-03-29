@@ -28,20 +28,19 @@ class PadrinosController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    /* Llama la vista de mantenimiento de categorías */
-    public function mantenimientoPadrinos(){
-    	return view('app/PadrinosView');
-    }
-
-    public function registrarPadrinos(){
-    	return view('app/RegistrarPadrinosView');
-    }
-
-    public function reporteGlobal(){
-    	return view('app/ReportePadrinoGlobalView');
-    }
-    public function reporteEspecifico(){
-    	return view('app/ReportePadrinoEspecificoView');
+    public function mantenimientoPadrinos($pagina, Request $request){
+        $model = new PadrinosModel();
+		$result = $model->obtenerPadrinos( max( 1, $pagina ), $request->input( "buscar", "" ) );
+		if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+			return redirect()->back()->with( "errores", $result[ 'codigo' ][ 'descripcion' ] . ", " . $result[ 'razon' ] );
+		}
+		$cantidadPaginas = $model->cantidadPaginas( $request->input( "buscar", "" ) );
+		return view( 'app/PadrinosView', array(
+			"padrinos" => $result[ 'resultado' ],
+			"pagina" => max( 1, $pagina ),
+			"cantidadPaginas" => $cantidadPaginas[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ? 1 : $cantidadPaginas[ "resultado" ],
+			"buscar" => $request->input( "buscar", "" )
+		) );
     }
      
 	public function registrarPadrino(Request $data){
@@ -67,5 +66,15 @@ class PadrinosController extends Controller
 				) );
 			}
         }
+    }
+    public function registrarPadrinos(){
+    	return view('app/RegistrarPadrinosView');
+    }
+
+    public function reporteGlobal(){
+    	return view('app/ReportePadrinoGlobalView');
+    }
+    public function reporteEspecifico(){
+    	return view('app/ReportePadrinoEspecificoView');
     }
 }

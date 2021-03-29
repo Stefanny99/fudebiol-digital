@@ -9,14 +9,17 @@ Use Exception;
 
 class PadrinosModel extends Model {
 
-    public function obtenerPadrinos(){
+    public function obtenerPadrinos($pagina, $padrino){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "obtenerPadrinos"
+            "accion" => "PadrinosModel:obtenerPadrinos"
         );
         try{
-            $data['resultado'] = DB::table('fudebiol_padrinos')->get();
+            $data['resultado'] = DB::table('fudebiol_padrinos')
+                                ->where('fp_nombre_completo', 'like', '%'.$padrino.'%')
+                                ->orWhere('fp_cedula', 'like', '%'.$padrino.'%')
+                                ->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
         }catch(Exception $e){
             $data['codigo'] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
@@ -24,19 +27,19 @@ class PadrinosModel extends Model {
         return $data;
     }
 
-    public function buscarPadrino($busqueda){
+    public function cantidadPaginas( $padrino ){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "buscarPadrino"
+            "accion" => "PadrinosModel:cantidadPaginas"
         );
         try{
-            $data['resultado'] = DB::table('fudebiol_padrinos')
-            ->where('fp_cedula', 'like', '%'.$busqueda.'%')
-            ->orWhere('fp_nombre_completo', 'like', '%'.$busqueda.'%')
-            ->first();
-        }catch(Exception $e){
-            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            $data[ "resultado" ] = ceil( DB::table( "fudebiol_lotes" )
+            ->where('fp_nombre_completo', 'like', '%'.$padrino.'%')
+            ->orWhere('fp_cedula', 'like', '%'.$padrino.'%')
+            ->count() / 8 );
+        }catch ( Exception $e ){
+            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
         }
         return $data;
