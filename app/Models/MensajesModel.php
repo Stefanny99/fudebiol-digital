@@ -75,7 +75,7 @@ class MensajesModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "crearMensaje"
+            "accion" => "MensajesModel:crearMensaje"
         );
         try {
             DB::table('fudebiol_mensajes')->insert([

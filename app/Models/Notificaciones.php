@@ -9,59 +9,46 @@ Use Exception;
 
 class NotificacionesModel extends Model {
 
-    public function obtenerNotificaciones($request){
+    public function obtenerNotificaciones(){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "obtenerNotificaciones"
+            "accion" => "NotificacionesModel:obtenerNotificaciones"
         );
         try{
-           DB::table('fudebiol_notificaciones')->orderBy('fn_id', 'desc')->get();
+            $data["resultado"] = DB::table('fudebiol_notificaciones')
+            ->orderBy('fn_estado', 'desc')
+            ->orderBy('fn_fecha', 'asc')
+            ->get();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
         }
         return $data;
     }
 
-    public function obtenerNotificacionesNoLeidas(){
+    public function eliminarNotificaciones($request){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "obtenerNotificacionesNoLeidas"
+            "accion" => "NotificacionesModel:eliminarNotificaciones"
         );
         try{
-           DB::table('fudebiol_notificaciones')->where('fn_estado', 1)->get();
-        }catch(Exception $e){
-            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];;
-        }
-        return $data;
-    }
-
-    public function eliminarNotificacion($request){
-        $data = array(
-            "codigo" => Util::$codigos[ "EXITO" ],
-            "razon" => "",
-            "accion" => "eliminarNotificacion"
-        );
-        try{
-            DB::table('fudebiol_notificaciones')->where('fn_id', $request->input('notificacion_id'))->delete();
+            DB::table('fudebiol_notificaciones')->whereIn('fn_id', $request->input('ids'))->delete();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
         }
         return $data;
     }
 
-    public function marcarNotificacionComoLeida($request){
+    public function marcarNotificacionesComoLeidas($request){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "marcarNotificacionComoLeida"
+            "accion" => "NotificacionesModel:marcarNotificacionesComoLeidas"
         );
         try{
-            DB::table('fudebiol_notificaciones')->where('fn_id', $request->input('notificacion_id'))
+            DB::table('fudebiol_notificaciones')->whereIn('fn_id', $request->input('ids'))
             ->update(['fn_estado' => 0]);
-            $data['resultado'] = "¡Registro actualizado con éxito! ";
-            $data['exito'] = true;
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_ACTUALIZACION" ];
         }
@@ -72,7 +59,7 @@ class NotificacionesModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "crearNotificacion"
+            "accion" => "NotificacionesModel:crearNotificacion"
         );
         try {
             DB::table('fudebiol_notificaciones')->insert([
