@@ -67,6 +67,21 @@ class PadrinosController extends Controller
 			}
         }
     }
+
+    public function eliminarPadrino( Request $data ){
+		$model = new LotesModel();
+		$result = $model->eliminarPadrino( $data );
+		if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+			return redirect()->back()->with( "errores", array(
+				$result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
+			) );
+		}else{
+			return redirect()->back()->with( "mensajes", array(
+				"Padrino eliminado exitosamente"
+			) );
+		}
+	}
+
     public function registrarPadrinos(){
     	return view('app/RegistrarPadrinosView');
     }

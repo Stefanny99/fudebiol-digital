@@ -22,6 +22,8 @@
                 <input type="text" name="buscar" placeholder="Buscar un padrino" value="{{ $buscar }}">>
                 <button  class="btn_buscarRP"><i class="fas fa-search"></i></button>
             </form>
+            <form action="{{ route( 'eliminarPadrino' ) }}" method="post">  
+              @csrf
               <table id="tablaArbolesRP">
               <caption>Padrinos registrados con FUDEBIOL Digital</caption>
                 <thead>
@@ -40,7 +42,7 @@
                   <td class="fila">
                     <div class="action">
                        <label class="edit"><i class="far fa-edit"></i></label>
-                       <label class="delete"><i class="far fa-trash-alt"></i></label>
+                       <label class="delete" name="fp_id" value="{{ $padrino->FP_ID }}"><i class="far fa-trash-alt"></i></label>
                        <label class="report"><i class="fas fa-chart-bar"></i></label>
                     </div>
                     </td>
@@ -56,6 +58,7 @@
                 </div>
             </div>
           </div>
+          </form>
           <div id="tablaRP">
             <form id="buscador" accion="{{route('registrarPadrino')}}" method="post">
                 <input type="text" name="buscar" placeholder="Buscar un padrino">
