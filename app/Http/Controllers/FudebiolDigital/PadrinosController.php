@@ -69,7 +69,7 @@ class PadrinosController extends Controller
     }
 
     public function eliminarPadrino( Request $data ){
-		$model = new LotesModel();
+		$model = new PadrinosModel();
 		$result = $model->eliminarPadrino( $data );
 		if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
 			return redirect()->back()->with( "errores", array(
