@@ -38,11 +38,11 @@
                 @foreach ( $padrinos as $padrino )
                 <tr class="fila" id="padrino_{{ $padrino->FP_ID }}">
                   <td class="fila nombrePadrino">{{ $padrino->FP_NOMBRE_COMPLETO }}</td>
-                  <td class="fila">117560371</td>
+                  <td class="fila">{{ $padrino->FP_CEDULA }}</td>
                   <td class="fila">
                     <div class="action">
                        <label class="edit"><i class="far fa-edit"></i></label>
-                       <button type="submit" class="" name="fp_id" value="{{ $padrino->FP_ID }}"><i class="far fa-trash-alt"></i></button>
+                       <label class="delete" name="fp_id" value="{{ $padrino->FP_ID }}"><i class="far fa-trash-alt"></i></label>
                        <label class="report"><i class="fas fa-chart-bar"></i></label>
                     </div>
                     </td>
@@ -105,6 +105,10 @@
           </div>
           </div>
         </div>
+       
+          
+          
+      
         </div>
     </div>
 @endsection
