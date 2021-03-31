@@ -196,12 +196,7 @@
         word-spacing: 20px;
         flex-direction: row;
     }
-    .action {
-        padding-right: 1%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+
 
     .btn_arbolesRL {
         margin-left: auto;
@@ -443,12 +438,7 @@
         word-spacing: 20px;
         flex-direction: row;
     }
-    .action {
-        padding-right: 1%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+ 
 
     .btn_arbolesRL {
         margin-left: auto;

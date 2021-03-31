@@ -261,12 +261,7 @@
 		word-spacing: 20px;
 		flex-direction: row;
 	}
-	.action{
-		padding-right: 1%;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-	}
+
 	.delete{
 		color:red;
 
@@ -590,12 +585,7 @@
 		word-spacing: 20px;
 		flex-direction: row;
 	}
-	.action{
-		padding-right: 1%;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-	}
+
 	.delete{
 		color:red;
 
@@ -1219,12 +1209,7 @@
 			word-spacing: 20px;
 			flex-direction: row;
 		}
-		.action{
-			padding-right: 1%;
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-		}
+
 		.delete{
 			color:red;
 		

@@ -5,7 +5,7 @@
         <div id="contenido">
         <div id="fondoRP" >
                 <div class="titulo tituloRP">
-                    <img id="logoMAPLV" src="img/maplv.png">
+                    <img id="logoMAPLV" src="{{asset('img/maplv.png')}}">
                     <label >Registro de padrinos</label>
                     <label  id="subText">Si eres de quienes ama darle al mundo un respiro, sé parte de nuestra familia y adopta un árbol.</label>
                 </div>
@@ -37,8 +37,8 @@
               <tbody>
                 @foreach ( $padrinos as $padrino )
                 <tr class="fila" id="padrino_{{ $padrino->FP_ID }}">
-                  <td class="fila">{{ $padrino->FP_NOMBRE_COMPLETO }}</td>
-                  <td class="fila">{{ $padrino->FP_CEDULA }}</td>
+                  <td class="fila nombrePadrino">{{ $padrino->FP_NOMBRE_COMPLETO }}</td>
+                  <td class="fila">117560371</td>
                   <td class="fila">
                     <div class="action">
                        <label class="edit"><i class="far fa-edit"></i></label>
@@ -51,7 +51,6 @@
               </tbody>
             </table>
             <div id="botonesEdicionArbolesRP">
-                <button class="btn_arbolesRP"><i class="far fa-save"></i></button>
                 <div id="paginacion">
                   <a class="btn_pagRP" href=" {{ route('registrarPadrino' )}}"> <i class="fas fa-backward"></i> </a>
                   <a class="btn_pagRP" href="{{ route('registrarPadrino')}}" > <i class="fas fa-forward"></i> </a>
@@ -64,7 +63,7 @@
                 <input type="text" name="buscar" placeholder="Buscar un padrino">
                 <button  class="btn_buscarRP"><i class="fas fa-search"></i></button>
             </form>
-              <table id="tablaArbolesRP">
+              <table id="tablaArbolesRP" class="sinFD">
               <caption>Padrinos registrados sin FUDEBIOL Digital</caption>
                 <thead>
                 <tr id="tablehead" >
@@ -98,7 +97,6 @@
               </tbody>
             </table>
             <div id="botonesEdicionArbolesRP">
-                <button class="btn_arbolesRP"><i class="far fa-save"></i></button>
                 <div id="paginacion">
                   <a class="btn_pagRP" href=" {{ route('registrarPadrino' )}}"> <i class="fas fa-backward"></i> </a>
                   <a class="btn_pagRP" href="{{ route('registrarPadrino')}}" > <i class="fas fa-forward"></i> </a>
