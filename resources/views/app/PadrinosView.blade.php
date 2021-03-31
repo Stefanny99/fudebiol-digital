@@ -19,7 +19,7 @@
               
           <div id="tablaRP">
             <form id="buscador" accion="{{ route('verPadrino', $pagina ) }}" method="get">
-                <input type="text" name="buscar" placeholder="Buscar un padrino" value="{{ $buscar }}">>
+                <input type="text" name="buscar" placeholder="Buscar un padrino" value="{{ $buscar }}">
                 <button  class="btn_buscarRP"><i class="fas fa-search"></i></button>
             </form>
             <form action="{{ route( 'eliminarPadrino' ) }}" method="post">  
@@ -105,10 +105,6 @@
           </div>
           </div>
         </div>
-       
-          
-          
-      
         </div>
     </div>
 @endsection

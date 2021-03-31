@@ -28,11 +28,11 @@
                 <label class="texto" for="nombreCientifico">Nombre científico:</label>
                 <input type="text" id="nombreCientifico" required name="fa_nombre_cientifico">
 
-                <label class="texto" for="nombreComun">Nombre comun:</label>
+                <!-- <label class="texto" for="nombreComun">Nombre comun:</label>
                 <input type="text" id="nombreComun" required name="fa_nombres_comunes">
 
                 <label class="texto" for="jiffys">Jiffys:</label>
-                <input type="text" id="jiffys" required name="fa_jiffys">
+                <input type="text" id="jiffys" required name="fa_jiffys"> -->
 
                 <label class="texto" for="bolsas">Bolsas:</label>
                 <input type="text"  id="bolsas" required name="fa_bolsas">
@@ -61,8 +61,8 @@
                     <tr id="tablehead" >
                       <th>Nombre científico</th>
                       <th>Nombre común</th>
-                      <th>Jiffys</th>
-                      <th>Bolsas</th>
+                      <!-- <th>Jiffys</th>
+                      <th>Bolsas</th> -->
                       <th>Elevación mínima</th>
                       <th>Elevación máxima </th>
                       <th>Acción</th>
@@ -75,15 +75,13 @@
                         data-id="{{ $arbol->FA_ID }}" 
                         data-nombre_cientifico="{{ $arbol->FA_NOMBRE_CIENTIFICO }}" 
                         data-nombres_comunes="{{ $arbol->FA_NOMBRES_COMUNES }}" 
-                        data-jiffys="{{ $arbol->FA_JIFFYS }}" 
-                        data-bolsas="{{ $arbol->FA_BOLSAS }}"
                         data-elevacion_minima="{{ $arbol->FA_ELEVACION_MINIMA }}"
                         data-elevacion_maxima="{{ $arbol->FA_ELEVACION_MAXIMA }}"
                     >
                       <td class="fila">{{ $arbol->FA_NOMBRE_CIENTIFICO }}</td>
                       <td class="fila overflow-hidden">{{ $arbol->FA_NOMBRES_COMUNES }}</td>
-                      <td class="fila">{{ $arbol->FA_JIFFYS }}</td>
-                      <td class="fila">{{ $arbol->FA_BOLSAS }}</td>
+                      <!-- <td class="fila">{{ $arbol->FA_JIFFYS }}</td>
+                      <td class="fila">{{ $arbol->FA_BOLSAS }}</td> -->
                       <td class="fila">{{ $arbol->FA_ELEVACION_MINIMA }}m</td>
                       <td class="fila">{{ $arbol->FA_ELEVACION_MAXIMA }}m</td>
                       <td class="fila">

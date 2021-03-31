@@ -545,9 +545,7 @@
 	.btn_buscarRP {
 			position: relative;
 			text-align: left;
-			top: 6px;
 			cursor: pointer;
-			right: 30px;
 			height: 40px;
 			width: 70px;
 			border: none;
@@ -582,12 +580,12 @@
 			outline: none;
 	}
 	#tablaArbolesRP {
-			padding-left: 5%;
 			padding-top: 3%;
+			padding-left:1%;
 			background: white;
 			white-space: pre-line;
 			box-shadow: -1px -0px 25px lightgray;
-			font-size: 2.5vh;
+			font-size: 15px;
 			border-collapse: unset;
 			width: 90%;
 			max-height: 40vh !important;
