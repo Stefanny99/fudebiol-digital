@@ -39,7 +39,9 @@ function removePhoto( id ){
 
 function updateImageChooser( imageChooser ){
     if ( imageChooser.files.length > 0 && FileReader ){
-		let container = document.getElementById("vista-previa-fotos");
+		let panel_cargando = document.getElementById( "panel-cargando" );
+        panel_cargando.style.display = "flex";
+        let container = document.getElementById("vista-previa-fotos");
         let data = new FormData();
         [ ... imageChooser.files ].forEach( ( file, i ) => data.append( "imagenes[]", file ) );
         axios.post( routes.agregarImagenesTemporales, data, {
@@ -70,8 +72,10 @@ function updateImageChooser( imageChooser ){
                     image.append( deletePhoto, photo, tempCheckbox );
                     container.appendChild( image );
                 } );
+                panel_cargando.style.display = "none";
             }else if ( response.data.errores ){
                 response.data.errores.forEach( error => alertify.notify( error, "error" ) );
+                panel_cargando.style.display = "none";
             }
         } );
 	}
