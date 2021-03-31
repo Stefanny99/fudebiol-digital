@@ -78,7 +78,7 @@ class PublicacionesModel extends Model {
                 }
                 try{
                     $imagenes_temporales_eliminadas_ids = $request->input( "fp-imagenes-temporales-eliminadas-ids", array() );
-                    $imagenes_temporales_eliminadas_formatos = $request->input( "fp-imagenes-temporales-eliminadas-ids", array() );
+                    $imagenes_temporales_eliminadas_formatos = $request->input( "fp-imagenes-temporales-eliminadas-formatos", array() );
                     DB::table( "fudebiol_imagenes_temp" )->whereIn( "fit_imagen_id", $imagenes_temporales_eliminadas_ids )->delete();
                     DB::table( "fudebiol_imagenes" )->whereIn( "fi_id", $imagenes_temporales_eliminadas_ids )->delete();
                     for ( $i = 0; $i < count( $imagenes_temporales_eliminadas_ids ); ++$i ){
@@ -128,14 +128,14 @@ class PublicacionesModel extends Model {
                 }
                 try{
                     $imagenes_eliminadas_ids = $request->input( "fp-imagenes-eliminadas-ids", array() );
-                    $imagenes_eliminadas_formatos = $request->input( "fp-imagenes-eliminadas-ids", array() );
-                    DB::table( "fudebiol_publicaciones_img" )->whereIn( "fit_imagen_id", $imagenes_eliminadas_ids )->delete();
+                    $imagenes_eliminadas_formatos = $request->input( "fp-imagenes-eliminadas-formatos", array() );
+                    DB::table( "fudebiol_publicaciones_img" )->whereIn( "fpi_imagen_id", $imagenes_eliminadas_ids )->delete();
                     DB::table( "fudebiol_imagenes" )->whereIn( "fi_id", $imagenes_eliminadas_ids )->delete();
                     for ( $i = 0; $i < count( $imagenes_eliminadas_ids ); ++$i ){
                         Storage::delete( "public/img/fudebiol_imagenes/" . $imagenes_eliminadas_ids[ $i ] . "." . $imagenes_eliminadas_formatos[ $i ] );
                     }
                     $imagenes_temporales_eliminadas_ids = $request->input( "fp-imagenes-temporales-eliminadas-ids", array() );
-                    $imagenes_temporales_eliminadas_formatos = $request->input( "fp-imagenes-temporales-eliminadas-ids", array() );
+                    $imagenes_temporales_eliminadas_formatos = $request->input( "fp-imagenes-temporales-eliminadas-formatos", array() );
                     DB::table( "fudebiol_imagenes_temp" )->whereIn( "fit_imagen_id", $imagenes_temporales_eliminadas_ids )->delete();
                     DB::table( "fudebiol_imagenes" )->whereIn( "fi_id", $imagenes_temporales_eliminadas_ids )->delete();
                     for ( $i = 0; $i < count( $imagenes_temporales_eliminadas_ids ); ++$i ){
