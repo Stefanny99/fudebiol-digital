@@ -157,7 +157,7 @@
     }
 
     #email,
-    #clave {
+    #clave{
         color: black;
         min-height: 10px;
         border-color: transparent;
@@ -166,7 +166,7 @@
     }
 
     #email:focus,
-    #clave:focus {
+    #clave:focus{
         outline: none;
     }
 
@@ -177,6 +177,7 @@
         -webkit-text-fill-color: black;
         transition: background-color 5000s ease-in-out 0s;
     }
+   
 
     #clave:-webkit-autofill:hover,
     #clave:-webkit-autofill,

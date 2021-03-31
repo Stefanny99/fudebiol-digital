@@ -6,7 +6,7 @@
                 
                 <div class="cheader">
                     <img id="logo" src="\img\logo.jpg">
-                    <label id="rc" >Restaurar contraseña</label>
+                    <label id="rc" ><b>Restaurar contraseña</b></label>
                 </div>
 
                 <div class="card-body">
