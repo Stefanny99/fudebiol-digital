@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        @keyframes anim-cargando{
+            from {
+                transform: rotate( 0deg );
+            }
+            to {
+                transform: rotate( 360deg );
+            }
+        }
+    </style>
     <script>
         var routes = {
             "agregarImagenesTemporales": "{{ route( 'agregarImagenesTemporales' ) }}",
@@ -18,15 +28,19 @@
                                 <div class="publicacion-encabezado">
                                     <img class="publicacion-logo" src="{{ asset('/img/logo.jpg')}}">
                                     <div class="titulo-fecha">
-                                        <label id="publicacion-titulo"></label>
+                                        <label id="publicacion-titulo">{{ $publicacion ? $publicacion->FP_TITULO : '' }}</label>
                                         <label id="publicacion-fecha"></label>
                                     </div>
                                 </div>
-                                <div id="publicacion-descripcion">
-                                    
-                                </div>
-                                <div id="publicacion-imagenes-1" class="publicacion-imagenes pub">  
-
+                                <pre id="publicacion-descripcion" style="text-align: justify; text-justify: inter-word; white-space: pre-line; word-break: break-word;">{{ $publicacion ? $publicacion->FP_DESCRIPCION : '' }}</pre>
+                                <div id="publicacion-imagenes-1" class="publicacion-imagenes pub">
+                                    @if ( $publicacion )
+                                    @foreach ( $publicacion->imagenes as $imagen )
+                                    <div class="inner size2">
+                                        <img class="img-responsive size" src="{{ asset( 'storage/img/fudebiol_imagenes/' . $imagen->FI_ID . '.' . $imagen->FI_FORMATO ) }}">
+                                    </div>
+                                    @endforeach
+                                    @endif
                                 </div>
                                 
                             </div>
@@ -35,6 +49,9 @@
                         <!-- pasar este div a form-->
                         <form class="editor-herramientas" action="{{ route( 'guardarPublicacion' ) }}" method="post">
                             @csrf
+                            <div id="panel-cargando" style="display: none; position: fixed; width: 100vw; height: 100vh; top: 0px; left: 0px; background-color: rgba( 0, 0, 0, 0.5 ); z-index: 5; justify-content: center; align-items: center;">
+                                <i class="fas fa-spinner" style="font-size: 5rem; color: white; animation: anim-cargando 1s linear infinite;"></i>
+                            </div>
                             <input type="hidden" name="fp_id" value="{{ $publicacion_id }}">
                             <h4 class="herramientas-titulo"><b>Herramientas de edición</b></h4>
                             <label for="titulo-publicacion" ><b>Título</b></label>

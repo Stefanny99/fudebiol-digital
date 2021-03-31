@@ -42,7 +42,7 @@
                   <td class="fila">
                     <div class="action">
                        <label class="edit"><i class="far fa-edit"></i></label>
-                       <label class="delete" name="fp_id" value="{{ $padrino->FP_ID }}"><i class="far fa-trash-alt"></i></label>
+                       <button type="submit" class="" name="fp_id" value="{{ $padrino->FP_ID }}"><i class="far fa-trash-alt"></i></button>
                        <label class="report"><i class="fas fa-chart-bar"></i></label>
                     </div>
                     </td>
@@ -105,10 +105,6 @@
           </div>
           </div>
         </div>
-       
-          
-          
-      
         </div>
     </div>
 @endsection
