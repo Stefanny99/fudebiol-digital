@@ -32,8 +32,18 @@ function removePhoto( id ){
     let contenedorPadre = document.getElementById( "fp-imagen-" + id );
     let contenedor = document.getElementById( "vista-previa-fotos" );
     let temp = contenedorPadre.hasAttribute( "data-temp" ) ? "temporales-" : "";
-    document.getElementById( "imagenes-eliminadas" ).append( '<input type="checkbox" name="fp-imagenes-' + temp + 'eliminadas-ids[]" value="' + contenedorPadre.getAttribute( "data-id" ) + '" checked>' );
-    document.getElementById( "imagenes-eliminadas" ).append( '<input type="checkbox" name="fp-imagenes-' + temp + 'eliminadas-formatos[]" value="' + contenedorPadre.getAttribute( "data-formato" ) + '" checked>' );
+    let id_input = document.createElement( "input" );
+    id_input.type = "checkbox";
+    id_input.name = "fp-imagenes-" + temp + "eliminadas-ids[]";
+    id_input.value = contenedorPadre.getAttribute( "data-id" );
+    id_input.checked = true;
+    let formato_input = document.createElement( "input" );
+    formato_input.type = "checkbox";
+    formato_input.name = "fp-imagenes-" + temp + "eliminadas-formatos[]";
+    formato_input.value = contenedorPadre.getAttribute( "data-formato" );
+    formato_input.checked = true;
+    document.getElementById( "imagenes-eliminadas" ).append( id_input );
+    document.getElementById( "imagenes-eliminadas" ).append( formato_input );
     contenedor.removeChild( contenedorPadre );
 }
 
