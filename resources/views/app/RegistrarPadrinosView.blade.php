@@ -24,28 +24,32 @@
                     </div>
                     
                 </div>
-                    <form id="cajaArbolRP" class="">
-                    <label id="txt_welcomeRP">Ingresa tus datos</label>
+                    <form id="cajaArbolRP" action="{{ route( 'nuevoPadrino' ) }}" method="post">
+                        @csrf
+                        <label id="txt_welcomeRP">Ingresa tus datos</label>
                         <div id="contTipo">
                             <div class="tipo1">
                                 <label class="texto" for="persona">Persona</label>
-                                <input type="radio" name="tipo" class="check-size">
+                                <input type="radio" name="fp_tipo" value="P" class="check-size" checked>
                             </div>
-                        
                             <div class="tipo2">
                                 <label class="texto" for="empresa">Empresa</label>
-                                <input type="radio" name="tipo"class="check-size" >
+                                <input type="radio" name="fp_tipo" value="E" class="check-size">
+                            </div>
+                            <div class="tipo3">
+                                <label class="texto" for="otro">Otro</label>
+                                <input type="radio" name="fp_tipo" value="O" class="check-size">
                             </div>
                         </div>
                     
                         <label class="texto" for="nombreCompleto">Nombre Completo:</label>
-                        <input type="text" name="nombreCompleto" class="input-width">
+                        <input type="text" name="fp_nombre_completo" class="input-width">
 
                         <label class="texto" for="cedula">Cédula de identidad:</label>
-                        <input type="text" name="cedula" class="input-width">
+                        <input type="text" name="fp_cedula" class="input-width">
 
                         <label class="texto" for="correo">Dirección de correo electrónico:</label>
-                        <input type="text" name="correo" class="input-width">
+                        <input type="text" name="fp_correo" class="input-width">
                         <div id="botonRP">
                             <button class="btn_registrarRP">Registrar</button>
                         </div>

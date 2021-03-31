@@ -86,7 +86,7 @@ class ResetPassword extends Notification
         return (new MailMessage)
             ->subject(Lang::get('Restaurar contraseña'))
             ->greeting(Lang::get('Hola'))
-            ->line(Lang::get('Has recibido este email porque recibimos una solicitud de restablecimiento de contraseña para su cuenta.'))
+            ->line(Lang::get('Has recibido este email porque recibimos una solicitud de restablecimiento de contraseña para tu cuenta.'))
             ->line(Lang::get('¡Da click al siguiente boton para continuar!'))
             ->action(Lang::get('Cambiar contraseña'), $url)
             ->line(Lang::get('Si no realizaste esta solicitud, no es necesario realizar ninguna acción.'))

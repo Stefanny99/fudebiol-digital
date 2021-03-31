@@ -561,8 +561,12 @@
 			font-family: "Quicksand";
 			outline: none;
 	}
-	.btn_buscarRP:hover {
-			color: rgba(152, 0, 0);
+	.tipo1, .tipo2, .tipo3 {
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	#buscador {
