@@ -7,7 +7,7 @@
 		<div class="report_container">
 			<img  class="clip" src="{{asset('/img/clip.png')}}">
 			<h2 style="text-align: center;"><b>Reporte de padrinos según cantidad de adopciones</b></h2>
-			<canvas id="canvas" width="400" height="100"></canvas>
+			<canvas id="canvas"></canvas>
 			<script type="text/javascript">
 				window.addEventListener('load', grafico);
 				function grafico(){

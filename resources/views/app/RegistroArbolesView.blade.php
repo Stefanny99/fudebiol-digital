@@ -61,8 +61,8 @@
                     <tr id="tablehead" >
                       <th>Nombre científico</th>
                       <th>Nombre común</th>
-                      <!-- <th>Jiffys</th>
-                      <th>Bolsas</th> -->
+                      <th>Jiffys</th>
+                      <th>Bolsas</th>
                       <th>Elevación mínima</th>
                       <th>Elevación máxima </th>
                       <th>Acción</th>
@@ -80,8 +80,8 @@
                     >
                       <td class="fila">{{ $arbol->FA_NOMBRE_CIENTIFICO }}</td>
                       <td class="fila overflow-hidden">{{ $arbol->FA_NOMBRES_COMUNES }}</td>
-                      <!-- <td class="fila">{{ $arbol->FA_JIFFYS }}</td>
-                      <td class="fila">{{ $arbol->FA_BOLSAS }}</td> -->
+                      <td class="fila">{{ $arbol->FA_JIFFYS }}</td>
+                      <td class="fila">{{ $arbol->FA_BOLSAS }}</td>
                       <td class="fila">{{ $arbol->FA_ELEVACION_MINIMA }}m</td>
                       <td class="fila">{{ $arbol->FA_ELEVACION_MAXIMA }}m</td>
                       <td class="fila">

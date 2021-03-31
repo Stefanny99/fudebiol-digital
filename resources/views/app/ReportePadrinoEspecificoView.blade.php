@@ -12,6 +12,7 @@
 					<img class="user_pic_size"src="{{asset('/img/users.png')}}">
           <div class="column_container space-around">
           <div class="column_container ml">
+          <img class="user_pic_size2"src="{{asset('/img/users.png')}}">
             <label>Nombre</label>
             <h5><b>Lizeth Monge Padilla</b></h5>
             
@@ -32,6 +33,7 @@
 					<img class="user_pic_size"src="{{asset('/img/especie1.png')}}">
           <div class="column_container  space-around">
           <div class="column_container ml">
+          <img class="user_pic_size2"src="{{asset('/img/especie1.png')}}">
             <h4><b>1</b></h4>
             <label>Guayabo</label>
           </div>
