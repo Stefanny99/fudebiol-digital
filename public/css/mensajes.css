@@ -1,153 +1,352 @@
-.tituloMensajes{
-    display: flex;
-    text-align: center!important;
-    justify-content:center !important;
-    background: linear-gradient(90deg, rgba(0,0,0,0.8407738095238095) 19%, rgba(2, 207, 197, 0.842) 100%);
-}
-#fondoMensajes{
-    background-size: cover;
-    display: flex;
-    background-image:url('/img/b7.jpg'); 
-    background-repeat: no-repeat;	
+@media (min-width: 769px) {
+    .tituloMensajes {
+        display: flex;
+        text-align: center !important;
+        justify-content: center !important;
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.8407738095238095) 19%,
+            rgba(2, 207, 197, 0.842) 100%
+        );
+    }
+    #fondoMensajes {
+        background-size: cover;
+        display: flex;
+        background-image: url("/img/b7.jpg");
+        background-repeat: no-repeat;
     }
 
-.mesage{
-    background-color: white;
-    text-align:right;
-    margin:auto;
-    border:2px solid black;
-    border-radius: 20px;
-    padding:1%;
-    width: 40vw;
-    margin-bottom: 20px;
-}
-.mesage input[type="checkbox"]{
-    margin-right: 10px;
-    margin-left: 5px;
-}
+    .mesage {
+        background-color: white;
+        text-align: right;
+        margin: auto;
+        border: 2px solid black;
+        border-radius: 20px;
+        padding: 1%;
+        width: 40vw;
+        margin-bottom: 20px;
+    }
+    .mesage input[type="checkbox"] {
+        margin-right: 10px;
+        margin-left: 5px;
+    }
 
-.mesage_mail{
-    color: darkgreen;
-    text-align:left;
+    .mesage_mail {
+        color: darkgreen;
+        text-align: left;
+    }
+    .phone_mail {
+        color: darkgreen;
+        text-align: left;
+    }
+    .mesage_content {
+        text-align: justify;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    #unread {
+        position: relative;
+        left: 99%;
+        bottom: 25px;
+        width: 2vw;
+        height: 2vw;
+        border-radius: 50%;
+        background: rgb(62, 255, 62);
+    }
+    .mensajes {
+        background-image: url("/img/lbg.jpg");
+    }
+    .mascaramensajes {
+        display: flex;
+        flex-direction: row;
+        padding: 3%;
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.5407738095238095) 19%,
+            rgba(2, 207, 197, 0.642) 100%
+        );
+        height: 85vh;
+    }
+    #etc {
+        align-items: center;
+        justify-content: center;
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+    #etc * {
+        margin-bottom: 10px;
+    }
+    #contenedor_mensajes {
+        padding-top: 2%;
+        overflow: auto;
+        width: 50vw;
+        flex: 1;
+    }
 }
-.phone_mail{
-    color:darkgreen;;
-    text-align:left;
-}
-.mesage_content{
-    text-align: justify;
-    font-weight: bold;
-    margin-top:10px;
-    margin-bottom:10px;
-}
-#unread{
-    position: relative;
-    left:99%;
-    bottom:25px;
-    width:2vw;
-    height:2vw;
-    border-radius: 50%;
-    background: rgb(62, 255, 62);
-}
-.mensajes{
-   
-    background-image: url('/img/lbg.jpg');
-}
-.mascaramensajes{
-    display: flex;
-    flex-direction:row;
-    padding: 3%;
-    background: linear-gradient(90deg, rgba(0,0,0,0.5407738095238095) 19%, rgba(2, 207, 197, 0.642) 100%);
-    height:85vh;
-}
-#etc{
-    align-items: center;
-    justify-content: center;
-    color:white;
-    display: flex;
-    flex-direction:column;
-}
-#etc *{
-    margin-bottom: 10px;
-}
-#contenedor_mensajes{
-    padding-top:2%;
-    overflow: auto;
-    width: 50vw;
-    flex:1;
-}
+@media (max-width: 768px) {
+    .tituloMensajes {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.8407738095238095) 19%,
+            rgba(2, 207, 197, 0.842) 100%
+        );
+        height: 100vh;
+    }
+    .tituloMensajes label {
+        font-size: 40px;
+        font-weight: bold;
+    }
+    #fondoMensajes {
+        background-size: cover;
+        display: flex;
+        background-image: url("/img/b7.jpg");
+        background-repeat: no-repeat;
+    }
 
+    .mesage {
+        background-color: white;
+        text-align: right;
+        margin: auto;
+        border: 2px solid black;
+        border-radius: 20px;
+        padding: 5%;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .mesage input[type="checkbox"] {
+        margin-right: 10px;
+        margin-left: 5px;
+    }
+
+    .mesage_mail {
+        color: darkgreen;
+        text-align: left;
+    }
+    .phone_mail {
+        color: darkgreen;
+        text-align: left;
+    }
+    .mesage_content {
+        text-align: justify;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    #unread {
+        position: relative;
+        left: 99%;
+        bottom: 25px;
+        width: 5vw;
+        height: 5vw;
+        border-radius: 50%;
+        background: rgb(62, 255, 62);
+    }
+    .mensajes {
+        background-image: url("/img/lbg.jpg");
+    }
+    .mascaramensajes {
+        display: flex;
+        flex-direction: column;
+        padding: 3%;
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.5407738095238095) 19%,
+            rgba(2, 207, 197, 0.642) 100%
+        );
+        height: 85vh;
+    }
+    #etc {
+        align-items: center;
+        justify-content: center;
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+    #etc * {
+        margin-bottom: 10px;
+    }
+    #contenedor_mensajes {
+        padding-top: 2%;
+        overflow: auto;
+        width: 100%;
+        flex: 1;
+    }
+}
 
 /*NOTIFICACIONES*/
-.tituloNotificaciones{
-    background: linear-gradient(90deg, rgba(0,0,0,0.8407738095238095) 19%, rgba(2, 50, 197, 0.842) 100%);
-}
+@media (min-width: 769px) {
+    .tituloNotificaciones {
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.8407738095238095) 19%,
+            rgba(2, 50, 197, 0.842) 100%
+        );
+    }
 
+    .mesageN {
+        background-color: white;
+        text-align: right;
+        margin: auto;
+        border: 2px solid black;
+        border-radius: 20px;
+        padding: 1%;
+        width: 40vw;
+        margin-bottom: 20px;
+    }
+    .mesageN input[type="checkbox"] {
+        margin-right: 10px;
+        margin-left: 5px;
+        margin-top: 20px;
+    }
 
-.mesageN{
-    background-color: white;
-    text-align:right;
-    margin:auto;
-    border:2px solid black;
-    border-radius: 20px;
-    padding:1%;
-    width: 40vw;
-    margin-bottom: 20px;
+    .mesage_data {
+        margin-top: 20px;
+        /* color: darkgreen; */
+        text-align: left;
+    }
+    .phone_mailN {
+        /* color:;; */
+        text-align: left;
+    }
+    .mesage_contentN {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    #unreadN {
+        position: relative;
+        left: 99%;
+        bottom: 25px;
+        width: 2vw;
+        height: 2vw;
+        border-radius: 50%;
+        background: rgb(62, 255, 62);
+    }
+    .mensajesN {
+        background-image: url("/img/lbg.jpg");
+    }
+    .mascaramensajesN {
+        display: flex;
+        flex-direction: row;
+        padding: 3%;
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.6407738095238095) 19%,
+            rgba(2, 50, 197, 0.742) 100%
+        );
+        height: 85vh;
+    }
+    #etcN {
+        align-items: center;
+        justify-content: center;
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+    #etcN * {
+        margin-bottom: 10px;
+    }
+    #contenedor_mensajesN {
+        padding-top: 2%;
+        overflow: auto;
+        width: 50vw;
+        flex: 1;
+    }
 }
-.mesageN input[type="checkbox"]{
-    margin-right: 10px;
-    margin-left: 5px;
-    margin-top: 20px;
-}
+@media (max-width: 768px) {
+    .tituloNotificaciones {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height:100vh;
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.8407738095238095) 19%,
+            rgba(2, 50, 197, 0.842) 100%
+        );
+    }
+    .tituloNotificaciones label {
+        font-size: 40px;
+        font-weight: bold;
+    }
+    .mesageN {
+        background-color: white;
+        text-align: right;
+        margin: auto;
+        border: 2px solid black;
+        border-radius: 20px;
+        padding: 1%;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .mesageN input[type="checkbox"] {
+        margin-right: 10px;
+        margin-left: 5px;
+        margin-top: 20px;
+    }
 
-.mesage_data{
-    margin-top: 20px;
-    /* color: darkgreen; */
-    text-align:left;
-}
-.phone_mailN{
-    /* color:;; */
-    text-align:left;
-}
-.mesage_contentN{
-    text-align: center;
-    font-weight: bold;
-    margin-top:10px;
-    margin-bottom:10px;
-}
-#unreadN{
-    position: relative;
-    left:99%;
-    bottom:25px;
-    width:2vw;
-    height:2vw;
-    border-radius: 50%;
-    background: rgb(62, 255, 62);
-}
-.mensajesN{
-   
-    background-image: url('/img/lbg.jpg');
-}
-.mascaramensajesN{
-    display: flex;
-    flex-direction:row;
-    padding: 3%;
-    background: linear-gradient(90deg, rgba(0,0,0,0.6407738095238095) 19%, rgba(2, 50, 197, 0.742) 100%);
-    height:85vh;
-}
-#etcN{
-    align-items: center;
-    justify-content: center;
-    color:white;
-    display: flex;
-    flex-direction:column;
-}
-#etcN *{
-    margin-bottom: 10px;
-}
-#contenedor_mensajesN{
-    padding-top:2%;
-    overflow: auto;
-    width: 50vw;
-    flex:1;
+    .mesage_contentN {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .mesage_data {
+        margin-top: 20px;
+        /* color: darkgreen; */
+        text-align: left;
+        padding-left: 5%;
+        margin-bottom: 10px;
+    }
+    .mesageN a{
+        margin-top:10px;
+        margin-right: 10px;
+    }
+    #unreadN {
+        position: relative;
+        left: 99%;
+        bottom: 25px;
+        width: 2vw;
+        height: 2vw;
+        border-radius: 50%;
+        background: rgb(62, 255, 62);
+    }
+    .mensajesN {
+        background-image: url("/img/lbg.jpg");
+    }
+    .mascaramensajesN {
+        display: flex;
+        flex-direction: column;
+        padding: 3%;
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.6407738095238095) 19%,
+            rgba(2, 50, 197, 0.742) 100%
+        );
+        height: 85vh;
+    }
+    #etcN {
+        align-items: center;
+        justify-content: center;
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+    #etcN * {
+        margin-bottom: 10px;
+    }
+    #contenedor_mensajesN {
+        padding-top: 2%;
+        overflow: auto;
+        width: 100%;
+        flex: 1;
+    }
 }

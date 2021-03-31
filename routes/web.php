@@ -21,7 +21,8 @@ Route::group( [ 'middleware' => [ 'auth', 'rolecheck' ] ], function(){
 	Route::get('/registroArbol', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\ArbolesController@registroArbol', 'role' => 'A' ])->name('registroArbol');
 
 	/*RUTAS DE MANTENIMIENTOS DE PADRINOS*/
-	Route::get('/verPadrinos', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PadrinosController@mantenimientoPadrinos', 'role' => 'A' ])->name('verPadrino');
+	Route::get('/verPadrinos/{pagina}', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PadrinosController@mantenimientoPadrinos', 'role' => 'A' ])->name('verPadrino');
+	Route::post('/eliminarPadrino', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PadrinosController@eliminarPadrino', 'role' => 'A' ])->name('eliminarPadrino');
 
 	/*RUTAS DE MANTENIMIENTO DE LOTES*/
 	Route::get( '/lotes/{pagina}', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\LotesController@mantenimientoLotes', 'role' => 'A' ] )->name( 'lotes' );
@@ -34,8 +35,10 @@ Route::group( [ 'middleware' => [ 'auth', 'rolecheck' ] ], function(){
 	Route::post('/eliminarMensajes', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\MensajesController@eliminarMensajes', 'role' => 'A' ])->name('eliminarMensajes');
 	Route::post('/marcarLeidos', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\MensajesController@marcarMensajeComoLeidos', 'role' => 'A' ])->name('marcarLeidos');
 	/*RUTA DE NOTIFICIONES*/
-	Route::get('/notificaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\InformacionController@notificaciones', 'role' => 'A' ])->name('notificaciones');
-
+	Route::get('/notificaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\NotificacionesController@mantenimientoNotificaciones', 'role' => 'A' ])->name('notificaciones');
+	Route::post('/eliminarNotificaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\NotificacionesController@eliminarNotificaciones', 'role' => 'A' ])->name('eliminarNotificaciones');
+	Route::post('/marcarNotificacionesLeidas', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\NotificacionesController@marcarNotificacionesComoLeidas', 'role' => 'A' ])->name('marcarNotificacionesLeidas');
+	
 	/*RUTA DE PUBLICACIONES*/
 	Route::get('/editorPublicaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@editorPublicaciones', 'role' => 'S' ])->name('editorPublicaciones');
 	Route::get('/administrarPublicaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@administrarPublicaciones', 'role' => 'S'])->name('administrarPublicaciones');
@@ -69,6 +72,7 @@ Route::get('/fudebiol', [App\Http\Controllers\FudebiolDigital\InformacionControl
 Route::get('/publicaciones', [App\Http\Controllers\FudebiolDigital\PublicacionesController::class, 'publicaciones'])->name('publicaciones');
 Route::get('/investigaciones', [App\Http\Controllers\FudebiolDigital\InvestigacionesController::class, 'investigaciones'])->name('investigaciones');
 Route::get('/registrarPadrino', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'registrarPadrinos'])->name('registrarPadrino');
+Route::post('nuevoPadrino',  ['uses' => 'App\Http\Controllers\FudebiolDigital\PadrinosController@registrarPadrino'])->name('nuevoPadrino');
 Route::get('/arboles', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'arbolesPorLote'])->name('arboles');
 Route::get('/adoptarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'adoptarArbol'])->name('adoptarArbol');
 Route::get('/comprobante', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'comprobante'])->name('comprobante');

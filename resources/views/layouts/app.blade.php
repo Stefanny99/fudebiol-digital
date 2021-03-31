@@ -124,7 +124,7 @@
                        
                         <div class="text">Reg.Lotes</div>
                     </a>
-                    <a href="{{ route( 'verPadrino' ) }}">
+                    <a href="{{ route( 'verPadrino', 1 ) }}">
                        
                         <div class="text">Reg.Padrinos</div>
                     </a>
