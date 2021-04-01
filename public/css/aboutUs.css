@@ -279,7 +279,7 @@
 
 /* css movil */
 
-@media (max-width: 768px) {
+@media all and (max-width: 768px) and (orientation: portrait)  {
     #fondoAboutUs {
         background-image: url("/img/fude2.jpg");
         background-repeat: no-repeat;
@@ -504,7 +504,7 @@
     }
 }
 
-@media (max-width: 280px) {
+@media all and (max-width: 280px) and (orientation: portrait)  {
     .cara.detras p {
         font-size: 12px;
     }

@@ -82,7 +82,7 @@
         bottom: 60px;
     }
 }
-@media (max-width: 768px) {
+@media all and (max-width: 768px) and (orientation: portrait){
   .report_container {
       background-color: white !important;
       margin: auto;
@@ -175,7 +175,7 @@
       bottom: 60px;
   }
 }
-@media (max-width: 540px) {
+@media all and (max-width: 540px) and (orientation: portrait) {
   
   .user_pic_size {
      display:none;
@@ -191,7 +191,7 @@
       bottom: 40px;
   }
 }
-@media (max-width: 480px) {
+@media all and (max-width: 480px) and (orientation: portrait) {
   
   .user_pic_size {
      display:none;
@@ -207,7 +207,7 @@
       bottom: 30px;
   }
 }
-@media (max-width: 280px) {
+@media all and (max-width: 280px) and (orientation: portrait) {
   
   .user_pic_size {
      display:none;

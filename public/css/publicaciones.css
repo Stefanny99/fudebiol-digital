@@ -93,7 +93,7 @@
 }
 }
 
-@media(max-width:768px){
+@media all and (max-width: 768px) and (orientation: portrait){
 .publicacion-base{
     background-color: white;
     margin:auto;
@@ -352,7 +352,7 @@ margin-bottom: 5px;
 
 }
 /*CSS MOVIL*/
-@media(max-width:768px){
+@media all and (max-width: 768px) and (orientation: portrait) {
     .pub_container{
         padding:1%;
         display:flex;
@@ -517,7 +517,7 @@ margin-bottom: 5px;
     
     }
 
-
+/*Administrador de publicaciones*/
 @media(min-width:769px){
 #buscador_publicaciones{
     margin-left: auto;
@@ -578,9 +578,9 @@ margin-bottom: 5px;
     margin-bottom:1vh;
 }
 }
+/*CSS movil*/
 
-
-@media(max-width:768px){
+@media all and (max-width: 768px) and (orientation: portrait) {
     
     .publicacion-base-adm{
         background-color: white;

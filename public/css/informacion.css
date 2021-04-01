@@ -1,153 +1,154 @@
+@media (min-width: 769px) {
+    #fondoInfo {
+        background-image: url("/img/ave.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
-@media(min-width:769px){
-#fondoInfo{
-	background-image: url('/img/ave.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-}
+    #tituloInfo {
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.7259278711484594) 16%,
+            rgba(38, 187, 0, 0.7035189075630253) 100%
+        );
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+        padding-left: 4vh;
+    }
+    .image_activity {
+        width: 100%;
+        height: 200px;
+    }
 
-#tituloInfo{
-	background: linear-gradient(90deg, rgba(0,0,0,0.7259278711484594) 16%, rgba(38,187,0,0.7035189075630253) 100%);
-	height: 80vh;
-	display: flex;
-	flex-direction: column;
-	justify-content:center;
-	align-items: baseline;
-	padding-left: 4vh;
-}
-.image_activity{
-	width:100%;
-	height:200px;
-}
+    #tituloInfo label {
+        font-weight: bold;
+        color: white;
+        font-size: 6vw;
+        text-shadow: 0px 0px 6px black;
+    }
+    #tituloInfo img {
+        margin-left: 1vh;
+        width: 30vw;
+        border-radius: 50%;
+    }
 
-#tituloInfo label{
-	font-weight: bold;
-	color: white;
-	font-size: 6vw;
-	text-shadow: 0px 0px 6px black;
-}
-#tituloInfo img{
-	margin-left: 1vh;
-	width: 30vw;
-	border-radius: 50%;
-}
+    .actividades {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+    }
 
-.actividades{
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	justify-content: center;
-}
+    .cajitaInformativa {
+        margin: 6vh;
+        padding: 20px;
+        width: 35%;
+        height: 55vh;
+        border: 2px green solid;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 0px 10px gray;
+    }
 
-.cajitaInformativa{
-	margin: 6vh;
-	padding: 20px;
-	width: 35%;
-	height: 55vh;
-	border:2px green solid;
-	display: flex;
-	flex-direction: column;
-	box-shadow: 0px 0px 10px gray ;
-}
+    .actividad {
+        font-weight: bold;
+        color: green;
+        font-size: 4vh;
+        margin-bottom: 5px;
+    }
 
-.actividad{
-	font-weight: bold;
-	color: green;
-	font-size: 4vh;
-	margin-bottom: 5px;
-}
+    .explicacion {
+        font-weight: bold;
+        font-size: 2.5vh;
+        text-align: center;
+        margin-top: 5px;
+    }
 
-.explicacion{
-	font-weight: bold;
-	font-size: 2.5vh;
-	text-align: center;
-	margin-top:5px;
+    @keyframes flotar {
+        from {
+            transform: scale(1);
+            background-color: green;
+            text-shadow: 0px 0px 0px white;
+        }
+        to {
+            transform: scale(1.1);
+            background-color: darkgreen;
+            text-shadow: 0px 0px 5px greenyellow;
+        }
+    }
 }
+@media all and (max-width: 768px) and (orientation: portrait) {
+    #fondoInfo {
+        background-image: url("/img/ave23.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+    }
+    .image_activity {
+        width: 100%;
+        height: 20vh;
+    }
+
+    #tituloInfo {
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.9259278711484594) 16%,
+            rgba(38, 187, 0, 0.7035189075630253) 100%
+        );
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #tituloInfo label {
+        font-weight: bold;
+        color: white;
+        font-size: 40px;
+        text-shadow: 0px 0px 6px black;
+    }
+    #tituloInfo img {
+        width: 70vw;
+        border-radius: 50%;
+    }
+
+    .actividades {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cajitaInformativa {
+        margin: auto;
+        margin-bottom: 20px;
+        padding: 10px;
+        height: 45vh;
+        border: 2px green solid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 5px gray;
+    }
+
+    #cabeza > .menu > .hiperlinks > a > .text {
+        font-size: 20px;
+        white-space: nowrap;
+    }
+
+    .actividad {
+        font-weight: bold;
+        color: green;
+    }
+
+    .explicacion {
+        margin-top: 5px;
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+    }
 }
-@keyframes flotar{
-	from{
-		transform: scale(1);
-		background-color: green;
-		text-shadow: 0px 0px 0px white;
-		
-	}
-	to{
-		transform: scale(1.1);
-		background-color: darkgreen;
-		text-shadow: 0px 0px 5px greenyellow;
-	
-	}
-}
-
-@media(max-width:768px){
-	#fondoInfo{
-		background-image: url('/img/ave23.jpg');
-		background-repeat: no-repeat;
-		background-size: cover;
-		height:100vh;
-	}
-	.image_activity{
-		width:100%;
-		height:20vh;
-	}
-	
-	
-	#tituloInfo{
-		background: linear-gradient(90deg, rgba(0,0,0,0.9259278711484594) 16%, rgba(38,187,0,0.7035189075630253) 100%);
-		height: 100vh;
-		display: flex;
-		flex-direction: column;
-		justify-content:center;
-		align-items: center;
-	}
-	
-	#tituloInfo label{
-		font-weight: bold;
-		color: white;
-		font-size: 40px;
-		text-shadow: 0px 0px 6px black;
-	}
-	#tituloInfo img{
-		width: 70vw;
-		border-radius: 50%;
-	}
-	
-	.actividades{
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-	
-	.cajitaInformativa{
-		margin: auto;
-		margin-bottom: 20px;
-		padding: 10px;
-		height: 45vh;
-		border:2px green solid; 
-		display: flex;
-		flex-direction: column;
-		align-items:center;
-		justify-content: center;
-		box-shadow: 0px 0px 5px gray ;
-	}
-
-	#cabeza>.menu>.hiperlinks>a>.text{
-		font-size: 20px;
-		white-space: nowrap;
-		}
-		
-		
-	.actividad{
-		font-weight: bold;
-		color: green;
-	}
-	
-	.explicacion{
-		margin-top:5px;
-		font-weight: bold;
-		font-size: 20px;
-		text-align: center;
-	}
-}
-
-

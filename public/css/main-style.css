@@ -328,7 +328,7 @@
         margin-right: 1.5rem;
     }
 }
-@media (max-width: 768px) {
+@media all and (max-width: 768px) and (orientation: portrait) {
 	#body_home {
 			text-align: center;
 			display: flex;

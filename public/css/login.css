@@ -249,7 +249,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media all and (max-width: 768px) and (orientation: portrait) {
     html {
         height: 100%;
     }
@@ -629,7 +629,7 @@
         font-size: 1.3vw;
     }
 }
-@media (max-width: 768px) {
+@media all and (max-width: 768px) and (orientation: portrait) {
     /*home css*/
     .banner {
         background-repeat: no-repeat;

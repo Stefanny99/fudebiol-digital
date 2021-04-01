@@ -113,7 +113,7 @@
     }
 }
 /*css movil*/
-@media (max-width: 768px) {
+@media all and (max-width: 768px) and (orientation: portrait) {
     #fondoRP {
         background-image: url("/img/b12.jpg");
         height: 100vh;
@@ -467,7 +467,7 @@
         align-items: center;
     }
 }
-@media (max-width: 768px) {
+@media all and (max-width: 768px) and (orientation: portrait) {
 	#treeheaderRP {
 			text-align: center;
 			background-image: url("/img/header.jpg");

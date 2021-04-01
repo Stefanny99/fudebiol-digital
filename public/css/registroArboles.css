@@ -336,7 +336,7 @@
         font-size: 1.6rem;
     }
 }
-@media (max-width: 768px) {
+@media all and (max-width: 768px) and (orientation: portrait){
     #fondo {
         background-size: cover;
         display: flex;
@@ -677,7 +677,7 @@
         font-size: 1.6rem;
     }
 }
-@media (max-width: 360px) {
+@media all and (max-width: 360px) and (orientation: portrait){
 
     #botonesEdicionArboles {
         display: flex;
@@ -730,7 +730,7 @@
     }
    
 }
-@media (max-width: 330px) {
+@media all and (max-width: 330px) and (orientation: portrait){
 
     #botonesEdicionArboles {
         display: flex;
@@ -1101,7 +1101,7 @@
     }
 }
 /*css movil*/
-@media (max-width: 768px) {
+@media all and (max-width: 768px) and (orientation: portrait){
     #fondoRAI {
         background-size: cover;
         display: flex;

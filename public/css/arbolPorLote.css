@@ -173,7 +173,7 @@
     }
 }
 /*CSS movil*/
-@media (max-width: 768px) {
+@media all and (max-width: 768px) and (orientation: portrait) {
     #logovs {
         background-color: rgba(14.116.5, 0.877);
         border-radius: 50%;
@@ -492,7 +492,7 @@
 }
 
 /*CCS MOVIL*/
-@media (max-width: 768px) {
+@media all and (max-width: 768px) and (orientation: portrait) {
     #datosPadrino {
         margin: auto;
         margin-top: 50px;
@@ -670,7 +670,7 @@
     }
 }
 /*CSS MOVIL*/
-@media (max-width: 768px) {
+@media all and (max-width: 768px) and (orientation: portrait) {
     .cc_background {
         display: flex;
         flex: 1;

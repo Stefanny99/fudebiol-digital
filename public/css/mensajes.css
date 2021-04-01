@@ -85,7 +85,7 @@
         flex: 1;
     }
 }
-@media (max-width: 768px) {
+@media all and (max-width: 768px) and (orientation: portrait) {
     .tituloMensajes {
         display: flex !important;
         flex-direction: column !important;
@@ -260,7 +260,7 @@
         flex: 1;
     }
 }
-@media (max-width: 768px) {
+@media all and (max-width: 768px) and (orientation: portrait){
     .tituloNotificaciones {
         display: flex !important;
         flex-direction: column !important;
