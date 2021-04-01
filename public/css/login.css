@@ -144,7 +144,7 @@
     #password input {
         border-radius: 0px;
         border: none;
-
+        color:black;
         border-bottom: 2px green solid;
         outline: none;
     }

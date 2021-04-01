@@ -29,7 +29,7 @@ function mostrarFoto(foto){
 	exit.innerHTML="<i class='fas fa-times'></i>";
 	botones.append(next, prev, exit);
 	contenedor2.append(imagen);
-	if(!foto.getAttribute("data-descripcion")===''){
+	if(foto.getAttribute("data-descripcion") != ''){
 		contenedor2.append(descripcion);
 	}
 	contenedor.append(contenedor2, botones);
@@ -52,9 +52,7 @@ var ImagenesLista = Array.prototype.slice.call(imagenes);
 				{
 				    if(imagen == imagenes[i].src && i < imagenes.length-1 ){
 				    	 contImg.src=imagenes[i+1].src;
-							 if(!imagenes[i+1].getAttribute("data-descripcion")===''){
 				    	 	contDesc.innerHTML=imagenes[i+1].getAttribute("data-descripcion");
-							 }
 				    	 break;
 				    }
 
