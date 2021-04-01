@@ -49,14 +49,10 @@ class PublicacionesController extends Controller{
             "fp_descripcion" => [ "required", "string", "max:1000" ],
             "fp-imagenes-temporales" => [ "nullable", "array" ],
             "fp-imagenes-temporales.*" => [ "integer" ],
-            "fp-imagenes-eliminadas-ids" => [ "nullable", "array" ],
-            "fp-imagenes-eliminadas-ids.*" => [ "integer" ],
-            "fp-imagenes-eliminadas-formatos" => [ "nullable", "array" ],
-            "fp-imagenes-eliminadas-formatos.*" => [ "string" ],
-            "fp-imagenes-temporales-eliminadas-ids" => [ "nullable", "array" ],
-            "fp-imagenes-temporales-eliminadas-ids.*" => [ "integer" ],
-            "fp-imagenes-temporales-eliminadas-formatos" => [ "nullable", "array" ],
-            "fp-imagenes-temporales-eliminadas-formatos.*" => [ "string" ]
+            "fp-imagenes-eliminadas" => [ "nullable", "array" ],
+            "fp-imagenes-eliminadas.*" => [ "nullable", "string" ],
+            "fp-imagenes-temporales-eliminadas" => [ "nullable", "array" ],
+            "fp-imagenes-temporales-eliminadas.*" => [ "nullable", "string" ],
         ] );
         if ( $validator->fails() ){
             return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $data->input() );
