@@ -485,5 +485,239 @@
 	}
 
 }
+@media all and (max-width: 768px) and (orientation: landscape) {
+	#fondo1{
+		display: flex;
+		background-image: url('/img/lbg.jpg');
+		font-family: 'Quicksand', sans-serif;
+		flex-direction: column;
+		text-align: center;
+		align-items: center;
+		justify-content:center;
+		flex: 1;
+	}
 
+	#tabla{
+	display:flex;
+	align-items: center;
+	justify-content:center;
+	flex-direction: column;
+	padding: 10px;
+	padding-top: 20px;
+}
+	#tablaUsuarios{
+	
+		overflow-x: auto;
+		min-height: 20vh;
+		color: rgb(4, 192, 4);
+		caption-side: top !important; 
+		padding-top: 10px;	
+		background:rgba(0,0,0,0.5);
+		white-space: pre-wrap;
+		box-shadow:-1px -0px 25px black;
+		font-size: 15px;
+		border-collapse: unset;	
+	}
+
+	.campo_size_email{
+		max-width:20vw;
+		word-wrap: break-word;
+	}
+	.edit-size{
+		max-width: 5vw !important;
+	}
+	#tablaUsuarios caption{
+		width:95vw;
+		background:rgba(4, 192, 4, 0.5);
+		border-radius:10px 10px 0px 0px;
+		text-align: center;
+		color: white;
+		font-weight: bold;
+		font-size: 17px;
+	}
+	#tablaUsuarios tbody th{
+		border-bottom: 1px black solid;
+		font-size: 17px;
+	}
+
+
+
+	#tablaUsuarios tbody .fila{
+		color: white;
+		font-weight: bold;
+		border-radius: 10px;
+		cursor: pointer;
+	
+	}
+
+	.thead:hover{
+		background-color: transparent;
+	}
+	#botonesEdicion{
+		position:relative;
+		bottom:0px;
+		width:95vw;
+		box-shadow: 0px 16px 20px rgba(0,0,0,0.7);
+		background:rgba(4, 192, 4, 0.2);
+		padding: 10px 0px 10px 0px;
+		z-index: 7;
+		border-radius: 0px 0px 20px 20px;
+	}
+
+	.btn_guardar, .btn_limpiar, .btn_eliminarUsuario{ 
+		margin: auto;
+		cursor: pointer;
+		height: 5vw;
+		width: 14vw;
+		border:none;
+		border-radius: 5px;
+		background: rgb(4, 192, 4);
+		color:white;
+		text-align: center;
+		font-size: 15px;
+		font-family: 'Quicksand';
+		font-weight: 900;
+		outline-style: none;
+		border-style: none!important;
+	}
+	.btn_eliminarUsuario{
+		
+		background: rgb(207, 62, 50)!important;
+	}
+
+	.btn_limpiar{
+		background: rgb(50, 136, 207)!important;
+		margin-left: 5px;
+	}
+	.botones{
+		display:flex;
+		margin-top: 20px;
+		flex-direction:row;
+	}
+	.crecer{
+		font-size: 4.5vh !important;
+	}
+
+
+	.btn_guardar:hover, .btn_adoptar:hover,
+	.btn_limpiar:hover,.btn_eliminar:hover, 
+	.btn_editar:hover, .btn_limpiar:hover,
+	.btn_eliminarUsuario:hover  {
+	transition: 0.2s;
+	transform: translateY(-3px);
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+	}
+	
+	.btn_guardar:active, .btn_adoptar:active,
+	.btn_limpiar:active, .btn_eliminar:active, 
+	.btn_editar:active, .btn_limpiar:active, 
+	.btn_eliminarUsuario:active {
+	transition: 0,2s;
+	transform: translateY(-1px);
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
+	}
+
+	#agregarUsuario{
+		width:95%;
+		margin:auto;
+		margin-top:40px;
+		height:auto;
+		border: 1px white solid;
+		align-items: center;
+		justify-content:left;
+		background:rgba(0,0,0,0.5);
+		padding: 20px 50px 50px 50px;
+		display: flex;
+		flex-direction: column;
+		color: white;
+		border-radius: 30px;
+		-webkit-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93);
+		-moz-box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93);
+		box-shadow: 1px 1px 25px 0px rgba(0,0,0,0.93); 
+	}
+
+
+	#agregarUsuarioCont{
+		display: flex;
+		flex-direction: column;
+		justify-content:left;
+		width:80%;
+
+	}
+
+	#agregarUsuario input[type="text"], #agregarUsuario label {
+		text-align:left;
+	}
+
+
+	#btn_sidebar{
+		display:none;	
+	}
+	#btn_sidebar img{
+		max-width: 50px;
+		max-height: 50px;
+		border-radius: 40px;
+		z-index: 1;
+		color: white;
+		position: relative;
+		cursor: pointer;
+		left: 70px;
+		top:130px;
+		margin-bottom:10px;
+		transition: 0.5s;
+		transition-property: color;
+		
+	}
+	
+	#adduser{
+		margin-top: 0px;
+		font-size: 70px;
+	}
+
+	#check{
+		display: none;
+	}
+	.texto{
+	margin-top: 10px;
+	}
+
+	#agregarUsuario input, #agregarUsuario select{
+	padding: 3px;
+	text-align: left;
+	border:none;
+	border-bottom: 1px white solid;
+	background-color: transparent;
+	color: white;
+	height: 25px;
+	outline: none;
+	}
+	#agregarUsuario select{
+	width: 180px;
+	height: 40px;
+	}
+
+	#agregarUsuario select *{
+		background:rgba(0, 0, 0, 0.8);
+		border:none;                
+		color: white;
+	}
+
+
+	#RegUsuarios{
+		font-weight: bold;
+		font-size: 20px;
+	}
+
+
+	#agregarUsuario input:-webkit-autofill,
+	 #agregarUsuario input:-webkit-autofill:hover,
+	 #agregarUsuario input:-webkit-autofill:focus
+	{
+	border: none;
+	-webkit-text-fill-color: white;
+	transition: background-color 5000s ease-in-out 0s;
+
+	}
+
+}
 
