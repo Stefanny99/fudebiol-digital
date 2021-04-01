@@ -147,6 +147,7 @@
         color:black;
         border-bottom: 2px green solid;
         outline: none;
+        text-align: left;
     }
 
     #user img,
