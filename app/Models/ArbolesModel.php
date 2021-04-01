@@ -52,20 +52,14 @@ class ArbolesModel extends Model {
             "accion" => "ArbolesModel:eliminarArboles"
         );
         try {
-            $imagenes = DB::table( "fudebiol_imagenes" )->whereIn( 'fa_id', $request->input( "ids" ) )->get();
+            $arboles = DB::table( "fudebiol_arboles" )->whereIn( 'fa_id', $request->input( "fa-arboles-eliminados" ) )->get();
             DB::begintransaction();
             try {
-                DB::table('fudebiol_arboles')->whereIn('fa_id', $request->input('ids'))->delete();
-                try {
-                    foreach ($imagenes as $imagen) {
-                        Storage::delete( "public/img/fudebiol_arboles/" . $imagen->FA_ID . $imagen->FA_IMAGEN_FORMATO );
-                    }
-                    DB::commit(); 
-                } catch(Exception $e){
-                    $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
-                    $data['razon'] = "Ocurrió un error al eliminar la imagen del árbol";
-                    DB::rollBack();
-                }   
+                DB::table('fudebiol_arboles')->whereIn('fa_id', $request->input('fa-arboles-eliminados'))->delete();
+                foreach ( $arboles as $arbol ) {
+                    Storage::delete( "public/img/fudebiol_arboles/" . $arbol->FA_ID . "." . $arbol->FA_IMAGEN_FORMATO );
+                }
+                DB::commit();
             } catch (Exception $e) {
                 $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
                 $data['razon'] = "Ocurrió un error al eliminar el árbol";
@@ -131,16 +125,18 @@ class ArbolesModel extends Model {
         try{
             DB::begintransaction();
             try {
-                DB::table('fudebiol_arboles')->where('fa_id',$request->input('fa_id'))
-                ->update([
+                $input_data = array(
                     'fa_nombre_cientifico' => $request->input('fa_nombre_cientifico'),
                     'fa_jiffys' => $request->input('fa_jiffys'),
                     'fa_bolsas' => $request->input('fa_bolsas'),
                     'fa_elevacion_minima' => $request->input('fa_elevacion_minima'),
                     'fa_elevacion_maxima' => $request->input('fa_elevacion_maxima'),
-                    'fa_imagen_formato' => !$request->hasFile( 'fa_imagen' ) ? $request->file( "fa_imagen" )->extension() : '',
-                    'fa_nombres_comunes' => $request->input('fa_nombres_comunes'),
-                ]);
+                    'fa_nombres_comunes' => $request->input('fa_nombres_comunes')
+                );
+                if ( $request->hasFile( "fa_imagen" ) ){
+                    $input_data[ 'fa_imagen_formato' ] = $request->hasFile( 'fa_imagen' ) ? $request->file( "fa_imagen" )->extension() : '';
+                }
+                DB::table('fudebiol_arboles')->where('fa_id',$request->input('fa_id'))->update( $input_data );
                 if ( $request->hasFile( 'fa_imagen' ) ){
                     try{
                         $request->file( 'fa_imagen' )->storeAs( "public/img/fudebiol_arboles/", $request->input( "fa_id" ) . '.' . $request->file( 'fa_imagen' )->extension() );

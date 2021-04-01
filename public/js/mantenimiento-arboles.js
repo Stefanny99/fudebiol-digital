@@ -1,5 +1,6 @@
 function limpiarArbol(){
 	document.getElementById( "id_arbol" ).value = "0";
+    document.getElementById( "pictureTree" ).value = "";
 	document.getElementById( "nombreCientifico" ).value = "";
 	document.getElementById( "nombreComun" ).value = "";
 	document.getElementById( "jiffys" ).value = "";
@@ -11,6 +12,7 @@ function limpiarArbol(){
 function editarArbol( row_id ){
 	var arbol = document.getElementById( row_id );
 	document.getElementById( "id_arbol" ).value = arbol.getAttribute( "data-id" );
+    document.getElementById( "pictureTree" ).value = "";
 	document.getElementById( "nombreCientifico" ).value = arbol.getAttribute( "data-nombre_cientifico" );
 	document.getElementById( "nombreComun" ).value = arbol.getAttribute( "data-nombres_comunes" );
 	document.getElementById( "jiffys" ).value = arbol.getAttribute( "data-jiffys" );

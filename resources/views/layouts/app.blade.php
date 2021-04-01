@@ -111,37 +111,35 @@
                      
                         <div class="text">Información</div>
                     </a>
+                    <a href="{{ route( 'publicaciones' ) }}">
+                       
+                       <div class="text">Publicaciones</div>
+                   </a>
                     @guest
                     <!-- Solo visitantes -->
                     @else
                     <!-- Solo usuarios -->
                     @if ( Auth::user()->role == 'A' )
                     <a href="{{ route( 'registrarArbol', 1 ) }}">
-                       
                         <div class="text">Reg.Especies</div>
                     </a>
                     <a href="{{ route( 'lotes', 1 ) }}">
-                       
                         <div class="text">Reg.Lotes</div>
                     </a>
                     <a href="{{ route( 'verPadrino', 1 ) }}">
-                       
                         <div class="text">Reg.Padrinos</div>
                     </a>
                     <a href="{{ route( 'mensajes', 1 ) }}">
-                       
                         <div class="text">Mensajes</div>
                     </a>
                     <a href="{{ route( 'notificaciones' ) }}">
-                       
                         <div class="text">Notificaciones</div>
                     </a>
-                   
+                    @elseif ( Auth::user()->role == 'S' )
+                    <a href="{{ route( 'editorGaleria', 1 ) }}">
+                        <div class="text">Edit.Galería</div>
+                    </a>
                     @endif
-                    <a href="{{ route( 'publicaciones' ) }}">
-                       
-                       <div class="text">Publicaciones</div>
-                   </a>
                     
                     @endguest
                   
