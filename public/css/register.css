@@ -32,12 +32,7 @@
     font-size: 25px;
      
      }
-  #logo {
-    width: 60px;
-    height: 60px;
-    margin-left: 50px;
-    border-radius: 10px;
-        }
+
   .cuerpo form div{
   	display: flex;
   	flex-direction: column;
@@ -65,14 +60,7 @@
                 cursor: pointer;
             }
 
-   #confirmar, #nombre, #correo, #contraseña {
-    display: flex;
-    background-color: rgb(28, 0, 14);
-    min-height: 10px;
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-   }
+
    
      #name:-webkit-autofill, #name:-webkit-autofill:hover, #name:-webkit-autofill:focus
         {
