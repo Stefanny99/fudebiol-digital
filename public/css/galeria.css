@@ -63,6 +63,8 @@
     }
 
     #panel {
+        left: 0px;
+        top: 0px;
         width: 100vw;
         height: 100vh;
         position: fixed;
@@ -241,6 +243,8 @@
     }
 
     #panel {
+        left: 0px;
+        top: 0px;
         width: 100%;
         height: 100vh;
         position: fixed;
@@ -252,6 +256,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         width: 100vw;
         height: 100vh;
         animation: scale 0.4s;
@@ -286,9 +291,9 @@
         padding: 1rem;
         text-align: justify;
         background-color: white;
-        height: 95vh;
-        width: 20vw;
-        overflow-y: auto;
+        height: auto;
+        width: 100%;
+        overflow: auto;
     }
 
     .next {
@@ -368,7 +373,7 @@
     }
 
     .tituloGaleria label {
-        font-size: 50px;
+        font-size: 40px;
         animation: fadeIn 1s;
     }
     @keyframes fadeIn {
@@ -384,8 +389,8 @@
 
     .inner {
         overflow: hidden;
-        width: 40vw;
-        height: 25vw;
+        width: 20vw;
+        height: 15vw;
         margin: 5px;
         background-color: black;
     }
@@ -408,6 +413,8 @@
     }
 
     #panel {
+        left: 0px;
+        top: 0px;
         width: 100%;
         height: 100vh;
         position: fixed;
@@ -445,7 +452,9 @@
     }
 
     #foto {
-        width: 100%;
+        height:95vh;
+        width: 70%;
+        object-fit: contain;
     }
 
     #descripcion {
@@ -454,7 +463,7 @@
         text-align: justify;
         background-color: white;
         height: 95vh;
-        width: 20vw;
+        width: 25%;
         overflow-y: auto;
     }
 
@@ -491,7 +500,7 @@
         color: white;
         font-size: 1.2rem;
         position: fixed;
-        top: 150px;
+        top: 10px;
         /* border:2px white solid;*/
         border-radius: 3px;
         box-sizing: border-box;
