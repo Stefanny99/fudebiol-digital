@@ -391,7 +391,338 @@
 			background-color: white;
 			display: flex;
 			justify-content: space-between;
-			height:10vh;
+			height:auto;
+	}
+
+	#cabeza > .menu > .hiperlinks > a {
+			border-bottom: 0.3rem solid transparent;
+			color: black;
+			cursor: pointer;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			outline-style: none;
+			padding: 0px 10px 0px 5px;
+			text-decoration: none;
+			text-align: right;
+	}
+
+	#cabeza > .menu > .hiperlinks > a:hover {
+			color: #00c932;
+	}
+
+	#cabeza > .menu > a > .icon {
+			height: 4rem;
+			width: 4rem;
+			margin: 0px auto;
+	}
+
+	.textUser {
+			font-size: 15px;
+			text-decoration: none;
+			white-space: nowrap;
+	}
+
+	#cabeza > .menu > .hiperlinks > a > .text {
+			font-size: 15px;
+			white-space: nowrap;
+	}
+
+	#contenido {
+			display: flex;
+			background: white;
+			font-family: "Quicksand", sans-serif;
+			flex-direction: column;
+			text-align: center;
+			flex: 1;
+	}
+
+	#pie {
+			background-color: rgba(0, 0, 0, 0.9);
+	}
+
+	#pie > .bottom {
+			display: flex;
+			font-family: "Quicksand", sans-serif;
+			flex-direction: row;
+			justify-content: space-between;
+			padding: 1rem;
+	}
+
+	#pie > .bottom > *:not(:first-child) {
+			margin-left: 0.5rem;
+	}
+
+	#pie > .bottom > *:not(:last-child) {
+			margin-right: 0.5rem;
+	}
+
+	#pie > .bottom > .left {
+			align-items: center;
+			display: flex;
+			flex: 0;
+			flex-direction: column;
+			justify-content: flex-end;
+	}
+
+	#pie > .bottom > .left > .sitename {
+			color: white;
+			font-size: 1.7vw;
+			white-space: nowrap;
+	}
+
+	#pie > .bottom > .middle {
+			align-items: flex-start;
+			display: flex;
+			flex: 0;
+			flex-direction: column;
+			justify-content: space-around;
+	}
+
+	#pie > .bottom > .middle > .contact {
+			align-items: center;
+			border-style: none;
+			display: flex;
+			flex: 0;
+			flex-direction: row;
+			outline-style: none;
+			text-decoration: none;
+	}
+
+	#pie > .bottom > .middle > .contact > .icon {
+			height: 5vh;
+			width: 5vh;
+	}
+
+	#pie > .bottom > .left > .icon {
+			height: 18vh;
+			width: 18vh;
+	}
+
+	#pie > .bottom > .middle > .contact > .label {
+			color: white;
+			font-size: 1.7vw;
+			margin-left: 1rem;
+	}
+
+	#pie > .bottom > .middle > a.contact:hover > .label {
+			color: #2385ff;
+	}
+
+	#pie > .bottom > .right {
+			align-items: flex-end;
+			display: flex;
+			flex: 0;
+			flex-direction: column;
+	}
+
+	#pie > .bottom > .right > .message-form {
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+			margin-bottom: 20px;
+			max-width: 40rem;
+			min-width: 40rem;
+	}
+
+	#pie > .bottom > .right > .message-form > .title {
+			color: white;
+			font-size: 2rem;
+			flex: 0;
+			margin-bottom: 0.5rem;
+	}
+
+	#pie > .bottom > .right > .message-form > .body {
+			box-sizing: border-box;
+			border-style: none;
+			font-size: 1.5rem;
+			flex: 0;
+			min-height: 10rem;
+			margin-bottom: 0.5rem;
+			max-width: 40rem;
+			min-width: 40rem;
+			padding: 0.5rem;
+	}
+
+	#pie > .bottom > .right > .message-form > .field {
+			align-items: center;
+			display: flex;
+			flex: 0;
+			flex-direction: row;
+			margin-bottom: 0.5rem;
+	}
+
+	#pie > .bottom > .right > .message-form > .field > label {
+			color: white;
+			font-size: 1.5rem;
+			flex: 0;
+			min-width: 7rem;
+	}
+
+	#pie > .bottom > .right > .message-form > .field > input {
+			border-style: none;
+			font-family: inherit;
+			font-size: 1.5rem;
+			flex: 1;
+			outline-style: none;
+			padding: 0.5rem;
+			text-decoration: none;
+	}
+
+	#pie > .bottom > .right > .message-form > .remember {
+			display: none;
+	}
+
+	#pie > .bottom > .right > .message-form > .remember-label {
+			align-items: center;
+			color: white;
+			cursor: pointer;
+			display: flex;
+			flex-direction: row;
+			font-size: 1.5rem;
+			margin-left: auto;
+			margin-bottom: 0.5rem;
+	}
+
+	#pie
+			> .bottom
+			> .right
+			> .message-form
+			> .remember:not(:checked)
+			+ .remember-label::after {
+			box-sizing: border-box;
+			content: "";
+			display: inline-block;
+			height: 1.2rem;
+			margin: 0.4rem;
+			margin-left: 0.9rem;
+			outline-offset: 0.2rem;
+			outline-style: solid;
+			outline-width: 0.2rem;
+
+			width: 1.2rem;
+	}
+
+	#pie
+			> .bottom
+			> .right
+			> .message-form
+			> .remember:checked
+			+ .remember-label::after {
+			box-sizing: border-box;
+			content: "";
+			display: inline-block;
+			height: 1.2rem;
+			margin: 0.4rem;
+			margin-left: 0.9rem;
+			outline-offset: 0.2rem;
+			outline-style: solid;
+			outline-width: 0.2rem;
+
+			width: 1.2rem;
+	}
+
+	#pie > .bottom > .right > .message-form > .submit {
+			border-style: none;
+			cursor: pointer;
+			font-family: inherit;
+			font-size: 1.5rem;
+			flex: 0;
+			margin-left: auto;
+			outline-style: none;
+			padding: 0.5rem 1.5rem;
+			text-decoration: none;
+	}
+
+	#pie > .bottom > .right > .message-form > .submit:hover {
+			background: transparent;
+			outline-style: solid;
+
+			outline-width: 0.2rem;
+			outline-offset: -0.2rem;
+	}
+
+	#pie > .bottom > .right > .authors {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+	}
+
+	#pie > .bottom > .right > .authors > .author {
+			color: white;
+			font-size: 1.2rem;
+			flex: 0;
+			white-space: nowrap;
+	}
+
+	#pie > .bottom > .right > .authors > .author:not(:last-child) {
+			margin-right: 1.5rem;
+	}
+}
+@media all and (max-width: 768px) and (orientation: landscape) {
+	#body_home {
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			background-color: white;
+			flex: 1;
+			min-height: 100%;
+			min-width: 100%;
+	}
+
+	::-webkit-scrollbar {
+			display: none;
+	}
+	* {
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+	}
+	.usuario {
+			background: rgba(0, 0, 0, 0.8);
+			display: flex;
+			flex: 1;
+
+			flex-direction: row;
+			text-align: left;
+			justify-content: flex-end;
+	}
+	.usuario > * {
+			color: white;
+			padding: 5px 30px 5px 0px;
+			text-decoration: none;
+	}
+	#cabeza {
+			background-color: white;
+			box-shadow: 0px 0.3rem 1rem black;
+			display: flex;
+			font-family: "Quicksand", sans-serif;
+			flex-direction: column;
+			flex: 1;
+			z-index: 2;
+	}
+	.sitename {
+			color: white;
+			align-items: center;
+			display: flex;
+			flex: 0;
+			flex-direction: column;
+			padding: 1%;
+	}
+	.sitename > .logo {
+			width: 5vw;
+	}
+
+	#cabeza > .menu > .hiperlinks {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+	}
+
+	*#cabeza > .menu {
+			background-color: white;
+			display: flex;
+			justify-content: space-between;
+			height:auto;
 	}
 
 	#cabeza > .menu > .hiperlinks > a {
