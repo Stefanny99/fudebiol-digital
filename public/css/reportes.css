@@ -223,3 +223,96 @@
       bottom: 21px;
   }
 }
+@media all and (max-width: 1000px) and (orientation: landscape) {
+    .report_container {
+        background-color: white !important;
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        width: 90%;
+        border-radius: 30px;
+        box-shadow: 0px 0px 10px black;
+        min-height: 40vh;
+    }
+    #canvas{
+      margin-bottom: 30px;
+      width:400px; height:100px;
+    }
+    .report_container h2{
+      margin-top: 2vh;
+    }
+    .gradiant_background {
+        background: radial-gradient(
+            circle,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 167, 67, 1) 50%,
+            rgba(0, 0, 0, 1) 100%
+        ) !important;
+    }
+  
+    .gradiant_background2 {
+        background: rgb(255, 222, 0);
+        background: radial-gradient(
+            circle,
+            rgba(255, 222, 0, 1) 0%,
+            rgba(226, 108, 0, 1) 55%,
+            rgba(0, 0, 0, 1) 100%
+        ) !important;
+    }
+  
+    .column_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+  
+    .tree_pic_size {
+        width: 30vw;
+        margin:auto;
+    }
+    .user_pic_size {
+       display:none;
+    }
+    .user_pic_size2 {
+      width: 25vw;
+      margin:auto;
+  }
+  
+    .ml {
+        margin-left: 20px;
+    }
+  
+    .circle {
+        font-weight: bold;
+        display: flex;
+        border-radius: 30px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: 1px dashed green;
+        width:50%;
+    }
+    .circle2 {
+        font-weight: bold;
+        display: flex;
+        border-radius: 30px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 50%;
+        margin-bottom:20px;
+    }
+    .a {
+        border: 1px dashed orangered;
+    }
+  
+    .clip {
+        width: 40%;
+        position: relative;
+        bottom: 60px;
+    }
+  }

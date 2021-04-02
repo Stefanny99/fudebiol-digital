@@ -39,7 +39,6 @@ Route::group( [ 'middleware' => [ 'auth', 'rolecheck' ] ], function(){
 	Route::get('/notificaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\NotificacionesController@mantenimientoNotificaciones', 'role' => 'A' ])->name('notificaciones');
 	Route::post('/eliminarNotificaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\NotificacionesController@eliminarNotificaciones', 'role' => 'A' ])->name('eliminarNotificaciones');
 	Route::post('/marcarNotificacionesLeidas', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\NotificacionesController@marcarNotificacionesComoLeidas', 'role' => 'A' ])->name('marcarNotificacionesLeidas');
-	
 	/*RUTA DE PUBLICACIONES*/
 	Route::get('/editorPublicaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@editorPublicaciones', 'role' => 'S' ])->name('editorPublicaciones');
 	Route::get('/administrarPublicaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@administrarPublicaciones', 'role' => 'S'])->name('administrarPublicaciones');
@@ -63,7 +62,7 @@ Route::group( [ 'middleware' => [ 'auth', 'rolecheck' ] ], function(){
 // -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_-
 // -_-_-_-_- RUTAS PÚBLICAS -_-_-_-_-
 // -_-_-_-_--_-_-_-_--_-_-_-_--_-_-_- 
-
+	
 Route::get('/',  [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/introduccion', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'introduccionMAPLV'])->name('introduccion');
