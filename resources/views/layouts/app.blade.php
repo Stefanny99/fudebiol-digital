@@ -129,6 +129,9 @@
                     <a href="{{ route( 'verPadrino', 1 ) }}">
                         <div class="text">Reg.Padrinos</div>
                     </a>
+                    <a href="{{ route( 'registroArbol', 1 ) }}">
+                        <div class="text">Reg.Árboles</div>
+                    </a>
                     <a href="{{ route( 'mensajes', 1 ) }}">
                         <div class="text">Mensajes</div>
                     </a>

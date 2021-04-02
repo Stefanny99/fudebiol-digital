@@ -1,4 +1,4 @@
-@media(min-width:769px){
+@media(min-width:1001px){
 	#fondo1{
 		display: flex;
 		background-image: url('/img/lbg.jpg');
@@ -250,7 +250,7 @@
 
 }
 /*css MOVIL*/
-@media all and (max-width: 768px) and (orientation: portrait) {
+@media all and (max-width: 1000px) and (orientation: portrait) {
 	#fondo1{
 		display: flex;
 		background-image: url('/img/lbg.jpg');
@@ -485,7 +485,7 @@
 	}
 
 }
-@media all and (max-width: 768px) and (orientation: landscape) {
+@media all and (max-width: 1000px) and (orientation: landscape) {
 	#fondo1{
 		display: flex;
 		background-image: url('/img/lbg.jpg');

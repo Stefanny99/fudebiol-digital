@@ -1,4 +1,4 @@
-@media(min-width:769px){
+@media(min-width:1001px){
 .publicacion-base{
     background-color: white;
     padding:4%;
@@ -8,6 +8,11 @@
     border:2px solid black;
     margin-bottom:40px;
 
+}
+.titulo-fecha{
+    display:flex;
+    flex-direction: column;
+    margin-left: 20px;
 }
 .publicacion-base-adm{
     background-color: white;
@@ -93,7 +98,7 @@
 }
 }
 
-@media all and (max-width: 768px) and (orientation: portrait){
+@media all and (max-width: 1000px) and (orientation: portrait){
 .publicacion-base{
     background-color: white;
     margin:auto;
@@ -103,7 +108,10 @@
     padding-bottom: 20px;
 
 }
-
+.titulo-fecha{
+    display:flex;
+    flex-direction: column;
+}
 
 .publicacion-encabezado{
     display:flex;
@@ -179,9 +187,99 @@
     color:lime;
 }
 }
+@media all and (max-width: 1000px) and (orientation: landscape){
+    .publicacion-base{
+        background-color: white;
+        margin:auto;
+        width:100%;
+        border:2px solid black;
+        margin-bottom:40px;
+        padding-bottom: 20px;
+    
+    }
+    .titulo-fecha{
+        display:flex;
+        flex-direction: column;
+    }
+    
+    
+    .publicacion-encabezado{
+        display:flex;
+        flex-direction:row;
+        margin-top: 20px;
+        align-items: center;
+    
+    }
+    .publicacion-logo{
+        width:10vw;
+        height:10vw;
+        margin-left: 20px;
+       margin-right: 20px;
+        border-radius:50%;
+        box-shadow: 0px 0px 10px gray;
+    }
+    
+    #publicacion-titulo{
+        font-size:1.2rem;
+        font-weight: bold;
+    }
+    .publicacion-titulo-size{
+        font-size:1rem !important;
+       
+    }
+    #publicacion-fecha{
+        color:gray;
+    
+    }
+    #publicacion-descripcion{
+        margin-top: 4%;
+        margin-left: 20px;
+        margin-right:20px;
+        text-align: justify;
+        font-size: 18px;
+    
+    }
+    .publicacion-imagenes{
+        margin-top:5%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow: hidden;
+        justify-content: center;
+    
+    }
+    
+    
+    .publicacion-fondo{
+        background-image: url('/img/lbg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #contenedor-publicaciones{
+        margin-top:20px;
+        height:90vh;
+        overflow: auto;
+        display:flex;
+        flex-direction: column;
+    }
+    .crear-publicacion{
+        background-color:rgba(0,0,0,0.6);
+        border-radius:20px;
+       cursor:pointer;
+        color:white;
+        margin:auto;
+        width:60vw;
+        padding:2%;
+        margin-bottom: 1%;
+        text-decoration: none;
+    }
+    .crear-publicacion:hover{
+        color:lime;
+    }
+    }
 
 /*Editor de publicaciones*/
-@media(min-width:769px){
+@media(min-width:1001px){
 .pub_container{
     padding:1%;
     display:flex;
@@ -289,6 +387,7 @@ width:5vw;
 height:5vw;
 margin-left:5px;
 margin-bottom: 5px;
+object-fit:contain;
 }
 #vista-previa-fotos{
     padding-top:3vh;
@@ -352,7 +451,7 @@ margin-bottom: 5px;
 
 }
 /*CSS MOVIL*/
-@media all and (max-width: 768px) and (orientation: portrait) {
+@media all and (max-width: 1000px) and (orientation: portrait) {
     .pub_container{
         padding:1%;
         display:flex;
@@ -456,6 +555,7 @@ margin-bottom: 5px;
     margin-left:10px;
     margin-right: 10px;
     margin-bottom: 10px;
+    object-fit:contain;
     }
     #vista-previa-fotos{
         padding-top: 5vh;
@@ -515,10 +615,176 @@ margin-bottom: 5px;
         flex:1;
     }
     
+ 
+}
+@media all and (max-width: 1000px) and (orientation: landscape) {
+    .pub_container{
+        padding:1%;
+        display:flex;
+        flex:1;
+        align-items: center;
+        justify-content:space-between;
+        flex-direction: column;
+    }
+
+    .editor-herramientas{
+        background-color: rgb(255, 255, 255);
+        padding:2%;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        border-radius: 20px;
+        border: 2px solid black;
+        width:90vw;
+    }
+    .editor-base{
+        align-items: center;
+        justify-content: space-around;
+        display: flex;
+        flex-direction: column;
+    }
+    .editor-herramientas textarea{
+        max-height: 20vh;
+    }
+    .herramientas-titulo{
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .publicacion-base-size{
+        width:90vw !important;
+        height: auto;
+    }
+    .size{
+        height:20vw !important;
+    }
+    
+    .size2{
+        width: 25vw !important;
+        height: 20vw !important;
+    }
+    #titulo-publicacion{
+        margin-bottom: 20px;
+        font-size: 15px;
+        height:35px;
+    }
+    #descripcion-publicacion{
+        margin-bottom: 20px;
+        height:25vh;
+    }
+    #vista-previa, #guardar-publicacion{
+    border-radius: 10px;
+    color:white;
+    border:none;
+    outline:none;
+    width:18vw;
+    height:6vw;
+    }
+    #vista-previa{
+        background-color: rgb(17, 116, 182);
+    }
+    #guardar-publicacion{
+        margin-left: 2%;
+        background-color: rgb(4, 155, 79);
+    
+    }
+    #vista-previa:hover, #guardar-publicacion:hover,#agregar-fotos:hover{
+        transition:0.1s;
+        box-shadow: 0px 0px 5px gray;
+    }
+    #fotos-publicacion{
+        display:none;
+    }
+    #agregar-fotos{
+        cursor:pointer;
+        background-color: rgb(180, 5, 5);
+        height:5vw;
+        border:none;
+        color:white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align:center;
+        border-radius: 10px;
+        
+    }
+    
+    .container-style{
+        border-radius: 10px;
+        overflow: hidden;
+        padding-left:10px;
+        outline:none;
+        border: 1px solid gray;
+    }
+    .image-preview{
+    width:25vw;
+    height:25vw;
+    margin-left:10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    object-fit:contain;
+    }
+    #vista-previa-fotos{
+        padding-top: 5vh;
+        height:auto;
+        width:100%;
+        overflow: auto;
+        margin-top:3%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap; 
+    }
+    .delete-photo{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+    }
+    
+    
+    .delete-photo i{
+        color:white;
+        background-color: #bb2a35;
+        border-radius: 50%;
+        padding:10px;
+        position: relative;
+        left:29vh;
+        bottom:22vh;
+    }
+    .editor-fondo{
+        background-image: url('/img/lbg.jpg');
+        flex:1;
+        display:flex;
+    }
+    .content-row{
+        margin-top: 2%;
+        width:100%;
+       display: flex;
+       align-items: center;
+       justify-content:center;
+    }
+    .editor-titulo{
+        margin-left: auto;
+        margin-right: auto;
+        width:100%;
+        color:white;
+        font-weight: bold;
+        background: linear-gradient(90deg, rgba(0,0,0,0.3407738095238095) 19%, rgba(2, 50, 197, 0.342) 100%);
+        box-shadow: 0px 0px 15px black;
+        margin-bottom: 2%;
+        padding:2%;
+    }
+    
+    .editor-mascara{
+    
+        background: rgb(0,167,67);
+        background: linear-gradient(90deg, rgba(0,0,0,0.6407738095238095) 19%, rgba(2, 50, 197, 0.742) 100%);
+        padding-bottom:2%;
+        flex:1;
+    }
+    
     }
 
 /*Administrador de publicaciones*/
-@media(min-width:769px){
+@media(min-width:1001px){
 #buscador_publicaciones{
     margin-left: auto;
     margin-right: auto;
@@ -580,7 +846,7 @@ margin-bottom: 5px;
 }
 /*CSS movil*/
 
-@media all and (max-width: 768px) and (orientation: portrait) {
+@media all and (max-width: 1000px) and (orientation: portrait) {
     
     .publicacion-base-adm{
         background-color: white;
@@ -652,4 +918,77 @@ margin-bottom: 5px;
         height:20px;
         margin-bottom:1vh;
     }
+}
+@media all and (max-width: 1000px) and (orientation: landscape) {
+    
+    .publicacion-base-adm{
+        background-color: white;
+        padding:4%;
+        margin:auto;
+        border-radius: 40px;
+        width:90%;
+        border:2px solid black;
+        margin-bottom:40px;
+    
     }
+    #buscador_publicaciones input{
+        background-color: transparent;
+        border:none;
+        outline:none;
+        border-bottom: 1px white solid;
+        color:white;
+        font-size:1rem;
+    }
+    #buscador_publicaciones input:-webkit-autofill,
+    #buscador_publicaciones input:-webkit-autofill:hover, 
+    #buscador_publicaciones input:-webkit-autofill:focus {
+      -webkit-text-fill-color: white;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+    
+    #buscador_publicaciones i{
+        font-size:1.2rem;
+        color:white;
+    }
+    .btn_buscar_publicacion{
+        background-color: transparent;
+        border:none;
+    }
+    .edit-style{
+        color:white;
+        background-color:green;
+        padding:11px;
+        border-radius: 50%;
+        width:7vw;
+        height:7vw;
+        font-size:25px;
+    }
+    .delete-style{
+        margin-left: 5px;
+        color:white;
+        background-color:#bb2a35;
+        padding:8px;
+        border-radius: 50%;
+        width:7vw;
+        height:7vw;
+        font-size:32px;
+    }
+    .titulo-fecha{
+        margin-left: 4%;
+        display:flex;
+        flex-direction:column;
+        text-align:left;
+    }
+    .titulo-fecha-size{
+        font-size:14px !important;
+        margin-left:3vw;
+    }
+    .opciones{
+        display:flex;
+        align-items:center;
+        justify-content:flex-end;
+        text-align:center;
+        height:20px;
+        margin-bottom:1vh;
+    }
+}

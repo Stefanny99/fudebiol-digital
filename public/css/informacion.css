@@ -1,4 +1,4 @@
-@media (min-width: 769px) {
+@media (min-width: 1001px) {
     #fondoInfo {
         background-image: url("/img/ave.jpg");
         background-repeat: no-repeat;
@@ -46,7 +46,7 @@
         margin: 6vh;
         padding: 20px;
         width: 35%;
-        height: 55vh;
+        height: auto;
         border: 2px green solid;
         display: flex;
         flex-direction: column;
@@ -80,7 +80,7 @@
         }
     }
 }
-@media all and (max-width: 768px) and (orientation: portrait) {
+@media all and (max-width: 1000px) and (orientation: portrait) {
     #fondoInfo {
         background-image: url("/img/ave23.jpg");
         background-repeat: no-repeat;
@@ -90,6 +90,7 @@
     .image_activity {
         width: 100%;
         height: 20vh;
+        object-fit:cover;
     }
 
     #tituloInfo {
@@ -126,7 +127,82 @@
         margin: auto;
         margin-bottom: 20px;
         padding: 10px;
-        height: 45vh;
+        height: auto;
+        width: 90%;
+        border: 2px green solid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 5px gray;
+    }
+
+    #cabeza > .menu > .hiperlinks > a > .text {
+        font-size: 20px;
+        white-space: nowrap;
+    }
+
+    .actividad {
+        font-weight: bold;
+        color: green;
+    }
+
+    .explicacion {
+        margin-top: 5px;
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+    }
+}
+@media all and (max-width: 1000px) and (orientation: landscape) {
+    #fondoInfo {
+        background-image: url("/img/ave23.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+    }
+    .image_activity {
+        width: 100%;
+        height: 25vw;
+        object-fit:cover;
+    }
+
+    #tituloInfo {
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.9259278711484594) 16%,
+            rgba(38, 187, 0, 0.7035189075630253) 100%
+        );
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #tituloInfo label {
+        font-weight: bold;
+        color: white;
+        font-size: 40px;
+        text-shadow: 0px 0px 6px black;
+    }
+    #tituloInfo img {
+        width: 70vw;
+        border-radius: 50%;
+    }
+
+    .actividades {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cajitaInformativa {
+        margin: auto;
+        margin-bottom: 20px;
+        padding: 10px;
+        height: auto;
+        width:90%;
         border: 2px green solid;
         display: flex;
         flex-direction: column;

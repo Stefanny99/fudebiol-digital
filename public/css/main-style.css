@@ -1,4 +1,4 @@
-@media (min-width: 769px) {
+@media (min-width: 1001px) {
     #body_home {
         text-align: center;
         display: flex;
@@ -328,7 +328,7 @@
         margin-right: 1.5rem;
     }
 }
-@media all and (max-width: 768px) and (orientation: portrait) {
+@media all and (max-width: 1000px) and (orientation: portrait) {
 	#body_home {
 			text-align: center;
 			display: flex;
@@ -659,7 +659,7 @@
 			margin-right: 1.5rem;
 	}
 }
-@media all and (max-width: 768px) and (orientation: landscape) {
+@media all and (max-width: 1000px) and (orientation: landscape) {
 	#body_home {
 			text-align: center;
 			display: flex;

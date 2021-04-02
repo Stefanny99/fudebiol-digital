@@ -1,5 +1,5 @@
 /*Registro padrinos*/
-@media (min-width: 769px) {
+@media (min-width: 1001px) {
     #fondoRP {
         background-image: url("/img/b12.jpg");
     }
@@ -87,7 +87,8 @@
         height: 20px;
     }
     .tipo1,
-    .tipo2 {
+    .tipo2,
+    .tipo3 {
         margin-left: auto;
         margin-right: auto;
         display: flex;
@@ -113,7 +114,7 @@
     }
 }
 /*css movil*/
-@media all and (max-width: 768px) and (orientation: portrait) {
+@media all and (max-width: 1000px) and (orientation: portrait) {
     #fondoRP {
         background-image: url("/img/b12.jpg");
         height: 100vh;
@@ -209,7 +210,8 @@
         max-height: 10vh;
     }
     .tipo1,
-    .tipo2 {
+    .tipo2,
+    .tipo3 {
         margin-left: auto;
         margin-right: auto;
         display: flex;
@@ -239,8 +241,157 @@
         margin-bottom: 50px;
     }
 }
+@media all and (max-width: 1000px) and (orientation: landscape) {
+    #fondoRP {
+        background-image: url("/img/b12.jpg");
+        height: 100vh;
+    }
+    .tituloRP {
+        height: 100vh;
+        display: flex;
+        flex-direction:column;
+        align-items: center !important;
+        justify-content: center !important;
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.9164040616246498) 0%,
+            rgba(152, 0, 0, 0.7539390756302521) 100%
+        );
+    }
+    .tituloRP label {
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+    #cajaRP {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        margin: auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .welcome_windowRP {
+        box-shadow: -3px 8px 20px gray;
+        background-size: cover;
+        object-fit: all;
+        background-repeat: no-repeat;
+        margin-bottom: auto;
+        margin-top: auto;
+        background-image: url("/img/b4.jpg");
+        display: flex;
+        flex-direction: column;
+        height: 90vh;
+        width: 35vw;
+    }
+    .welcome_windowRP img {
+        width: 15vw;
+        padding: 5%;
+        padding-left: 10%;
+        padding-right: 10%;
+        border-radius: 47%;
+        animation: fadeIn 0.3s;
+        -moz-animation: fadeIn 0.3s; /* Firefox < 16 */
+        -ms-animation: fadeIn 0.3s; /* Internet Explorer */
+        -o-animation: fadeIn 0.3s; /* Opera < 12.1 */
+        animation: fadeIn 0.3s;
+        box-shadow: 0px 0px 20px black;
+    }
+    #cajaArbolRP > #txt_welcomeRP {
+        margin-top: 50px;
+        margin-bottom: 10px;
+    }
+
+    #txt_welcomeRP {
+        font-size: 6vh;
+        font-weight: bold;
+    }
+    #txt_welcome2RP {
+        padding: 1%;
+        color: lightcoral;
+        font-size: 5vh;
+        font-weight: bold;
+    }
+
+    #cajaArbolRP {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        text-align: left;
+        color: rgba(152, 0, 0);
+        box-shadow: 0px 8px 20px gray;
+        font-size: 3.5vh;
+        height: 90vh;
+        width: 35vw;
+    }
+    .check-size {
+        width: 20px;
+        height: 20px;
+    }
+    #contTipo {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        max-height: 15vh;
+        width:100%;
+        font-size: 15px;
+        justify-content:space-around;
+    }
+    .tipo1,
+    .tipo2,
+    .tipo3 {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .input-width {
+        width: 80% !important;
+    }
+
+    #botonRP {
+        padding-top: 10%;
+        text-align: center;
+    }
+    .btn_registrarRP {
+        cursor: pointer;
+        width: 20vw;
+        height: 4vw;
+        background: rgba(152, 0, 0);
+        color: white;
+        font-size: 3.5vh;
+        font-family: "Quicksand";
+        font-weight: 900;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 50px;
+    } 
+    .welcome_windowRP div {
+        color: white;
+        background-color: rgba(150, 0, 0, 0.7);
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+#cajaArbolRP input[type="text"] {
+    width: 20vw;
+    padding-left: 3px;
+    height: 25px;
+    outline: none;
+    margin-top: 2%;
+    border: none;
+    border-bottom: 1px gray solid;
+}
+}
 /*CSS TABLAS*/
-@media (min-width: 769px) {
+@media (min-width: 1001px) {
     #treeheaderRP {
         text-align: center;
         background-image: url("/img/header.jpg");
@@ -467,7 +618,7 @@
         align-items: center;
     }
 }
-@media all and (max-width: 768px) and (orientation: portrait) {
+@media all and (max-width: 1000px) and (orientation: portrait) {
 	#treeheaderRP {
 			text-align: center;
 			background-image: url("/img/header.jpg");

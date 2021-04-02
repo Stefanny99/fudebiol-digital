@@ -1,4 +1,4 @@
-@media (min-width: 769px) {
+@media (min-width: 1001px) {
     .report_container {
         background-color: white !important;
         margin: auto;
@@ -82,7 +82,7 @@
         bottom: 60px;
     }
 }
-@media all and (max-width: 768px) and (orientation: portrait){
+@media all and (max-width: 1000px) and (orientation: portrait){
   .report_container {
       background-color: white !important;
       margin: auto;
