@@ -57,7 +57,7 @@
                 </form>
                 <form action="{{ route( 'eliminarArboles' ) }}" method="post">
                     @csrf
-                    <div style="overflow-x: auto; scrollbar-width: auto;">
+                    <div class= "beforeTable" >
                         <table id="tablaArboles" style="margin: 0px;">
                             <caption>Especies registradas</caption>
                             <thead>

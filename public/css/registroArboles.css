@@ -1,4 +1,8 @@
 @media (min-width: 1001px) {
+    .beforeTable {
+        overflow-x: auto;
+        scrollbar-width: auto;
+    }
     #fondo {
         background-size: cover;
         display: flex;
@@ -337,6 +341,10 @@
     }
 }
 @media all and (max-width: 1000px) and (orientation: portrait) {
+    .beforeTable {
+        overflow-x: auto;
+        scrollbar-width: auto;
+    }
     #fondo {
         background-size: cover;
         display: flex;
@@ -1529,9 +1537,9 @@
             rgba(96, 0, 163, 0.7147233893557423) 54%,
             rgba(255, 255, 255, 1) 100%
         );
-        width:90vw;
+        width: 90vw;
         display: flex;
-        flex-direction:column;
+        flex-direction: column;
     }
     #cajaArbolRAI input[type="text"],
     #cajaArbolRAI select {
