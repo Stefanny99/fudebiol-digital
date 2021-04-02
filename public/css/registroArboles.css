@@ -1529,6 +1529,9 @@
             rgba(96, 0, 163, 0.7147233893557423) 54%,
             rgba(255, 255, 255, 1) 100%
         );
+        width:90vw;
+        display: flex;
+        flex-direction:column;
     }
     #cajaArbolRAI input[type="text"],
     #cajaArbolRAI select {
