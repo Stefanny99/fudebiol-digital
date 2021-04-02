@@ -36,8 +36,8 @@
             $validator = Validator::make( $request->all(), [
                 "fotos" => [ "required", "array" ],
                 "fotos.*" => [ "image" ],
-                "descripciones" => [ "required", "array" ],
-                "descripciones.*" => [ "string", "max:1000" ]
+                "descripciones" => [ "nullable", "array" ],
+                "descripciones.*" => [ "nullable", "string", "max:1000" ]
             ] );
             if ( $validator->fails() ){
                 return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $request->input() );
@@ -57,7 +57,7 @@
             if ( !$request->has( "eliminar" ) ){
                 $validator = Validator::make( $request->all(), [
                     "fi_id" => [ "required", "integer" ],
-                    "fi_descripcion" => [ "required", "string", "max:1000" ]
+                    "fi_descripcion" => [ "nullable", "string", "max:1000" ]
                 ] );
                 if ( $validator->fails() ){
                     return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $request->input() );

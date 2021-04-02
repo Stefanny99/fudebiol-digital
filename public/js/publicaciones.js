@@ -32,18 +32,11 @@ function removePhoto( id ){
     let contenedorPadre = document.getElementById( "fp-imagen-" + id );
     let contenedor = document.getElementById( "vista-previa-fotos" );
     let temp = contenedorPadre.hasAttribute( "data-temp" ) ? "temporales-" : "";
-    let id_input = document.createElement( "input" );
-    id_input.type = "checkbox";
-    id_input.name = "fp-imagenes-" + temp + "eliminadas-ids[]";
-    id_input.value = contenedorPadre.getAttribute( "data-id" );
-    id_input.checked = true;
-    let formato_input = document.createElement( "input" );
-    formato_input.type = "checkbox";
-    formato_input.name = "fp-imagenes-" + temp + "eliminadas-formatos[]";
-    formato_input.value = contenedorPadre.getAttribute( "data-formato" );
-    formato_input.checked = true;
-    document.getElementById( "imagenes-eliminadas" ).append( id_input );
-    document.getElementById( "imagenes-eliminadas" ).append( formato_input );
+    let img = document.createElement( "input" );
+    img.type = "hidden";
+    img.name = "fp-imagenes-" + temp + "eliminadas[" + id + "]";
+    img.value = contenedorPadre.getAttribute( "data-formato" );
+    document.getElementById( "imagenes-eliminadas" ).append( img );
     contenedor.removeChild( contenedorPadre );
 }
 
@@ -75,10 +68,8 @@ function updateImageChooser( imageChooser ){
                     deletePhoto.onclick = () => removePhoto( imagen.FI_ID );
                     let tempCheckbox = document.createElement( "input" );
                     tempCheckbox.name = "fp-imagenes-temporales[]";
-                    tempCheckbox.style = "display: none;";
-                    tempCheckbox.type = "checkbox"
+                    tempCheckbox.type = "hidden"
                     tempCheckbox.value = imagen.FI_ID;
-                    tempCheckbox.checked = true;
                     image.append( deletePhoto, photo, tempCheckbox );
                     container.appendChild( image );
                 } );

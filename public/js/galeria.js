@@ -296,22 +296,19 @@ function updateImages( imageChooser ){
 		let eg_foto_cont = 0;
 		container.innerHTML = "";
 		descripciones.innerHTML = "";
-		eg_foto_cont = 0;
-		[ ... imageChooser.files ].forEach( file => {
+		[ ... imageChooser.files ].forEach( ( file, index ) => {
 			let reader = new FileReader();
 			reader.onload = () => {
 		        let photo= document.createElement( "img");
-		        let descripcion = document.createElement( "input" );
-		        descripcion.name = "descripciones[]";
-		        descripcion.type = "checkbox";
-		        descripcion.style = "display: none;";
-		        descripcion.checked = true;
-		        descripcion.value = "";
-		        let cont = eg_foto_cont++;
-		        photo.id = "eg_foto_" + cont;
-		        descripcion.id = "eg_descripcion_" + cont;
+                let descripcion = document.createElement( "input" );
+                descripcion.style.display = "none";
+                descripcion.type = "hidden";
+                descripcion.name = "descripciones[" + index + "]";
+                descripcion.value = "";
+                descripcion.id = "eg_descripcion_" + index;
+		        photo.id = "eg_foto_" + index;
 		        photo.src = reader.result;
-				photo.onclick = () => chargePicture( cont );
+				photo.onclick = () => chargePicture( index );
 		        photo.className = "eg_foto_galeria";
 				container.appendChild( photo );
 				descripciones.appendChild( descripcion );
