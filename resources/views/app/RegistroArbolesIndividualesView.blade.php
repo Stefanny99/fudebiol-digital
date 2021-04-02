@@ -73,6 +73,8 @@
                   <button type="submit" class="btn_buscarRAI ml"><i class="fas fa-search"></i></button>
                   
                 </form>
+                <form class="tableForm" action="{{ route( 'eliminarArboles' ) }}" method="post"> 
+                <div class= "beforeTable" >
                 <table id="tablaArbolesRAI">
                 <caption>Árboles registrados</caption>
                   <thead>
@@ -89,12 +91,12 @@
                   <tbody>
                   
                     <tr class="fila">
-                      <td class="fila"></td>
-                      <td class="fila overflow-hidden"></td>
-                      <td class="fila"></td>
-                      <td class="fila"></td>
-                      <td class="fila"></td>
-                      <td class="fila"></td>
+                      <td class="fila">ashdjhfajhsdfjkhdsjkf</td>
+                      <td class="fila overflow-hidden">kasjhahdsjhdjashd</td>
+                      <td class="fila">345</td>
+                      <td class="fila">87458375983</td>
+                      <td class="fila">874592749237492</td>
+                      <td class="fila">3287492349</td>
                       <td class="fila">
                         <div class="action">
                           <label class="edit"><i class="far fa-edit"></i></label>
@@ -106,6 +108,7 @@
                   
                   </tbody>
                 </table>
+                </div>
                 <div id="botonesEdicionArbolesRAI">
                     <button class="btn_arbolesRAI"><i class="far fa-trash-alt"></i></button>
                     <form id="paginacion" >
@@ -113,6 +116,7 @@
                       <a class="btn_pagRAI"> <i class="fas fa-forward"></i> </a>
                     </form>
                 </div>
+              </form> 
             </div>
           </div>
         </div>

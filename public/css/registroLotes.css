@@ -23,6 +23,7 @@
         box-shadow: 0px 8px 20px gray;
         font-size: 2.5vh;
         height: 80vh;
+        flex:0;
     }
     #botonRL {
         padding-top: 15%;
@@ -142,12 +143,11 @@
         padding-top: 3%;
         background: white;
         white-space: nowrap;
-        flex: 0;
+        flex: 1;
         box-shadow: -1px -0px 25px lightgray;
         font-size: 2.5vh;
         margin-left: 20px;
         border-collapse: unset;
-        min-width: 60vw !important;
         min-height: 65vh !important;
         max-height: 65vh !important;
         border: none;
@@ -388,11 +388,10 @@
         padding-top: 3%;
         background: white;
         white-space: nowrap;
-        flex: 0;
+        flex: 1;
         box-shadow: -1px -0px 25px lightgray;
         font-size: 2.5vh;
         border-collapse: unset;
-        max-width: 60vw !important;
         min-height: 65vh !important;
         max-height: 65vh !important;
         border: none;
@@ -630,15 +629,15 @@
         padding-top: 3%;
         background: white;
         white-space: nowrap;
-        flex: 0;
+        flex:1;
         box-shadow: -1px -0px 25px lightgray;
         font-size: 3.5vh;
         border-collapse: unset;
-        max-width: 60vw !important;
         min-height: 65vh !important;
         max-height: 65vh !important;
         border: none;
         caption-side: top;
+        margin:0;
     }
     #tablaArbolesRL caption {
         background: rgba(0, 92, 152);
@@ -647,7 +646,6 @@
         font-size: 5vh;
         font-weight: bold;
         border-radius: 20px 20px 0% 0%;
-        width:90vw;
     }
 
     #tablaArbolesRL > thead > tr > th {

@@ -48,8 +48,9 @@
                 <input type="text" name="buscar" placeholder="Buscar un lote" value="{{ $buscar }}">
                 <button  class="btn_buscarRL"><i class="fas fa-search"></i></button>
             </form>
-            <form action="{{ route( 'eliminarLotes' ) }}" method="post">  
+            <form class="tableForm" action="{{ route( 'eliminarLotes' ) }}" method="post">  
               @csrf
+            <div class= "beforeTable" >
               <table id="tablaArbolesRL">
               <caption>Lotes registrados</caption>
                 <thead>
@@ -75,6 +76,7 @@
                 @endforeach
               </tbody>
             </table>
+           </div> 
             <div id="botonesEdicionArbolesRL">
                 <button type="submit" class="btn_arbolesRL"><i class="far fa-trash-alt"></i></button>
                 <div id="paginacion">
