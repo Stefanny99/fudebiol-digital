@@ -77,9 +77,7 @@ class ArbolesController extends Controller{
     public function registroArbol(){
         return view( 'app/RegistroArbolesIndividualesView' );
     }
-    public function adoptarArbol(){
-        return view( 'app/AdoptarArbolView' );
-    }
+    
     public function comprobante(){
         return view( 'app/ComprobanteAdopcionView' );
     }

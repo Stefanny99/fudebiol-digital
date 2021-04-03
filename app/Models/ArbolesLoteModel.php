@@ -33,7 +33,7 @@ class ArbolesLoteModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "obtenerLotes"
+            "accion" => "ArbolesLoteModel:obtenerLotes"
         );
         try{
             $data[ "resultado" ] = array();
@@ -44,14 +44,37 @@ class ArbolesLoteModel extends Model {
                         ->join( "fudebiol_arboles AS a", "a.fa_id", "=", "al.fal_arbol_id" )
                         ->leftJoin( "fudebiol_padrinos_arboles AS p", "p.fpa_arbol_lote_id", "=", "al.fal_id" )
                         ->where( "al.fal_lote_id", "=", $lote->FL_ID )
-                        ->select( "al.fal_id AS FAL_ID", "al.FAL_FILA AS FAL_FILA", "al.FAL_COLUMNA AS FAL_COLUMNA", DB::raw( "SUM( p.fpa_id ) AS adopciones" ) )
-                        ->groupBy( "al.fal_id", "al.fal_fila", "al.fal_columna" )
+                        ->select( "a.fa_id AS FA_ID", "a.fa_nombre_cientifico AS FA_NOMBRE_CIENTIFICO", "a.fa_imagen_formato AS FA_IMAGEN_FORMATO", "al.fal_id AS FAL_ID", "al.fal_coordenada_n AS FAL_COORDENADA_N", "al.fal_coordenada_w AS FAL_COORDENADA_W", "al.fal_fila AS FAL_FILA", "al.fal_columna AS FAL_COLUMNA", DB::raw( "COUNT( p.fpa_id ) AS adopciones" ) )
+                        ->groupBy( "a.fa_id", "a.fa_nombre_cientifico", "a.fa_imagen_formato", "al.fal_id", "al.fal_coordenada_n", "al.fal_coordenada_w", "al.fal_fila", "al.fal_columna" )
                         ->get()
                     )
                 );
             }
         }catch ( Exception $e ){
             $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
+
+    public function obtenerArbol( $request ){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "ArbolesLoteModel:obtenerArbol"
+        );
+        try{
+            $data[ "resultado" ] = DB::table( "fudebiol_arboles_lote AS al" )
+            ->join( "fudebiol_lotes AS l", "l.fl_id", "=", "al.fal_lote_id" )
+            ->join( "fudebiol_arboles AS a", "a.fa_id", "=", "al.fal_arbol_id" )
+            ->where( "al.FAL_ID", "=", $request->input( "fal_id" ) )
+            ->select( "l.fl_id AS FL_ID", "l.fl_nombre AS FL_NOMBRE", "a.fa_id AS FA_ID", "a.fa_nombre_cientifico AS FA_NOMBRE_CIENTIFICO", "a.fa_imagen_formato AS FA_IMAGEN_FORMATO", "al.fal_id AS FAL_ID", "al.fal_coordenada_n AS FAL_COORDENADA_N", "al.fal_coordenada_w AS FAL_COORDENADA_W", "al.fal_fila AS FAL_FILA", "al.fal_columna AS FAL_COLUMNA" )
+            ->first();
+            if ( !$data[ "resultado" ] ){
+                $data[ "codigo" ] = Util::$codigos[ "NO_ENCONTRADO" ];
+            }
+        }catch ( Exception $e ){
+            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
         }
         return $data;

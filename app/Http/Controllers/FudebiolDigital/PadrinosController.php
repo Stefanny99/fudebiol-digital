@@ -73,4 +73,27 @@ class PadrinosController extends Controller{
     public function reporteEspecifico(){
         return view('app/ReportePadrinoEspecificoView');
     }
+
+    public function buscarPadrino( Request $request ){
+        $validator = Validator::make( $request->all(), [
+            "fp_cedula" => [ "required", "string" ]
+        ] );
+        $response = array(
+            "exito" => false,
+            "errores" => array()
+        );
+        if ( $validator->fails() ){
+            $response[ "errores" ] = $validator->errors()->all();
+        }else{
+            $model = new PadrinosModel();
+            $result = $model->buscarPadrino( $request );
+            if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+                $response[ "errores" ][] = $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ];
+            }else{
+                $response[ "exito" ] = true;
+                $response[ "padrino" ] = $result[ "resultado" ];
+            }
+        }
+        return response()->json( $response );
+    }
 }
