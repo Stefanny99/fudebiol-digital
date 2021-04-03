@@ -16,7 +16,7 @@
     }
     #cajaRP {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex: 1;
         margin: auto;
         align-items: center;

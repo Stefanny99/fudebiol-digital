@@ -50,15 +50,15 @@
 
               </form>  
 
-              <div id="tabla" class="hvr-forward container-fluid" style="flex: 1; overflow-x: hidden;">
+              <div id="tabla" class="hvr-forward container-fluid">
                 <form id="buscador" action="{{route('registrarArbol', 1)}}" method="get">
                     <input type="text" name="buscar" placeholder="Buscar una especie" value="{{ $buscar }}">
                     <button type="submit" class="btn_buscar"><i class="fas fa-search"></i></button>
                 </form>
-                <form action="{{ route( 'eliminarArboles' ) }}" method="post">
+                <form class="tableForm" action="{{ route( 'eliminarArboles' ) }}" method="post">
                     @csrf
                     <div class= "beforeTable" >
-                        <table id="tablaArboles" style="margin: 0px;">
+                        <table id="tablaArboles">
                             <caption>Especies registradas</caption>
                             <thead>
                                 <tr id="tablehead" >
