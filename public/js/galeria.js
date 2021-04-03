@@ -8,9 +8,6 @@ function mostrarFoto(foto){
 	var imagen=document.createElement("img");
 	imagen.id="foto";
 	imagen.src=foto.src;
-	var descripcion=document.createElement("div");
-	descripcion.id="descripcion";
-	descripcion.innerHTML=foto.getAttribute("data-descripcion");
 	var botones= document.createElement("div");
 	botones.id="botones";
 	var next=document.createElement("label");
@@ -29,11 +26,29 @@ function mostrarFoto(foto){
 	exit.innerHTML="<i class='fas fa-times'></i>";
 	botones.append(next, prev, exit);
 	contenedor2.append(imagen);
-	if(foto.getAttribute("data-descripcion") != ''){
-		contenedor2.append(descripcion);
-	}
+	cargarDescripcion( foto, contenedor2 );
 	contenedor.append(contenedor2, botones);
 	base.appendChild(contenedor);
+}
+
+function cargarDescripcion( foto, contenedor2 = null ){
+    let desc = foto.getAttribute("data-descripcion");
+    let descripcion = document.getElementById( "descripcion" );
+    if ( !descripcion && !contenedor2 ){
+        contenedor2 = document.getElementById( "contenedor2" );
+    }
+    if ( descripcion ){
+        if( desc != '' ){
+            descripcion.innerHTML = desc;
+        }else{
+            descripcion.remove();
+        }
+    }else if ( desc != '' ){
+        descripcion = document.createElement( "div" );
+        descripcion.id = "descripcion";
+        descripcion.innerHTML = desc;
+        contenedor2.append( descripcion );
+    }
 }
 
 function remover(){
@@ -51,9 +66,9 @@ var ImagenesLista = Array.prototype.slice.call(imagenes);
             	for(let i = 0; i < imagenes.length; i++)
 				{
 				    if(imagen == imagenes[i].src && i < imagenes.length-1 ){
-				    	 contImg.src=imagenes[i+1].src;
-				    	 	contDesc.innerHTML=imagenes[i+1].getAttribute("data-descripcion");
-				    	 break;
+				    	contImg.src=imagenes[i+1].src;
+				    	cargarDescripcion( imagenes[ i + 1 ] );
+				    	break;
 				    }
 
 				}
@@ -70,10 +85,9 @@ var ImagenesLista = Array.prototype.slice.call(imagenes);
             	for(let i = 0; i < imagenes.length; i++)
 				{
 				    if(imagen == imagenes[i].src && i >0){
-				    	console.log(imagenes[i-1].src);
-				    	 contImg.src=imagenes[i-1].src;
-				    	 contDesc.innerHTML=imagenes[i-1].getAttribute("data-descripcion");
-				    	 break;
+				    	contImg.src=imagenes[i-1].src;
+                        cargarDescripcion( imagenes[ i - 1 ] );
+				    	break;
 
 				    }
 

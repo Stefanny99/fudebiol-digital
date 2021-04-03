@@ -13,17 +13,14 @@ use App\Models\NotificacionesModel;
 
 class NotificacionesController extends Controller{
 
-	public function mantenimientoNotificaciones( $pagina, Request $request ){
+	public function mantenimientoNotificaciones( Request $request ){
 		$model = new NotificacionesModel();
 		$result = $model->obtenerNotificaciones();
 		if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
 			return redirect()->back()->with( "errores", $result[ 'codigo' ][ 'descripcion' ] . ", " . $result[ 'razon' ] );
 		}
-		// $cantidadPaginas = $model->cantidadPaginas( $request->input( "buscar", "" ) );
 		return view( 'app/NotificacionesView', array(
-			"notificaciones" => $result[ 'resultado' ],
-			// "pagina" => max( 1, $pagina ),
-			// "cantidadPaginas" => $cantidadPaginas[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ? 1 : $cantidadPaginas[ "resultado" ],
+			"notificaciones" => $result[ 'resultado' ]
 		) );
 	}
 

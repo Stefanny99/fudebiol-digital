@@ -72,8 +72,8 @@ Route::get('/fudebiol', [App\Http\Controllers\FudebiolDigital\InformacionControl
 Route::get('/publicaciones', [App\Http\Controllers\FudebiolDigital\PublicacionesController::class, 'publicaciones'])->name('publicaciones');
 Route::get('/investigaciones', [App\Http\Controllers\FudebiolDigital\InvestigacionesController::class, 'investigaciones'])->name('investigaciones');
 Route::get('/registrarPadrino', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'registrarPadrinos'])->name('registrarPadrino');
-Route::post('nuevoPadrino',  ['uses' => 'App\Http\Controllers\FudebiolDigital\PadrinosController@registrarPadrino'])->name('nuevoPadrino');
-Route::get('/arboles', [App\Http\Controllers\FudebiolDigital\LotesController::class, 'arbolesPorLote'])->name('arboles');
+Route::post('/nuevoPadrino',  ['uses' => 'App\Http\Controllers\FudebiolDigital\PadrinosController@registrarPadrino'])->name('nuevoPadrino');
+Route::get('/arboles', [App\Http\Controllers\FudebiolDigital\ArbolesLoteController::class, 'arbolesPorLote'])->name('arboles');
 Route::get('/adoptarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'adoptarArbol'])->name('adoptarArbol');
 Route::get('/comprobante', [App\Http\Controllers\FudebiolDigital\ArbolesController::class, 'comprobante'])->name('comprobante');
 Route::post('/enviarMensaje', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\MensajesController@enviarMensaje'])->name('enviarMensaje');

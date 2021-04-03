@@ -72,8 +72,9 @@ class PadrinosModel extends Model {
                 'fp_tipo' => $request->input('fp_tipo'),
                 'fp_correo' => $request->input('fp_correo')
             ]);
-        } catch (Exception $e) {
+        }catch ( Exception $e ){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_INSERCION" ];
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }

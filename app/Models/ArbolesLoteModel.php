@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Helper\Util;
 Use Exception;
 
-class LotesModel extends Model {
-
+class ArbolesLoteModel extends Model {
     public function obtenerArbolesPorLote($request, $pagina){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
@@ -24,6 +23,34 @@ class LotesModel extends Model {
             ->where('fudebiol_arboles.fal_fila', 'like', '%'.$request->input('fal_columna').'%')
             ->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
         }catch(Exception $e){
+            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
+
+    public function obtenerLotes(){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "obtenerLotes"
+        );
+        try{
+            $data[ "resultado" ] = array();
+            $lotes = DB::table( "fudebiol_lotes" )->orderBy( "fl_nombre", "ASC" )->get();
+            foreach ( $lotes as $lote ){
+                $data[ "resultado" ][ $lote->FL_ID ] = ( object )array_merge( ( array )$lote, array(
+                    "arboles" => DB::table( "fudebiol_arboles_lote AS al" )
+                        ->join( "fudebiol_arboles AS a", "a.fa_id", "=", "al.fal_arbol_id" )
+                        ->leftJoin( "fudebiol_padrinos_arboles AS p", "p.fpa_arbol_lote_id", "=", "al.fal_id" )
+                        ->where( "al.fal_lote_id", "=", $lote->FL_ID )
+                        ->select( "al.fal_id AS FAL_ID", "al.FAL_FILA AS FAL_FILA", "al.FAL_COLUMNA AS FAL_COLUMNA", DB::raw( "SUM( p.fpa_id ) AS adopciones" ) )
+                        ->groupBy( "al.fal_id", "al.fal_fila", "al.fal_columna" )
+                        ->get()
+                    )
+                );
+            }
+        }catch ( Exception $e ){
             $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
         }
