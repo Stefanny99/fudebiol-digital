@@ -8,7 +8,7 @@ function adopciones_cargarLote( lote ){
             let a = lotes[ lote ].arboles.find( a => a.FAL_FILA == i && a.FAL_COLUMNA == j );
             arbol.classList.add( "fas" );
             arbol.classList.add( "fa-tree" );
-            arbol.classList.add( a && a.adopciones <= 0 ? "disponible" : "adoptado" );
+            arbol.classList.add( a && a.adopciones <= 0 && !a.FAO_ID ? "disponible" : "adoptado" );
             if ( a ){
                 arbol.setAttribute( "data-arbol-id", a.FA_ID );
                 arbol.setAttribute( "data-formato", a.FA_IMAGEN_FORMATO );
@@ -38,7 +38,8 @@ function visualizarArbol( lote, arbol ){
     document.getElementById( "coordenada_W_arbol" ).innerHTML = arbol.getAttribute( "data-coordenada-w" ) + "&deg;";
     document.getElementById( "fila_arbol" ).innerHTML = arbol.getAttribute( "data-fila" );
     document.getElementById( "columna_arbol" ).innerHTML = arbol.getAttribute( "data-columna" );
-    document.getElementById( "btn_adoptar_arbol" ).disabled = arbol.getAttribute( "data-adopciones" ) > 0;
+    document.getElementById( "btn_adoptar_arbol" ).disabled = !arbol.classList.contains( "disponible" );
+    window.location = "#visualizador_arbol";
 }
 
 function verificarCedula(){
@@ -50,7 +51,9 @@ function verificarCedula(){
             fp_id = response.data.padrino.FP_ID;
             fp_nombre_completo = response.data.padrino.FP_NOMBRE_COMPLETO;
             fp_correo = response.data.padrino.FP_CORREO;
+            document.getElementById( "btn_enviar_comprobante" ).disabled = false;
         }else{
+            document.getElementById( "btn_enviar_comprobante" ).disabled = true;
             response.data.errores.forEach( error => {
                 alertify.notify( error, "error" );
             } );

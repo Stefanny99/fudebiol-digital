@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 use App\Helper\Util;
 Use Exception;
 
@@ -68,7 +69,7 @@ class PublicacionesModel extends Model {
                 $publicacion_id = DB::table('fudebiol_publicaciones')->insertGetId([
                     'fp_titulo' => $request->input( 'fp_titulo' ),
                     'fp_descripcion' => $request->input( 'fp_descripcion' ),
-                    'fp_fecha' => date( 'Y-m-d H:i:s' ),
+                    'fp_fecha' => Carbon::now()->toDateTimeString(),
                 ]);
                 foreach ( $imagenes_temporales as $imagen_id ){
                     DB::table( 'fudebiol_publicaciones_img' )->insert( [
@@ -171,10 +172,9 @@ class PublicacionesModel extends Model {
             "accion" => "PublicacionesModel:agregarImagenesTemporales"
         );
         try{
-            $date = new \DateTime();
             $temp = DB::table( "fudebiol_imagenes_temp AS temp" )
                 ->join( "fudebiol_imagenes AS img", "img.fi_id", "=", "temp.fit_imagen_id" )
-                ->whereDate( "fit_fecha", "<", $date->sub( new \DateInterval( "PT1H" ) ) )
+                ->where( "fit_fecha", "<", Carbon::now()->subMinutes( 30 )->toDateTimeString() )
                 ->select( "img.fi_id AS FI_ID", "img.fi_formato AS FI_FORMATO" )
                 ->get();
             $temp_i = 0;
@@ -188,7 +188,7 @@ class PublicacionesModel extends Model {
                         ] );
                         DB::table( "fudebiol_imagenes_temp" )->insert( [
                             "fit_imagen_id" => $imagen_id,
-                            "fit_fecha" => $date->format( "Y-m-d H:i:s" )
+                            "fit_fecha" => Carbon::now()->toDateTimeString()
                         ] );
                     }else{
                         $imagen_id = $temp[ $temp_i ]->FI_ID;
@@ -197,7 +197,7 @@ class PublicacionesModel extends Model {
                             "fi_formato" => $imagen->extension()
                         ] );
                         DB::table( "fudebiol_imagenes_temp" )->where( "fit_imagen_id", "=", $imagen_id )->update( [
-                            "fit_fecha" => $date->format( "Y-m-d H:i:s" )
+                            "fit_fecha" => Carbon::now()->toDateTimeString()
                         ] );
                     }
                     try{

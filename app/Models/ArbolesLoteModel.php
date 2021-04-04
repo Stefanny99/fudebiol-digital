@@ -4,6 +4,7 @@ namespace App\Models;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 use App\Helper\Util;
 Use Exception;
 
@@ -43,9 +44,12 @@ class ArbolesLoteModel extends Model {
                     "arboles" => DB::table( "fudebiol_arboles_lote AS al" )
                         ->join( "fudebiol_arboles AS a", "a.fa_id", "=", "al.fal_arbol_id" )
                         ->leftJoin( "fudebiol_padrinos_arboles AS p", "p.fpa_arbol_lote_id", "=", "al.fal_id" )
+                        ->leftJoinSub( DB::table( "fudebiol_arboles_ocupados" )
+                            ->where( "fao_fecha", ">=", Carbon::now()->subMinutes( 10 )->toDateTimeString() ),
+                            "ao", "ao.fao_arbol_id", "=", "al.fal_id" )
                         ->where( "al.fal_lote_id", "=", $lote->FL_ID )
-                        ->select( "a.fa_id AS FA_ID", "a.fa_nombre_cientifico AS FA_NOMBRE_CIENTIFICO", "a.fa_imagen_formato AS FA_IMAGEN_FORMATO", "al.fal_id AS FAL_ID", "al.fal_coordenada_n AS FAL_COORDENADA_N", "al.fal_coordenada_w AS FAL_COORDENADA_W", "al.fal_fila AS FAL_FILA", "al.fal_columna AS FAL_COLUMNA", DB::raw( "COUNT( p.fpa_id ) AS adopciones" ) )
-                        ->groupBy( "a.fa_id", "a.fa_nombre_cientifico", "a.fa_imagen_formato", "al.fal_id", "al.fal_coordenada_n", "al.fal_coordenada_w", "al.fal_fila", "al.fal_columna" )
+                        ->select( "ao.fao_id AS FAO_ID", "a.fa_id AS FA_ID", "a.fa_nombre_cientifico AS FA_NOMBRE_CIENTIFICO", "a.fa_imagen_formato AS FA_IMAGEN_FORMATO", "al.fal_id AS FAL_ID", "al.fal_coordenada_n AS FAL_COORDENADA_N", "al.fal_coordenada_w AS FAL_COORDENADA_W", "al.fal_fila AS FAL_FILA", "al.fal_columna AS FAL_COLUMNA", DB::raw( "COUNT( p.fpa_id ) AS adopciones" ) )
+                        ->groupBy( "ao.fao_id", "a.fa_id", "a.fa_nombre_cientifico", "a.fa_imagen_formato", "al.fal_id", "al.fal_coordenada_n", "al.fal_coordenada_w", "al.fal_fila", "al.fal_columna" )
                         ->get()
                     )
                 );
@@ -64,18 +68,26 @@ class ArbolesLoteModel extends Model {
             "accion" => "ArbolesLoteModel:obtenerArbol"
         );
         try{
-            $data[ "resultado" ] = DB::table( "fudebiol_arboles_lote AS al" )
-            ->join( "fudebiol_lotes AS l", "l.fl_id", "=", "al.fal_lote_id" )
-            ->join( "fudebiol_arboles AS a", "a.fa_id", "=", "al.fal_arbol_id" )
-            ->where( "al.FAL_ID", "=", $request->input( "fal_id" ) )
-            ->select( "l.fl_id AS FL_ID", "l.fl_nombre AS FL_NOMBRE", "a.fa_id AS FA_ID", "a.fa_nombre_cientifico AS FA_NOMBRE_CIENTIFICO", "a.fa_imagen_formato AS FA_IMAGEN_FORMATO", "al.fal_id AS FAL_ID", "al.fal_coordenada_n AS FAL_COORDENADA_N", "al.fal_coordenada_w AS FAL_COORDENADA_W", "al.fal_fila AS FAL_FILA", "al.fal_columna AS FAL_COLUMNA" )
-            ->first();
-            if ( !$data[ "resultado" ] ){
-                $data[ "codigo" ] = Util::$codigos[ "NO_ENCONTRADO" ];
-            }
+            DB::beginTransaction();
+            DB::table( "fudebiol_arboles_ocupados" )->where( "fao_fecha", "<", Carbon::now()->subMinutes( 10 )->toDateTimeString() )->delete();
+            $token_id = DB::table( "fudebiol_arboles_ocupados" )->insertGetId( [
+                "fao_arbol_id" => $request->input( "fal_id" ),
+                "fao_fecha" => Carbon::now()->toDateTimeString()
+            ] );
+            $data[ "resultado" ] = ( object )array_merge( ( array )DB::table( "fudebiol_arboles_lote AS al" )
+                ->join( "fudebiol_lotes AS l", "l.fl_id", "=", "al.fal_lote_id" )
+                ->join( "fudebiol_arboles AS a", "a.fa_id", "=", "al.fal_arbol_id" )
+                ->where( "al.FAL_ID", "=", $request->input( "fal_id" ) )
+                ->select( "l.fl_id AS FL_ID", "l.fl_nombre AS FL_NOMBRE", "a.fa_id AS FA_ID", "a.fa_nombre_cientifico AS FA_NOMBRE_CIENTIFICO", "a.fa_imagen_formato AS FA_IMAGEN_FORMATO", "al.fal_id AS FAL_ID", "al.fal_coordenada_n AS FAL_COORDENADA_N", "al.fal_coordenada_w AS FAL_COORDENADA_W", "al.fal_fila AS FAL_FILA", "al.fal_columna AS FAL_COLUMNA" )
+                ->first(), array(
+                    "token_id" => $token_id
+                )
+            );
+            DB::commit();
         }catch ( Exception $e ){
             $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
+            DB::rollBack();
         }
         return $data;
     }
