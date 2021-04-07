@@ -35,21 +35,31 @@ class PublicacionesModel extends Model {
         return $data;
     }
 
-    public function obtenerPublicaciones( ){
+    public function obtenerPublicaciones( $imagenes ){
         $data = array(
-        "codigo" => Util::$codigos[ "EXITO" ],
-        "razon" => "",
-        "accion" => "PublicacionesModel:obtenerPublicaciones"
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "PublicacionesModel:obtenerPublicaciones"
         );
         try{
-        $data['resultado'] = DB::table('fudebiol_publicaciones')
-                                ->join('fudebiol_publicaciones_img', 'fudebiol_publicaciones_img.fpi_publicacion_id', '=', 'fudebiol_publicaciones.fp_id')
-                                ->join('fudebiol_imagenes', 'fudebiol_publicaciones_img.fpi_imagen_id', '=', 'fudebiol_imagenes.fi_id')
-                                ->select('fudebiol_imagenes.*', 'fudebiol_publicaciones.*')
-                                ->orderBy('fudebiol_publicaciones.fp_fecha')
-                                ->get();
-        }catch(Exception $e){
-            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            $publicaciones = DB::table( "fudebiol_publicaciones" )->orderBy('fudebiol_publicaciones.fp_fecha', 'DESC')->get();
+            if($imagenes){
+                $data[ "resultado" ] = array();
+                foreach ( $publicaciones as $publicacion ){
+                    $data[ "resultado" ][ ] = ( object )array_merge( ( array )$publicacion,
+                        array( "imagenes" => DB::table( "fudebiol_publicaciones_img AS p" )
+                            ->join( "fudebiol_imagenes AS img", "p.fpi_imagen_id", "=", "img.fi_id" )
+                            ->where( "p.fpi_publicacion_id", "=", $publicacion->FP_ID )
+                            ->orderBy( "img.fi_id" )
+                            ->select( "img.fi_id AS FI_ID", "img.fi_formato AS FI_FORMATO" )
+                            ->get()
+                        ) );
+                }
+            } else {
+                $data[ "resultado" ] = $publicaciones;
+            }  
+        }catch ( Exception $e ){
+            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
         }
         return $data;
@@ -166,12 +176,13 @@ class PublicacionesModel extends Model {
 
     public function agregarImagenesTemporales( $request ){
         $data = array(
-            "codigo" => Util::$codigos[ "EXITO" ],
+            "codigo" => Util::$codigos[ "EXITO" ], //hacer array de erores. 
             "razon" => "",
             "resultado" => array(),
+            "errores" => array(), //no poner break, codigo de error ni break. 
             "accion" => "PublicacionesModel:agregarImagenesTemporales"
         );
-        try{
+        try{ //no se ocuparia
             $temp = DB::table( "fudebiol_imagenes_temp AS temp" )
                 ->join( "fudebiol_imagenes AS img", "img.fi_id", "=", "temp.fit_imagen_id" )
                 ->where( "fit_fecha", "<", Carbon::now()->subMinutes( 30 )->toDateTimeString() )
@@ -181,7 +192,7 @@ class PublicacionesModel extends Model {
             DB::beginTransaction();
             foreach ( $request->file( "imagenes" ) as $imagen ){
                 try{
-                    if ( $temp_i >= COUNT( $temp ) ){
+                    if ( $temp_i >= COUNT( $temp ) ){ // ya no. se hace comit por cada imagen 
                         $imagen_id = DB::table( "fudebiol_imagenes" )->insertGetId( [
                             "fi_descripcion" => "",
                             "fi_formato" => $imagen->extension()
@@ -231,24 +242,23 @@ class PublicacionesModel extends Model {
         return $data;
     }
    
-    public function eliminar( $request ) {
+    public function eliminarPublicacion( $request ) {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
             "accion" => "PublicacionesModel:eliminarPublicacion"
         );
         try{
-            DB::table('fudebiol_publicaciones')->whereIn('fp_id', $request->input('fp_id'))->delete();
+            $publicacion = DB::table('fudebiol_publicaciones')->where( 'fp_id', $request->input( "fp_id" ) )->get();
             try{
-                $imagenes = DB::table( "fudebiol_imagenes" )->wehereIn('fi_id', $request->input( "imagenes_eliminadas" ) )->get();
-                if ( count( $imagenes ) > 0 ){
+                $publicacion_img = DB::table( "fudebiol_publicaciones_img" )->where( 'fpi_publicacion_id', $request->input( "fp_id" ) )->get();
+                $imagenes = DB::table( "fudebiol_imagenes" )->whereIn( 'fi_id', array_map( fn( $p_img ) => $p_img->FPI_IMAGEN_ID, $publicacion_img ) )->get();
+                if ( count( $publicacion_img  ) > 0 ){
                     try {
-                        DB::table( "fudebiol_imagenes" )->wehereIn( "fi_id", $request->input( "imagenes_eliminadas" ) )->delete();
-                        DB::table( "fudebiol_publicaciones_img" )->wehereIn( "fpi_imagen_id", $request->input( "imagenes_eliminadas" ) )->delete();
+                        DB::table( "fudebiol_imagenes" )->whereIn( "fi_id", array_map( fn( $img ) => $img->FI_ID, $imagenes ) )->delete();
+                        DB::table( "fudebiol_publicaciones_img" )->where( "fpi_publicacion_id", $request->input( "fp_id" ) )->delete();
                         try{
-                            foreach ( $imagenes as $imagen ){
-                                Storage::delete( "public/img/fudebiol_publicaciones/" . $imagen->FI_ID . $imagen->FI_FORMATO );
-                            }
+                            Storage::delete( array_map( fn( $img ) => "public/img/fudebiol_imagenes/" . $img->FI_ID . "." . $img->FI_FORMATO, $imagenes ) );
                             DB::commit();
                         }catch ( Exception $e ){
                             $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO_ARCHIVO" ];

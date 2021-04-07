@@ -14,7 +14,49 @@ use App\Models\PublicacionesModel;
 
 class PublicacionesController extends Controller{
     public function publicaciones(){
-        return view('app/PublicacionesView');
+        $model = new PublicacionesModel();
+        $result = $model->obtenerPublicaciones( true );
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            return redirect()->back()->with( "errores", array(
+                $result[ "codigo" ][ "descripcion" ] . $result[ "razon" ]
+            ) );
+        }
+        return view( 'app/PublicacionesView', array(
+            "publicaciones" => $result[ "resultado" ]
+        ) );
+    }
+    public function administrarPublicaciones(){
+        $model = new PublicacionesModel();
+        $result = $model->obtenerPublicaciones( false );
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            return redirect()->back()->with( "errores", array(
+                $result[ "codigo" ][ "descripcion" ] . $result[ "razon" ]
+            ) );
+        }
+        return view( 'app/AdministrarPublicacionesView', array(
+            "publicaciones" => $result[ "resultado" ]
+        ) );
+    }
+    public function administrarPublicacion(){
+        $model = new PublicacionesModel();
+        if ( $request->has( "eliminar" ) ){
+            $validator = Validator::make( $request->all(), [
+                "fp_id" => [ "required", "integer" ]
+            ] );
+            if ( $validator->fails() ){
+                return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $request->input() );
+            }else{
+                $result = $model->eliminarPublicacion( $request );
+                if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+                    return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) )->withInput( $request->input() );
+                }
+                return redirect()->back()->with( "mensajes", array(
+                    "Publicación eliminada exitosamente"
+                ) );
+            }
+        } else {
+            // editar publicación
+        }
     }
     public function editorPublicaciones( Request $data ){
         $validator = Validator::make( $data->all(), [
@@ -104,9 +146,5 @@ class PublicacionesController extends Controller{
             }
         }
         return response()->json( $response );
-    }
-
-    public function administrarPublicaciones(){
-        return view('app/AdministrarPublicacionesView');
     }
 }
