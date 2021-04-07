@@ -6,18 +6,17 @@
             <div class="editor-fondo">
                 <div class="editor-mascara">  
                     <h1 class="editor-titulo">Administrar publicaciones
-                        <!-- <form id="buscador_publicaciones" accion="{{route('administrarPublicaciones')}}" method="post">
-                        <input type="text" name="buscar" placeholder="Buscar un título">
-                        <button  class="btn_buscar_publicacion"><i class="fas fa-search"></i></button>
-                        </form> -->
+                        <form id="buscador_publicaciones" action="{{route('administrarPublicaciones')}}" method="post">
+                            <input type="text" name="buscar" placeholder="Buscar un título">
+                            <button  class="btn_buscar_publicacion"><i class="fas fa-search"></i></button>
+                        </form>
                     </h1>
                     <div class="pub_container">
                         @foreach ( $publicaciones as $publicacion )
-                        <form accion="{{route('administrar')}}" method="post" class="publicacion-base-adm publicacion-size">
-                            @csrf
+                        <div class="publicacion-base-adm publicacion-size">
                             <div class="opciones"> 
-                            <i class="fas fa-pen edit-style"></i>
-                            <button type="submit" name="eliminar"><i class="fas fa-times delete-style"></i></button>
+                            <a href="{{ route('editorPublicaciones').'?fp_id='.$publicacion->FP_ID }}"><i class="fas fa-pen edit-style"></i></a>
+                            <a href="{{ route('eliminarPublicacion').'?fp_id='.$publicacion->FP_ID }}"><i class="fas fa-times delete-style"></i></a>
                             </div>
                             <div class="publicacion-encabezado">
                                 <img class="publicacion-logo publicacion-logo-size" src="{{ asset('/img/logo.jpg')}}">
@@ -30,7 +29,7 @@
                             </div>
                             <div id="publicacion-imagenes-1" class="publicacion-imagenes">  
                             </div>
-                        </form>
+                        </div>
                         @endforeach
                     </div>
                 </div>  

@@ -251,28 +251,27 @@ class PublicacionesModel extends Model {
         try{
             $publicacion = DB::table('fudebiol_publicaciones')->where( 'fp_id', $request->input( "fp_id" ) )->get();
             try{
-                $publicacion_img = DB::table( "fudebiol_publicaciones_img" )->where( 'fpi_publicacion_id', $request->input( "fp_id" ) )->get();
-                $imagenes = DB::table( "fudebiol_imagenes" )->whereIn( 'fi_id', array_map( fn( $p_img ) => $p_img->FPI_IMAGEN_ID, $publicacion_img ) )->get();
-                if ( count( $publicacion_img  ) > 0 ){
-                    try {
-                        DB::table( "fudebiol_imagenes" )->whereIn( "fi_id", array_map( fn( $img ) => $img->FI_ID, $imagenes ) )->delete();
-                        DB::table( "fudebiol_publicaciones_img" )->where( "fpi_publicacion_id", $request->input( "fp_id" ) )->delete();
-                        try{
-                            Storage::delete( array_map( fn( $img ) => "public/img/fudebiol_imagenes/" . $img->FI_ID . "." . $img->FI_FORMATO, $imagenes ) );
-                            DB::commit();
-                        }catch ( Exception $e ){
-                            $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO_ARCHIVO" ];
-                            $data['razon'] = "Ocurrió un error eliminando archivos";
-                            Log::error( $e->getMessage(), $data );
-                            DB::rollBack();
-                        }
-                    } catch (Exception $e){
-                        $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
-                        $data['razon'] = "Ocurrió un error al eliminar imagenes";
+                $publicacion_img = DB::table( "fudebiol_publicaciones_img" )->where( 'fpi_publicacion_id', $request->input( "fp_id" ) )->get()->all();
+                $imagenes = DB::table( "fudebiol_imagenes" )->whereIn( 'fi_id', array_map( fn( $p_img ) => $p_img->FPI_IMAGEN_ID, $publicacion_img ) )->get()->all();
+                try {
+                    DB::table( "fudebiol_publicaciones_img" )->where( "fpi_publicacion_id", $request->input( "fp_id" ) )->delete();
+                    DB::table( "fudebiol_imagenes" )->whereIn( "fi_id", array_map( fn( $img ) => $img->FI_ID, $imagenes ) )->delete();
+                    DB::table( "fudebiol_publicaciones" )->where( "fp_id", $request->input( "fp_id" ) )->delete();
+                    try{
+                        Storage::delete( array_map( fn( $img ) => "public/img/fudebiol_imagenes/" . $img->FI_ID . "." . $img->FI_FORMATO, $imagenes ) );
+                        DB::commit();
+                    }catch ( Exception $e ){
+                        $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO_ARCHIVO" ];
+                        $data['razon'] = "Ocurrió un error eliminando archivos";
                         Log::error( $e->getMessage(), $data );
                         DB::rollBack();
                     }
-                }  
+                } catch (Exception $e){
+                    $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
+                    $data['razon'] = "Ocurrió un error al eliminar imagenes";
+                    Log::error( $e->getMessage(), $data );
+                    DB::rollBack();
+                }
             } catch (Exception $e){
                 $data['codigo'] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
                 $data['razon'] = "Ocurrió un error al obtener las imagenes";
