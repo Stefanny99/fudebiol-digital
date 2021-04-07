@@ -630,7 +630,6 @@
         width: 20vw;
         flex: 1;
         height: 34vw;
-        background-image: url("/img/sincontenido.png");
     }
     #padrino_info {
         flex: 1;
@@ -824,11 +823,7 @@
         border-radius: 0px 0px 20px 30px;
         width: 90vw;
         height: 55vh;
-        background-image: url("/img/sincontenido.png");
-        background-repeat: no-repeat;
-        background-size: cover;
     }
-
     .column {
         display: flex !important;
         flex-direction: column !important;
@@ -961,9 +956,6 @@
         border-radius: 0px 0px 20px 30px;
         width: 90vw;
         height: 55vh;
-        background-image: url("/img/sincontenido.png");
-        background-repeat: no-repeat;
-        background-size: cover;
     }
 
     .column {
