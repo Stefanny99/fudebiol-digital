@@ -37,25 +37,21 @@ class PublicacionesController extends Controller{
             "publicaciones" => $result[ "resultado" ]
         ) );
     }
-    public function administrarPublicacion(){
+    public function eliminarPublicacion( Request $request ){
         $model = new PublicacionesModel();
-        if ( $request->has( "eliminar" ) ){
-            $validator = Validator::make( $request->all(), [
-                "fp_id" => [ "required", "integer" ]
-            ] );
-            if ( $validator->fails() ){
-                return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $request->input() );
-            }else{
-                $result = $model->eliminarPublicacion( $request );
-                if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-                    return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) )->withInput( $request->input() );
-                }
-                return redirect()->back()->with( "mensajes", array(
-                    "Publicación eliminada exitosamente"
-                ) );
+        $validator = Validator::make( $request->all(), [
+            "fp_id" => [ "required", "integer" ]
+        ] );
+        if ( $validator->fails() ){
+            return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $request->input() );
+        }else{
+            $result = $model->eliminarPublicacion( $request );
+            if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+                return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) )->withInput( $request->input() );
             }
-        } else {
-            // editar publicación
+            return redirect()->back()->with( "mensajes", array(
+                "Publicación eliminada exitosamente"
+            ) );
         }
     }
     public function editorPublicaciones( Request $data ){
