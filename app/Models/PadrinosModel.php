@@ -72,8 +72,9 @@ class PadrinosModel extends Model {
                 'fp_tipo' => $request->input('fp_tipo'),
                 'fp_correo' => $request->input('fp_correo')
             ]);
-        } catch (Exception $e) {
+        }catch ( Exception $e ){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_INSERCION" ];
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }
@@ -93,6 +94,27 @@ class PadrinosModel extends Model {
             ]);
         }catch(Exception $e){
             $data['codigo'] = Util::$codigos[ "ERROR_DE_ACTUALIZACION" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
+
+    public function buscarPadrino( $request ){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "PadrinosModel:buscarPadrino"
+        );
+        try{
+            $data[ "resultado" ] = DB::table( "fudebiol_padrinos" )
+            ->where( "fp_cedula", "=", $request->input( "fp_cedula" ) )
+            ->first();
+            if ( !$data[ "resultado" ] ){
+                $data[ "codigo" ] = Util::$codigos[ "NO_ENCONTRADO" ];
+            }
+        }catch ( Exception $e ){
+            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }
