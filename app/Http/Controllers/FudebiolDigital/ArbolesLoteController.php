@@ -45,4 +45,51 @@ class ArbolesLoteController extends Controller{
             "arbol" => $result[ "resultado" ]
         ) );
     }
+
+    public function actualizarToken( $token ){
+        $response = array(
+            "exito" => false,
+            "errores" => array()
+        );
+        if ( $token && $token > 0 ){
+            $model = new ArbolesLoteModel();
+            $result = $model->actualizarToken( $token );
+            if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+                $response[ "errores" ][] = $result[ "codigo" ][ "descripcion" ] . $result[ "razon" ];
+            }else{
+                $response[ "exito" ] = true;
+            }
+        }else{
+            $response[ "errores" ][] = "Token inválido";
+        }
+        return response()->json( $response );
+    }
+
+    public function finalizarAdopcion( Request $request ){
+        $validator = Validator::make( $request->all(), [
+            "fao_id" => [ "required", "integer" ],
+            "fal_id" => [ "required", "integer" ],
+            "fp_id" => [ "required", "integer" ],
+            "comprobante" => [ "required", "file" ]
+        ] );
+        if ( $validator->fails() ){
+            return redirect()->back()->with( array(
+                "errores" => $validator->errors()->all(),
+                "token_id" => $request->input( "fao_id", 0 )
+            ) );
+        }
+        $model = new ArbolesLoteModel();
+        $result = $model->finalizarAdopcion( $request );
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            return redirect()->back()->with( array(
+                "errores" => array(
+                    $result[ "codigo" ][ "descripcion" ] . $result[ "razon" ]
+                ),
+                "token_id" => $request->input( "fao_id", 0 )
+            ) );
+        }
+        return view( 'app/ComprobanteAdopcionView' )->with( "mensajes", array(
+            "Adopción efectuada con éxito"
+        ) );
+    }
 }

@@ -3,6 +3,11 @@
 @section('content')
     <script>
         var buscar_padrino = "{{ route( 'buscarPadrino' ) }}";
+        var actualizar_token = "{{ route( 'actualizarToken', $arbol->token_id ) }}";
+        var ver_arboles = "{{ route( 'arboles' ) }}";
+        window.addEventListener( "load", () => {
+            window.setInterval( actualizarToken, 3 * 60 * 1000 ); // El token se actualiza cada 3 minutos
+        } );
     </script>
     <div id="body_home">     
         <div id="contenido">
@@ -13,7 +18,7 @@
                 <label id="subText">¡Gracias por dar tu granito de arena!</label>
                 </div>
             </div>
-            <form class="row_container" action="" method="post">
+            <form class="row_container" action="{{ route( 'finalizarAdopcion' ) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input name="fao_id" type="hidden" value="{{ $arbol->token_id }}">
                 <div class="escoger_lote">
@@ -54,7 +59,7 @@
                             <h5><b>Subir comprobante de transferencia por $50</b></h5>
                             <div>
                                 <label class="input_comprobante" for="comprobante_input"> Subir archivo</label>
-                                <input name="comprobante" type="file" id="comprobante_input" style="display:none;" onchange="seeVoucher(this)">
+                                <input required name="comprobante" type="file" id="comprobante_input" style="display:none;" onchange="seeVoucher(this)">
                                 <button id="btn_enviar_comprobante" type="submit" class="input_comprobante enviar" disabled>Enviar</button>
                             </div>
                         </div>

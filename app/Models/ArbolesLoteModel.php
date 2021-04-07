@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use App\Helper\Util;
 Use Exception;
+use Session;
 
 class ArbolesLoteModel extends Model {
+    private $tiempo_token = 5; // 5 min
+
     public function obtenerArbolesPorLote($request, $pagina){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
@@ -38,6 +41,7 @@ class ArbolesLoteModel extends Model {
         );
         try{
             $data[ "resultado" ] = array();
+            DB::table( "fudebiol_arboles_ocupados" )->where( "fao_fecha", "<", Carbon::now()->subMinutes( $this->tiempo_token )->toDateTimeString() )->delete();
             $lotes = DB::table( "fudebiol_lotes" )->orderBy( "fl_nombre", "ASC" )->get();
             foreach ( $lotes as $lote ){
                 $data[ "resultado" ][ $lote->FL_ID ] = ( object )array_merge( ( array )$lote, array(
@@ -45,7 +49,7 @@ class ArbolesLoteModel extends Model {
                         ->join( "fudebiol_arboles AS a", "a.fa_id", "=", "al.fal_arbol_id" )
                         ->leftJoin( "fudebiol_padrinos_arboles AS p", "p.fpa_arbol_lote_id", "=", "al.fal_id" )
                         ->leftJoinSub( DB::table( "fudebiol_arboles_ocupados" )
-                            ->where( "fao_fecha", ">=", Carbon::now()->subMinutes( 10 )->toDateTimeString() ),
+                            ->where( "fao_fecha", ">=", Carbon::now()->subMinutes( $this->tiempo_token )->toDateTimeString() ),
                             "ao", "ao.fao_arbol_id", "=", "al.fal_id" )
                         ->where( "al.fal_lote_id", "=", $lote->FL_ID )
                         ->select( "ao.fao_id AS FAO_ID", "a.fa_id AS FA_ID", "a.fa_nombre_cientifico AS FA_NOMBRE_CIENTIFICO", "a.fa_imagen_formato AS FA_IMAGEN_FORMATO", "al.fal_id AS FAL_ID", "al.fal_coordenada_n AS FAL_COORDENADA_N", "al.fal_coordenada_w AS FAL_COORDENADA_W", "al.fal_fila AS FAL_FILA", "al.fal_columna AS FAL_COLUMNA", DB::raw( "COUNT( p.fpa_id ) AS adopciones" ) )
@@ -68,26 +72,84 @@ class ArbolesLoteModel extends Model {
             "accion" => "ArbolesLoteModel:obtenerArbol"
         );
         try{
+            DB::table( "fudebiol_arboles_ocupados" )->where( "fao_fecha", "<", Carbon::now()->subMinutes( $this->tiempo_token )->toDateTimeString() )->delete();
             DB::beginTransaction();
-            DB::table( "fudebiol_arboles_ocupados" )->where( "fao_fecha", "<", Carbon::now()->subMinutes( 10 )->toDateTimeString() )->delete();
-            $token_id = DB::table( "fudebiol_arboles_ocupados" )->insertGetId( [
-                "fao_arbol_id" => $request->input( "fal_id" ),
-                "fao_fecha" => Carbon::now()->toDateTimeString()
-            ] );
-            $data[ "resultado" ] = ( object )array_merge( ( array )DB::table( "fudebiol_arboles_lote AS al" )
-                ->join( "fudebiol_lotes AS l", "l.fl_id", "=", "al.fal_lote_id" )
-                ->join( "fudebiol_arboles AS a", "a.fa_id", "=", "al.fal_arbol_id" )
-                ->where( "al.FAL_ID", "=", $request->input( "fal_id" ) )
-                ->select( "l.fl_id AS FL_ID", "l.fl_nombre AS FL_NOMBRE", "a.fa_id AS FA_ID", "a.fa_nombre_cientifico AS FA_NOMBRE_CIENTIFICO", "a.fa_imagen_formato AS FA_IMAGEN_FORMATO", "al.fal_id AS FAL_ID", "al.fal_coordenada_n AS FAL_COORDENADA_N", "al.fal_coordenada_w AS FAL_COORDENADA_W", "al.fal_fila AS FAL_FILA", "al.fal_columna AS FAL_COLUMNA" )
-                ->first(), array(
-                    "token_id" => $token_id
-                )
-            );
-            DB::commit();
+            $token_id = Session::get( "token_id", 0 );
+            if ( !$token_id || $token_id <= 0 ){
+                $token_id = DB::table( "fudebiol_arboles_ocupados" )->insertGetId( [
+                    "fao_arbol_id" => $request->input( "fal_id" ),
+                    "fao_fecha" => Carbon::now()->toDateTimeString()
+                ] );
+            }else if ( DB::table( "fudebiol_arboles_ocupados" )->where( "fao_id", "=", $token_id )->update( [ "fao_fecha" => Carbon::now()->toDateTimeString() ] ) <= 0 ){
+                $token_id = 0;
+            }
+            if ( $token_id > 0 ){
+                $data[ "resultado" ] = ( object )array_merge( ( array )DB::table( "fudebiol_arboles_lote AS al" )
+                    ->join( "fudebiol_lotes AS l", "l.fl_id", "=", "al.fal_lote_id" )
+                    ->join( "fudebiol_arboles AS a", "a.fa_id", "=", "al.fal_arbol_id" )
+                    ->where( "al.FAL_ID", "=", $request->input( "fal_id" ) )
+                    ->select( "l.fl_id AS FL_ID", "l.fl_nombre AS FL_NOMBRE", "a.fa_id AS FA_ID", "a.fa_nombre_cientifico AS FA_NOMBRE_CIENTIFICO", "a.fa_imagen_formato AS FA_IMAGEN_FORMATO", "al.fal_id AS FAL_ID", "al.fal_coordenada_n AS FAL_COORDENADA_N", "al.fal_coordenada_w AS FAL_COORDENADA_W", "al.fal_fila AS FAL_FILA", "al.fal_columna AS FAL_COLUMNA" )
+                    ->first(), array(
+                        "token_id" => $token_id
+                    )
+                );
+                DB::commit();
+            }else{
+                $data[ "codigo" ] = Util::$codigos[ "NO_ENCONTRADO" ];
+                $data[ "razon" ] = "token inválido";
+                DB::rollBack();
+            }
         }catch ( Exception $e ){
             $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
             DB::rollBack();
+        }
+        return $data;
+    }
+
+    public function actualizarToken( $token ){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "ArbolesLoteModel:actualizarToken"
+        );
+        try{
+            DB::table( "fudebiol_arboles_ocupados" )->where( "fao_fecha", "<", Carbon::now()->subMinutes( $this->tiempo_token )->toDateTimeString() )->delete();
+            DB::table( "fudebiol_arboles_ocupados" )->where( "fao_id", "=", $token )->update( [
+                "fao_fecha" => Carbon::now()->toDateTimeString()
+            ] );
+        }catch ( Exception $e ){
+            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
+
+    public function finalizarAdopcion( $request ){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "ArbolesLoteModel:finalizarAdopcion"
+        );
+        try{
+            DB::table( "fudebiol_arboles_ocupados" )->where( "fao_fecha", "<", Carbon::now()->subMinutes( $this->tiempo_token )->toDateTimeString() )->delete();
+            DB::beginTransaction();
+            if ( DB::table( "fudebiol_arboles_ocupados" )->where( "fao_id", "=", $request->input( "fao_id" ) )->delete() > 0 ){
+                DB::table( "fudebiol_padrinos_arboles" )->insertGetId( [
+                    "fpa_padrino_id" => $request->input( "fp_id" ),
+                    "fpa_arbol_lote_id" => $request->input( "fal_id" ),
+                    "fpa_fecha_adopcion" => Carbon::now()->toDateTimeString(),
+                    "fpa_estado" => "A"
+                ] );
+                DB::commit();
+            }else{
+                $data[ "codigo" ] = Util::$codigos[ "NO_ENCONTRADO" ];
+                $data[ "razon" ] = "token inválido";
+                DB::rollBack();
+            }
+        }catch ( Exception $e ){
+            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }

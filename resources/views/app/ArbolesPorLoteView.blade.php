@@ -33,8 +33,7 @@
             </div>
             <div class="escoger_lote" id="visualizador_arbol">
               <img id="arbolInfo" src="{{ asset( 'img/sinfoto.jpg' ) }}" style="object-fit: cover;"><!--https://image.freepik.com/foto-gratis/tiro-vertical-arbol-alto-centro-campo-verde-bosque-fondo_181624-4585.jpg-->
-              <form id="datosArbol" action="{{ route( 'adoptarArbol' ) }}" method="post">
-                @csrf
+              <form id="datosArbol" action="{{ route( 'adoptarArbol' ) }}" method="get">
                 <input id="fal_id" name="fal_id" type="hidden" value="">
                 <h4 class='center-text'><b>Datos del árbol</b></h4>
                 <div class="texto"><b>Lote: </b><span id="lote_arbol"></span></div>

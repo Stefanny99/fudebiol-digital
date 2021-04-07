@@ -65,3 +65,17 @@ function verificarCedula(){
         console.log( error );
     } );
 }
+
+function actualizarToken(){
+    axios.get( actualizar_token ).then( response => {
+        if ( !response.data.exito ){
+            response.data.errores.forEach( error => {
+                console.log( error );
+                alertify.botify( "No se pudo actualizar el token: " + error, "error" );
+            } );
+            window.location = ver_arboles;
+        }
+    } ).catch( error => {
+        console.log( error );
+    } );
+}
