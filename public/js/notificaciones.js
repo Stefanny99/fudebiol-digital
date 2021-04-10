@@ -8,10 +8,10 @@ function confirmarAdopcion( fpa_id ) {
     },
     onok: () => {
         let data = new FormData();
-        data.append( "nombre", valor );
+        data.append( "fpa_id", fpa_id );
         axios.post( routes.aceptarAdopcion, data ).then( response => {
           if ( response.data.exito ){
-
+            alertify.notify( "Adopcion aceptada correctamente.", "success" );
           } else if ( response.data.errores ){
             response.data.errores.forEach( error => alertify.notify( error, "error" ) );
           }

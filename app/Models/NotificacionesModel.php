@@ -55,12 +55,16 @@ class NotificacionesModel extends Model {
             "accion" => "NotificacionesModel:aceptarAdopcion"
         );
         try{
-            DB::table('fudebiol_padrinos_arboles')->where('fl_id', $request->input('fpa_id'))
-            ->update([
-                'fpa_estado' => 'A',
-            ]);
+            $resultado = DB::table('fudebiol_padrinos_arboles')->where('fpa_id', $request->input('fpa_id'))
+                        ->update([
+                            'fpa_estado' => 'A',
+                        ]);
+            if ($resultado <= 0) {
+                $data[ 'codigo' ] =  Util::$codigos[ "NO_ENCONTRADO" ];
+            }
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_ACTUALIZACION" ];
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }

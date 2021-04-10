@@ -19,6 +19,7 @@
             </div>
             <div class="home">
                 <div class="mensajesN">
+                    <div class="mascaramensajesN">
                         <div id="etcN">
                             <label>Nuevas adopciones: {{ count( $notificaciones) }}</label>
                         </div> 
@@ -52,8 +53,9 @@
                             </div>
                             @endforeach
                         </div>
+                    </div>
                 </div> 
-            </div> <!--cierre de home-->
+            </div>
       
         </div>
     </div>
