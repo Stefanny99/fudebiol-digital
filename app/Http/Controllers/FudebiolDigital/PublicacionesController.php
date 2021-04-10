@@ -134,7 +134,6 @@ class PublicacionesController extends Controller{
             "imagenes.*" => [ "image" ]
         ] );
         $response = array(
-            "exito" => false,
             "errores" => array()
         );
         if ( $validator->fails() ){
@@ -142,12 +141,8 @@ class PublicacionesController extends Controller{
         }else{
             $model = new PublicacionesModel();
             $result = $model->agregarImagenesTemporales( $data );
-            if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-                $response[ "errores" ][] = $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ];
-            }else{
-                $response[ "exito" ] = true;
-                $response[ "imagenes" ] = $result[ "resultado" ];
-            }
+            $response[ "errores" ] = $result[ "errores" ];
+            $response[ "imagenes" ] = $result[ "resultado" ];
         }
         return response()->json( $response );
     }

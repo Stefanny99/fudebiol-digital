@@ -52,32 +52,28 @@ function updateImageChooser( imageChooser ){
                 "Content-Type": "multipart/form-data"
             }
         } ).then( response => {
-            if ( response.data.exito ){
-                response.data.imagenes.forEach( imagen => {
-                    let image = document.createElement( "div" );
-                    image.id = "fp-imagen-" + imagen.FI_ID;
-                    image.className = "delete-photo";
-                    image.setAttribute( "data-temp", "temp" );
-                    image.setAttribute( "data-id", imagen.FI_ID );
-                    image.setAttribute( "data-formato", imagen.FI_FORMATO );
-                    let photo = document.createElement( "img" );
-                    photo.src = routes.fudebiol_imagenes + "/" + imagen.FI_ID + "." + imagen.FI_FORMATO;
-                    photo.className = "image-preview";
-                    let deletePhoto = document.createElement( "i" );
-                    deletePhoto.className = "fas fa-times";
-                    deletePhoto.onclick = () => removePhoto( imagen.FI_ID );
-                    let tempCheckbox = document.createElement( "input" );
-                    tempCheckbox.name = "fp-imagenes-temporales[]";
-                    tempCheckbox.type = "hidden"
-                    tempCheckbox.value = imagen.FI_ID;
-                    image.append( deletePhoto, photo, tempCheckbox );
-                    container.appendChild( image );
-                } );
-                panel_cargando.style.display = "none";
-            }else if ( response.data.errores ){
-                response.data.errores.forEach( error => alertify.notify( error, "error" ) );
-                panel_cargando.style.display = "none";
-            }
+            response.data.imagenes?.forEach( imagen => {
+                let image = document.createElement( "div" );
+                image.id = "fp-imagen-" + imagen.FI_ID;
+                image.className = "delete-photo";
+                image.setAttribute( "data-temp", "temp" );
+                image.setAttribute( "data-id", imagen.FI_ID );
+                image.setAttribute( "data-formato", imagen.FI_FORMATO );
+                let photo = document.createElement( "img" );
+                photo.src = routes.fudebiol_imagenes + "/" + imagen.FI_ID + "." + imagen.FI_FORMATO;
+                photo.className = "image-preview";
+                let deletePhoto = document.createElement( "i" );
+                deletePhoto.className = "fas fa-times";
+                deletePhoto.onclick = () => removePhoto( imagen.FI_ID );
+                let temp = document.createElement( "input" );
+                temp.name = "fp-imagenes-temporales[]";
+                temp.type = "hidden"
+                temp.value = imagen.FI_ID;
+                image.append( deletePhoto, photo, temp );
+                container.appendChild( image );
+            } );
+            response.data.errores?.forEach( error => alertify.notify( error, "error" ) );
+            panel_cargando.style.display = "none";
         } );
 	}
 }

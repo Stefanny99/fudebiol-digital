@@ -201,11 +201,16 @@ class PublicacionesModel extends Model {
             "errores" => array(),
             "accion" => "PublicacionesModel:agregarImagenesTemporales"
         );
-        $temp = DB::table( "fudebiol_imagenes_temp AS temp" )
-            ->join( "fudebiol_imagenes AS img", "img.fi_id", "=", "temp.fit_imagen_id" )
-            ->where( "fit_fecha", "<", Carbon::now()->subMinutes( 30 )->toDateTimeString() )
-            ->select( "img.fi_id AS FI_ID", "img.fi_formato AS FI_FORMATO" )
-            ->get();
+        try{
+            $temp = DB::table( "fudebiol_imagenes_temp AS temp" )
+                ->join( "fudebiol_imagenes AS img", "img.fi_id", "=", "temp.fit_imagen_id" )
+                ->where( "fit_fecha", "<", Carbon::now()->subMinutes( 30 )->toDateTimeString() )
+                ->select( "img.fi_id AS FI_ID", "img.fi_formato AS FI_FORMATO" )
+                ->get();
+        }catch ( Exception $e ){
+            Log::error( $e->getMessage() . " [ Línea: " . $e->getLine() . " ]", $data );
+            $temp = array();
+        }
         $temp_i = 0;
         foreach ( $request->file( "imagenes" ) as $imagen ){
             try{
