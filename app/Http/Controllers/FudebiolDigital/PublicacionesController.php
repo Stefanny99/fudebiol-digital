@@ -15,33 +15,37 @@ use App\Models\PublicacionesModel;
 class PublicacionesController extends Controller{
     public function publicaciones( $pagina ){
         $model = new PublicacionesModel();
-        $result = $model->obtenerPublicaciones( true, max( 1, $pagina ), "" );
+        $cantidadPaginas = $model->cantidadPaginas( "" );
+        $cantidadPaginas = $cantidadPaginas[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ? 1 : $cantidadPaginas[ "resultado" ];
+        $pagina = max( 1, min( $pagina, $cantidadPaginas ) );
+        $result = $model->obtenerPublicaciones( true, $pagina, "" );
         if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
             return redirect()->back()->with( "errores", array(
                 $result[ "codigo" ][ "descripcion" ] . $result[ "razon" ]
             ) );
         }
-        $cantidadPaginas = $model->cantidadPaginas( "" );
         return view( 'app/PublicacionesView', array(
             "publicaciones" => $result[ "resultado" ],
-            "pagina" => max( 1, $pagina ),
-            "cantidadPaginas" => $cantidadPaginas[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ? 1 : $cantidadPaginas[ "resultado" ],
+            "pagina" => $pagina,
+            "cantidadPaginas" => $cantidadPaginas,
             "buscar" => ""
         ) );
     }
     public function administrarPublicaciones( $pagina, Request $request ){
         $model = new PublicacionesModel();
-        $result = $model->obtenerPublicaciones( false, max( 1, $pagina ),  $request->input( "buscar", "" ) );
+        $cantidadPaginas = $model->cantidadPaginas( $request->input( "buscar", "" ) );
+        $cantidadPaginas = $cantidadPaginas[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ? 1 : $cantidadPaginas[ "resultado" ];
+        $pagina = max( 1, min( $pagina, $cantidadPaginas ) );
+        $result = $model->obtenerPublicaciones( false, $pagina,  $request->input( "buscar", "" ) );
         if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
             return redirect()->back()->with( "errores", array(
                 $result[ "codigo" ][ "descripcion" ] . $result[ "razon" ]
             ) );
         }
-        $cantidadPaginas = $model->cantidadPaginas( $request->input( "buscar", "" ) );
         return view( 'app/AdministrarPublicacionesView', array(
             "publicaciones" => $result[ "resultado" ],
-            "pagina" => max( 1, $pagina ),
-            "cantidadPaginas" => $cantidadPaginas[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ? 1 : $cantidadPaginas[ "resultado" ],
+            "pagina" => $pagina,
+            "cantidadPaginas" => $cantidadPaginas,
             "buscar" => $request->input( "buscar", "" )
         ) );
     }

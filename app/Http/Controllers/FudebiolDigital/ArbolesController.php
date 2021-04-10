@@ -11,15 +11,17 @@ use App\Models\ArbolesModel;
 class ArbolesController extends Controller{
     public function registrarArbol( $pagina, Request $request ){
         $model = new ArbolesModel();
-        $result = $model->obtenerArboles( max( 1, $pagina ), $request->input( "buscar", "" ) );
+        $cantidadPaginas = $model->cantidadPaginas( $request->input( "buscar", "" ) );
+        $cantidadPaginas = $cantidadPaginas[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ? 1 : $cantidadPaginas[ "resultado" ];
+        $pagina = max( 1, min( $pagina, $cantidadPaginas ) );
+        $result = $model->obtenerArboles( $pagina, $request->input( "buscar", "" ) );
         if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
             return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) );
         }
-        $cantidadPaginas = $model->cantidadPaginas( $request->input( "buscar", "" ) );
         return view( 'app/RegistroArbolesView', array(
             "arboles" => $result[ "resultado" ],
-            "pagina" => max( 1, $pagina ),
-            "cantidadPaginas" => $cantidadPaginas[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ? 1 : $cantidadPaginas[ "resultado" ],
+            "pagina" => $pagina,
+            "cantidadPaginas" => $cantidadPaginas,
             "buscar" => $request->input( "buscar", "" )
         ) );
     }
