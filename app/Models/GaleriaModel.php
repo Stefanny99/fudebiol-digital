@@ -29,44 +29,29 @@ class GaleriaModel extends Model {
 
     public function agregarImagenes( $request ){
         $data = array(
-            "codigo" => Util::$codigos[ "EXITO" ],
-            "razon" => "",
+            "errores" => array(),
             "accion" => "GaleriaModel:agregarImagenes"
         );
-        try{
-            DB::beginTransaction();
-            $imagenes = $request->file( "fotos" );
-            $descripciones = $request->input( "descripciones" );
-            for ( $i = 0; $i < count( $imagenes ); ++$i ){
+        $imagenes = $request->file( "fotos" );
+        $descripciones = $request->input( "descripciones" );
+        for ( $i = 0; $i < count( $imagenes ); ++$i ){
+            try{
+                $imagen_id = DB::table( "fudebiol_imagenes" )->insertGetId( [
+                    "fi_descripcion" => $descripciones[ $i ],
+                    "fi_formato" => $imagenes[ $i ]->extension()
+                ] );
+                DB::table( "fudebiol_galeria" )->insertGetId( [ "fg_imagen_id" => $imagen_id ] );
                 try{
-                    $imagen_id = DB::table( "fudebiol_imagenes" )->insertGetId( [
-                        "fi_descripcion" => $descripciones[ $i ],
-                        "fi_formato" => $imagenes[ $i ]->extension()
-                    ] );
-                    DB::table( "fudebiol_galeria" )->insertGetId( [ "fg_imagen_id" => $imagen_id ] );
-                    try{
-                        $imagenes[ $i ]->storeAs( "public/img/fudebiol_imagenes/", $imagen_id . "." . $imagenes[ $i ]->extension() );
-                    }catch ( Exception $e ){
-                        $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
-                        $data[ "razon" ] = "Ocurrió un error al subir la imagen " . $imagenes[ $i ]->getClientOriginalName();
-                        Log::error( $e->getMessage(), $data );
-                        DB::rollBack();
-                        break;
-                    }
+                    $imagenes[ $i ]->storeAs( "public/img/fudebiol_imagenes/", $imagen_id . "." . $imagenes[ $i ]->extension() );
                 }catch ( Exception $e ){
-                    $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_INSERCION" ];
-                    $data[ "razon" ] = "Error al guardar la imagen " . $imagenes[ $i ]->getClientOriginalName() . " en la base de datos";
+                    array_push($data['errores'], "Ocurrió un error al subir la imagen " . $imagenes[ $i ]->getClientOriginalName());
                     Log::error( $e->getMessage(), $data );
-                    DB::rollBack();
-                    break;
                 }
+            }catch ( Exception $e ){
+                array_push($data['errores'], "Error al guardar la imagen " . $imagenes[ $i ]->getClientOriginalName() . " en la base de datos");
+                Log::error( $e->getMessage(), $data );
+                DB::rollBack();
             }
-            if ( $data[ "codigo" ][ "codigo" ] == Util::$codigos[ "EXITO" ][ "codigo" ] ){
-                DB::commit();
-            }
-        }catch ( Exception $e ){
-            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
-            Log::error( $e->getMessage(), $data );
         }
         return $data;  
     }   

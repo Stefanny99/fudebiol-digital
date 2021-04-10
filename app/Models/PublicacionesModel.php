@@ -197,68 +197,52 @@ class PublicacionesModel extends Model {
 
     public function agregarImagenesTemporales( $request ){
         $data = array(
-            "codigo" => Util::$codigos[ "EXITO" ], //hacer array de erores. 
-            "razon" => "",
             "resultado" => array(),
-            "errores" => array(), //no poner break, codigo de error ni break. 
+            "errores" => array(),
             "accion" => "PublicacionesModel:agregarImagenesTemporales"
         );
-        try{ //no se ocuparia
-            $temp = DB::table( "fudebiol_imagenes_temp AS temp" )
-                ->join( "fudebiol_imagenes AS img", "img.fi_id", "=", "temp.fit_imagen_id" )
-                ->where( "fit_fecha", "<", Carbon::now()->subMinutes( 30 )->toDateTimeString() )
-                ->select( "img.fi_id AS FI_ID", "img.fi_formato AS FI_FORMATO" )
-                ->get();
-            $temp_i = 0;
-            DB::beginTransaction();
-            foreach ( $request->file( "imagenes" ) as $imagen ){
-                try{
-                    if ( $temp_i >= COUNT( $temp ) ){ // ya no. se hace comit por cada imagen 
-                        $imagen_id = DB::table( "fudebiol_imagenes" )->insertGetId( [
-                            "fi_descripcion" => "",
-                            "fi_formato" => $imagen->extension()
-                        ] );
-                        DB::table( "fudebiol_imagenes_temp" )->insert( [
-                            "fit_imagen_id" => $imagen_id,
-                            "fit_fecha" => Carbon::now()->toDateTimeString()
-                        ] );
-                    }else{
-                        $imagen_id = $temp[ $temp_i ]->FI_ID;
-                        Storage::delete( "public/img/fudebiol_imagenes/" . $imagen_id . "." . $temp[ $temp_i++ ]->FI_FORMATO );
-                        DB::table( "fudebiol_imagenes" )->where( "fi_id", "=", $imagen_id )->update( [
-                            "fi_formato" => $imagen->extension()
-                        ] );
-                        DB::table( "fudebiol_imagenes_temp" )->where( "fit_imagen_id", "=", $imagen_id )->update( [
-                            "fit_fecha" => Carbon::now()->toDateTimeString()
-                        ] );
-                    }
-                    try{
-                        $imagen->storeAs( "public/img/fudebiol_imagenes/", $imagen_id . "." . $imagen->extension() );
-                        $data[ "resultado" ][] = array(
-                            "FI_ID" => $imagen_id,
-                            "FI_FORMATO" => $imagen->extension()
-                        );
-                    }catch ( Exception $e ){
-                        $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
-                        $data[ "razon" ] = "Ocurrió un error al subir la imagen " . $imagen->getClientOriginalName();
-                        Log::error( $e->getMessage(), $data );
-                        DB::rollBack();
-                        break;
-                    }
-                }catch ( Exception $e ){
-                    $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_INSERCION" ];
-                    $data[ "razon" ] = "Error al guardar la imagen '" . $imagen->getClientOriginalName() . "' en la base de datos";
-                    Log::error( $e->getMessage(), $data );
-                    DB::rollBack();
-                    break;
+        $temp = DB::table( "fudebiol_imagenes_temp AS temp" )
+            ->join( "fudebiol_imagenes AS img", "img.fi_id", "=", "temp.fit_imagen_id" )
+            ->where( "fit_fecha", "<", Carbon::now()->subMinutes( 30 )->toDateTimeString() )
+            ->select( "img.fi_id AS FI_ID", "img.fi_formato AS FI_FORMATO" )
+            ->get();
+        $temp_i = 0;
+        foreach ( $request->file( "imagenes" ) as $imagen ){
+            try{
+                if ( $temp_i >= COUNT( $temp ) ){
+                    $imagen_id = DB::table( "fudebiol_imagenes" )->insertGetId( [
+                        "fi_descripcion" => "",
+                        "fi_formato" => $imagen->extension()
+                    ] );
+                    DB::table( "fudebiol_imagenes_temp" )->insert( [
+                        "fit_imagen_id" => $imagen_id,
+                        "fit_fecha" => Carbon::now()->toDateTimeString()
+                    ] );
+                }else{
+                    $imagen_id = $temp[ $temp_i ]->FI_ID;
+                    Storage::delete( "public/img/fudebiol_imagenes/" . $imagen_id . "." . $temp[ $temp_i++ ]->FI_FORMATO );
+                    DB::table( "fudebiol_imagenes" )->where( "fi_id", "=", $imagen_id )->update( [
+                        "fi_formato" => $imagen->extension()
+                    ] );
+                    DB::table( "fudebiol_imagenes_temp" )->where( "fit_imagen_id", "=", $imagen_id )->update( [
+                        "fit_fecha" => Carbon::now()->toDateTimeString()
+                    ] );
                 }
+                try{
+                    $imagen->storeAs( "public/img/fudebiol_imagenes/", $imagen_id . "." . $imagen->extension() );
+                    $data[ "resultado" ][] = array(
+                        "FI_ID" => $imagen_id,
+                        "FI_FORMATO" => $imagen->extension()
+                    );
+                }catch ( Exception $e ){
+                    array_push($data['errores'], "Ocurrió un error al subir la imagen " . $imagen->getClientOriginalName());
+                    Log::error( $e->getMessage(), $data );
+                }
+            }catch ( Exception $e ){
+                array_push($data['errores'], "Error al guardar la imagen '" . $imagen->getClientOriginalName() . "' en la base de datos");
+                Log::error( $e->getMessage(), $data );
+                Log::error( $e->getMessage(), $data );
             }
-            if ( $data[ "codigo" ][ "codigo" ] == Util::$codigos[ "EXITO" ][ "codigo" ] ){
-                DB::commit();
-            }
-        }catch ( Exception $e ){
-            $data['codigo'] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
-            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }
