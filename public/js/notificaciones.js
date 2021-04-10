@@ -44,5 +44,3 @@ function rechazarAdopcion( fpa_id ) {
 
 }
 
-window.location = "ruta";
-
