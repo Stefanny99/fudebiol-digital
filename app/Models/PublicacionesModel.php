@@ -44,7 +44,7 @@ class PublicacionesModel extends Model {
         try{
             $publicaciones = DB::table( "fudebiol_publicaciones" )
             ->where('fp_titulo', 'like', '%'.$titulo.'%')
-            ->orderBy('fp_fecha', 'DESC')
+            ->orderBy('fp_id', 'desc')
             ->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
             if($imagenes){
                 $data[ "resultado" ] = array();
