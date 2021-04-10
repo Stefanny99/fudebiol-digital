@@ -6,8 +6,8 @@
             <div class="editor-fondo">
                 <div class="editor-mascara">  
                     <h1 class="editor-titulo">Administrar publicaciones
-                        <form id="buscador_publicaciones" action="{{route('administrarPublicaciones')}}" method="post">
-                            <input type="text" name="buscar" placeholder="Buscar un título">
+                        <form id="buscador_publicaciones" action="{{route( 'administrarPublicaciones', $pagina )}}" method="get">
+                            <input type="text" name="buscar" placeholder="Buscar un título" value="{{ $buscar }}">
                             <button  class="btn_buscar_publicacion"><i class="fas fa-search"></i></button>
                         </form>
                     </h1>

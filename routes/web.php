@@ -43,7 +43,7 @@ Route::group( [ 'middleware' => [ 'auth', 'rolecheck' ] ], function(){
 	
     /*RUTA DE PUBLICACIONES*/
 	Route::get('/editorPublicaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@editorPublicaciones', 'role' => 'S' ])->name('editorPublicaciones');
-	Route::get('/administrarPublicaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@administrarPublicaciones', 'role' => 'S'])->name('administrarPublicaciones');
+	Route::get('/administrarPublicaciones/{pagina}', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@administrarPublicaciones', 'role' => 'S'])->name('administrarPublicaciones');
   Route::post( '/guardarPublicacion', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@guardarPublicacion', 'role' => 'S' ] )->name( 'guardarPublicacion' );
   Route::post( "/agregarImagenesTemporales", [ "uses" => "App\Http\Controllers\FudebiolDigital\PublicacionesController@agregarImagenesTemporales", "role" => "S" ] )->name( "agregarImagenesTemporales" );
 	Route::get('/eliminarPublicacion', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@eliminarPublicacion', 'role' => 'S' ])->name('eliminarPublicacion');
@@ -72,7 +72,7 @@ Route::get('/introduccion', [App\Http\Controllers\FudebiolDigital\ArbolesControl
 Route::get('/galeria', [App\Http\Controllers\FudebiolDigital\GaleriaController::class, 'galeria'])->name('galeria');
 Route::get('/atracciones', [App\Http\Controllers\FudebiolDigital\InformacionController::class, 'informacion'])->name('atracciones');
 Route::get('/fudebiol', [App\Http\Controllers\FudebiolDigital\InformacionController::class, 'sobreNosotros'])->name('sobreNosotros');
-Route::get('/publicaciones', [App\Http\Controllers\FudebiolDigital\PublicacionesController::class, 'publicaciones'])->name('publicaciones');
+Route::get('/publicaciones/{pagina}', [App\Http\Controllers\FudebiolDigital\PublicacionesController::class, 'publicaciones'])->name('publicaciones');
 Route::get('/investigaciones', [App\Http\Controllers\FudebiolDigital\InvestigacionesController::class, 'investigaciones'])->name('investigaciones');
 Route::get('/registrarPadrino', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'registrarPadrinos'])->name('registrarPadrino');
 Route::get('/buscarPadrino', [App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'buscarPadrino'])->name('buscarPadrino');

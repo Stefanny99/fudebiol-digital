@@ -35,14 +35,17 @@ class PublicacionesModel extends Model {
         return $data;
     }
 
-    public function obtenerPublicaciones( $imagenes ){
+    public function obtenerPublicaciones( $imagenes, $pagina, $titulo ){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
             "accion" => "PublicacionesModel:obtenerPublicaciones"
         );
         try{
-            $publicaciones = DB::table( "fudebiol_publicaciones" )->orderBy('fudebiol_publicaciones.fp_fecha', 'DESC')->get();
+            $publicaciones = DB::table( "fudebiol_publicaciones" )
+            ->where('fp_titulo', 'like', '%'.$titulo.'%')
+            ->orderBy('fp_fecha', 'DESC')
+            ->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
             if($imagenes){
                 $data[ "resultado" ] = array();
                 foreach ( $publicaciones as $publicacion ){
@@ -64,6 +67,24 @@ class PublicacionesModel extends Model {
         }
         return $data;
     }
+
+    public function cantidadPaginas( $titulo ){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "PublicacionesModel:cantidadPaginas"
+        );
+        try{
+            $data[ "resultado" ] = ceil( DB::table( "fudebiol_publicaciones" )
+            ->where('fp_titulo', 'like', '%'.$titulo.'%')
+            ->count() / 8 );
+        }catch ( Exception $e ){
+            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
+
 
     public function agregarPublicacion( $request ){
         $data = array(

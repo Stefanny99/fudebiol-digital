@@ -4,13 +4,13 @@
     <div id="body_home">     
         <div id="contenido">
             <div class="home publicacion-fondo">
-                <a href="{{route('editorPublicaciones')}}" class="crear-publicacion">Crear una nueva publicación</a>
-                <a href="{{route('administrarPublicaciones')}}" class="crear-publicacion">Administrar publicaciones</a>
+                <a href="{{ route('editorPublicaciones') }}" class="crear-publicacion">Crear una nueva publicación</a>
+                <a href="{{ route('administrarPublicaciones', $pagina) }}" class="crear-publicacion">Administrar publicaciones</a>
                 <div id="contenedor-publicaciones">
                     @foreach ( $publicaciones as $publicacion )
                     <div class="publicacion-base">
                         <div class="publicacion-encabezado">
-                            <img class="publicacion-logo" src="{{ asset('/img/logo.jpg')}}">
+                            <img class="publicacion-logo" src="{{ asset('/img/logo.jpg') }}">
                             <div class="titulo-fecha">
                                 <label class="publicacion-titulo"><b>{{ $publicacion->FP_TITULO }}</b></label>
                                 <label class="publicacion-fecha">{{ \Carbon\Carbon::parse($publicacion->FP_FECHA)->format('d/m/Y') }}</label>

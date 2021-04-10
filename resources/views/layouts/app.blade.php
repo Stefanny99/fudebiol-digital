@@ -112,7 +112,7 @@
                      
                         <div class="text">Información</div>
                     </a>
-                    <a href="{{ route( 'publicaciones' ) }}">
+                    <a href="{{ route( 'publicaciones', 1 ) }}">
                        
                        <div class="text">Publicaciones</div>
                    </a>

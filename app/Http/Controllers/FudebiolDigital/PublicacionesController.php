@@ -13,28 +13,36 @@ use App\Helper\Util;
 use App\Models\PublicacionesModel;
 
 class PublicacionesController extends Controller{
-    public function publicaciones(){
+    public function publicaciones( $pagina ){
         $model = new PublicacionesModel();
-        $result = $model->obtenerPublicaciones( true );
+        $result = $model->obtenerPublicaciones( true, max( 1, $pagina ), "" );
         if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
             return redirect()->back()->with( "errores", array(
                 $result[ "codigo" ][ "descripcion" ] . $result[ "razon" ]
             ) );
         }
+        $cantidadPaginas = $model->cantidadPaginas( "" );
         return view( 'app/PublicacionesView', array(
-            "publicaciones" => $result[ "resultado" ]
+            "publicaciones" => $result[ "resultado" ],
+            "pagina" => max( 1, $pagina ),
+            "cantidadPaginas" => $cantidadPaginas[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ? 1 : $cantidadPaginas[ "resultado" ],
+            "buscar" => ""
         ) );
     }
-    public function administrarPublicaciones(){
+    public function administrarPublicaciones( $pagina, Request $request ){
         $model = new PublicacionesModel();
-        $result = $model->obtenerPublicaciones( false );
+        $result = $model->obtenerPublicaciones( false, max( 1, $pagina ),  $request->input( "buscar", "" ) );
         if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
             return redirect()->back()->with( "errores", array(
                 $result[ "codigo" ][ "descripcion" ] . $result[ "razon" ]
             ) );
         }
+        $cantidadPaginas = $model->cantidadPaginas( $request->input( "buscar", "" ) );
         return view( 'app/AdministrarPublicacionesView', array(
-            "publicaciones" => $result[ "resultado" ]
+            "publicaciones" => $result[ "resultado" ],
+            "pagina" => max( 1, $pagina ),
+            "cantidadPaginas" => $cantidadPaginas[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ? 1 : $cantidadPaginas[ "resultado" ],
+            "buscar" => $request->input( "buscar", "" )
         ) );
     }
     public function eliminarPublicacion( Request $request ){
