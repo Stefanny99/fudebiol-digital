@@ -50,7 +50,6 @@ class GaleriaModel extends Model {
             }catch ( Exception $e ){
                 array_push($data['errores'], "Error al guardar la imagen " . $imagenes[ $i ]->getClientOriginalName() . " en la base de datos");
                 Log::error( $e->getMessage(), $data );
-                DB::rollBack();
             }
         }
         return $data;  

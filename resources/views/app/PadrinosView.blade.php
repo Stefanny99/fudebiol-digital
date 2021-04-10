@@ -41,7 +41,7 @@
                   <td class="fila">{{ $padrino->FP_CEDULA }}</td>
                   <td class="fila">
                     <div class="action">
-                       <label class="edit"><i class="far fa-edit"></i></label>
+                       <a class="edit" href="{{ route('editarPadrino').'?fp_id='.$padrino->FP_ID }}"><i class="far fa-edit"></i></a>
                        <label class="delete" name="fp_id" value="{{ $padrino->FP_ID }}"><i class="far fa-trash-alt"></i></label>
                        <label class="report"><i class="fas fa-chart-bar"></i></label>
                     </div>
@@ -58,51 +58,6 @@
             </div>
           </div>
           </form>
-          <div id="tablaRP">
-            <form id="buscador" accion="{{route('registrarPadrino')}}" method="post">
-                <input type="text" name="buscar" placeholder="Buscar un padrino">
-                <button  class="btn_buscarRP"><i class="fas fa-search"></i></button>
-            </form>
-              <table id="tablaArbolesRP" class="sinFD">
-              <caption>Padrinos registrados sin FUDEBIOL Digital</caption>
-                <thead>
-                <tr id="tablehead" >
-                  <th>Nombre completo</th>
-                  <th>Acción</th>
-                  
-                </tr>
-                 </thead> 
-              <tbody>
-                <tr class="fila">
-                  <td class="fila">Lizeth Monge Padilla</td>
-                  
-                  <td class="fila">
-                    <div class="action">
-                       <label class="edit"><i class="far fa-edit"></i></label>
-                       <label class="delete"><i class="far fa-trash-alt"></i></label>
-                    </div>
-                    </td>
-                </tr>
-                <tr class="fila">
-                  <td class="fila">Lizeth Monge Padilla</td>
-                  
-                  <td class="fila">
-                    <div class="action">
-                       <label class="edit"><i class="far fa-edit"></i></label>
-                       <label class="delete"><i class="far fa-trash-alt"></i></label>
-                    </div>
-                    </td>
-                </tr>
-               
-              </tbody>
-            </table>
-            <div id="botonesEdicionArbolesRP">
-                <div id="paginacion">
-                  <a class="btn_pagRP" href=" {{ route('registrarPadrino' )}}"> <i class="fas fa-backward"></i> </a>
-                  <a class="btn_pagRP" href="{{ route('registrarPadrino')}}" > <i class="fas fa-forward"></i> </a>
-                </div>
-            </div>
-          </div>
           </div>
         </div>
         </div>

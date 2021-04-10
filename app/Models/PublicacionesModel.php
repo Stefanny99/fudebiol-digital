@@ -241,7 +241,6 @@ class PublicacionesModel extends Model {
             }catch ( Exception $e ){
                 array_push($data['errores'], "Error al guardar la imagen '" . $imagen->getClientOriginalName() . "' en la base de datos");
                 Log::error( $e->getMessage(), $data );
-                Log::error( $e->getMessage(), $data );
             }
         }
         return $data;

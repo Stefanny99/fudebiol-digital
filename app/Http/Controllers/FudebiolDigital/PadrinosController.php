@@ -24,28 +24,65 @@ class PadrinosController extends Controller{
             "buscar" => $request->input( "buscar", "" )
         ) );
     }
+
+    public function editarPadrino(Request $data){
+        $validator = Validator::make( $data->all(), [
+            "fp_id" => [ "nullable", "integer" ]
+        ] );
+        if ( $validator->fails() ){
+            return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $data->input() );
+        }
+        if ( $data->has( "fp_id" ) && $data->input( "fp_id" ) > 0 ){
+            $model = new PadrinosModel();
+            $result = $model->obtenerPadrino( $data->input( "fp_id" ) );
+            if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+                return redirect()->back()->with( "errores", array(
+                    $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
+                ) );
+            }
+            return view( "app/RegistrarPadrinosView", array(
+                "padrino" => $result[ "resultado" ]
+            ) );
+        }
+        return view('app/RegistrarPadrinosView', array(
+            "padrino" => null
+        ) );
+    }
      
     public function registrarPadrino(Request $data){
         $validation = [
-            'fp_cedula' => [ 'required', 'string', 'max:30', 'unique:fudebiol_padrinos' ],
+            'fp_cedula' => [ 'required', 'string', 'max:30' ],
             'fp_nombre_completo' => [ 'required', 'string', 'max:120' ],
             'fp_tipo' => [ 'required', 'in:P,E,O', ],
             'fp_correo' => [ 'required', 'string', 'max:300' ]
         ];
+        $nuevo = !$data->has( "fp_id" ) || $data->input( "fp_id" ) <= 0;
+        if ( $nuevo ){
+            $validation[ "fp_cedula" ][] = "unique:fudebiol_padrinos";
+        }
+        $validator = Validator::make( $data->all(), $validation );
         $validator = Validator::make( $data->all(), $validation );
         if ( $validator->fails() ){
             return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $data->input() );
-        }
-        $model = new PadrinosModel();
-        $result = $model->crearPadrino( $data );
-        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-            return redirect()->back()->with( "errores", array(
-                $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
-            ) )->withInput( $data->input() );
-        }else{
-            return redirect('/arboles')->with( "mensajes", array(
-                "¡Te has registrado exitosamente! Ahora elige el árbol que te guste."
-            ) );
+        } else if( $nuevo ){
+            $model = new PadrinosModel();
+            $result = $model->crearPadrino( $data );
+            if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+                return redirect()->back()->with( "errores", array(
+                    $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
+                ) )->withInput( $data->input() );
+            }else{
+                return redirect('/arboles')->with( "mensajes", array(
+                    "¡Te has registrado exitosamente! Ahora elige el árbol que te guste."
+                ) );
+            }
+        } else {
+            $model = new PadrinosModel();
+            $result = $model->editarPadrino( $data );
+            if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+                return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) )->withInput( $request->input() );
+            }
+            return redirect()->back()->with( "mensajes", array( "Registro actualizadoo exitosamente" ) );
         }
     }
 

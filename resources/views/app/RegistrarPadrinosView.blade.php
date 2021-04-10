@@ -27,29 +27,30 @@
                     <form id="cajaArbolRP" action="{{ route( 'nuevoPadrino' ) }}" method="post">
                         @csrf
                         <label id="txt_welcomeRP">Ingresa tus datos</label>
+                        <input type="hidden" name="fp_id" value="{{ $padrino ? $padrino->FP_ID : 0 }}">
                         <div id="contTipo">
                             <div class="tipo1">
                                 <label class="texto" for="persona">Persona</label>
-                                <input type="radio" name="fp_tipo" value="P" class="check-size" {{ in_array( old( 'fp_tipo' ), array(  'P', '' ) )  ? 'checked' : '' }}>
+                                <input type="radio" name="fp_tipo" value="P" class="check-size" {{ in_array( $padrino ? $padrino->FP_TIPO : old( 'fp_tipo' ), array(  'P', '' ) )  ? 'checked' : '' }}>
                             </div>
                             <div class="tipo2">
                                 <label class="texto" for="empresa">Empresa</label>
-                                <input type="radio" name="fp_tipo" value="E" class="check-size" {{ old( 'fp_tipo' ) == 'E' ? 'checked' : '' }}>
+                                <input type="radio" name="fp_tipo" value="E" class="check-size" {{ ( $padrino ? $padrino->FP_TIPO : old( 'fp_tipo' ) ) == 'E' ? 'checked' : '' }}>
                             </div>
                             <div class="tipo3">
                                 <label class="texto" for="otro">Otro</label>
-                                <input type="radio" name="fp_tipo" value="O" class="check-size" {{ old( 'fp_tipo' ) == 'O' ? 'checked' : '' }}>
+                                <input type="radio" name="fp_tipo" value="O" class="check-size" {{ ( $padrino ? $padrino->FP_TIPO : old( 'fp_tipo' ) ) == 'O' ? 'checked' : '' }}>
                             </div>
                         </div>
                     
                         <label class="texto" for="nombreCompleto">Nombre Completo:</label>
-                        <input type="text" name="fp_nombre_completo" class="input-width" value="{{ old( 'fp_nombre_completo' ) }}">
+                        <input type="text" name="fp_nombre_completo" class="input-width" value="{{ $padrino ? $padrino->FP_NOMBRE_COMPLETO : old( 'fp_nombre_completo' ) }}">
 
                         <label class="texto" for="cedula">Cédula de identidad:</label>
-                        <input type="text" name="fp_cedula" class="input-width" value="{{ old( 'fp_cedula' ) }}">
+                        <input type="text" name="fp_cedula" class="input-width" value="{{ $padrino ? $padrino->FP_CEDULA : old( 'fp_cedula' ) }}">
 
                         <label class="texto" for="correo">Dirección de correo electrónico:</label>
-                        <input type="text" name="fp_correo" class="input-width" value="{{ old( 'fp_correo' ) }}">
+                        <input type="text" name="fp_correo" class="input-width" value="{{ $padrino ? $padrino->FP_CORREO : old( 'fp_correo' ) }}">
                         <div id="botonRP">
                             <button class="btn_registrarRP">Registrar</button>
                         </div>

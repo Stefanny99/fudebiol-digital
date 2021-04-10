@@ -17,9 +17,26 @@ class PadrinosModel extends Model {
         );
         try{
             $data['resultado'] = DB::table('fudebiol_padrinos')
+                                ->whereNotNull('fp_cedula')
                                 ->where('fp_nombre_completo', 'like', '%'.$padrino.'%')
                                 ->orWhere('fp_cedula', 'like', '%'.$padrino.'%')
                                 ->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
+        }catch(Exception $e){
+            $data['codigo'] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
+
+    public function obtenerPadrino( $id ){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "PadrinosModel:obtenerPadrino"
+        );
+        try{
+            $data['resultado'] = DB::table('fudebiol_padrinos')
+                                ->where('fp_id', $id)->first();
         }catch(Exception $e){
             $data['codigo'] =  Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
