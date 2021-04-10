@@ -88,7 +88,9 @@ class ArbolesLoteController extends Controller{
                 "token_id" => $request->input( "fao_id", 0 )
             ) );
         }
-        return view( 'app/ComprobanteAdopcionView' )->with( "mensajes", array(
+        return view( 'app/ComprobanteAdopcionView', 
+            array( "nombre" => $request->input( "fp_nombre_completo" ) )
+        )->with( "mensajes", array(
             "Adopción efectuada con éxito"
         ) );
     }

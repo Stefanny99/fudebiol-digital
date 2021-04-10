@@ -45,6 +45,7 @@
                         <button type="button" class="btn_verificar" onclick="verificarCedula();">Verificar cédula</button>
                         <div class="verificar_datos">
                             <input id="fp_id" name="fp_id" type="hidden" value="">
+                            <input id="fp_nombre_completo_hidden" name="fp_nombre_completo" type="hidden">
                             <label><i class="fas fa-user"></i> <span id="fp_nombre_completo"></span></label>
                             <label><i class="fas fa-envelope"></i> <span id="fp_correo"></span></label>
                         </div>

@@ -81,5 +81,5 @@ Route::post('/nuevoPadrino',  ['uses' => 'App\Http\Controllers\FudebiolDigital\P
 Route::get('/arboles', [App\Http\Controllers\FudebiolDigital\ArbolesLoteController::class, 'arbolesPorLote'])->name('arboles');
 Route::get('/adoptarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesLoteController::class, 'adoptarArbol'])->name('adoptarArbol');
 Route::get( '/actualizarToken/{token}', [ App\Http\Controllers\FudebiolDigital\ArbolesLoteController::class, 'actualizarToken' ] )->name( "actualizarToken" );
-Route::post('/finalizarAdopcion', [App\Http\Controllers\FudebiolDigital\ArbolesLoteController::class, 'comprobante'])->name('finalizarAdopcion');
+Route::post('/finalizarAdopcion', [App\Http\Controllers\FudebiolDigital\ArbolesLoteController::class, 'finalizarAdopcion'])->name('finalizarAdopcion');
 Route::post('/enviarMensaje', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\MensajesController@enviarMensaje'])->name('enviarMensaje');

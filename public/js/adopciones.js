@@ -59,6 +59,7 @@ function verificarCedula(){
             } );
         }
         document.getElementById( "fp_id" ).value = fp_id;
+        document.getElementById( "fp_nombre_completo_hidden" ).value = fp_nombre_completo;
         document.getElementById( "fp_nombre_completo" ).innerHTML = fp_nombre_completo;
         document.getElementById( "fp_correo" ).innerHTML = fp_correo;
     } ).catch( error => {
