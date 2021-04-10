@@ -24,44 +24,21 @@ class NotificacionesController extends Controller{
 		) );
 	}
 
-	public function crearNotificacion( Request $data ){
-		$validation = [
-			'fn_desecripcion' => [ 'string', 'max:300' ],
-			'fn_tipo' => [ 'integer' ],
-		];
-		$validator = Validator::make( $data->all(), $validation );
-		if ( $validator->fails() ){
-			return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $data->input() );
-		}else {
-			$model = new NotificacionesModel();
-			$result = $model->crearNotificacion( $data );
-			if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-				return redirect()->back()->with( "errores", array(
-					$result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
-				) );
-			}else{
-				return redirect()->back()->with( "notificaciones", array(
-					"Notificado exitosamente"
-				) );
-			}
-		}
-	}
-
-	public function eliminarNotificaciones( Request $data ){
+	public function rechazarAdopcion( Request $data ){
 		$model = new NotificacionesModel();
-		$result = $model->eliminarNotificaciones( $data );
+		$result = $model->eliminarNotificacion( $data );
 		if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
 			return redirect()->back()->with( "errores", array(
 				$result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
 			) );
 		}else{
-			return redirect()->back()->with( "notificaciones", array(
-				"Notificaciones eliminadas exitosamente"
+			return redirect()->back()->with( "mensajes", array(
+				"Se ha rechazado la adopción exitosamente"
 			) );
 		}
 	}
 
-	public function marcarNotificacionesComoLeidas( Request $data ){
+	public function aceptarAdopcion( Request $data ){
 		$model = new notificacionesModel();
 		$result = $model->marcarNotificacionesComoLeidas( $data );
 		if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
@@ -69,8 +46,8 @@ class NotificacionesController extends Controller{
 				$result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
 			) );
 		}else{
-			return redirect()->back()->with( "notificaciones", array(
-				"Notificaciones marcadas como leídas exitosamente"
+			return redirect()->back()->with( "mensajes", array(
+				"Adopción aceptada correctamente"
 			) );
 		}
 	}

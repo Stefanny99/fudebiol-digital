@@ -39,8 +39,8 @@ Route::group( [ 'middleware' => [ 'auth', 'rolecheck' ] ], function(){
 	
     /*RUTA DE NOTIFICIONES*/
 	Route::get('/notificaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\NotificacionesController@mantenimientoNotificaciones', 'role' => 'A' ])->name('notificaciones');
-	Route::post('/eliminarNotificaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\NotificacionesController@eliminarNotificaciones', 'role' => 'A' ])->name('eliminarNotificaciones');
-	Route::post('/marcarNotificacionesLeidas', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\NotificacionesController@marcarNotificacionesComoLeidas', 'role' => 'A' ])->name('marcarNotificacionesLeidas');
+	Route::post('/aceptarAdopcion', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\NotificacionesController@aceptarAdopcion', 'role' => 'A' ])->name('aceptarAdopcion');
+	Route::post('/rechazarAdopcion', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\NotificacionesController@rechazarAdopcion', 'role' => 'A' ])->name('rechazarAdopcion');
 	
     /*RUTA DE PUBLICACIONES*/
 	Route::get('/editorPublicaciones', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PublicacionesController@editorPublicaciones', 'role' => 'S' ])->name('editorPublicaciones');

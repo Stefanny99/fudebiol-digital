@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
+    <script>
+        var routes = {
+            "aceptarAdopcion": "{{ route( 'aceptarAdopcion' ) }}",
+            "rechazarAdopcion": "{{ route( 'rechazarAdopcion' ) }}"
+        };
+    </script>
     <div id="body_home"> 
         <div id="contenido">
             <div id="fondoMensajes" >
@@ -14,12 +19,8 @@
             </div>
             <div class="home">
                 <div class="mensajesN">
-                    <form class="mascaramensajesN" action="{{ route( 'eliminarNotificaciones' ) }}" method="post">  
-                        @csrf
                         <div id="etcN">
-                            <label>Nuevas adopciones: 12</label>
-                            <button id="btn_send" name="eliminar_btn">Eliminar seleccionados</button>
-                            <button id="btn_send" name="leidos_btn" formaction="/marcarNotificacionesLeidas">Marcar como leidas</button>
+                            <label>Nuevas adopciones: {{ count( $notificaciones) }}</label>
                         </div> 
                         <div id="contenedor_mensajesN">
                             @foreach ( $notificaciones as $notificacion )
@@ -31,27 +32,26 @@
                                 <div class="mesage_data">
                                     
                                     <label><b>A nombre de:</b></label>
-                                    <label>Lizeth Monge Padilla</label><br>
+                                    <label>{{ $notificacion->fp_nombre_completo }}</label><br>
                                     <label><b>Cédula:</b></label>
-                                    <label>117560371</label><br>
-                                    <label><b>Del árbol:</b></label>
-                                    <label>L1B13</label><br>
+                                    <label>{{ $notificacion->fp_cedula }}</label><br>
+                                    <label><b>Del lote:</b></label>
+                                    <label>{{ $notificacion->fl_nombre }}</label><br>
                                     <label><b>Especie:</b></label>
-                                    <label>Guayabo</label><br>
+                                    <label>{{ $notificacion->fa_nombres_comunes }}</label><br>
                                     <label><b>Coordenada W:</b></label>
-                                    <label>55"43"56</label><br>
+                                    <label>{{ $notificacion->fal_coordenada_W }}</label><br>
                                     <label><b>Coordenada N:</b></label>
-                                    <label>55"78"56</label><br>
+                                    <label>{{ $notificacion->fal_coordenada_N }}</label><br>
                                 </div>
                                 <a href="">Descargar comprobante de pago</a><br>
-                                <label for="leidoN">Leído</label>
-                                <input type="checkbox" id="leidoN"> 
-                                    <label for="eliminarN">Eliminar</label>
-                                <input type="checkbox" id="eliminarN">       
+                                <div>
+                                    <button onclick="confirmarAdopcion( {{ $notificacion->fpa_id }} )">Aceptar</button>
+                                    <button  onclick="rechazarAdopcion( {{ $notificacion->fpa_id }} )">Rechazar</button>
+                                </div>    
                             </div>
                             @endforeach
                         </div>
-                    </form>
                 </div> 
             </div> <!--cierre de home-->
       

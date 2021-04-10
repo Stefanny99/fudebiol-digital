@@ -20,6 +20,7 @@
     <script src="{{ asset('js/mantenimiento-arboles.js') }}"></script>
     <script src="{{ asset('js/adopciones.js') }}"></script>
     <script src="{{ asset('js/Chart.min.js') }}"></script>
+    <script src="{{ asset('js/notificaciones.js') }}"></script>
 
 
     <!-- Fonts -->

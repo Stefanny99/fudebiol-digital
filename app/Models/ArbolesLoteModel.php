@@ -139,7 +139,7 @@ class ArbolesLoteModel extends Model {
                     "fpa_padrino_id" => $request->input( "fp_id" ),
                     "fpa_arbol_lote_id" => $request->input( "fal_id" ),
                     "fpa_fecha_adopcion" => Carbon::now()->toDateTimeString(),
-                    "fpa_estado" => "A"
+                    "fpa_estado" => "P"
                 ] );
                 DB::commit();
             }else{
