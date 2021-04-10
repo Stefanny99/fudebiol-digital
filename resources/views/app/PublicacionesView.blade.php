@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="body_home">     
-        <div id="contenido">
-            <div class="home publicacion-fondo">
+    <div id="body_home" style="overflow: visible; height: auto; min-height: auto; max-height: none;">
+        <div id="contenido" style="overflow: visible; height: auto; min-height: auto; max-height: none;">
+            <div class="home publicacion-fondo" style="overflow: visible; height: auto; min-height: auto; max-height: none;">
                 <a href="{{ route('editorPublicaciones') }}" class="crear-publicacion">Crear una nueva publicación</a>
                 <a href="{{ route('administrarPublicaciones', $pagina) }}" class="crear-publicacion">Administrar publicaciones</a>
-                <div id="contenedor-publicaciones">
+                <div id="contenedor-publicaciones" style="overflow: visible; height: auto; min-height: auto; max-height: none;">
                     @foreach ( $publicaciones as $publicacion )
                     <div class="publicacion-base">
                         <div class="publicacion-encabezado">
@@ -17,10 +17,10 @@
                             </div>
                         </div>
                         <div id="publicacion-descripcion">{{ $publicacion->FP_DESCRIPCION }}</div>
-                        <div id="publicacion-imagenes" class="publicacion-imagenes">
+                        <div class="publicacion-imagenes">
                             @foreach ( $publicacion->imagenes as $imagen )
-                            <div class="inner"  >
-                                <img class="img-responsive" src="{{ asset( 'storage/img/fudebiol_imagenes/' . $imagen->FI_ID . '.' . $imagen->FI_FORMATO ) }}" alt="image"   onclick="mostrarFotoSinDescripcion(this);" />
+                            <div class="inner" id="contenedor-imagen-{{ $imagen->FI_ID }}">
+                                <img class="img-responsive" src="{{ asset( 'storage/img/fudebiol_imagenes/' . $imagen->FI_ID . '.' . $imagen->FI_FORMATO ) }}" alt="image" data-id="{{ $imagen->FI_ID }}" onclick="mostrarFoto( this, {{ $imagen->FI_ID }} );" />
                             </div>  
                             @endforeach        
                         </div>

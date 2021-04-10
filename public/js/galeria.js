@@ -8,18 +8,19 @@ function mostrarFoto(foto){
 	var imagen=document.createElement("img");
 	imagen.id="foto";
 	imagen.src=foto.src;
+    imagen.setAttribute( "data-id", foto.getAttribute( "data-id" ) );
 	var botones= document.createElement("div");
 	botones.id="botones";
 	var next=document.createElement("label");
 	next.classList.add("next");
 	next.classList.add("hvr-backward");
 	next.innerHTML="<i class='fas fa-chevron-right'></i>";
-	next.onclick=nextImage;
+	next.onclick=() => nextImage( foto.getAttribute( "data-id" ) );
 	var prev=document.createElement("label");
 	prev.classList.add("prev");
 	prev.classList.add("hvr-forward");
 	prev.innerHTML='<i class="fas fa-chevron-left"></i>';
-	prev.onclick=prevImage;
+	prev.onclick=() => prevImage( foto.getAttribute( "data-id" ) );
 	var exit=document.createElement("label");
 	exit.classList.add("exit");
 	exit.onclick=remover;
@@ -38,12 +39,12 @@ function cargarDescripcion( foto, contenedor2 = null ){
         contenedor2 = document.getElementById( "contenedor2" );
     }
     if ( descripcion ){
-        if( desc != '' ){
+        if( desc && desc != '' ){
             descripcion.innerHTML = desc;
         }else{
             descripcion.remove();
         }
-    }else if ( desc != '' ){
+    }else if ( desc && desc != '' ){
         descripcion = document.createElement( "div" );
         descripcion.id = "descripcion";
         descripcion.innerHTML = desc;
@@ -58,41 +59,23 @@ panel.remove();
 
 
 function nextImage(){
-var contImg=document.getElementById("foto");
-var contDesc=document.getElementById("descripcion");
-var imagen=contImg.src;
-var imagenes=document.getElementById("row").getElementsByTagName("img");
-var ImagenesLista = Array.prototype.slice.call(imagenes);
-            	for(let i = 0; i < imagenes.length; i++)
-				{
-				    if(imagen == imagenes[i].src && i < imagenes.length-1 ){
-				    	contImg.src=imagenes[i+1].src;
-				    	cargarDescripcion( imagenes[ i + 1 ] );
-				    	break;
-				    }
-
-				}
-
-
+    let contImg=document.getElementById("foto");
+    let imagen = document.getElementById( `contenedor-imagen-${ contImg.getAttribute( "data-id" ) }` )?.nextElementSibling?.firstElementChild;
+    if ( imagen ){
+        contImg.src = imagen.src;
+        contImg.setAttribute( "data-id", imagen.getAttribute( "data-id" ) );
+        cargarDescripcion( imagen );
+    }
 }
 
 function prevImage(){
-var contImg=document.getElementById("foto");
-var contDesc=document.getElementById("descripcion");
-var imagen=contImg.src;
-var imagenes=document.getElementById("row").getElementsByTagName("img");
-var ImagenesLista = Array.prototype.slice.call(imagenes);
-            	for(let i = 0; i < imagenes.length; i++)
-				{
-				    if(imagen == imagenes[i].src && i >0){
-				    	contImg.src=imagenes[i-1].src;
-                        cargarDescripcion( imagenes[ i - 1 ] );
-				    	break;
-
-				    }
-
-				}
-
+    let contImg=document.getElementById("foto");
+    let imagen = document.getElementById( `contenedor-imagen-${ contImg.getAttribute( "data-id" ) }` )?.previousElementSibling?.firstElementChild;
+    if ( imagen ){
+        contImg.src = imagen.src;
+        contImg.setAttribute( "data-id", imagen.getAttribute( "data-id" ) );
+        cargarDescripcion( imagen );
+    }
 }
 
 function addMessage(){

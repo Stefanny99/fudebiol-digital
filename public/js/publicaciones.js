@@ -46,6 +46,7 @@ function updateImageChooser( imageChooser ){
         panel_cargando.style.display = "flex";
         let container = document.getElementById("vista-previa-fotos");
         let data = new FormData();
+        let z = ( new Date() ).getTime();
         [ ... imageChooser.files ].forEach( ( file, i ) => data.append( "imagenes[]", file ) );
         axios.post( routes.agregarImagenesTemporales, data, {
             "header": {
@@ -60,7 +61,7 @@ function updateImageChooser( imageChooser ){
                 image.setAttribute( "data-id", imagen.FI_ID );
                 image.setAttribute( "data-formato", imagen.FI_FORMATO );
                 let photo = document.createElement( "img" );
-                photo.src = routes.fudebiol_imagenes + "/" + imagen.FI_ID + "." + imagen.FI_FORMATO;
+                photo.src = `${ routes.fudebiol_imagenes }/${ imagen.FI_ID }.${ imagen.FI_FORMATO }?z=${ z }`;
                 photo.className = "image-preview";
                 let deletePhoto = document.createElement( "i" );
                 deletePhoto.className = "fas fa-times";
