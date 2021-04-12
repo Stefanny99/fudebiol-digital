@@ -21,11 +21,11 @@
                 <div class="mensajesN">
                     <div class="mascaramensajesN">
                         <div id="etcN">
-                            <label>Nuevas adopciones: {{ count( $notificaciones) }}</label>
+                            <label id="cantidadNotificaciones">Nuevas adopciones: {{ count( $notificaciones) }}</label>
                         </div> 
                         <div id="contenedor_mensajesN">
                             @foreach ( $notificaciones as $notificacion )
-                            <div class="mesageN">
+                            <div class="mesageN" id="notificacion-{{ $notificacion->fpa_id }}">
                                 <div id="unreadN"></div>
                                 <div class="mesage_contentN">
                                     <H2>¡Hay una nueva adopción!</H2>
