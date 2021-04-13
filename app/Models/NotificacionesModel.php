@@ -34,20 +34,6 @@ class NotificacionesModel extends Model {
         return $data;
     }
 
-    public function eliminarNotificaciones($request){
-        $data = array(
-            "codigo" => Util::$codigos[ "EXITO" ],
-            "razon" => "",
-            "accion" => "NotificacionesModel:eliminarNotificaciones"
-        );
-        try{
-            DB::table('fudebiol_notificaciones')->whereIn('fn_id', $request->input('ids'))->delete();
-        }catch(Exception $e){
-            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
-        }
-        return $data;
-    }
-
     public function aceptarAdopcion($request){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
@@ -59,11 +45,32 @@ class NotificacionesModel extends Model {
                         ->update([
                             'fpa_estado' => 'A',
                         ]);
+            //tambien se debe borrar el comprobante
             if ($resultado <= 0) {
                 $data[ 'codigo' ] =  Util::$codigos[ "NO_ENCONTRADO" ];
             }
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_ACTUALIZACION" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
+
+    public function rechazarAdopcion($request){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "NotificacionesModel:rechazarAdopcion"
+        );
+        try{
+            $resultado = DB::table('fudebiol_padrinos_arboles')->where('fpa_id', $request->input('fpa_id'))->delete();
+            //tambien se debe borrar el comprobante
+            // y en lo de árboles ocupados?
+            if ($resultado <= 0) {
+                $data[ 'codigo' ] =  Util::$codigos[ "NO_ENCONTRADO" ];
+            }
+        }catch(Exception $e){
+            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
             Log::error( $e->getMessage(), $data );
         }
         return $data;

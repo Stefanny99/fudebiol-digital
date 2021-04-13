@@ -135,13 +135,26 @@ class ArbolesLoteModel extends Model {
             DB::table( "fudebiol_arboles_ocupados" )->where( "fao_fecha", "<", Carbon::now()->subMinutes( $this->tiempo_token )->toDateTimeString() )->delete();
             DB::beginTransaction();
             if ( DB::table( "fudebiol_arboles_ocupados" )->where( "fao_id", "=", $request->input( "fao_id" ) )->delete() > 0 ){
-                DB::table( "fudebiol_padrinos_arboles" )->insertGetId( [
+                $padrino_arbol_id = DB::table( "fudebiol_padrinos_arboles" )->insertGetId( [
                     "fpa_padrino_id" => $request->input( "fp_id" ),
                     "fpa_arbol_lote_id" => $request->input( "fal_id" ),
                     "fpa_fecha_adopcion" => Carbon::now()->toDateTimeString(),
-                    "fpa_estado" => "P"
+                    "fpa_estado" => "P",
+                    'fpa_comprobante_formato' => $request->hasFile( 'comprobante' ) ? $request->file( "comprobante" )->extension() : ''
                 ] );
-                DB::commit();
+                if ( $request->hasFile( 'comprobante' ) ){
+                    try{
+                        $request->file( 'comprobante' )->storeAs( "public/comprobantes/", $padrino_arbol_id . '.' . $request->file( 'comprobante' )->extension() );
+                        DB::commit();
+                    }catch ( Exception $e ){
+                        $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
+                        $data[ "razon" ] = "Ocurrió un error al subir el comprobante " . $request->file( 'comprobante' )->getClientOriginalName();
+                        Log::error( $e->getMessage(), $data );
+                        DB::rollBack();
+                    }
+                } else {
+                    DB::commit();
+                } 
             }else{
                 $data[ "codigo" ] = Util::$codigos[ "NO_ENCONTRADO" ];
                 $data[ "razon" ] = "token inválido";

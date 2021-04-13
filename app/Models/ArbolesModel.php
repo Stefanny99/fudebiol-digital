@@ -87,7 +87,7 @@ class ArbolesModel extends Model {
                     'fa_bolsas' => $request->input('fa_bolsas'),
                     'fa_elevacion_minima' => $request->input('fa_elevacion_minima'),
                     'fa_elevacion_maxima' => $request->input('fa_elevacion_maxima'),
-                    'fa_imagen_formato' => $request->hasFile( 'fa_imagen' ) ? $request->file( "imagen" )->extension() : '',
+                    'fa_imagen_formato' => $request->hasFile( 'fa_imagen' ) ? $request->file( "fa_imagen" )->extension() : '',
                     'fa_nombres_comunes' => $request->input('fa_nombres_comunes'),
                 ]);
                 if ( $request->hasFile( 'fa_imagen' ) ){
