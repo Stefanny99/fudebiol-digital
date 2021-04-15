@@ -167,14 +167,64 @@ class ArbolesLoteModel extends Model {
         return $data;
     }
 
-    public function eliminarArbolLote($request){
+    public function mantenimientoArbolesLote( $lote, $fila, $columna, $pagina ){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "eliminarArbolLote"
+            "accion" => "ArbolesLoteModel:mantenimientoArbolesLote"
         );
         try{
-            DB::table('fudebiol_arboles_lote')->where('fal_id', $request->input('fal_id'))->delete();
+            $query = DB::table('fudebiol_arboles_lote')->orderBy($fila, asc);
+            if ($lote) {
+                $query->where('fal_lote_id', $lote);
+            }
+            if ($fila) {
+                $query->where('fal_fila', $fila);
+            }
+            if ($columna) {
+                $query->where('fal_columna', $columna);
+            }
+            $data['resultado'] = $query->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
+        }catch(Exception $e){
+            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
+
+    public function cantidadPaginas( $lote, $fila, $columna ){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "ArbolesLoteModel:cantidadPaginas"
+        );
+        try{
+            $query =  DB::table( "fudebiol_arboles_lote" );
+            if( $lote ){
+                $query->where('fal_lote_id', $lote);
+            }
+            if( $fila ){
+                $query->where('fal_fila', $fila);
+            }
+            if( $columna ){
+                $query->where('fal_columna', $columna);
+            }
+            $data[ "resultado" ] = ceil( $query->count() / 8 );
+        }catch ( Exception $e ){
+            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
+
+    public function eliminarArbolesLote($request){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "ArbolesLoteModel:eliminarArbolesLote"
+        );
+        try{
+            DB::table('fudebiol_arboles_lote')->whereIn('fal_id', $request->input('fal-arboles-eliminados'))->delete();
         }catch(Exception $e){
             $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
             Log::error( $e->getMessage(), $data );
@@ -186,7 +236,7 @@ class ArbolesLoteModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "crearArbolLote"
+            "accion" => "ArbolesLoteModel:crearArbolLote"
         );
         try {
             DB::table('fudebiol_arboles_lote')->insert([
@@ -208,7 +258,7 @@ class ArbolesLoteModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "editarArbolLote"
+            "accion" => "ArbolesLoteModel:editarArbolLote"
         );
         try{
             DB::table('fudebiol_arboles_lote')->where('fal_id',$request->input('fal_id'))
