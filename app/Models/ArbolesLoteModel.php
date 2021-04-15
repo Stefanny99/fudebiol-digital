@@ -16,16 +16,24 @@ class ArbolesLoteModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "obtenerArbolesPorLote"
+            "accion" => "ArbolesLoteModel:obtenerArbolesPorLote"
         );
         try{
-            $data['resultado'] = DB::table('fudebiol_arboles_lote')
+            $query = DB::table('fudebiol_arboles_lote')
             ->join('fudebiol_arboles', 'fudebiol_arboles_lote.fal_arbol_id', '=', 'fudebiol_arboles.fa_id')
-            ->select('fudebiol_arboles_lote.*','fudebiol_arboles.*','fudebiol_lotes.*')
-            ->where('fudebiol_lotes.fl_nombre', '=', $request->input('fl_nombre'))
-            ->where('fudebiol_arboles.fal_fila', 'like', '%'.$request->input('fal_fila').'%')
-            ->where('fudebiol_arboles.fal_fila', 'like', '%'.$request->input('fal_columna').'%')
-            ->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
+            ->join('fudebiol_lotes', 'fudebiol_arboles_lote.fal_lote_id', '=', 'fudebiol_lotes.fl_id')
+            ->select('fudebiol_arboles_lote.*','fudebiol_arboles.fa_nombres_comunes', 'fudebiol_arboles.fa_id','fudebiol_lotes.fl_nombre', 'fudebiol_lotes.fl_id')
+            ->orderBy($fila, asc);
+            if ( $request->input('fl_id') ) {
+                $query->where('fal_lote_id', $lote);
+            }
+            if ( $request->input('fal_fila') ) {
+                $query->where('fal_fila', $fila);
+            }
+            if ( $request->input('fal_columna') ) {
+                $query->where('fal_columna', $columna);
+            }
+            $data['resultado'] = $query->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
         }catch(Exception $e){
             $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
@@ -162,31 +170,6 @@ class ArbolesLoteModel extends Model {
             }
         }catch ( Exception $e ){
             $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
-            Log::error( $e->getMessage(), $data );
-        }
-        return $data;
-    }
-
-    public function mantenimientoArbolesLote( $lote, $fila, $columna, $pagina ){
-        $data = array(
-            "codigo" => Util::$codigos[ "EXITO" ],
-            "razon" => "",
-            "accion" => "ArbolesLoteModel:mantenimientoArbolesLote"
-        );
-        try{
-            $query = DB::table('fudebiol_arboles_lote')->orderBy($fila, asc);
-            if ($lote) {
-                $query->where('fal_lote_id', $lote);
-            }
-            if ($fila) {
-                $query->where('fal_fila', $fila);
-            }
-            if ($columna) {
-                $query->where('fal_columna', $columna);
-            }
-            $data['resultado'] = $query->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
-        }catch(Exception $e){
-            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
         }
         return $data;
