@@ -172,4 +172,36 @@ class ArbolesModel extends Model {
         }
         return $data;
     }
+
+    public function reporteGlobal () {
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "ArbolesModel:reporteGlobal",
+            "resultado" => array(),
+        );
+        try{
+            $data [ "resultado" ] [ "total_arboles"] = DB::table("fudebiol_arboles")->count();
+            $data [ "resultado" ] [ "total_adoptados" ] = DB::table("fudebiol_padrinos_arboles")->where("fpa_estado", "A")->count();
+            $especies = DB::table( "fudebiol_padrinos_arboles AS fpa" )
+                        ->select( "fa.fa_nombres_comunes", DB::raw("COUNT(fpa.fpa_id) as total_adoptados") )
+                        ->join( "fudebiol_arboles_lote as fal", "fal.fal_id", "=", "fpa.fpa_arbol_lote_id" )
+                        ->join( "fudebiol_arboles as fa", "fa.fa_id", "=", "fal.fal_arbol_id" )
+                        ->where( "fpa.fpa_estado", "A" )
+                        ->groupBy ( "fa.fa_nombres_comunes" )
+                        ->orderBy ( "total_adoptados", "DESC")
+                        ->take( 10 )
+                        ->get();
+            $data[ "resultado" ][ "especies" ] = array();
+            $data[ "resultado" ][ "cantidad" ] = array();
+            foreach ($especies as $especie) {
+                $data[ "resultado" ][ "especies" ][]= $especie->fa_nombres_comunes;
+                $data[ "resultado" ][ "cantidad" ][]= $especie->total_adoptados;
+            }
+        }catch(Exception $e){
+            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
 }
