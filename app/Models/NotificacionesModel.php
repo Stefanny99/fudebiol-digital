@@ -41,11 +41,12 @@ class NotificacionesModel extends Model {
             "accion" => "NotificacionesModel:aceptarAdopcion"
         );
         try{
-            $resultado = DB::table('fudebiol_padrinos_arboles')->where('fpa_id', $request->input('fpa_id'))
+            
+            $resultado = DB::table('fudebiol_padrinos_arboles')->where( 'fpa_id', $request->input('fpa_id'))
                         ->update([
                             'fpa_estado' => 'A',
                         ]);
-            //tambien se debe borrar el comprobante
+            Storage::delete( "public/comprobantes/" . $request->input('fpa_id') . "." . $request->input('fpa_comprobante_formato') );
             if ($resultado <= 0) {
                 $data[ 'codigo' ] =  Util::$codigos[ "NO_ENCONTRADO" ];
             }
@@ -64,8 +65,7 @@ class NotificacionesModel extends Model {
         );
         try{
             $resultado = DB::table('fudebiol_padrinos_arboles')->where('fpa_id', $request->input('fpa_id'))->delete();
-            //tambien se debe borrar el comprobante
-            // y en lo de árboles ocupados?
+            Storage::delete( "public/comprobantes/" . $request->input('fpa_id') . "." . $request->input('fpa_comprobante_formato') );
             if ($resultado <= 0) {
                 $data[ 'codigo' ] =  Util::$codigos[ "NO_ENCONTRADO" ];
             }
