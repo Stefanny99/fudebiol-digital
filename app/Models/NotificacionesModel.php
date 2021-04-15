@@ -46,7 +46,19 @@ class NotificacionesModel extends Model {
                         ->update([
                             'fpa_estado' => 'A',
                         ]);
-            Storage::delete( "public/comprobantes/" . $request->input('fpa_id') . "." . $request->input('fpa_comprobante_formato') );
+            try {
+                $details = [
+                    'nombre' => 'Stefanny Barrantes',
+                    'especie' => 'Espavel',
+                    'lote' => 'L1',
+                    'estado' => '1',
+                    'certificado' => 'http://fudebiol.com/images/logo_06.png'
+                ];
+                \Mail::to('barrantesdenia@gmail.com')->send(new \App\Mail\FudebiolMail($details));
+            } catch (Exception $e) {
+                Log::error( $e->getMessage(), $data );
+            }
+            // Storage::delete( "public/comprobantes/" . $request->input('fpa_id') . "." . $request->input('fpa_comprobante_formato') );
             if ($resultado <= 0) {
                 $data[ 'codigo' ] =  Util::$codigos[ "NO_ENCONTRADO" ];
             }
@@ -65,7 +77,19 @@ class NotificacionesModel extends Model {
         );
         try{
             $resultado = DB::table('fudebiol_padrinos_arboles')->where('fpa_id', $request->input('fpa_id'))->delete();
-            Storage::delete( "public/comprobantes/" . $request->input('fpa_id') . "." . $request->input('fpa_comprobante_formato') );
+            try {
+                $details = [
+                    'nombre' => 'Stefanny Barrantes',
+                    'especie' => 'Espavel',
+                    'lote' => 'L1',
+                    'estado' => '0',
+                    'certificado' => 'http://fudebiol.com/images/logo_06.png'
+                ];
+                \Mail::to('barrantesdenia@gmail.com')->send(new \App\Mail\FudebiolMail($details));
+            } catch (Exception $e) {
+                Log::error( $e->getMessage(), $data );
+            }
+            // Storage::delete( "public/comprobantes/" . $request->input('fpa_id') . "." . $request->input('fpa_comprobante_formato') );
             if ($resultado <= 0) {
                 $data[ 'codigo' ] =  Util::$codigos[ "NO_ENCONTRADO" ];
             }

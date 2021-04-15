@@ -83,3 +83,15 @@ Route::get('/adoptarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesLoteCon
 Route::get( '/actualizarToken/{token}', [ App\Http\Controllers\FudebiolDigital\ArbolesLoteController::class, 'actualizarToken' ] )->name( "actualizarToken" );
 Route::post('/finalizarAdopcion', [App\Http\Controllers\FudebiolDigital\ArbolesLoteController::class, 'finalizarAdopcion'])->name('finalizarAdopcion');
 Route::post('/enviarMensaje', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\MensajesController@enviarMensaje'])->name('enviarMensaje');
+
+Route::get('send-mail', function () {
+   
+	$details = [
+			'nombre' => 'Stefanny Barrantes',
+			'especie' => 'Espavel',
+			'lote' => 'L1',
+			'estado' => '1',
+			'certificado' => 'http://fudebiol.com/images/logo_06.png'
+	];
+	\Mail::to('barrantesdenia@gmail.com')->send(new \App\Mail\FudebiolMail($details));
+});
