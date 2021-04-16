@@ -73,7 +73,7 @@
 									</div>
 									<button type="submit" class="btn_buscarRAI ml"><i class="fas fa-search"></i></button>
 								</form>
-								<form class="tableForm" action="{{ route( 'eliminarArboles' ) }}" method="post"> 
+								<form class="tableForm" action="{{ route( 'eliminarArbolesLote' ) }}" method="post"> 
 								@csrf
 								<div class= "beforeTable" >
 								<table id="tablaArbolesRAI">

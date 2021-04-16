@@ -113,5 +113,6 @@ class ArbolesLoteController extends Controller{
             "columna" => $request->input( "columna"),
             "cantidadPaginas" => 1
         ) );
+        
     }
 }
