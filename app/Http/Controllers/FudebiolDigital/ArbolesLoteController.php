@@ -94,4 +94,8 @@ class ArbolesLoteController extends Controller{
             "Adopción efectuada con éxito"
         ) );
     }
+
+    public function registroArbol(){
+        return view( 'app/RegistroArbolesIndividualesView' );
+    }
 }

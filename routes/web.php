@@ -18,7 +18,7 @@ Route::group( [ 'middleware' => [ 'auth', 'rolecheck' ] ], function(){
 	/*RUTAS DE MANTENIMIENTO DE ESPECIES*/
 	Route::get('/registrarArbol/{pagina}', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\ArbolesController@registrarArbol', 'role' => 'A' ])->name('registrarArbol');
 	Route::post('/editarArbol', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\ArbolesController@editarArbol', 'role' => 'A' ])->name('editarArbol');
-	Route::get('/registroArbol', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\ArbolesController@registroArbol', 'role' => 'A' ])->name('registroArbol');
+	Route::get('/registroArbol', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\ArbolesLoteController@registroArbol', 'role' => 'A' ])->name('registroArbol');
     Route::post('/eliminarArboles', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\ArbolesController@eliminarArboles', 'role' => 'A' ])->name( 'eliminarArboles' );
 
 	/*RUTAS DE MANTENIMIENTOS DE PADRINOS*/
