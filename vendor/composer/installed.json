@@ -1379,6 +1379,69 @@
             "install-path": "../hamcrest/hamcrest-php"
         },
         {
+            "name": "joseluisq/gimage",
+            "version": "2.0.1",
+            "version_normalized": "2.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joseluisq/gimage.git",
+                "reference": "6d5afe050e4ff277b3024dfa5147dd965e83bdcf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joseluisq/gimage/zipball/6d5afe050e4ff277b3024dfa5147dd965e83bdcf",
+                "reference": "6d5afe050e4ff277b3024dfa5147dd965e83bdcf",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/psr7": "^1.3.1",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0"
+            },
+            "suggest": {
+                "ext-gd": "To use GD library based on image processing."
+            },
+            "time": "2016-10-20T03:09:12+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "GImage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "José Luis Quintana",
+                    "homepage": "https://git.io/joseluisq",
+                    "role": "Owner"
+                }
+            ],
+            "description": "A simple PHP library for easy image handling.",
+            "keywords": [
+                "crop",
+                "file",
+                "gd",
+                "handler",
+                "image",
+                "jpeg",
+                "jpg",
+                "png",
+                "resize",
+                "save"
+            ],
+            "support": {
+                "issues": "https://github.com/joseluisq/gimage/issues",
+                "source": "https://github.com/joseluisq/gimage/tree/master"
+            },
+            "install-path": "../joseluisq/gimage"
+        },
+        {
             "name": "laravel/framework",
             "version": "v8.20.1",
             "version_normalized": "8.20.1.0",

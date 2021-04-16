@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
 use App\Helper\Util;
 Use Exception;
+use GImage\Image;
 
 class NotificacionesModel extends Model {
 
@@ -41,11 +42,11 @@ class NotificacionesModel extends Model {
             "accion" => "NotificacionesModel:aceptarAdopcion"
         );
         try{
-            
             $resultado = DB::table('fudebiol_padrinos_arboles')->where( 'fpa_id', $request->input('fpa_id'))
                         ->update([
                             'fpa_estado' => 'A',
                         ]);
+            $this->generarCertificado( $request->input('fpa_id') );
             try {
                 $details = [
                     'nombre' => 'Stefanny Barrantes',
@@ -98,5 +99,37 @@ class NotificacionesModel extends Model {
             Log::error( $e->getMessage(), $data );
         }
         return $data;
+    }
+
+    public function generarCertificado( $id_adopcion ) {
+        try {
+            $img_certificado = new Image();
+            $img_certificado
+                ->load(asset('/img/certificados/machote.jpg'))
+                ->setTop(60)
+                ->setLeft(70);
+            // $padrino = new Text("Stefanny Barrantes Vargas");
+            // $padrino
+            //     ->setSize(12)
+            //     ->setWidth(300)
+            //     ->setLeft(210)
+            //     ->setTop(75)
+            //     ->setColor(0, 0, 0)
+            //     ->setFontface('fonts/Lato-Light.ttf');
+
+            // $canvas = new Canvas($canvas_figure);
+            // $canvas
+            //     ->append([
+            //         $img_certificado,
+            //         $padrino
+            //     ])
+            //     ->toJPG()
+            //     ->draw()
+            //     ->save('public/img/certificados/certificado.png');
+            //$request->file( 'fa_imagen' )->storeAs( "public/img/fudebiol_arboles/", $arbol_id . '.' . $request->file( 'fa_imagen' )->extension() );
+        } catch ( Exception $e ){
+            Log::error( $e->getMessage(), $data );
+        }
+        return;
     }
 }
