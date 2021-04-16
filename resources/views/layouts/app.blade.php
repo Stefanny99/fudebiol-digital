@@ -21,7 +21,7 @@
     <script src="{{ asset('js/adopciones.js') }}"></script>
     <script src="{{ asset('js/Chart.min.js') }}"></script>
     <script src="{{ asset('js/notificaciones.js') }}"></script>
-
+    <script src="{{ asset('js/mantenimiento-arboles-lote.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -42,14 +42,14 @@
     <link href="{{ asset('css/aboutUs.css') }}" rel="stylesheet">
     <link href="{{ asset('css/arbolPorLote.css') }}" rel="stylesheet">
     <link href="{{ asset('css/mensajes.css') }}" rel="stylesheet">
-     <link href="{{ asset('css/informacion.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/informacion.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/register.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet"  type="text/css" >
-     <link href="{{ asset('css/mantenimientoUsuarios.css') }}" rel="stylesheet"  type="text/css" >
-     <link href="{{ asset('css/registroArboles.css') }}" rel="stylesheet"  type="text/css" >
-     <link href="{{ asset('css/galeria.css') }}" rel="stylesheet"  type="text/css" >
+    <link href="{{ asset('css/mantenimientoUsuarios.css') }}" rel="stylesheet"  type="text/css" >
+    <link href="{{ asset('css/registroArboles.css') }}" rel="stylesheet"  type="text/css" >
+    <link href="{{ asset('css/galeria.css') }}" rel="stylesheet"  type="text/css" >
     <link href="{{ asset('css/main-style.css') }}" rel="stylesheet"  type="text/css"> 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Heebo&display=swap">

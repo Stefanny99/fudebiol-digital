@@ -13,8 +13,9 @@
 						</div>
 					<div class="home" >
 						<div id="caja">
-							<form id="cajaArbolRAI" class="hvr-float" method="post" action="{{ route( 'editarArbol' ) }}">
-								
+							<form id="cajaArbolRAI" class="hvr-float" method="post" action="{{ route( 'editarArbolLote' ) }}">
+								@csrf
+								<input type="hidden" id="id_arbol_lote" name="fal_id" value="0">
 								<div id="treeheaderRAI">
 									<div id="treeheadermascaraRAI"  class="container-fluid">
 										<label id="RegArbol">Registra un nuevo </label>
@@ -23,31 +24,30 @@
 								</div>
 
 								<label class="texto" for="especie">Especie</label>
-								<select id="especie" name="role">
+								<select id="especie" name="fal_arbol_id">
 									@foreach($especies as $especie)
-											<option value="{{ $especie->FA_ID }}" name="fal_arbol_id">{{ $especie->FA_NOMBRES_COMUNES }}</option>
+											<option value="{{ $especie->FA_ID }}">{{ $especie->FA_NOMBRES_COMUNES }}</option>
 									@endforeach
 								</select>
 							 
 								<label class="texto" for="lote">Lote</label>
-								<select id="lote" name="role">
+								<select id="lote" name="fal_lote_id">
 									@foreach($lotes as $lote)
-										<option value="{{ $lote->FL_ID }}" name="fal_lote_id">{{ $lote->FL_NOMBRE }}</option>
+										<option value="{{ $lote->FL_ID }}">{{ $lote->FL_NOMBRE }}</option>
 									@endforeach
 								</select>
 							 
+								<label class="texto" for="coordenadaN">Coordenada N:</label>
+								<input type="text" id="coordenadaN" required name="fal_coordenada_N">
 
-								<label class="texto" for="jiffys">Coordenada N:</label>
-								<input type="text" required name="fa_jiffys">
+								<label class="texto" for="coordenadaW">Coordenada W:</label>
+								<input type="text"  id="coordenadaW" required name="fal_coordenada_W">
 
-								<label class="texto" for="bolsas">Coordenada W:</label>
-								<input type="text"  required name="fa_bolsas">
+								<label class="texto" for="fila">Fila:</label>
+								<input type="text"  id="fila" required name="fal_fila">
 
-								<label class="texto" for="elevacion_maxima">Fila:</label>
-								<input type="text"  required name="fa_elevacion_maxima">
-
-								<label class="texto" for="elevacion_minima">Columna:</label>
-								<input type="text" required name="fa_elevacion_minima">
+								<label class="texto" for="columna">Columna:</label>
+								<input type="text" id="columna" required name="fal_columna">
 
 								<button class="btn_registrarRAI">Registrar</button>
 
@@ -91,7 +91,16 @@
 									</thead> 
 									<tbody>
 									@foreach ( $arboles as $arbol)
-										<tr class="fila">
+										<tr class="fila"
+											id="arbol_lote_{{ $arbol->FAL_ID }}" 
+											data-id="{{ $arbol->FAL_ID }}" 
+											data-arbol-id="{{ $arbol->FAL_ARBOL_ID }}" 
+											data-lote-id="{{ $arbol->FAL_LOTE_ID }}" 
+											data-coordenada-W="{{ $arbol->FAL_COORDENADA_W }}"
+											data-coordenada-N="{{ $arbol->FAL_COORDENADA_N }}"
+											data-fila="{{ $arbol->FAL_FILA }}"
+											data-columna="{{ $arbol->FAL_COLUMNA }}"
+										>
 											<td class="fila">{{ $arbol->FA_NOMBRES_COMUNES }}</td>
 											<td class="fila overflow-hidden">{{ $arbol->FL_NOMBRE }}</td>
 											<td class="fila">{{ $arbol->FAL_COORDENADA_N }}</td>
@@ -100,7 +109,7 @@
 											<td class="fila">{{ $arbol->FAL_COLUMNA }}</td>
 											<td class="fila">
 												<div class="action">
-													<label class="edit"><i class="far fa-edit"></i></label>
+													<label class="edit" onclick="editarArbolLote( 'arbol_lote_{{ $arbol->FAL_ID }}' )"><i class="far fa-edit"></i></label>
 													<input type="checkbox" name="fal-arboles-eliminados[]" value="{{ $arbol->FAL_ID }}">
 												</div>
 												
