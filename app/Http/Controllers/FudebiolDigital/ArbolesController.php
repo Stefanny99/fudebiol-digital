@@ -77,8 +77,19 @@ class ArbolesController extends Controller{
     }
 
     public function reporteGlobal(){
-        return view( 'app/ReporteArbolesView' );
+        $model = new ArbolesModel();
+        $result = $model->reporteGlobal();
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) );
+        }
+        return view( 'app/ReporteArbolesView', array(
+            "total_arboles" => $result[ "resultado" ][ "total_arboles" ],
+            "total_adoptados" => $result[ "resultado" ][ "total_adoptados" ],
+            "especies" => $result[ "resultado" ][ "especies" ],
+            "cantidad" => $result[ "resultado" ][ "cantidad"]
+        ) );
     }
+
     public function reporteEspecifico(){
         return view( 'app/ReporteEspeciesView' );
     }

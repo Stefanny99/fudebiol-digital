@@ -65,22 +65,25 @@ class PadrinosArbolesModel extends Model {
             "razon" => "",
             "accion" => "PadrinosArbolesModel:crearPadrinoArbol"
         );
+        Log::error("request: ", $request );
+        Log::error( "comprobante", $request->file( "comprobante" ) );
         try {
+            Log::error( "comprobante", "hola" );
             DB::begintransaction();
             $padrino_arbol_id = DB::table('fudebiol_padrinos_arboles')->insertGetId([
                 'fpa_padrino_id' => $request->input('fpa_padrino_id'),
                 'fpa_arbol_lote_id' => $request->input('fpa_arbol_lote_id'),
                 'fpa_fecha_adopcion' => date('Y-m-d H:i:s'),
                 'fpa_estado' => $request->input('fpa_estado'),
-                'fpa_imagen_formato' => $request->hasFile( 'fpa_imagen' ) ? $request->file( "fpa_imagen" )->extension() : ''
+                'fpa_comprobante_formato' => $request->hasFile( 'comprobante' ) ? $request->file( "comprobante" )->extension() : ''
             ]);
-            if ( $request->hasFile( 'fpa_imagen' ) ){
+            if ( $request->hasFile( 'comprobante' ) ){
                 try{
-                    $request->file( 'fpa_imagen' )->storeAs( "public/img/fudebiol_adopciones/", $padrino_arbol_id . '.' . $request->file( 'fpa_imagen' )->extension() );
+                    $request->file( 'comprobante' )->storeAs( "public/img/fudebiol_adopciones/", $padrino_arbol_id . '.' . $request->file( 'comprobante' )->extension() );
                     DB::commit();
                 }catch ( Exception $e ){
                     $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
-                    $data[ "razon" ] = "Ocurrió un error al subir la imagen " . $imagen->getClientOriginalName();
+                    $data[ "razon" ] = "Ocurrió un error al subir el comprobante " . $request->file( 'comprobante' )->getClientOriginalName();
                     Log::error( $e->getMessage(), $data );
                     DB::rollBack();
                 }

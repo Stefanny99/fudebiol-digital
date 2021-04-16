@@ -24,20 +24,6 @@ class NotificacionesController extends Controller{
 		) );
 	}
 
-	public function rechazarAdopcion( Request $data ){
-		$model = new NotificacionesModel();
-		$result = $model->eliminarNotificacion( $data );
-		if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-			return redirect()->back()->with( "errores", array(
-				$result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
-			) );
-		}else{
-			return redirect()->back()->with( "mensajes", array(
-				"Se ha rechazado la adopción exitosamente"
-			) );
-		}
-	}
-
 	public function aceptarAdopcion( Request $data ){
 		$model = new notificacionesModel();
 		$result = $model->aceptarAdopcion( $data );
@@ -53,4 +39,18 @@ class NotificacionesController extends Controller{
 		return response()->json( $response );
 	}
 
+	public function rechazarAdopcion( Request $data ){
+		$model = new notificacionesModel();
+		$result = $model->rechazarAdopcion( $data );
+		$response = array(
+			"exito" => false,
+			"errores" => array()
+		);
+		if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+			$response[ "errores" ][] = $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ];
+		}else{
+			$response[ "exito" ] = true;
+		}
+		return response()->json( $response );
+	}
 }

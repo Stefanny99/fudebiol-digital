@@ -16,16 +16,24 @@ class ArbolesLoteModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "obtenerArbolesPorLote"
+            "accion" => "ArbolesLoteModel:obtenerArbolesPorLote"
         );
         try{
-            $data['resultado'] = DB::table('fudebiol_arboles_lote')
+            $query = DB::table('fudebiol_arboles_lote')
             ->join('fudebiol_arboles', 'fudebiol_arboles_lote.fal_arbol_id', '=', 'fudebiol_arboles.fa_id')
-            ->select('fudebiol_arboles_lote.*','fudebiol_arboles.*','fudebiol_lotes.*')
-            ->where('fudebiol_lotes.fl_nombre', '=', $request->input('fl_nombre'))
-            ->where('fudebiol_arboles.fal_fila', 'like', '%'.$request->input('fal_fila').'%')
-            ->where('fudebiol_arboles.fal_fila', 'like', '%'.$request->input('fal_columna').'%')
-            ->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
+            ->join('fudebiol_lotes', 'fudebiol_arboles_lote.fal_lote_id', '=', 'fudebiol_lotes.fl_id')
+            ->select('fudebiol_arboles_lote.*','fudebiol_arboles.fa_nombres_comunes', 'fudebiol_arboles.fa_id','fudebiol_lotes.fl_nombre', 'fudebiol_lotes.fl_id')
+            ->orderBy($fila, asc);
+            if ( $request->input('fl_id') ) {
+                $query->where('fal_lote_id', $lote);
+            }
+            if ( $request->input('fal_fila') ) {
+                $query->where('fal_fila', $fila);
+            }
+            if ( $request->input('fal_columna') ) {
+                $query->where('fal_columna', $columna);
+            }
+            $data['resultado'] = $query->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
         }catch(Exception $e){
             $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
@@ -135,13 +143,26 @@ class ArbolesLoteModel extends Model {
             DB::table( "fudebiol_arboles_ocupados" )->where( "fao_fecha", "<", Carbon::now()->subMinutes( $this->tiempo_token )->toDateTimeString() )->delete();
             DB::beginTransaction();
             if ( DB::table( "fudebiol_arboles_ocupados" )->where( "fao_id", "=", $request->input( "fao_id" ) )->delete() > 0 ){
-                DB::table( "fudebiol_padrinos_arboles" )->insertGetId( [
+                $padrino_arbol_id = DB::table( "fudebiol_padrinos_arboles" )->insertGetId( [
                     "fpa_padrino_id" => $request->input( "fp_id" ),
                     "fpa_arbol_lote_id" => $request->input( "fal_id" ),
                     "fpa_fecha_adopcion" => Carbon::now()->toDateTimeString(),
-                    "fpa_estado" => "P"
+                    "fpa_estado" => "P",
+                    'fpa_comprobante_formato' => $request->hasFile( 'comprobante' ) ? $request->file( "comprobante" )->extension() : ''
                 ] );
-                DB::commit();
+                if ( $request->hasFile( 'comprobante' ) ){
+                    try{
+                        $request->file( 'comprobante' )->storeAs( "public/comprobantes/", $padrino_arbol_id . '.' . $request->file( 'comprobante' )->extension() );
+                        DB::commit();
+                    }catch ( Exception $e ){
+                        $data[ "codigo" ] = Util::$codigos[ "ERROR_SUBIENDO_ARHIVO" ];
+                        $data[ "razon" ] = "Ocurrió un error al subir el comprobante " . $request->file( 'comprobante' )->getClientOriginalName();
+                        Log::error( $e->getMessage(), $data );
+                        DB::rollBack();
+                    }
+                } else {
+                    DB::commit();
+                } 
             }else{
                 $data[ "codigo" ] = Util::$codigos[ "NO_ENCONTRADO" ];
                 $data[ "razon" ] = "token inválido";
@@ -154,14 +175,39 @@ class ArbolesLoteModel extends Model {
         return $data;
     }
 
-    public function eliminarArbolLote($request){
+    public function cantidadPaginas( $lote, $fila, $columna ){
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "eliminarArbolLote"
+            "accion" => "ArbolesLoteModel:cantidadPaginas"
         );
         try{
-            DB::table('fudebiol_arboles_lote')->where('fal_id', $request->input('fal_id'))->delete();
+            $query =  DB::table( "fudebiol_arboles_lote" );
+            if( $lote ){
+                $query->where('fal_lote_id', $lote);
+            }
+            if( $fila ){
+                $query->where('fal_fila', $fila);
+            }
+            if( $columna ){
+                $query->where('fal_columna', $columna);
+            }
+            $data[ "resultado" ] = ceil( $query->count() / 8 );
+        }catch ( Exception $e ){
+            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
+
+    public function eliminarArbolesLote($request){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "ArbolesLoteModel:eliminarArbolesLote"
+        );
+        try{
+            DB::table('fudebiol_arboles_lote')->whereIn('fal_id', $request->input('fal-arboles-eliminados'))->delete();
         }catch(Exception $e){
             $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
             Log::error( $e->getMessage(), $data );
@@ -173,7 +219,7 @@ class ArbolesLoteModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "crearArbolLote"
+            "accion" => "ArbolesLoteModel:crearArbolLote"
         );
         try {
             DB::table('fudebiol_arboles_lote')->insert([
@@ -195,7 +241,7 @@ class ArbolesLoteModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "editarArbolLote"
+            "accion" => "ArbolesLoteModel:editarArbolLote"
         );
         try{
             DB::table('fudebiol_arboles_lote')->where('fal_id',$request->input('fal_id'))

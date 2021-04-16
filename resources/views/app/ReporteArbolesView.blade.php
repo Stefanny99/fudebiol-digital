@@ -11,17 +11,17 @@
 				<div class="column_container">
 					<img class="tree_pic_size"src="{{asset('/img/bosque.png')}}">
 					<h4><b>Total de árboles</b></h4>
-					<label class="circle total">456457</label>
+					<label class="circle total">{{ $total_arboles }}</label>
 				</div>
 				<div class="column_container">
 					<img class="tree_pic_size"src="{{asset('/img/adoptado.png')}}">
 					<h4><b>Adoptados</b></h4>
-					<label class="circle ocupados">35</label>
+					<label class="circle ocupados">{{ $total_adoptados }}</label>
 				</div>
 				<div class="column_container"> 
 				<img class="tree_pic_size"src="{{asset('/img/disponible.png')}}">
 					<h4><b>Disponibles</b></h4>
-					<label class="circle libre">4567</label>
+					<label class="circle libre">{{ $total_arboles - $total_adoptados }}</label>
 				</div>
 				
 			</div>
@@ -33,14 +33,15 @@
 				function grafico(){
 					var canv=document.getElementById('canvas');
 					var ctx=canv.getContext('2d');
+					var especies={!!json_encode($especies, JSON_HEX_TAG)!!}
+					var cantidad={!!json_encode($cantidad, JSON_HEX_TAG)!!}
 					var chart= new Chart( ctx, {
 							type: 'bar',
 							data: {
-								labels: ['guayabo', 'pino', 'cipres', 'amarillón' ,'roble', 'cristobal',
-								'guayabo', 'pino', 'cipres','cristobal'],
+								labels: especies,
 								datasets: [ {
 									label: 'Especies',
-									data: [25,24, 23,20,19,13,11,9,7,5,3,1,0] ,
+									data: cantidad,
 									backgroundColor: "rgba( 0, 136, 18, 1 )"
 								} ]
 							},

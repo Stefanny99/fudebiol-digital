@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "06d0c010aad14993776cd84ad1bbcf54",
+    "content-hash": "c88c470975818d472017d1014e3c1354",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -891,6 +891,66 @@
                 "source": "https://github.com/guzzle/psr7/tree/1.7.0"
             },
             "time": "2020-09-30T07:37:11+00:00"
+        },
+        {
+            "name": "joseluisq/gimage",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joseluisq/gimage.git",
+                "reference": "6d5afe050e4ff277b3024dfa5147dd965e83bdcf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joseluisq/gimage/zipball/6d5afe050e4ff277b3024dfa5147dd965e83bdcf",
+                "reference": "6d5afe050e4ff277b3024dfa5147dd965e83bdcf",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/psr7": "^1.3.1",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0"
+            },
+            "suggest": {
+                "ext-gd": "To use GD library based on image processing."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GImage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "José Luis Quintana",
+                    "homepage": "https://git.io/joseluisq",
+                    "role": "Owner"
+                }
+            ],
+            "description": "A simple PHP library for easy image handling.",
+            "keywords": [
+                "crop",
+                "file",
+                "gd",
+                "handler",
+                "image",
+                "jpeg",
+                "jpg",
+                "png",
+                "resize",
+                "save"
+            ],
+            "support": {
+                "issues": "https://github.com/joseluisq/gimage/issues",
+                "source": "https://github.com/joseluisq/gimage/tree/master"
+            },
+            "time": "2016-10-20T03:09:12+00:00"
         },
         {
             "name": "laravel/framework",
