@@ -94,4 +94,24 @@ class ArbolesLoteController extends Controller{
             "Adopción efectuada con éxito"
         ) );
     }
+
+    public function mantenimientoArbolesLote($pagina, Request $request){
+        $model = new ArbolesLoteModel();
+        $result = $model->obtenerArbolesPorLote($request, $pagina);
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            return redirect()->back()->with( "errores", array(
+                $result[ "codigo" ][ "descripcion" ] . $result[ "razon" ]
+            ) );
+        }
+        return view( 'app/RegistroArbolesIndividualesView', array(
+            "arboles" => $result[ "resultado" ],
+            "lotes" => $result[ "lotes" ],
+            "especies" => $result[ "especies" ],
+            "pagina" => $pagina,
+            "lote_id" => $request->input( "lote_id"),
+            "fila" => $request->input( "fila"),
+            "columna" => $request->input( "columna"),
+            "cantidadPaginas" => 1
+        ) );
+    }
 }
