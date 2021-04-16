@@ -115,8 +115,9 @@ class ArbolesLoteController extends Controller{
         ) );
         
     }
+
     public function editarArbolLote(Request $request){
-        if ( !$request->has( "id_arbol_lote" ) || $request->input( "id_arbol_lote" ) <= 0 ){
+        if ( !$request->has( "fal_id" ) || $request->input( "fal_id" ) <= 0 ){
             $validator = Validator::make( $request->all(), [
                 'fal_arbol_id' => [ 'required', 'integer' ],
                 'fal_lote_id' => [ 'required', 'integer' ],
@@ -152,7 +153,7 @@ class ArbolesLoteController extends Controller{
             if ( $validator->fails() ){
                 return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $request->input() );
             }else{
-                $model = new UsuariosModel();
+                $model = new ArbolesLoteModel();
                 $result = $model->editarArbolLote( $request );
                 if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
                     return redirect()->back()->with( "errores", array(
@@ -164,6 +165,20 @@ class ArbolesLoteController extends Controller{
                     ) );
                 }
             }
+        }
+    }
+
+    public function eliminarArbolesLote ( Request $request ){
+        $model = new ArbolesLoteModel();
+        $result = $model->eliminarArbolesLote( $request );
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            return redirect()->back()->with( "errores", array(
+                $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
+            ) );
+        }else{
+            return redirect()->back()->with( "mensajes", array(
+                "Árboles eliminados exitosamente"
+            ) );
         }
     }
 }
