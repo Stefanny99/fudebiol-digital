@@ -137,7 +137,15 @@ class PadrinosController extends Controller{
         ) );
     }
 
-    public function reporteEspecifico(){
-        return view('app/ReportePadrinoEspecificoView');
+    public function reporteEspecifico( Request $request ){
+        $model = new PadrinosModel();
+        $result = $model->reporteEspecifico( $request->input( "fp_id" ) );
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) );
+        }
+        return view( 'app/ReportePadrinoEspecificoView', array(
+            "padrino" => $result[ "padrino" ],
+            "adopciones" => $result[ "adopciones" ],
+        ) );
     }
 }

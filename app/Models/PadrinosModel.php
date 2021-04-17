@@ -179,4 +179,35 @@ class PadrinosModel extends Model {
         }
         return $data;
     }
+
+    public function reporteEspecifico( $fp_id ) {
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "PadrinosModel:reporteEspecifico"
+        );
+        try{
+            $data['padrino'] = DB::table("fudebiol_padrinos as fp")
+                            ->select(DB::raw("COUNT(fpa.fpa_id) as cantidad_adopciones"),"fp.FP_NOMBRE_COMPLETO")
+                            ->join("fudebiol_padrinos_arboles as fpa", "fp.FP_ID", "=", "fpa.FPA_PADRINO_ID")
+                            ->where("fpa.FPA_ESTADO", "A")
+                            ->where("fp.FP_ID", $fp_id)
+                            ->groupBy("fp.FP_NOMBRE_COMPLETO")
+                            ->first();
+
+            $data['adopciones'] = DB::table("fudebiol_padrinos as fp")
+                                ->select(DB::raw("COUNT(fpa.fpa_id) as cantidad_adopciones"),"fa.FA_NOMBRES_COMUNES")
+                                ->join("fudebiol_padrinos_arboles as fpa", "fp.FP_ID", "=", "fpa.FPA_PADRINO_ID")
+                                ->join("fudebiol_arboles_lote as fal", "fpa.FPA_ARBOL_LOTE_ID", "=", "fal.FAL_ID")
+                                ->join("fudebiol_arboles as fpa", "fal.FAL_ARBOL_ID", "=", "fa.FA_ID")
+                                ->where("fpa.FPA_ESTADO", "A")
+                                ->where("fp.FP_ID", $fp_id)
+                                ->groupBy("fa.FA_NOMBRES_COMUNES")
+                                ->get();
+        }catch(Exception $e){
+            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
 }
