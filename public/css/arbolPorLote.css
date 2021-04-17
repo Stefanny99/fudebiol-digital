@@ -98,7 +98,7 @@
         background-color: white;
         padding: 20px;
         height: 34vw;
-        width: 15vw;
+        width: auto;
         display: flex;
         flex-direction: column;
         text-align: left;

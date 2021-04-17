@@ -43,6 +43,8 @@
                 <div class="texto"><b>Coordenada W: </b><span id="coordenada_W_arbol"></span></div>
                 <div class="texto"><b>Fila: </b><span id="fila_arbol"></span></div>
                 <div class="texto"><b>Columna: </b><span id="columna_arbol"></span></div>
+                <div class="texto"><b>Padrino: </b><span id="padrino_arbol"></span></div>
+                <a class="texto"><b>Ver en Google Maps: </b></a>
                 <button type="submit" id="btn_adoptar_arbol" class="btn_adoptar" disabled>Adoptar</button>
               </form>
             </div>
