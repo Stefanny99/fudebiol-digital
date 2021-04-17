@@ -55,6 +55,7 @@
                     <input type="text" name="buscar" placeholder="Buscar una especie" value="{{ $buscar }}">
                     <button type="submit" class="btn_buscar"><i class="fas fa-search"></i></button>
                 </form>
+                <a href="{{ route('reporteArboles') }}" class="report">Reporte global<i class="fas fa-chart-bar"></i></a>
                 <form class="tableForm" action="{{ route( 'eliminarArboles' ) }}" method="post">
                     @csrf
                     <div class= "beforeTable" >
