@@ -27,7 +27,7 @@ Route::group( [ 'middleware' => [ 'auth', 'rolecheck' ] ], function(){
 	
 	/*RUTAS DE MANTENIMIENTOS DE PADRINOS*/
 	Route::get('/verPadrinos/{pagina}', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PadrinosController@mantenimientoPadrinos', 'role' => 'A' ])->name('verPadrino');
-	Route::post('/eliminarPadrino', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PadrinosController@eliminarPadrino', 'role' => 'A' ])->name('eliminarPadrino');
+	Route::post('/eliminarPadrinos', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PadrinosController@eliminarPadrinos', 'role' => 'A' ])->name('eliminarPadrinos');
 	Route::get('/editarPadrino',  ['uses' => 'App\Http\Controllers\FudebiolDigital\PadrinosController@editarPadrino', 'role' => 'A' ])->name('editarPadrino');
 
 	/*RUTAS DE MANTENIMIENTO DE LOTES*/

@@ -129,6 +129,10 @@
     #buscador {
         margin-bottom: 4%;
         font-size: 3vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
     }
     #buscador input {
         text-align: center;

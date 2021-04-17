@@ -86,13 +86,11 @@ class PadrinosController extends Controller{
         }
     }
 
-    public function eliminarPadrino( Request $data ){
+    public function eliminarPadrinos( Request $data ){
         $model = new PadrinosModel();
-        $result = $model->eliminarPadrino( $data );
-        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-            return redirect()->back()->with( "errores", array(
-                $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
-            ) );
+        $result = $model->eliminarPadrinos( $data );
+        if ( $result[ "errores" ].length > 0 ) {
+            return redirect()->back()->with( "errores", $result[ "errores" ] );
         }else{
             return redirect()->back()->with( "mensajes", array(
                 "Padrino eliminado exitosamente"

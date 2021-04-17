@@ -53,15 +53,15 @@
                                     <label>{{ $notificacion->fl_nombre }}</label><br>
                                     <label><b>Especie:</b></label>
                                     <label>{{ $notificacion->fa_nombres_comunes }}</label><br>
-                                    <label><b>Coordenada W:</b></label>
-                                    <label>{{ $notificacion->fal_coordenada_W }}</label><br>
-                                    <label><b>Coordenada N:</b></label>
-                                    <label>{{ $notificacion->fal_coordenada_N }}</label><br>
+                                    <label><b>Fila:</b></label>
+                                    <label>{{ $notificacion->fal_fila }}</label><br>
+                                    <label><b>Columna:</b></label>
+                                    <label>{{ $notificacion->fal_columna }}</label><br>
                                 </div>
                                 <a href="{{ $notificacion->fpa_comprobante_formato ? asset( 'storage/comprobantes/' . $notificacion->fpa_id . '.' . $notificacion->fpa_comprobante_formato ) : asset( 'img/sinfoto.jpg' ) }}" download>Descargar comprobante de pago</a><br>
                                 <div>
-                                    <button onclick="confirmarAdopcion( {{ $notificacion->fpa_id }} )">Aceptar</button>
-                                    <button  onclick="rechazarAdopcion( {{ $notificacion->fpa_id }} )">Rechazar</button>
+                                    <button onclick="confirmarAdopcion( {{ json_encode($notificacion) }})">Aceptar</button>
+                                    <button onclick="rechazarAdopcion( {{ json_encode($notificacion) }} )">Rechazar</button>
                                 </div>    
                             </div>
                             @endforeach

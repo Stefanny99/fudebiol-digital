@@ -51,7 +51,7 @@ class PadrinosModel extends Model {
             "accion" => "PadrinosModel:cantidadPaginas"
         );
         try{
-            $data[ "resultado" ] = ceil( DB::table( "fudebiol_lotes" )
+            $data[ "resultado" ] = ceil( DB::table( "fudebiol_padrinos" )
             ->where('fp_nombre_completo', 'like', '%'.$padrino.'%')
             ->orWhere('fp_cedula', 'like', '%'.$padrino.'%')
             ->count() / 8 );
@@ -62,16 +62,31 @@ class PadrinosModel extends Model {
         return $data;
     }
 
-    public function eliminarPadrino($request){
+    public function eliminarPadrinos($request){
         $data = array(
-            "codigo" => Util::$codigos[ "EXITO" ],
-            "razon" => "",
-            "accion" => "eliminarPadrino"
+            "errores" => array(),
+            "accion" => "PadrinosModel:eliminarPadrinos"
         );
         try{
-            DB::table('fudebiol_padrinos')->where('fp_id', $request->input('fp_id'))->delete();
+            foreach ($request->input('ids') as $idpadrino) {
+                $padrino = DB::table('fudebiol_padrinos as fp')
+                            ->select('fp.FP_NOMBRE_COMPLETO', 'fp.FP_ID', 'fpa.FPA_PADRINO_ID')
+                            ->join('fudebiol_padrinos_arboles as fpa', 'fp.FP_ID', '=', 'fpa.FPA_PADRINO_ID')
+                            ->where('fp.FP_ID', $idpadrino)->first();
+                if ($padrino->FPA_PADRINO_ID && $padrino->FPA_PADRINO_ID > 0) {
+                    array_push( $data[ 'errores'] , 'No se puede eliminar el padrino ' . $padrino->FP_NOMBRE_COMPLETO . ' porque tiene adopciones' );
+                } else {
+                    try {
+                        DB::table('fudebiol_padrinos')->where('fp_id', $idpadrino)->delete();
+                    } catch (Exception $e){
+                        array_push( $data[ 'errores' ], "Ocurrió un error eliminando padrino");
+                        Log::error( $e->getMessage(), $data );
+                    }
+                }
+            } 
         }catch(Exception $e){
-            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
+            array_push( $data[ 'errores' ], "Ocurrió un error eliminando" );
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }
