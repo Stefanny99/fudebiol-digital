@@ -29,7 +29,7 @@
                                     <img class="publicacion-logo" src="{{ asset('/img/logo.jpg')}}">
                                     <div class="titulo-fecha">
                                         <label id="publicacion-titulo">{{ $publicacion ? $publicacion->FP_TITULO : '' }}</label>
-                                        <label id="publicacion-fecha"></label>
+                                        <label id="publicacion-fecha">{{ $publicacion ? $publicacion->FP_FECHA : '3-3-2020' }}</label>
                                     </div>
                                 </div>
                                 <pre id="publicacion-descripcion" style="text-align: justify; text-justify: inter-word; white-space: pre-line; word-break: break-word;">{{ $publicacion ? $publicacion->FP_DESCRIPCION : '' }}</pre>

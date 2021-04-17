@@ -49,7 +49,8 @@
 								<label class="texto" for="columna">Columna:</label>
 								<input type="text" id="columna" required name="fal_columna">
 
-								<button class="btn_registrarRAI">Registrar</button>
+								<button class="btn_registrarRAI">Guardar</button>
+                                <button class="btn_registrarRAI" onclick="limpiarArbolLote()">Limpiar</button>
 
 							</form>  
 
@@ -57,7 +58,7 @@
 								<form class="row_container centrar" id="buscadorA" action="{{route('registroArbol', 1)}}" method="get">
 									<div class="row_container w-25 centrar" >  
 										<label class="texto" for="lote"><b>Lote:</b></label>
-										<select name="lote" class="ml">
+										<select name="lote_id" class="ml">
 												@foreach($lotes as $lote)
 												<option value="{{ $lote->FL_ID }}" name="lote_id">{{ $lote->FL_NOMBRE }}</option>
 												@endforeach
@@ -80,6 +81,7 @@
 								<caption>Árboles registrados</caption>
 									<thead>
 										<tr id="tablehead" >
+                                            <th></th>
 											<th>Especie</th>
 											<th>Lote</th>
 											<th>Coord N</th>
@@ -101,6 +103,7 @@
 											data-fila="{{ $arbol->FAL_FILA }}"
 											data-columna="{{ $arbol->FAL_COLUMNA }}"
 										>
+                                            <td class="fila"><input type="checkbox" name="fal-arboles-eliminados[]" value="{{ $arbol->FAL_ID }}"></td>
 											<td class="fila">{{ $arbol->FA_NOMBRES_COMUNES }}</td>
 											<td class="fila overflow-hidden">{{ $arbol->FL_NOMBRE }}</td>
 											<td class="fila">{{ $arbol->FAL_COORDENADA_N }}</td>
@@ -108,11 +111,7 @@
 											<td class="fila">{{ $arbol->FAL_FILA }}</td>
 											<td class="fila">{{ $arbol->FAL_COLUMNA }}</td>
 											<td class="fila">
-												<div class="action">
-													<label class="edit" onclick="editarArbolLote( 'arbol_lote_{{ $arbol->FAL_ID }}' )"><i class="far fa-edit"></i></label>
-													<input type="checkbox" name="fal-arboles-eliminados[]" value="{{ $arbol->FAL_ID }}">
-												</div>
-												
+												<label class="edit" onclick="editarArbolLote( 'arbol_lote_{{ $arbol->FAL_ID }}' )"><i class="far fa-edit"></i></label>
 											</td>
 										</tr>
 									@endforeach  

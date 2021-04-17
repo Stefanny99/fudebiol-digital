@@ -24,7 +24,9 @@
                         <div id="contenedor_mensajes">
                             @foreach ( $mensajes as $mensaje )
                             <div class="mesage">
+                                @if ( $mensaje->FM_ESTADO == 1 )
                                 <div id="unread"></div>
+                                @endif
                                 <div class="mesage_mail">
                                     <label><b>De:</b></label>
                                     <label>{{ $mensaje->FM_CORREO }}</label>
@@ -33,9 +35,7 @@
                                     <label><b>Teléfono:</b></label>
                                     <label>{{ $mensaje->FM_TELEFONO }}</label>
                                 </div>
-                                <div class="mesage_content">
-                                    {{ $mensaje->FM_TEXTO }}
-                                </div>
+                                <pre class="mesage_content" style="text-align: justify; text-justify: inter-word; white-space: pre-line; word-break: break-word;">{{ $mensaje->FM_TEXTO }}</pre>
                                 @if ( $mensaje ->FM_ESTADO === 1)
                                 <label for="leido">Leído</label>
                                 <input name="ids[]"  id="leido" type="checkbox" value="{{ $mensaje->FM_ID }}"> 

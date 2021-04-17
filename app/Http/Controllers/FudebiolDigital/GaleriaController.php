@@ -44,12 +44,7 @@
             }else{
                 $model = new GaleriaModel();
                 $result = $model->agregarImagenes( $request );
-                if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-                    return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) )->withInput( $request->input() );
-                }
-                return redirect()->back()->with( "mensajes", array(
-                    "Imágenes guardadas con éxito"
-                ) );
+                return redirect()->back()->with( "mensajes", $result[ "errores" ] );
             }
         }
 

@@ -1,12 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        @keyframes anim-cargando{
+            from {
+                transform: rotate( 0deg );
+            }
+            to {
+                transform: rotate( 360deg );
+            }
+        }
+    </style>
     <script>
         var routes = {
             "aceptarAdopcion": "{{ route( 'aceptarAdopcion' ) }}",
             "rechazarAdopcion": "{{ route( 'rechazarAdopcion' ) }}"
         };
     </script>
+    <div id="panel-cargando" style="display: none; position: fixed; width: 100vw; height: 100vh; top: 0px; left: 0px; background-color: rgba( 0, 0, 0, 0.5 ); z-index: 5; justify-content: center; align-items: center;">
+        <i class="fas fa-spinner" style="font-size: 5rem; color: white; animation: anim-cargando 1s linear infinite;"></i>
+    </div>
     <div id="body_home"> 
         <div id="contenido">
             <div id="fondoMensajes" >

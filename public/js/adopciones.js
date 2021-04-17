@@ -30,7 +30,7 @@ function adopciones_cargarLote( lote ){
 }
 
 function visualizarArbol( lote, arbol ){
-    document.getElementById( "arbolInfo" ).src = arbol.getAttribute( "data-formato" ) != "" ? imagenes_arboles + "/" + arbol.getAttribute( "data-arbol-id" ) + "." + arbol.getAttribute( "data-formato" ) : sinfoto;
+    document.getElementById( "arbolInfo" ).src = arbol.getAttribute( "data-formato" ) != "" && arbol.getAttribute( "data-formato" ) != "null" ? imagenes_arboles + "/" + arbol.getAttribute( "data-arbol-id" ) + "." + arbol.getAttribute( "data-formato" ) : sinfoto;
     document.getElementById( "fal_id" ).value = arbol.getAttribute( "data-id" );
     document.getElementById( "lote_arbol" ).innerHTML = lotes[ lote ].FL_NOMBRE;
     document.getElementById( "nombre_arbol" ).innerHTML = arbol.getAttribute( "data-nombre-cientifico" );
