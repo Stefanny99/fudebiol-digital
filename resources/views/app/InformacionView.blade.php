@@ -7,7 +7,7 @@
          <div id="fondoInfo">
           <div id="tituloInfo" class="container-fluid">
             <img src="/img/png.png">
-            <label>Atracciones</label>
+            <label>ATRACCIONES</label>
           </div>
          </div>
         <div class="home">

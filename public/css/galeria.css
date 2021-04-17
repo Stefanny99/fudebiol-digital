@@ -538,12 +538,7 @@
 @media (min-width: 1001px) {
     #eg_base_fondo {
         background: rgb(0, 0, 0);
-        background: radial-gradient(
-            circle,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 167, 67, 1) 50%,
-            rgba(0, 0, 0, 1) 100%
-        );
+        background-image: url('/img/P1.png');
         flex: 1;
         padding: 20px;
         display: flex;
@@ -702,12 +697,7 @@
 @media all and (max-width: 1000px) and (orientation: portrait) {
     #eg_base_fondo {
         background: rgb(0, 0, 0);
-        background: radial-gradient(
-            circle,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 167, 67, 1) 50%,
-            rgba(0, 0, 0, 1) 100%
-        );
+        background-image: url('/img/P1.png');
         flex: 1;
         padding: 20px;
         display: flex;
@@ -868,12 +858,7 @@
 @media all and (max-width: 700px) and (orientation: portrait) {
     #eg_base_fondo {
         background: rgb(0, 0, 0);
-        background: radial-gradient(
-            circle,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 167, 67, 1) 50%,
-            rgba(0, 0, 0, 1) 100%
-        );
+        background-image: url('/img/P1.png');
         flex: 1;
         padding: 20px;
         display: flex;
@@ -1034,12 +1019,7 @@
 @media all and (max-width: 1000px) and (orientation: landscape) {
     #eg_base_fondo {
         background: rgb(0, 0, 0);
-        background: radial-gradient(
-            circle,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 167, 67, 1) 50%,
-            rgba(0, 0, 0, 1) 100%
-        );
+        background-image: url('/img/P1.png');
         flex: 1;
         padding: 20px;
         display: flex;

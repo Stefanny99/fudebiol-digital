@@ -6,7 +6,7 @@
             <div id="fondoAboutUs" >
                 <div class="tituloAU">
                     <img  src="img/logo.jpg">
-                    <label >¿Quiénes somos?</label>
+                    <label >¿QUIÉNES SOMOS?</label>
                     </div>
                 </div>
             </div>

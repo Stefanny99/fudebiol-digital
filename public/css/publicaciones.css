@@ -15,7 +15,6 @@
 @media(min-width:1001px){
 .publicacion-base{
     background-color: white;
-    padding:4%;
     margin:auto;
     border-radius: 40px;
     width:100%;
@@ -41,6 +40,9 @@
 .publicacion-encabezado{
     display:flex;
     flex-direction:row;
+    padding:2%;
+    background-color: rgb(3 156 0 / 45%);
+    border-radius: 35px 35px 0px 0px;
 
 }
 .publicacion-logo{
@@ -72,9 +74,12 @@
 #publicacion-descripcion{
     margin-top: 4%;
     text-align: justify;
+    padding:0% 4% 0% 4%;
+    font-size:15px;
 
 }
 .publicacion-imagenes{
+    padding:4%;
     margin-top:5%;
     display: flex;
     flex-direction: row;
@@ -86,7 +91,7 @@
 
 
 .publicacion-fondo{
-    background-image: url('/img/lbg.jpg');
+    background-image: url('/img/P1.png');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh !important;
@@ -99,19 +104,19 @@
     flex-direction: column;
 }
 .crear-publicacion{
-    background-color:rgba(0,0,0,0.6);
+    background-color:rgba(0,0,0,0.3);
     border-radius:20px;
     border: 1px solid white;
    cursor:pointer;
     color:white;
     margin:auto;
-    width:25vw;
+    min-width:20vw;
     padding:2%;
     margin-bottom: 1%;
     text-decoration: none;
 }
 .crear-publicacion:hover{
-    background-color: rgba(0, 128, 0, 0.644);
+    background-color:rgba(0,10,20,0.6);
     color: white;
 }
 }
@@ -134,8 +139,9 @@
 .publicacion-encabezado{
     display:flex;
     flex-direction:row;
-    margin-top: 20px;
     align-items: center;
+    padding:2%;
+    background-color: rgb(3 156 0 / 45%);
 
 }
 .publicacion-logo{
@@ -180,7 +186,7 @@
 
 
 .publicacion-fondo{
-    background-image: url('/img/lbg.jpg');
+    background-image: url('/img/P1.png');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh !important;
@@ -193,19 +199,19 @@
     flex-direction: column;
 }
 .crear-publicacion{
-    background-color:rgba(0,0,0,0.6);
+    background-color:rgba(0,0,0,0.3);
     border-radius:20px;
     border: 1px solid white;
    cursor:pointer;
     color:white;
     margin:auto;
-    min-width:25vw;
+    min-width:20vw;
     padding:2%;
     margin-bottom: 1%;
     text-decoration: none;
 }
 .crear-publicacion:hover{
-    background-color: rgba(0, 128, 0, 0.644);
+    background-color:rgba(0,10,20,0.6);
     color: white;
 }
 }
@@ -228,8 +234,9 @@
     .publicacion-encabezado{
         display:flex;
         flex-direction:row;
-        margin-top: 20px;
         align-items: center;
+        padding:2%;
+        background-color: rgb(3 156 0 / 45%);
     
     }
     .publicacion-logo{
@@ -274,7 +281,7 @@
     
     
     .publicacion-fondo{
-        background-image: url('/img/lbg.jpg');
+        background-image: url('/img/P1.png');
         background-repeat: no-repeat;
         background-size: cover;
         min-height: 100vh !important;
@@ -287,7 +294,7 @@
         flex-direction: column;
     }
     .crear-publicacion{
-        background-color:rgba(0,0,0,0.6);
+        background-color:rgba(0,0,0,0.3);
         border-radius:20px;
         border: 1px solid white;
        cursor:pointer;
@@ -299,7 +306,7 @@
         text-decoration: none;
     }
     .crear-publicacion:hover{
-        background-color: rgba(0, 128, 0, 0.644);
+        background-color:rgba(0,10,20,0.6);
         color: white;
     }
     }

@@ -7,7 +7,7 @@
             <div id="fondoGaleria" >
                 <div class="titulo tituloGaleria">
                     <img id="logoMAPLV" src="{{ asset('/img/logo.jpg')}}">
-                    <label >Galería</label>
+                    <label >GALERÍA</label>
                     <label  id="subText">¡Explora FUDEBIOL!</label>
                     </div>
                 </div>
