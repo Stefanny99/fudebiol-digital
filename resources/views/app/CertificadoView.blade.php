@@ -16,11 +16,12 @@
         @endif
     </head>
     <body onload="{{ $adopcion ? 'cargarCertificado()' : '' }}">
-        @if ( Session::has( "error" ) )
-        <script>alertify.notify( "{{ Session::get( "error" ) }}", "error" )</script>
+        @if ( $error )
+        <script>alertify.alert( "Error", "{{ $error }}" )</script>
         @endif
         @if ( $adopcion )
         <canvas id="canvas_certificado" width="1547" height="1155"></canvas>
+        <a id="descargar_certificado" download="Certificado_Mi_Árbol_Para_La_Vida_{{ $adopcion->FPA_ID }}.png" style="display: none;"></a>
         @endif
     </body>
 </html>

@@ -160,12 +160,23 @@ class PadrinosModel extends Model {
         try{
             $data[ "resultado" ] = DB::table( "fudebiol_padrinos_arboles AS pa" )
             ->join( "fudebiol_padrinos AS p", "p.fp_id", "=", "pa.fpa_padrino_id" )
-            ->join( "fudebiol_arboles_lote AS al", "al.fal_id", "=", "pa.fap_arbol_lote_id" )
+            ->join( "fudebiol_arboles_lote AS al", "al.fal_id", "=", "pa.fpa_arbol_lote_id" )
             ->join( "fudebiol_arboles AS a", "a.fa_id", "=", "al.fal_arbol_id" )
-            ->select( "p." )
+            ->join( "fudebiol_lotes AS l", "l.fl_id", "=", "al.fal_lote_id" )
+            ->where( "pa.fpa_id", "=", $fpa_id )
+            ->select( "pa.fpa_id AS FPA_ID", "p.fp_nombre_completo AS FP_NOMBRE_COMPLETO", "l.fl_nombre AS FL_NOMBRE", "al.fal_coordenada_n AS FAL_COORDENADA_N", "al.fal_coordenada_w AS FAL_COORDENADA_W", "pa.fpa_estado AS FPA_ESTADO", "a.fa_nombre_cientifico AS FA_NOMBRE_CIENTIFICO", "a.fa_nombres_comunes AS FA_NOMBRES_COMUNES" )
             ->first();
+            if ( $data[ "resultado" ] ){
+                if ( $data[ "resultado" ]->FPA_ESTADO != "A" ){
+                    $data[ "codigo" ] = Util::$codigos[ "EN_ESPERA" ];
+                    $data[ "razon" ] = "su adopción no se ha aprobado aún";    
+                }
+            }else{
+                $data[ "codigo" ] = Util::$codigos[ "NO_ENCONTRADO" ];
+                $data[ "razon" ] = "no se encontraron datos de adopción";
+            }
         }catch ( Exception $e ){
-            $data[ "codigo" ] = Util::$codigos[ "NO_ENCONTRADO" ];
+            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             $data[ "razon" ] = "ocurrió un problema al recuperar los datos de la adopción";
             Log::error( $e->getMessage(), $data );
         }

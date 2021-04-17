@@ -31,6 +31,10 @@
                 "codigo" => 7,
                 "descripcion" => "Error al enviar email"
             ),
+            "EN_ESPERA" => array(
+                "codigo" => 8,
+                "descripcion" => "Aún no se ha completado la operación"
+            ),
             "ERROR_DE_SERVIDOR" => array(
                 "codigo" => 500,
                 "descripcion" => "Error en el servidor"
