@@ -124,6 +124,7 @@
 	}
 
 	#agregarUsuario{
+        transform: translateX( 0px );
 		margin-top: 20pX;
 		margin-bottom:20px;
 		position: relative;
@@ -186,7 +187,7 @@
 		
 	}
 	#check:checked ~ #agregarUsuario {
-		left: -240px;
+		transform: translateX( calc( -100% + 45px ) );
 	}
 	#check:checked ~ #agregarUsuario a span{
 		display: none;
