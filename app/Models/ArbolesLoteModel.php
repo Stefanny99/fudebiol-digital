@@ -235,14 +235,29 @@ class ArbolesLoteModel extends Model {
             "accion" => "ArbolesLoteModel:crearArbolLote"
         );
         try {
-            DB::table('fudebiol_arboles_lote')->insert([
-                'fal_arbol_id' => $request->input('fal_arbol_id'),
-                'fal_lote_id' => $request->input('fal_lote_id'),
-                'fal_coordenada_W' => $request->input('fal_coordenada_W'),
-                'fal_coordenada_N' => $request->input('fal_coordenada_N'),
-                'fal_fila' => $request->input('fal_fila'),
-                'fal_columna' => $request->input('fal_columna')
-            ]);
+            $lote = DB::table('fudebiol_lotes')->where('fl_id', $request->input('fal_lote_id'))->first();
+            if ($request->input('fal_fila') < 0 ||  $request->input('fal_columna') < 0 || $request->input('fal_fila') > ($lote->FL_FILAS - 1) || $request->input('fal_columna') > ($lote->FL_COLUMNAS - 1)){
+                $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+                $data['razon'] = "No se puede insertar en la fila y columna indicadas porque exeden los límites del lote";
+            } else {
+                $espacio_ocupado = DB::table('fudebiol_arboles_lote')
+                                ->where('fal_fila', $request->input('fal_fila'))
+                                ->where('fal_columna', $request->input('fal_columna'))
+                                ->where('fal_lote_id', $request->input('fal_lote_id'))->first();
+                if ( $espacio_ocupado ) {
+                    $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
+                    $data['razon'] = "No se puede insertar en la fila y columna indicadas porque ya están ocupadas";
+                } else {
+                    DB::table('fudebiol_arboles_lote')->insert([
+                        'fal_arbol_id' => $request->input('fal_arbol_id'),
+                        'fal_lote_id' => $request->input('fal_lote_id'),
+                        'fal_coordenada_W' => $request->input('fal_coordenada_W'),
+                        'fal_coordenada_N' => $request->input('fal_coordenada_N'),
+                        'fal_fila' => $request->input('fal_fila'),
+                        'fal_columna' => $request->input('fal_columna')
+                    ]);
+                }
+            }    
         } catch (Exception $e) {
             $data['codigo'] = Util::$codigos[ "ERROR_DE_INSERCION" ];
             Log::error( $e->getMessage(), $data );
