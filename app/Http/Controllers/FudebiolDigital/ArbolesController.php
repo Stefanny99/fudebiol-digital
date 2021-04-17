@@ -98,6 +98,7 @@ class ArbolesController extends Controller{
         }
         return view( 'app/ReporteEspeciesView', array(
             "arbol" => $result[ "resultado" ],
+            "nombre" => $result[ "nombre_arbol"]
         ) );
     }
 }

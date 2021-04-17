@@ -68,24 +68,24 @@ class PadrinosModel extends Model {
             "accion" => "PadrinosModel:eliminarPadrinos"
         );
         try{
-            foreach ($request->input('ids') as $idpadrino) {
+            foreach ($request->input('padrinos_eliminar') as $idpadrino => $nombre_padrino) {
                 $padrino = DB::table('fudebiol_padrinos as fp')
-                            ->select('fp.FP_NOMBRE_COMPLETO', 'fp.FP_ID', 'fpa.FPA_PADRINO_ID')
                             ->join('fudebiol_padrinos_arboles as fpa', 'fp.FP_ID', '=', 'fpa.FPA_PADRINO_ID')
+                            ->select('fp.FP_NOMBRE_COMPLETO', 'fp.FP_ID', 'fpa.FPA_PADRINO_ID')
                             ->where('fp.FP_ID', $idpadrino)->first();
-                if ($padrino->FPA_PADRINO_ID && $padrino->FPA_PADRINO_ID > 0) {
+                if ($padrino) {
                     array_push( $data[ 'errores'] , 'No se puede eliminar el padrino ' . $padrino->FP_NOMBRE_COMPLETO . ' porque tiene adopciones' );
                 } else {
                     try {
                         DB::table('fudebiol_padrinos')->where('fp_id', $idpadrino)->delete();
                     } catch (Exception $e){
-                        array_push( $data[ 'errores' ], "Ocurrió un error eliminando padrino");
+                        array_push( $data[ 'errores' ], "Ocurrió un error eliminando padrino" . $nombre_padrino);
                         Log::error( $e->getMessage(), $data );
                     }
                 }
             } 
         }catch(Exception $e){
-            array_push( $data[ 'errores' ], "Ocurrió un error eliminando" );
+            array_push( $data[ 'errores' ], "Ocurrió un error en el servidor eliminando padrinos" );
             Log::error( $e->getMessage(), $data );
         }
         return $data;

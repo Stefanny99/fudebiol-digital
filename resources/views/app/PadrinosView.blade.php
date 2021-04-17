@@ -39,7 +39,7 @@
               <tbody>
                 @foreach ( $padrinos as $padrino )
                 <tr class="fila" id="padrino_{{ $padrino->FP_ID }}">
-                <td class="fila"><input name="ids[]" type="checkbox" value="{{ $padrino->FP_ID }}"></td>
+                  <td class="fila"><input name="padrinos_eliminar[{{ $padrino->FP_ID }}]" type="checkbox" value="{{ $padrino->FP_NOMBRE_COMPLETO }}"></td>
                   <td class="fila nombrePadrino">{{ $padrino->FP_NOMBRE_COMPLETO }}</td>
                   <td class="fila">{{ $padrino->FP_CEDULA }}</td>
                   <td class="fila">{{ $padrino->FP_TIPO === 'P' ? 'Persona' : ( $padrino->FP_TIPO === 'O' ? 'Otro' : 'Empresa' ) }}</td>

@@ -72,11 +72,9 @@ class LotesController extends Controller{
     public function eliminarLotes( Request $data ){
         $model = new LotesModel();
         $result = $model->eliminarLotes( $data );
-        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-            return redirect()->back()->with( "errores", array(
-                $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
-            ) );
-        }else{
+        if ( count( $result[ "errores" ] ) > 0 ) {
+            return redirect()->back()->with( "errores", $result[ "errores" ] );
+        } else{
             return redirect()->back()->with( "mensajes", array(
                 "Lotes eliminados exitosamente"
             ) );
