@@ -145,7 +145,24 @@ class PadrinosController extends Controller{
         }
         return view( 'app/ReportePadrinoEspecificoView', array(
             "padrino" => $result[ "padrino" ],
-            "adopciones" => $result[ "adopciones" ],
+            "adopciones" => $result[ "adopciones" ]
+        ));
+    }
+    
+    public function generarCertificado( $fpa_id ){
+        $model = new PadrinosModel();
+        $result = $model->obtenerAdopcion( $fpa_id );
+
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            return view( "app/CertificadoView", array(
+                "adopcion" => null,
+                "error" => $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
+            ) );
+        }
+        
+        return view( "app/CertificadoView", array(
+            "adopcion" => $result[ "resultado" ],
+            "error" => null
         ) );
     }
 }

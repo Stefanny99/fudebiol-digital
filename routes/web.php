@@ -86,3 +86,4 @@ Route::get('/adoptarArbol', [App\Http\Controllers\FudebiolDigital\ArbolesLoteCon
 Route::get( '/actualizarToken/{token}', [ App\Http\Controllers\FudebiolDigital\ArbolesLoteController::class, 'actualizarToken' ] )->name( "actualizarToken" );
 Route::post('/finalizarAdopcion', [App\Http\Controllers\FudebiolDigital\ArbolesLoteController::class, 'finalizarAdopcion'])->name('finalizarAdopcion');
 Route::post('/enviarMensaje', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\MensajesController@enviarMensaje'])->name('enviarMensaje');
+Route::get( '/generarCertificado/{fpa_id}', [ App\Http\Controllers\FudebiolDigital\PadrinosController::class, 'generarCertificado' ] )->name( 'generarCertificado' );
