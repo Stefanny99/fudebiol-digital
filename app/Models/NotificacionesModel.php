@@ -4,6 +4,7 @@ namespace App\Models;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use App\Helper\Util;
 Use Exception;
 
@@ -22,9 +23,10 @@ class NotificacionesModel extends Model {
                     ->join( "fudebiol_arboles AS fa", "fa.fa_id", "=", "fal.fal_arbol_id" )
                     ->join( "fudebiol_lotes AS fl", "fl.fl_id", "=", "fal.fal_lote_id" )
                     ->where( "fpa.fpa_estado", "=", "P" )
+                    ->orderBy( "fpa_id", "desc")
                     ->select(
                         "fpa.fpa_id", "fpa.fpa_fecha_adopcion", "fpa.fpa_comprobante_formato", "fp.fp_cedula", "fp.fp_nombre_completo",
-                        "fp.fp_correo", "fl.fl_nombre", "fa.fa_nombres_comunes", "fal.fal_coordenada_W", "fal.fal_coordenada_N",
+                        "fp.fp_correo", "fl.fl_nombre", "fa.fa_nombres_comunes", "fal.fal_fila", "fal.fal_columna",
                     )
                     ->get();
         }catch(Exception $e){
@@ -41,30 +43,45 @@ class NotificacionesModel extends Model {
             "accion" => "NotificacionesModel:aceptarAdopcion"
         );
         try{
-            
+            DB::beginTransaction();
             $resultado = DB::table('fudebiol_padrinos_arboles')->where( 'fpa_id', $request->input('fpa_id'))
                         ->update([
                             'fpa_estado' => 'A',
                         ]);
             try {
                 $details = [
-                    'nombre' => 'Stefanny Barrantes',
-                    'especie' => 'Espavel',
-                    'lote' => 'L1',
+                    'nombre' => $request->input('padrino'),
+                    'especie' => $request->input('especie'),
+                    'lote' => $request->input('lote'),
+                    'fila' => $request->input('fila'),
+                    'columna' => $request->input('columna'),
                     'estado' => '1',
                     'certificado' => 'http://fudebiol.com/images/logo_06.png'
                 ];
-                \Mail::to('barrantesdenia@gmail.com')->send(new \App\Mail\FudebiolMail($details));
+                \Mail::to($request->input('email'))->send(new \App\Mail\FudebiolMail($details));
+                try {
+                    Storage::delete( "public/comprobantes/" . $request->input('fpa_id') . "." . $request->input('fpa_comprobante_formato') );
+                    DB::commit();
+                } catch (Exception $e){
+                    $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO_ARCHIVO" ];
+                    $data['razon'] = "Ocurrió un error al eliminar comprobante de adopción";
+                    Log::error( $e->getMessage(), $data );
+                    DB::rollBack();
+                }
             } catch (Exception $e) {
+                $data['codigo'] = Util::$codigos[ "ERROR_ENVIANDO_EMAIL" ];
+                $data['razon'] = "Ocurrió un error al enviar comprobante de adopción";
                 Log::error( $e->getMessage(), $data );
+                DB::rollBack();
             }
-            // Storage::delete( "public/comprobantes/" . $request->input('fpa_id') . "." . $request->input('fpa_comprobante_formato') );
             if ($resultado <= 0) {
                 $data[ 'codigo' ] =  Util::$codigos[ "NO_ENCONTRADO" ];
             }
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_DE_ACTUALIZACION" ];
+            $data['razon'] = "Ocurrió un error al aceptar la adopción";
             Log::error( $e->getMessage(), $data );
+            DB::rollBack();
         }
         return $data;
     }
@@ -76,26 +93,41 @@ class NotificacionesModel extends Model {
             "accion" => "NotificacionesModel:rechazarAdopcion"
         );
         try{
+            DB::beginTransaction();
             $resultado = DB::table('fudebiol_padrinos_arboles')->where('fpa_id', $request->input('fpa_id'))->delete();
             try {
                 $details = [
-                    'nombre' => 'Stefanny Barrantes',
-                    'especie' => 'Espavel',
-                    'lote' => 'L1',
-                    'estado' => '0',
-                    'certificado' => 'http://fudebiol.com/images/logo_06.png'
+                    'nombre' => $request->input('padrino'),
+                    'especie' => $request->input('especie'),
+                    'lote' => $request->input('lote'),
+                    'fila' => $request->input('fila'),
+                    'columna' => $request->input('columna'),
+                    'estado' => '0'
                 ];
-                \Mail::to('barrantesdenia@gmail.com')->send(new \App\Mail\FudebiolMail($details));
+                \Mail::to($request->input('email'))->send(new \App\Mail\FudebiolMail($details));
+                try {
+                    Storage::delete( "public/comprobantes/" . $request->input('fpa_id') . "." . $request->input('fpa_comprobante_formato') );
+                    DB::commit();
+                } catch (Exception $e){
+                    $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO_ARCHIVO" ];
+                    $data['razon'] = "Ocurrió un error al eliminar comprobante de adopción";
+                    Log::error( $e->getMessage(), $data );
+                    DB::rollBack();
+                }
             } catch (Exception $e) {
+                $data['codigo'] = Util::$codigos[ "ERROR_ENVIANDO_EMAIL" ];
+                $data['razon'] = "Ocurrió un error al enviar correo de rechazo de adopción";
                 Log::error( $e->getMessage(), $data );
+                DB::rollBack();
             }
-            // Storage::delete( "public/comprobantes/" . $request->input('fpa_id') . "." . $request->input('fpa_comprobante_formato') );
             if ($resultado <= 0) {
                 $data[ 'codigo' ] =  Util::$codigos[ "NO_ENCONTRADO" ];
             }
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
+            $data['razon'] = "Ocurrió un error al rechazar la adopción";
             Log::error( $e->getMessage(), $data );
+            DB::rollBack();
         }
         return $data;
     }

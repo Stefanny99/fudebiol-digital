@@ -10,7 +10,7 @@
 
     <p>Hola, {{ $details['nombre'] }}, Centro Biológico las Quebradas le saluda.</p>
 
-    <p>Hemos recibido una solicitud de adopción para el árbol: {{ $details['especie'] }}, del lote: {{ $details['lote']}}.</p>
+    <p>Hemos recibido una solicitud de adopción para el árbol: {{ $details['especie'] }}, del lote: {{ $details['lote']}}, en la fila: {{ $details['fila']}} y columna: {{ $details['columna']}}.</p>
     @if( $details['estado'] === '0' )
       <p>Tras revisar los detalles de esta adopción, hemos detectado que el comprobante de pago no es verídico, por lo tanto esta solicitud ha sido rechazada.</p>
       <p>Agradecemos que quieras apoyar esta fundación, cualquier consulta no dudes en contactarnos.</p>

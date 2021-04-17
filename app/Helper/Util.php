@@ -27,7 +27,10 @@
                "codigo" => 6,
                "descripcion" => "Error al eliminar archivos"
             ),
-
+            "ERROR_ENVIANDO_EMAIL" => array(
+                "codigo" => 7,
+                "descripcion" => "Error al enviar email"
+            ),
             "ERROR_DE_SERVIDOR" => array(
                 "codigo" => 500,
                 "descripcion" => "Error en el servidor"
