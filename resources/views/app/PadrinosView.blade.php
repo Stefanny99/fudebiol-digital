@@ -51,6 +51,9 @@
               </tbody>
             </table>
             <div id="botonesEdicionArbolesRP">
+                <a href="{{ route('reporteArboles') }}" class="global_report_padrino global_report"> 
+                  <i class="fas fa-chart-pie"></i>
+                </a>
                 <div id="paginacion">
                   <a class="btn_pagRP" href=" {{ route('registrarPadrino' )}}"> <i class="fas fa-backward"></i> </a>
                   <a class="btn_pagRP" href="{{ route('registrarPadrino')}}" > <i class="fas fa-forward"></i> </a>
