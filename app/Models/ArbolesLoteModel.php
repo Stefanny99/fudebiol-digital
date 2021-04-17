@@ -211,7 +211,7 @@ class ArbolesLoteModel extends Model {
             foreach ($request->input('arboles-eliminados') as $arbolLoteId){
                 $adoptado = DB::table('fudebiol_padrinos_arboles')->where('fpa_arbol_lote_id', $arbolLoteId )->first();
                 if( $adoptado ) {
-                    array_push( $data[ 'errores' ], "No se pudo eliminar el árbol debido a que se encuentra adoptado" );
+                    array_push( $data[ 'errores' ], "No se pudo eliminar el árbol porque se encuentra adoptado" );
                 }else {
                     try {
                         DB::table('fudebiol_arboles_lote')->where('fal_id', $arbolLoteId)->delete();
