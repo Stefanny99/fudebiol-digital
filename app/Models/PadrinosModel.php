@@ -135,4 +135,25 @@ class PadrinosModel extends Model {
         }
         return $data;
     }
+
+    public function obtenerAdopcion( $fpa_id ){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "PadrinosModel:obtenerAdopcion"
+        );
+        try{
+            $data[ "resultado" ] = DB::table( "fudebiol_padrinos_arboles AS pa" )
+            ->join( "fudebiol_padrinos AS p", "p.fp_id", "=", "pa.fpa_padrino_id" )
+            ->join( "fudebiol_arboles_lote AS al", "al.fal_id", "=", "pa.fap_arbol_lote_id" )
+            ->join( "fudebiol_arboles AS a", "a.fa_id", "=", "al.fal_arbol_id" )
+            ->select( "p." )
+            ->first();
+        }catch ( Exception $e ){
+            $data[ "codigo" ] = Util::$codigos[ "NO_ENCONTRADO" ];
+            $data[ "razon" ] = "ocurrió un problema al recuperar los datos de la adopción";
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
 }

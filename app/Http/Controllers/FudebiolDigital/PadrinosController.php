@@ -133,4 +133,20 @@ class PadrinosController extends Controller{
         }
         return response()->json( $response );
     }
+
+    public function generarCertificado( $fpa_id ){
+        $model = new PadrinosModel();
+        $result = $model->obtenerAdopcion( $fpa_id );
+
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            Session::flash( "error", $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] );
+            return view( "app/CertificadoView", array(
+                "adopcion" => null
+            ) );
+        }
+        
+        return view( "app/CertificadoView", array(
+            "adopcion" => $result[ "resultado" ]
+        ) );
+    }
 }

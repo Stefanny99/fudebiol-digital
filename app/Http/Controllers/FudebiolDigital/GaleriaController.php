@@ -14,7 +14,7 @@
             $model = new GaleriaModel();
             $result = $model->obtenerImagenes();
             if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-                return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) )->withInput( $request->input() );
+                return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) );
             }
             return view( 'app\GaleriaView', array(
                 "imagenes" => $result[ "resultado" ]
