@@ -1,3 +1,10 @@
+.tituloMAPLV *{
+    -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeInUp 1s; /* Firefox < 16 */
+    -ms-animation: fadeInUp 1s; /* Internet Explorer */
+    -o-animation: fadeInUp 1s; /* Opera < 12.1 */
+    animation: fadeInUp 1s;
+}
 @media (min-width: 1001px) {
     #fondoMAPLV {
         background-size: cover;
@@ -27,6 +34,7 @@
             rgba(87, 152, 0, 0.6418942577030813) 100%
         );
     }
+  
 
     #logoMAPLV {
         background-color: rgba(255, 255, 255, 0.1);
@@ -248,6 +256,7 @@
         display: flex;
         align-items: center !important;
         justify-content: center !important;
+        height: 100vh;
     }
     .tituloMAPLV label {
         font-size: 30px;

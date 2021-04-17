@@ -17,6 +17,13 @@
             rgba(0, 83, 1, 0.7539390756302521) 100%
         );
     }
+    .tituloGaleria *{
+        -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadeInUp 1s; /* Firefox < 16 */
+        -ms-animation: fadeInUp 1s; /* Internet Explorer */
+        -o-animation: fadeInUp 1s; /* Opera < 12.1 */
+        animation: fadeInUp 1s;
+    }
     .tituloGaleria > #logoMAPLV {
         position: relative;
         left: 40px;
@@ -201,7 +208,13 @@
         width: 50vw;
         height: 50vw;
     }
-
+    .tituloGaleria *{
+        -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadeInUp 1s; /* Firefox < 16 */
+        -ms-animation: fadeInUp 1s; /* Internet Explorer */
+        -o-animation: fadeInUp 1s; /* Opera < 12.1 */
+        animation: fadeInUp 1s;
+    }
     .tituloGaleria label {
         font-size: 50px;
         animation: fadeIn 1s;
@@ -366,6 +379,13 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+    .tituloGaleria *{
+        -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadeInUp 1s; /* Firefox < 16 */
+        -ms-animation: fadeInUp 1s; /* Internet Explorer */
+        -o-animation: fadeInUp 1s; /* Opera < 12.1 */
+        animation: fadeInUp 1s;
     }
     .tituloGaleria > #logoMAPLV {
         width: 30vw;

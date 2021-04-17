@@ -49,9 +49,10 @@
 								<label class="texto" for="columna">Columna:</label>
 								<input type="text" id="columna" required name="fal_columna">
 
-								<button class="btn_registrarRAI">Guardar</button>
-                                <button class="btn_registrarRAI" onclick="limpiarArbolLote()">Limpiar</button>
-
+								<div id="botonRL">
+									<button class="btn_guardar">Guardar</button>
+									<button class="btn_limpiar btn_limpiar3" onclick="limpiarArbolLote()">Limpiar</button>
+								</div>
 							</form>  
 
 							<div id="tabla" class="hvr-forward container-fluid">
@@ -120,7 +121,7 @@
 								</div>
 								<div id="botonesEdicionArbolesRAI">
 										<button class="btn_arbolesRAI" type="submit"><i class="far fa-trash-alt"></i></button>
-										<form id="paginacion" >
+										<div id="paginacion" >
 											<a class="btn_pagRAI"  href="{{ route('registroArbol', max( 1, $pagina - 1 ) ) }}?lote_id={{ $lote_id }}?fila={{ $fila }}?columna={{ $columna }}">
 												<i class="fas fa-backward"></i>
 											</a>
@@ -128,7 +129,7 @@
 											<a class="btn_pagRAI" href="{{ route('registroArbol', min( $pagina + 1, $cantidadPaginas ) ) }}?lote_id={{ $lote_id }}?fila={{ $fila }}?columna={{ $columna }}">
 												<i class="fas fa-forward"></i>
 											</a>
-										</form>
+									</div>
 								</div>
 							</form> 
 						</div>

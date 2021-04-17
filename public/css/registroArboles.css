@@ -1,3 +1,10 @@
+.titulo *{
+    -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeInUp 1s; /* Firefox < 16 */
+    -ms-animation: fadeInUp 1s; /* Internet Explorer */
+    -o-animation: fadeInUp 1s; /* Opera < 12.1 */
+    animation: fadeInUp 1s;
+}
 @media (min-width: 1001px) {
     .beforeTable {
         display: flex;
@@ -259,9 +266,6 @@
     #botonesEdicionArboles {
         display: flex;
         flex-direction: row;
-        position: relative;
-        bottom: 5px;
-        margin-left: 20px;
         box-shadow: 0px 6px 20px lightgray;
         background: white;
         letter-spacing: 60px;
@@ -1282,7 +1286,8 @@
     }
 
     .btn_registrar:hover,
-    .btn_arboles:hover {
+    .btn_arboles:hover,
+    .btn_arbolesRAI:hover {
         transition: 0.2s;
         transform: translateY(-3px);
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
@@ -1383,25 +1388,13 @@
     #botonesEdicionArbolesRAI {
         display: flex;
         flex-direction: row;
-        position: relative;
-        bottom: 5px;
-        margin-left: 20px;
         box-shadow: 0px 6px 20px lightgray;
         background: white;
-        letter-spacing: 60px;
         padding: 10px 0px 10px 0px;
-        z-index: 7;
         border-radius: 0px 0px 20px 20px;
     }
 
-    #paginacion {
-        margin-left: auto;
-        align-items: center;
-        justify-content: flex-end;
-        display: flex;
-        word-spacing: 20px;
-        flex-direction: row;
-    }
+   
     .action {
         padding-right: 1%;
         display: flex;
@@ -1435,6 +1428,8 @@
         font-weight: 900;
         outline-style: none;
         border-style: none !important;
+
+        
     }
 
     .btn_pagRAI {
@@ -1490,7 +1485,6 @@
         color: white;
         font-size: 5vw;
         text-shadow: 0px 0px 5px yellowgreen;
-        flex: 1;
         padding: 5%;
     }
     .tituloRAI {
@@ -1700,14 +1694,7 @@
         border-radius: 0px 0px 20px 20px;
         z-index: 7;
     }
-    #paginacion {
-        margin-left: auto;
-        align-items: center;
-        justify-content: flex-end;
-        display: flex;
-        word-spacing: 20px;
-        flex-direction: row;
-    }
+   
 
     .delete {
         color: red;
@@ -1990,14 +1977,7 @@
         width: 92vw;
         border-radius: 0px 0px 20px 20px;
     }
-    #paginacion {
-        margin-left: auto;
-        align-items: center;
-        justify-content: flex-end;
-        display: flex;
-        word-spacing: 20px;
-        flex-direction: row;
-    }
+   
 
     .delete {
         color: red;

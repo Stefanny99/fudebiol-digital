@@ -1,4 +1,5 @@
 @media(min-width:1001px){
+	
 	#fondo1{
 		display: flex;
 		background-image: url('/img/lbg.jpg');
@@ -93,6 +94,14 @@
 
 	.btn_limpiar{
 		background: rgb(50, 136, 207)!important;
+		margin-left: 5px;
+	}
+	.btn_limpiar2{
+		background: green!important;
+		margin-left: 5px;
+	}
+	.btn_limpiar3{
+		background: #6000a3 !important;
 		margin-left: 5px;
 	}
 	.botones{
@@ -592,6 +601,7 @@
 		background: rgb(50, 136, 207)!important;
 		margin-left: 5px;
 	}
+
 	.botones{
 		display:flex;
 		margin-top: 20px;

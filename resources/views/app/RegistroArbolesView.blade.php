@@ -45,8 +45,8 @@
                 <input type="text" id="elevacion_minima" required name="fa_elevacion_minima">
 
                 <div id="botonRL">
-                  <button type="submit" class="btn_registrar">Guardar</button>
-                  <button type="button" class="btn_registrar" onclick="limpiarArbol();">Limpiar</button>
+                  <button type="submit" class="btn_guardar">Guardar</button>
+                  <button type="button" class="btn_limpiar2 btn_limpiar" onclick="limpiarArbol();">Limpiar</button>
                 </div>
 
               </form>  
