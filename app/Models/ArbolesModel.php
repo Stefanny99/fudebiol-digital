@@ -211,6 +211,7 @@ class ArbolesModel extends Model {
             "razon" => "",
             "accion" => "ArbolesModel:reporteEspecifico",
             "resultado" => array(),
+            "nombre_arbol" => ""
         );
         try{
             $data [ "resultado" ] = DB::table( "fudebiol_arboles_lote AS fal" )
@@ -221,6 +222,9 @@ class ArbolesModel extends Model {
                                     ->where( "fa.FA_ID", $id_arbol )
                                     ->groupBy ( "fa.FA_NOMBRES_COMUNES" )
                                     ->first();
+            if ( !$data [ "resultado" ] ){
+                $data [ "nombre_arbol" ] = DB::table("fudebiol_arboles")->select("FA_NOMBRES_COMUNES")->where( "FA_ID", $id_arbol)->first();
+            }
         }catch(Exception $e){
             $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );

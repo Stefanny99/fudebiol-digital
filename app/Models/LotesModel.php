@@ -43,14 +43,26 @@ class LotesModel extends Model {
 
     public function eliminarLotes($request){
         $data = array(
-            "codigo" => Util::$codigos[ "EXITO" ],
-            "razon" => "",
-            "accion" => "eliminarLotes"
+            "errores" => array(),
+            "accion" => "eliminarLotes",
         );
         try{
-            DB::table('fudebiol_lotes')->whereIn('fl_id', $request->input('ids'))->delete();
+            foreach ($request->input('lotes_eliminar') as $idlote => $nombre_lote) {
+                $arbol = DB::table('fudebiol_arboles_lote')->where('fal_lote_id', $idlote)->first();
+                if ($arbol) {
+                    array_push( $data[ 'errores'] , 'No se puede eliminar el lote ' . $nombre_lote . ' porque contiene árboles' );
+                } else {
+                    try {
+                        DB::table('fudebiol_lotes')->where('fl_id', $idlote)->delete();
+                    } catch (Exception $e){
+                        array_push( $data[ 'errores' ], "Ocurrió un error eliminando el lote" . $nombre_lote);
+                        Log::error( $e->getMessage(), $data );
+                    }
+                }
+            }
         }catch(Exception $e){
-            $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
+            array_push( $data[ 'errores' ], "Ocurrió un error en el servidor eliminando lotes" );
+            Log::error( $e->getMessage(), $data );
         }
         return $data;
     }

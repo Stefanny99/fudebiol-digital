@@ -90,7 +90,7 @@ class ArbolesController extends Controller{
         ) );
     }
 
-    public function reporteEspecifico( Request $request){
+    public function reporteEspecifico( Request $request ){
         $model = new ArbolesModel();
         $result = $model->reporteEspecifico( $request->input( "fa_id" ) );
         if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
@@ -98,6 +98,7 @@ class ArbolesController extends Controller{
         }
         return view( 'app/ReporteEspeciesView', array(
             "arbol" => $result[ "resultado" ],
+            "nombre" => $result[ "nombre_arbol"]
         ) );
     }
 }

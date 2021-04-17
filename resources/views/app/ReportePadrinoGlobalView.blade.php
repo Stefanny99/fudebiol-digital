@@ -13,13 +13,15 @@
 				function grafico(){
 					var canv=document.getElementById('canvas');
 					var ctx=canv.getContext('2d');
+					var padrinos={!!json_encode($padrinos, JSON_HEX_TAG)!!}
+					var cantidad_adopciones={!!json_encode($cantidad_adopciones, JSON_HEX_TAG)!!}
 					var chart= new Chart( ctx, {
 							type: 'bar',
 							data: {
-								labels: ['Juan', 'pedro', 'jose'],
+								labels: padrinos,
 								datasets: [ {
 									label: 'Adopciones',
-									data: [4,2,3,0] ,
+									data: cantidad_adopciones ,
 									backgroundColor: "rgba( 0, 120, 18, 1 )"
 								} ]
 							},

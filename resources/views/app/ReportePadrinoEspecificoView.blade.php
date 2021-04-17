@@ -14,17 +14,17 @@
           <div class="column_container ml">
           <img class="user_pic_size2"src="{{asset('/img/users.png')}}">
             <label>Nombre</label>
-            <h5><b>Lizeth Monge Padilla</b></h5>
+            <h5><b>{{ $padrino->FP_NOMBRE_COMPLETO }}</b></h5>
             
           </div>
           <div class="column_container ml">
           <label>Adopciones</label>
-            <h5><b>5</b></h5>
+            <h5><b>{{ $padrino->cantidad_adopciones }}</b></h5>
            
         </div>  
         <div class="column_container ml">
         <label>Especies</label>
-            <h5><b>3</b></h5>
+            <h5><b>{{ count($adopciones) }}</b></h5>
            
         </div> 
       </div> 
@@ -34,17 +34,12 @@
           <div class="column_container  space-around">
           <div class="column_container ml">
           <img class="user_pic_size2"src="{{asset('/img/especie1.png')}}">
-            <h4><b>1</b></h4>
-            <label>Guayabo</label>
-          </div>
-          <div class="column_container ml">
-            <h4><b>2</b></h4>
-            <label>Pino</label>
-        </div>  
-        <div class="column_container ml">
-            <h4><b>2</b></h4>
-            <label>Ciprés</label>
-        </div> 
+          @foreach ( $adopciones as $adopcion)
+            <div class="column_container m1">
+              <h4><b>{{ $adopcion->cantidad_adopciones }}</b></h4>
+              <label>{{ $adopcion->FA_NOMBRES_COMUNES }}</label>
+            </div>
+          @endforeach
       </div> 
 				</div>
 			</div>

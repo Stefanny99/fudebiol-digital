@@ -171,10 +171,8 @@ class ArbolesLoteController extends Controller{
     public function eliminarArbolesLote ( Request $request ){
         $model = new ArbolesLoteModel();
         $result = $model->eliminarArbolesLote( $request );
-        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-            return redirect()->back()->with( "errores", array(
-                $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
-            ) );
+        if ( count( $result[ "errores" ] ) > 0 ) {
+            return redirect()->back()->with( "errores", $result[ "errores" ] );
         }else{
             return redirect()->back()->with( "mensajes", array(
                 "Árboles eliminados exitosamente"

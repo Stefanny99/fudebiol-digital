@@ -86,29 +86,20 @@ class PadrinosController extends Controller{
         }
     }
 
-    public function eliminarPadrino( Request $data ){
+    public function eliminarPadrinos( Request $data ){
         $model = new PadrinosModel();
-        $result = $model->eliminarPadrino( $data );
-        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
-            return redirect()->back()->with( "errores", array(
-                $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
-            ) );
+        $result = $model->eliminarPadrinos( $data );
+        if ( count( $result[ "errores" ] ) > 0 ) {
+            return redirect()->back()->with( "errores", $result[ "errores" ] );
         }else{
             return redirect()->back()->with( "mensajes", array(
-                "Padrino eliminado exitosamente"
+                "Padrinos eliminados exitosamente"
             ) );
         }
     }
 
     public function registrarPadrinos(){
         return view('app/RegistrarPadrinosView');
-    }
-
-    public function reporteGlobal(){
-        return view('app/ReportePadrinoGlobalView');
-    }
-    public function reporteEspecifico(){
-        return view('app/ReportePadrinoEspecificoView');
     }
 
     public function buscarPadrino( Request $request ){
@@ -132,5 +123,46 @@ class PadrinosController extends Controller{
             }
         }
         return response()->json( $response );
+    }
+
+    public function reporteGlobal(){
+        $model = new PadrinosModel();
+        $result = $model->reporteGlobal();
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) );
+        }
+        return view( 'app/ReportePadrinoGlobalView', array(
+            "padrinos" => $result[ "padrinos" ],
+            "cantidad_adopciones" => $result[ "cantidad_adopciones" ],
+        ) );
+    }
+
+    public function reporteEspecifico( Request $request ){
+        $model = new PadrinosModel();
+        $result = $model->reporteEspecifico( $request->input( "fp_id" ) );
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) );
+        }
+        return view( 'app/ReportePadrinoEspecificoView', array(
+            "padrino" => $result[ "padrino" ],
+            "adopciones" => $result[ "adopciones" ]
+        ));
+    }
+    
+    public function generarCertificado( $fpa_id ){
+        $model = new PadrinosModel();
+        $result = $model->obtenerAdopcion( $fpa_id );
+
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            return view( "app/CertificadoView", array(
+                "adopcion" => null,
+                "error" => $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
+            ) );
+        }
+        
+        return view( "app/CertificadoView", array(
+            "adopcion" => $result[ "resultado" ],
+            "error" => null
+        ) );
     }
 }

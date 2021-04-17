@@ -64,7 +64,7 @@
               <tbody>
                 @foreach ( $lotes as $lote )
                 <tr class="fila" id="lote_{{ $lote->FL_ID }}" data-id="{{ $lote->FL_ID }}" data-codigo="{{ $lote->FL_NOMBRE }}" data-tamano="{{ $lote->FL_TAMANO }}" data-filas="{{ $lote->FL_FILAS }}" data-columnas="{{ $lote->FL_COLUMNAS }}">
-                  <td><input name="ids[]" type="checkbox" value="{{ $lote->FL_ID }}"></td>
+                  <td><input name="lotes_eliminar[{{ $lote->FL_ID }}]" type="checkbox" value="{{ $lote->FL_NOMBRE }}"></td>
                   <td class="fila">{{ $lote->FL_NOMBRE }}</td>
                   <td class="fila">{{ $lote->FL_TAMANO }}</td>
                   <td class="fila">{{ $lote->FL_FILAS }}</td>
