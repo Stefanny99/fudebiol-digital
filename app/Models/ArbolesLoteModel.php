@@ -204,14 +204,25 @@ class ArbolesLoteModel extends Model {
 
     public function eliminarArbolesLote($request){
         $data = array(
-            "codigo" => Util::$codigos[ "EXITO" ],
-            "razon" => "",
+            "errores" => array(),
             "accion" => "ArbolesLoteModel:eliminarArbolesLote"
         );
         try{
-            DB::table('fudebiol_arboles_lote')->whereIn('fal_id', $request->input('fal-arboles-eliminados'))->delete();
+            foreach ($request->input('arboles-eliminados') as $arbolLoteId){
+                $adoptado = DB::table('fudebiol_padrinos_arboles')->where('fpa_arbol_lote_id', $arbolLoteId )->first();
+                if( $adoptado ) {
+                    array_push( $data[ 'errores' ], "No se pudo eliminar el árbol debido a que se encuentra adoptado" );
+                }else {
+                    try {
+                        DB::table('fudebiol_arboles_lote')->where('fal_id', $arbolLoteId)->delete();
+                    } catch (Exception $e){
+                        array_push( $data[ 'errores' ], "Ocurrió un error eliminando el árbol" );
+                        Log::error( $e->getMessage(), $data );
+                    }
+                }
+            }
         }catch(Exception $e){
-            $data['codigo'] = Util::$codigos[ "ERROR_ELIMINANDO" ];
+            array_push( $data[ 'errores' ], "Ocurrió un error en el servidor eliminando árboles" );
             Log::error( $e->getMessage(), $data );
         }
         return $data;
