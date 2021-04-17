@@ -57,6 +57,9 @@
             </table>
             <div id="botonesEdicionArbolesRP">
                 <button type="submit" class="btn_arbolesRL"><i class="far fa-trash-alt"></i></button>
+                <a href="{{ route('reporteArboles') }}" class="global_report_padrino global_report"> 
+                  <i class="fas fa-chart-pie"></i>
+                </a>
                 <div id="paginacion">
                   <a class="btn_pagRP" href=" {{ route('registrarPadrino' )}}"> <i class="fas fa-backward"></i> </a>
                   <span style="letter-spacing: normal; text-align: center; word-spacing: normal; white-space: nowrap; margin-right: 10%;">{{ $pagina }} de {{ $cantidadPaginas }}</span>

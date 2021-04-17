@@ -11,9 +11,10 @@
           
                 </div>
             </div>
-          <div class="home" >
+          <div class="home" >        
             <div id="caja">
               <form id="cajaArbol" class="hvr-float" method="post" action="{{ route( 'editarArbol' ) }}" enctype="multipart/form-data">
+             
                 @csrf
                 <input type="hidden" id="id_arbol" name="fa_id" value="0">
                 <div id="treeheader">
@@ -51,16 +52,16 @@
               </form>  
 
               <div id="tabla" class="hvr-forward container-fluid">
+             
                 <form id="buscador" action="{{route('registrarArbol', 1)}}" method="get">
                     <input type="text" name="buscar" placeholder="Buscar una especie" value="{{ $buscar }}">
                     <button type="submit" class="btn_buscar"><i class="fas fa-search"></i></button>
                 </form>
-                <a href="{{ route('reporteArboles') }}" class="report">Reporte global<i class="fas fa-chart-bar"></i></a>
                 <form class="tableForm" action="{{ route( 'eliminarArboles' ) }}" method="post">
                     @csrf
                     <div class= "beforeTable" >
                         <table id="tablaArboles">
-                            <caption>Especies registradas</caption>
+                            <caption>Especies registradas </caption>
                             <thead>
                                 <tr id="tablehead" >
                                     <th></th>
@@ -105,6 +106,9 @@
                         </table>
                     </div>
                     <div id="botonesEdicionArboles" style="margin: 0px;">
+                       <a href="{{ route('reporteArboles') }}" class="global_report"> 
+                                <i class="fas fa-chart-pie"></i>
+                        </a>
                         <button type="submit" class="btn_arboles"><i class="far fa-trash-alt"></i></button>
                         <div id="paginacion" >
                             <a class="btn_pag" href="{{ route('registrarArbol', max( 1, $pagina - 1 ) ) }}?buscar={{ $buscar }}"> <i class="fas fa-backward"></i> </a>

@@ -439,9 +439,14 @@
         width: 30px;
         height: 40px;
     }
-
+    .btn_pagRP:hover, .btn_pagRL:hover,.btn_pagRAI:hover {
+        color: white;
+    }
     .btn_registrarRP:hover,
-    .btn_arbolesRP:hover {
+    .btn_arbolesRP:hover,
+    .btn_pagRP:hover,
+    .btn_pagRL:hover,
+    .btn_pagRAI:hover {
         transition: 0.2s;
         transform: translateY(-3px);
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
@@ -1063,4 +1068,7 @@
 			justify-content: center;
 			align-items: center;
 	}
+}
+.global_report_padrino{
+    background-color: rgba(152, 0, 0)!important;
 }

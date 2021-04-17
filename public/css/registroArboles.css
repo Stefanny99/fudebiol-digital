@@ -131,7 +131,8 @@
     }
 
     .btn_registrar:hover,
-    .btn_arboles:hover {
+    .btn_arboles:hover,
+    .global_report:hover, .btn_pag:hover {
         transition: 0.2s;
         transform: translateY(-3px);
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
@@ -342,12 +343,12 @@
     }
 }
 @media all and (max-width: 1000px) and (orientation: portrait) {
-    .tableForm{
+    .tableForm {
         width: 100%;
         overflow: hidden;
     }
     .beforeTable {
-        display:flex;
+        display: flex;
         overflow-x: auto;
         scrollbar-width: auto;
     }
@@ -587,7 +588,7 @@
         border-collapse: unset;
         border: none;
         caption-side: top;
-        flex:1;
+        flex: 1;
     }
     #tablaArboles caption {
         background: #008a00;
@@ -800,7 +801,7 @@
         overflow-x: auto;
         scrollbar-width: auto;
     }
-    .tableForm{
+    .tableForm {
         width: 100%;
         overflow: hidden;
     }
@@ -1034,7 +1035,7 @@
     }
     #tablaArboles {
         padding: 5%;
-        flex:1;
+        flex: 1;
         padding-top: 3%;
         background: white;
         white-space: pre-line;
@@ -1357,7 +1358,7 @@
         max-height: 65vh !important;
         border: none;
         caption-side: top;
-        margin:0;
+        margin: 0;
     }
     #tablaArbolesRAI caption {
         background: #6000a3;
@@ -1668,7 +1669,7 @@
         max-height: 40vh !important;
         border: none;
         caption-side: top;
-        margin:0;
+        margin: 0;
     }
     #tablaArbolesRAI caption {
         background: #6000a3;
@@ -1738,19 +1739,19 @@
         border-style: none !important;
     }
     .btn_pagRAI {
-    margin-left: 10%;
-    margin-right: 20%;
-    cursor: pointer;
-    height: 5vh;
-    width: 10vw;
-    border: none;
-    padding-left:1vh;
-    border-radius: 5px;
-    background: #6000a3;
-    color: white;
-    text-decoration: none;
-    outline-style: none;
-    border-style: none !important;
+        margin-left: 10%;
+        margin-right: 20%;
+        cursor: pointer;
+        height: 5vh;
+        width: 10vw;
+        border: none;
+        padding-left: 1vh;
+        border-radius: 5px;
+        background: #6000a3;
+        color: white;
+        text-decoration: none;
+        outline-style: none;
+        border-style: none !important;
     }
     #pictureTree {
         display: none;
@@ -2058,4 +2059,30 @@
         cursor: pointer;
         font-size: 1.6rem;
     }
+}
+
+.global_report {
+    margin-left: 5%;
+    cursor: pointer;
+    height: 5vh;
+    width: 10vh;
+    border: none;
+    border-radius: 5px;
+    background: #008a00;
+    color: white;
+    text-align: center;
+    padding: 4px 22px 5px 22px;
+    font-size: 2.5vh;
+    font-family: "Quicksand";
+    font-weight: 900;
+    text-decoration: none;
+    outline-style: none;
+    border-style: none !important;
+}
+
+.global_report:hover {
+    color: white;
+}
+.btn_pag:hover {
+    color: white;
 }
