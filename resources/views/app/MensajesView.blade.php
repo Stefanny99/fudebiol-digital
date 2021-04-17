@@ -17,7 +17,7 @@
                     <form class="mascaramensajes" action="{{ route( 'eliminarMensajes' ) }}" method="post">  
                         @csrf
                         <div id="etc">
-                            <label>Mensajes no leídos: 23</label>
+                            <label>Mensajes: {{ count($mensajes) }}</label>
                             <button id="btn_send" name="eliminar_btn">Eliminar seleccionados</button>
                             <button id="btn_send" name="leidos_btn" formaction="/marcarLeidos">Marcar como leidos</button>
                         </div> 
