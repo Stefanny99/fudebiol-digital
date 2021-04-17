@@ -38,7 +38,8 @@ function visualizarArbol( lote, arbol ){
     document.getElementById( "coordenada_W_arbol" ).innerHTML = arbol.getAttribute( "data-coordenada-w" ) + "&deg;";
     document.getElementById( "fila_arbol" ).innerHTML = arbol.getAttribute( "data-fila" );
     document.getElementById( "columna_arbol" ).innerHTML = arbol.getAttribute( "data-columna" );
-    document.getElementById( "btn_adoptar_arbol" ).disabled = !arbol.classList.contains( "disponible" );
+    //document.getElementById( "btn_adoptar_arbol" ).disabled = !arbol.classList.contains( "disponible" );
+    document.getElementById( "btn_adoptar_arbol" ).style.display = arbol.classList.contains( "disponible" ) ? "" : "none";
     window.location = "#visualizador_arbol";
 }
 
