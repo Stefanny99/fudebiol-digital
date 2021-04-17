@@ -1,4 +1,31 @@
-    /*Log in*/
+
+
+@keyframes cambiarforma {
+    0% {
+        
+    border-radius: 20% 70% 30% 20%;
+    }
+    50% {
+        
+        border-radius: 60% 20% 20% 30%;
+        }
+    
+    100% {
+        
+    border-radius: 14% 45% 89% 5%;
+    }
+}
+
+@keyframes cambiarColor {
+    0% {
+        background: rgba(0, 0, 0, 0.795) 0%;
+    }
+    
+    100% {
+        background: rgba(0, 95, 21, 0.644);
+    }
+}
+/*Log in*/
 @media (min-width: 1001px) {
     html {
         height: 100%;
@@ -145,7 +172,7 @@
     #password input {
         border-radius: 0px;
         border: none;
-        color:black;
+        color: black;
         border-bottom: 2px green solid;
         outline: none;
         text-align: left;
@@ -159,7 +186,7 @@
     }
 
     #email,
-    #clave{
+    #clave {
         color: black;
         min-height: 10px;
         border-color: transparent;
@@ -168,7 +195,7 @@
     }
 
     #email:focus,
-    #clave:focus{
+    #clave:focus {
         outline: none;
     }
 
@@ -179,7 +206,6 @@
         -webkit-text-fill-color: black;
         transition: background-color 5000s ease-in-out 0s;
     }
-   
 
     #clave:-webkit-autofill:hover,
     #clave:-webkit-autofill,
@@ -572,7 +598,7 @@
         align-items: center;
         justify-content: center;
         padding-bottom: 20px;
-        height:80vh;
+        height: 80vh;
     }
 
     header {
@@ -748,6 +774,21 @@
 /*Home*/
 @media (min-width: 1001px) {
     /*home css*/
+    .bg2{
+        margin: auto;
+        margin-left: 2%;
+        margin-right: 2%;
+        background-color: rgba(0, 128, 0, 0.44);
+        padding: 6%;
+        height: 20vw;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        animation: cambiarforma;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
     .banner {
         background-repeat: no-repeat;
         background-size: cover;
@@ -755,7 +796,10 @@
     }
 
     #banner_mascara {
-        background-color: rgba(0, 0, 0, 0.6);
+        animation-name: cambiarColor;
+        animation-direction: alternate-reverse;
+        animation-iteration-count: infinite;
+        animation-duration: 5s;
         flex: 1;
     }
 
@@ -865,9 +909,12 @@
     }
     .img_derecha,
     .img_izquierda {
-        max-width: 50%;
         height: auto;
         margin-top: 2%;
+        animation: cambiarforma;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
     }
 
     .cont_btn_derecha {
@@ -882,6 +929,11 @@
 }
 @media all and (max-width: 1000px) and (orientation: portrait) {
     /*home css*/
+    .bg2{
+        background-color: white;
+        height:auto;
+        padding:1%;
+    }
     .banner {
         background-repeat: no-repeat;
         background-size: cover;
@@ -1007,10 +1059,18 @@
         margin: auto;
         margin-bottom: 10px;
         margin-top: 10px;
+        
     }
 }
 @media all and (max-width: 1000px) and (orientation: landscape) {
     /*home css*/
+    .bg2{
+        background-color: white;
+        width:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .banner {
         background-repeat: no-repeat;
         background-size: cover;
@@ -1132,9 +1192,9 @@
 
     .img_derecha,
     .img_izquierda {
-        max-width: 100%;
+        max-width: 70%;
         margin: auto;
         margin-bottom: 10px;
-        margin-top: 10px;
+        margin-top: 20px;
     }
 }

@@ -26,7 +26,7 @@
         flex:0;
     }
     #botonRL {
-        padding-top: 15%;
+        padding-top: 8%;
         text-align: center;
     }
 
@@ -192,14 +192,7 @@
         z-index: 7;
     }
 
-    #paginacion {
-        margin-left: auto;
-        align-items: center;
-        justify-content: flex-end;
-        display: flex;
-        word-spacing: 20px;
-        flex-direction: row;
-    }
+  
 
 
     .btn_arbolesRL {
@@ -433,14 +426,7 @@
         z-index: 7;
     }
 
-    #paginacion {
-        margin-left: auto;
-        align-items: center;
-        justify-content: flex-end;
-        display: flex;
-        word-spacing: 20px;
-        flex-direction: row;
-    }
+  
  
 
     .btn_arbolesRL {
@@ -675,14 +661,7 @@
         z-index: 7;
     }
 
-    #paginacion {
-        margin-left: auto;
-        align-items: center;
-        justify-content: flex-end;
-        display: flex;
-        word-spacing: 20px;
-        flex-direction: row;
-    }
+ 
  
 
     .btn_arbolesRL {

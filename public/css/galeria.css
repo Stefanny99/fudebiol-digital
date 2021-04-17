@@ -17,6 +17,13 @@
             rgba(0, 83, 1, 0.7539390756302521) 100%
         );
     }
+    .tituloGaleria *{
+        -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadeInUp 1s; /* Firefox < 16 */
+        -ms-animation: fadeInUp 1s; /* Internet Explorer */
+        -o-animation: fadeInUp 1s; /* Opera < 12.1 */
+        animation: fadeInUp 1s;
+    }
     .tituloGaleria > #logoMAPLV {
         position: relative;
         left: 40px;
@@ -201,7 +208,13 @@
         width: 50vw;
         height: 50vw;
     }
-
+    .tituloGaleria *{
+        -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadeInUp 1s; /* Firefox < 16 */
+        -ms-animation: fadeInUp 1s; /* Internet Explorer */
+        -o-animation: fadeInUp 1s; /* Opera < 12.1 */
+        animation: fadeInUp 1s;
+    }
     .tituloGaleria label {
         font-size: 50px;
         animation: fadeIn 1s;
@@ -367,6 +380,13 @@
         align-items: center;
         justify-content: center;
     }
+    .tituloGaleria *{
+        -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadeInUp 1s; /* Firefox < 16 */
+        -ms-animation: fadeInUp 1s; /* Internet Explorer */
+        -o-animation: fadeInUp 1s; /* Opera < 12.1 */
+        animation: fadeInUp 1s;
+    }
     .tituloGaleria > #logoMAPLV {
         width: 30vw;
         height: 30vw;
@@ -518,12 +538,7 @@
 @media (min-width: 1001px) {
     #eg_base_fondo {
         background: rgb(0, 0, 0);
-        background: radial-gradient(
-            circle,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 167, 67, 1) 50%,
-            rgba(0, 0, 0, 1) 100%
-        );
+        background-image: url('/img/P1.png');
         flex: 1;
         padding: 20px;
         display: flex;
@@ -682,12 +697,7 @@
 @media all and (max-width: 1000px) and (orientation: portrait) {
     #eg_base_fondo {
         background: rgb(0, 0, 0);
-        background: radial-gradient(
-            circle,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 167, 67, 1) 50%,
-            rgba(0, 0, 0, 1) 100%
-        );
+        background-image: url('/img/P1.png');
         flex: 1;
         padding: 20px;
         display: flex;
@@ -848,12 +858,7 @@
 @media all and (max-width: 700px) and (orientation: portrait) {
     #eg_base_fondo {
         background: rgb(0, 0, 0);
-        background: radial-gradient(
-            circle,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 167, 67, 1) 50%,
-            rgba(0, 0, 0, 1) 100%
-        );
+        background-image: url('/img/P1.png');
         flex: 1;
         padding: 20px;
         display: flex;
@@ -1014,12 +1019,7 @@
 @media all and (max-width: 1000px) and (orientation: landscape) {
     #eg_base_fondo {
         background: rgb(0, 0, 0);
-        background: radial-gradient(
-            circle,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 167, 67, 1) 50%,
-            rgba(0, 0, 0, 1) 100%
-        );
+        background-image: url('/img/P1.png');
         flex: 1;
         padding: 20px;
         display: flex;

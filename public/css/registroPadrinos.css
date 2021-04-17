@@ -249,7 +249,7 @@
     .tituloRP {
         height: 100vh;
         display: flex;
-        flex-direction:column;
+        flex-direction: column;
         align-items: center !important;
         justify-content: center !important;
         background: linear-gradient(
@@ -336,9 +336,9 @@
         flex: 1;
         flex-direction: row;
         max-height: 15vh;
-        width:100%;
+        width: 100%;
         font-size: 15px;
-        justify-content:space-around;
+        justify-content: space-around;
     }
     .tipo1,
     .tipo2,
@@ -370,7 +370,7 @@
         border: none;
         border-radius: 5px;
         margin-bottom: 50px;
-    } 
+    }
     .welcome_windowRP div {
         color: white;
         background-color: rgba(150, 0, 0, 0.7);
@@ -379,16 +379,16 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-}
-#cajaArbolRP input[type="text"] {
-    width: 20vw;
-    padding-left: 3px;
-    height: 25px;
-    outline: none;
-    margin-top: 2%;
-    border: none;
-    border-bottom: 1px gray solid;
-}
+    }
+    #cajaArbolRP input[type="text"] {
+        width: 20vw;
+        padding-left: 3px;
+        height: 25px;
+        outline: none;
+        margin-top: 2%;
+        border: none;
+        border-bottom: 1px gray solid;
+    }
 }
 /*CSS TABLAS*/
 @media (min-width: 1001px) {
@@ -439,7 +439,9 @@
         width: 30px;
         height: 40px;
     }
-    .btn_pagRP:hover, .btn_pagRL:hover,.btn_pagRAI:hover {
+    .btn_pagRP:hover,
+    .btn_pagRL:hover,
+    .btn_pagRAI:hover {
         color: white;
     }
     .btn_registrarRP:hover,
@@ -557,15 +559,6 @@
         border-radius: 0px 0px 20px 20px;
     }
 
-    #paginacion {
-        margin-left: auto;
-        align-items: center;
-        justify-content: flex-end;
-        display: flex;
-        word-spacing: 20px;
-        flex-direction: row;
-    }
-
     .btn_arbolesRP {
         margin-left: auto;
         cursor: pointer;
@@ -624,451 +617,439 @@
     }
 }
 @media all and (max-width: 1000px) and (orientation: portrait) {
-	#treeheaderRP {
-			text-align: center;
-			background-image: url("/img/header.jpg");
-			background-repeat: no-repeat;
-			background-size: cover;
-			height: 100vh;
-	}
-	#treeheadermascaraRP {
-			height: 100vh;
-			display: flex;
-			flex-direction: column;
-			padding: 20px;
-			padding-bottom: 50px;
-			padding-top: 50px;
-			text-align: center;
-			background: linear-gradient(
-					180deg,
-					rgba(152, 0, 0, 0.7707457983193278) 25%,
-					rgba(152, 0, 0, 0.52) 54%,
-					rgba(255, 255, 255, 1) 100%
-			);
-	}
-	.nombrePadrino{
-		max-width:20vw;
-		word-wrap: break-word;
-	}
-	#cajaArbolRP input[type="text"] {
-			width: 20vw;
-			padding-left: 3px;
-			height: 25px;
-			outline: none;
-			margin-top: 2%;
-			border: none;
-			border-bottom: 1px gray solid;
-	}
-	#cajaArbolRP input[type="text"],
-	#cajaArbolRP label {
-			margin-left: 20px;
-			margin-right: 20px;
-	}
-	#cajaArbolRP input[type="text"] {
-			text-align: center;
-			margin-bottom: 2%;
-	}
+    #treeheaderRP {
+        text-align: center;
+        background-image: url("/img/header.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+    }
+    #treeheadermascaraRP {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        padding-bottom: 50px;
+        padding-top: 50px;
+        text-align: center;
+        background: linear-gradient(
+            180deg,
+            rgba(152, 0, 0, 0.7707457983193278) 25%,
+            rgba(152, 0, 0, 0.52) 54%,
+            rgba(255, 255, 255, 1) 100%
+        );
+    }
+    .nombrePadrino {
+        max-width: 20vw;
+        word-wrap: break-word;
+    }
+    #cajaArbolRP input[type="text"] {
+        width: 20vw;
+        padding-left: 3px;
+        height: 25px;
+        outline: none;
+        margin-top: 2%;
+        border: none;
+        border-bottom: 1px gray solid;
+    }
+    #cajaArbolRP input[type="text"],
+    #cajaArbolRP label {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #cajaArbolRP input[type="text"] {
+        text-align: center;
+        margin-bottom: 2%;
+    }
 
-	#cajaArbolRP input[type="checkbox"] {
-			margin-bottom: 3%;
-			width: 30px;
-			height: 40px;
-	}
+    #cajaArbolRP input[type="checkbox"] {
+        margin-bottom: 3%;
+        width: 30px;
+        height: 40px;
+    }
 
-	.btn_registrarRP:hover,
-	.btn_arbolesRP:hover {
-			transition: 0.2s;
-			transform: translateY(-3px);
-			box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-	}
+    .btn_registrarRP:hover,
+    .btn_arbolesRP:hover {
+        transition: 0.2s;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    }
 
-	#RegArbol {
-			text-align: center;
-			font-weight: bold;
-			font-size: 3.5vh;
-			color: white;
-			text-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-	}
-	.TextReg {
-			text-align: center;
-			margin: auto;
-			margin-top: 3%;
-			margin-bottom: 3%;
-			font-size: 6vh;
-			font-weight: bold;
-	}
+    #RegArbol {
+        text-align: center;
+        font-weight: bold;
+        font-size: 3.5vh;
+        color: white;
+        text-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    }
+    .TextReg {
+        text-align: center;
+        margin: auto;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        font-size: 6vh;
+        font-weight: bold;
+    }
 
-	.btn_buscarRP {
-			position: relative;
-			text-align: left;
-			cursor: pointer;
-			height: 40px;
-			width: 70px;
-			border: none;
-			background: white;
-			color: black;
-			border-radius: 0px 10px 10px 0px;
-			font-size: 20px;
-			font-family: "Quicksand";
-			outline: none;
-	}
-	.tipo1, .tipo2, .tipo3 {
-		margin-left: auto;
-		margin-right: auto;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	.sinFD{
-		width:90% !important;
-	}
+    .btn_buscarRP {
+        position: relative;
+        text-align: left;
+        cursor: pointer;
+        height: 40px;
+        width: 70px;
+        border: none;
+        background: white;
+        color: black;
+        border-radius: 0px 10px 10px 0px;
+        font-size: 20px;
+        font-family: "Quicksand";
+        outline: none;
+    }
+    .tipo1,
+    .tipo2,
+    .tipo3 {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .sinFD {
+        width: 90% !important;
+    }
 
-	#buscador {
-			margin-bottom: 4%;
-			font-size: 3vh;
-	}
-	#buscador input {
-			text-align: center;
-			width: 400px;
-			height: 34px;
-			border: none;
-			border-bottom: 1px gray solid;
-			outline: none;
-	}
-	#tablaArbolesRP {
-			padding-top: 3%;
-			padding-left:1%;
-			background: white;
-			white-space: pre-line;
-			box-shadow: -1px -0px 25px lightgray;
-			font-size: 15px;
-			border-collapse: unset;
-			width: 90%;
-			max-height: 40vh !important;
-			border: none;
-			caption-side: top;
-	}
-	#tablaArbolesRP caption {
-			background: rgba(152, 0, 0);
-			color: white;
-			text-align: center;
-			width: 100%;
-			height: 11vh;
-			font-size:19px;
-			word-wrap: break-word;
-			padding: 2%;
-			font-weight: bold;
-			border-radius: 20px 20px 0% 0%;
-	}
-	#tablaArbolesRP > thead > tr > th {
-			color: rgba(152, 0, 0);
-			padding-right: 6%;
-	}
+    #buscador {
+        margin-bottom: 4%;
+        font-size: 3vh;
+    }
+    #buscador input {
+        text-align: center;
+        width: 400px;
+        height: 34px;
+        border: none;
+        border-bottom: 1px gray solid;
+        outline: none;
+    }
+    #tablaArbolesRP {
+        padding-top: 3%;
+        padding-left: 1%;
+        background: white;
+        white-space: pre-line;
+        box-shadow: -1px -0px 25px lightgray;
+        font-size: 15px;
+        border-collapse: unset;
+        width: 90%;
+        max-height: 40vh !important;
+        border: none;
+        caption-side: top;
+    }
+    #tablaArbolesRP caption {
+        background: rgba(152, 0, 0);
+        color: white;
+        text-align: center;
+        width: 100%;
+        height: 11vh;
+        font-size: 19px;
+        word-wrap: break-word;
+        padding: 2%;
+        font-weight: bold;
+        border-radius: 20px 20px 0% 0%;
+    }
+    #tablaArbolesRP > thead > tr > th {
+        color: rgba(152, 0, 0);
+        padding-right: 6%;
+    }
 
-	#tablaArbolesRP tbody tr > .fila {
-			color: black;
-			font-weight: bold;
-			cursor: pointer;
-			text-align: center;
-			padding-right: 6%;
-	}
-	#tablaRP {
-		margin: 0 auto;
-	}
+    #tablaArbolesRP tbody tr > .fila {
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        padding-right: 6%;
+    }
+    #tablaRP {
+        margin: 0 auto;
+    }
 
-	#botonesEdicionArbolesRP {
-			display: flex;
-			flex-direction: row;
-			position: relative;
-			bottom: 5px;
-			box-shadow: 0px 6px 20px lightgray;
-			background: white;
-			letter-spacing: 60px;
-			padding: 10px 0px 10px 0px;
-			z-index: 7;
-			border-radius: 0px 0px 20px 20px;
-			width:90%;
-	}
-		
-	#paginacion {
-			margin-left: auto;
-			align-items: center;
-			justify-content: flex-end;
-			display: flex;
-			word-spacing: 20px;
-			flex-direction: row;
-	}
-	.action {
-		padding-right: 1%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-	}
+    #botonesEdicionArbolesRP {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        bottom: 5px;
+        box-shadow: 0px 6px 20px lightgray;
+        background: white;
+        letter-spacing: 60px;
+        padding: 10px 0px 10px 0px;
+        z-index: 7;
+        border-radius: 0px 0px 20px 20px;
+        width: 90%;
+    }
 
-	.btn_pagRP {
-			margin-left: 10%;
-			margin-right: 20%;
-			cursor: pointer;
-			height: 5vh;
-			width: 8vh;
-			border: none;
-			border-radius: 5px;
-			background: rgba(152, 0, 0);
-			color: white;
-			text-align: center;
-			padding: 4px 22px 5px 22px;
-			font-size: 2vh;
-			font-family: "Quicksand";
-			font-weight: 900;
-			text-decoration: none;
-			outline-style: none;
-			border-style: none !important;
-	}
-	.fotosRP {
-			height: 80vh;
-			width: 30vw;
-	}
-	.fotosRP div {
-			height: 80vh;
-			width: 30vw;
-	}
-	#contFotosRP {
-			display: none;
-	}
+    .action {
+        padding-right: 1%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
-	.welcome_windowRP div {
-			color: white;
-			background-color: rgba(150, 0, 0, 0.7);
-			flex: 1;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-	}
+    .btn_pagRP {
+        margin-left: 10%;
+        margin-right: 20%;
+        cursor: pointer;
+        height: 5vh;
+        width: 8vh;
+        border: none;
+        border-radius: 5px;
+        background: rgba(152, 0, 0);
+        color: white;
+        text-align: center;
+        padding: 4px 22px 5px 22px;
+        font-size: 2vh;
+        font-family: "Quicksand";
+        font-weight: 900;
+        text-decoration: none;
+        outline-style: none;
+        border-style: none !important;
+    }
+    .fotosRP {
+        height: 80vh;
+        width: 30vw;
+    }
+    .fotosRP div {
+        height: 80vh;
+        width: 30vw;
+    }
+    #contFotosRP {
+        display: none;
+    }
+
+    .welcome_windowRP div {
+        color: white;
+        background-color: rgba(150, 0, 0, 0.7);
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 @media all and (max-width: 1000px) and (orientation: landscape) {
-	#treeheaderRP {
-			text-align: center;
-			background-image: url("/img/header.jpg");
-			background-repeat: no-repeat;
-			background-size: cover;
-			height: 100vh;
-	}
-	#treeheadermascaraRP {
-			height: 100vh;
-			display: flex;
-			flex-direction: column;
-			padding: 20px;
-			padding-bottom: 50px;
-			padding-top: 50px;
-			text-align: center;
-			background: linear-gradient(
-					180deg,
-					rgba(152, 0, 0, 0.7707457983193278) 25%,
-					rgba(152, 0, 0, 0.52) 54%,
-					rgba(255, 255, 255, 1) 100%
-			);
-	}
-	.nombrePadrino{
-		max-width:20vw;
-		word-wrap: break-word;
-	}
-	#cajaArbolRP input[type="text"] {
-			width: 20vw;
-			padding-left: 3px;
-			height: 25px;
-			outline: none;
-			margin-top: 2%;
-			border: none;
-			border-bottom: 1px gray solid;
-	}
-	#cajaArbolRP input[type="text"],
-	#cajaArbolRP label {
-			margin-left: 20px;
-			margin-right: 20px;
-	}
-	#cajaArbolRP input[type="text"] {
-			text-align: center;
-			margin-bottom: 2%;
-	}
+    #treeheaderRP {
+        text-align: center;
+        background-image: url("/img/header.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+    }
+    #treeheadermascaraRP {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        padding-bottom: 50px;
+        padding-top: 50px;
+        text-align: center;
+        background: linear-gradient(
+            180deg,
+            rgba(152, 0, 0, 0.7707457983193278) 25%,
+            rgba(152, 0, 0, 0.52) 54%,
+            rgba(255, 255, 255, 1) 100%
+        );
+    }
+    .nombrePadrino {
+        max-width: 20vw;
+        word-wrap: break-word;
+    }
+    #cajaArbolRP input[type="text"] {
+        width: 20vw;
+        padding-left: 3px;
+        height: 25px;
+        outline: none;
+        margin-top: 2%;
+        border: none;
+        border-bottom: 1px gray solid;
+    }
+    #cajaArbolRP input[type="text"],
+    #cajaArbolRP label {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #cajaArbolRP input[type="text"] {
+        text-align: center;
+        margin-bottom: 2%;
+    }
 
-	#cajaArbolRP input[type="checkbox"] {
-			margin-bottom: 3%;
-			width: 30px;
-			height: 40px;
-	}
+    #cajaArbolRP input[type="checkbox"] {
+        margin-bottom: 3%;
+        width: 30px;
+        height: 40px;
+    }
 
-	.btn_registrarRP:hover,
-	.btn_arbolesRP:hover {
-			transition: 0.2s;
-			transform: translateY(-3px);
-			box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-	}
+    .btn_registrarRP:hover,
+    .btn_arbolesRP:hover {
+        transition: 0.2s;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    }
 
-	#RegArbol {
-			text-align: center;
-			font-weight: bold;
-			font-size: 3.5vh;
-			color: white;
-			text-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-	}
-	.TextReg {
-			text-align: center;
-			margin: auto;
-			margin-top: 3%;
-			margin-bottom: 3%;
-			font-size: 6vh;
-			font-weight: bold;
-	}
+    #RegArbol {
+        text-align: center;
+        font-weight: bold;
+        font-size: 3.5vh;
+        color: white;
+        text-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    }
+    .TextReg {
+        text-align: center;
+        margin: auto;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        font-size: 6vh;
+        font-weight: bold;
+    }
 
-	.btn_buscarRP {
-			position: relative;
-			text-align: left;
-			cursor: pointer;
-			height: 40px;
-			width: 70px;
-			border: none;
-			background: white;
-			color: black;
-			border-radius: 0px 10px 10px 0px;
-			font-size: 20px;
-			font-family: "Quicksand";
-			outline: none;
-	}
-	.tipo1, .tipo2, .tipo3 {
-		margin-left: auto;
-		margin-right: auto;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	.sinFD{
-		width:90% !important;
-	}
+    .btn_buscarRP {
+        position: relative;
+        text-align: left;
+        cursor: pointer;
+        height: 40px;
+        width: 70px;
+        border: none;
+        background: white;
+        color: black;
+        border-radius: 0px 10px 10px 0px;
+        font-size: 20px;
+        font-family: "Quicksand";
+        outline: none;
+    }
+    .tipo1,
+    .tipo2,
+    .tipo3 {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .sinFD {
+        width: 90% !important;
+    }
 
-	#buscador {
-			margin-bottom: 4%;
-			font-size: 3vh;
-	}
-	#buscador input {
-			text-align: center;
-			width: 400px;
-			height: 34px;
-			border: none;
-			border-bottom: 1px gray solid;
-			outline: none;
-	}
-	#tablaArbolesRP {
-			padding-top: 3%;
-			padding-left:1%;
-			background: white;
-			white-space: pre-line;
-			box-shadow: -1px -0px 25px lightgray;
-			font-size: 15px;
-			border-collapse: unset;
-			width: 90%;
-			max-height: 40vh !important;
-			border: none;
-			caption-side: top;
-	}
-	#tablaArbolesRP caption {
-			background: rgba(152, 0, 0);
-			color: white;
-			text-align: center;
-			width: 100%;
-			height: 11vh;
-			font-size:19px;
-			word-wrap: break-word;
-			padding: 2%;
-			font-weight: bold;
-			border-radius: 20px 20px 0% 0%;
-	}
-	#tablaArbolesRP > thead > tr > th {
-			color: rgba(152, 0, 0);
-			padding-right: 6%;
-	}
+    #buscador {
+        margin-bottom: 4%;
+        font-size: 3vh;
+    }
+    #buscador input {
+        text-align: center;
+        width: 400px;
+        height: 34px;
+        border: none;
+        border-bottom: 1px gray solid;
+        outline: none;
+    }
+    #tablaArbolesRP {
+        padding-top: 3%;
+        padding-left: 1%;
+        background: white;
+        white-space: pre-line;
+        box-shadow: -1px -0px 25px lightgray;
+        font-size: 15px;
+        border-collapse: unset;
+        width: 90%;
+        max-height: 40vh !important;
+        border: none;
+        caption-side: top;
+    }
+    #tablaArbolesRP caption {
+        background: rgba(152, 0, 0);
+        color: white;
+        text-align: center;
+        width: 100%;
+        height: 11vh;
+        font-size: 19px;
+        word-wrap: break-word;
+        padding: 2%;
+        font-weight: bold;
+        border-radius: 20px 20px 0% 0%;
+    }
+    #tablaArbolesRP > thead > tr > th {
+        color: rgba(152, 0, 0);
+        padding-right: 6%;
+    }
 
-	#tablaArbolesRP tbody tr > .fila {
-			color: black;
-			font-weight: bold;
-			cursor: pointer;
-			text-align: center;
-			padding-right: 6%;
-	}
-	#tablaRP {
-		margin: 0 auto;
-	}
+    #tablaArbolesRP tbody tr > .fila {
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        padding-right: 6%;
+    }
+    #tablaRP {
+        margin: 0 auto;
+    }
 
-	#botonesEdicionArbolesRP {
-			display: flex;
-			flex-direction: row;
-			position: relative;
-			bottom: 5px;
-			box-shadow: 0px 6px 20px lightgray;
-			background: white;
-			letter-spacing: 60px;
-			padding: 10px 0px 10px 0px;
-			z-index: 7;
-			border-radius: 0px 0px 20px 20px;
-			width:90%;
-	}
-		
-	#paginacion {
-			margin-left: auto;
-			align-items: center;
-			justify-content: flex-end;
-			display: flex;
-			word-spacing: 20px;
-			flex-direction: row;
-	}
-	.action {
-		padding-right: 1%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-	}
+    #botonesEdicionArbolesRP {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        bottom: 5px;
+        box-shadow: 0px 6px 20px lightgray;
+        background: white;
+        letter-spacing: 60px;
+        padding: 10px 0px 10px 0px;
+        z-index: 7;
+        border-radius: 0px 0px 20px 20px;
+        width: 90%;
+    }
 
-	.btn_pagRP {
-			margin-left: 10%;
-			margin-right: 10%;
-			cursor: pointer;
-			height: 5vw;
-			width: 8vw;
-			border: none;
-			border-radius: 5px;
-			background: rgba(152, 0, 0);
-			color: white;
-			text-align: center;
-			padding: 4px 22px 5px 22px;
-			font-size: 4vh;
-			font-family: "Quicksand";
-			font-weight: 900;
-			text-decoration: none;
-			outline-style: none;
-			border-style: none !important;
-	}
-	.fotosRP {
-			height: 80vh;
-			width: 30vw;
-	}
-	.fotosRP div {
-			height: 80vh;
-			width: 30vw;
-	}
-	#contFotosRP {
-			display: none;
-	}
+    .action {
+        padding-right: 1%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
-	.welcome_windowRP div {
-			color: white;
-			background-color: rgba(150, 0, 0, 0.7);
-			flex: 1;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-	}
+    .btn_pagRP {
+        margin-left: 10%;
+        margin-right: 10%;
+        cursor: pointer;
+        height: 5vw;
+        width: 8vw;
+        border: none;
+        border-radius: 5px;
+        background: rgba(152, 0, 0);
+        color: white;
+        text-align: center;
+        padding: 4px 22px 5px 22px;
+        font-size: 4vh;
+        font-family: "Quicksand";
+        font-weight: 900;
+        text-decoration: none;
+        outline-style: none;
+        border-style: none !important;
+    }
+    .fotosRP {
+        height: 80vh;
+        width: 30vw;
+    }
+    .fotosRP div {
+        height: 80vh;
+        width: 30vw;
+    }
+    #contFotosRP {
+        display: none;
+    }
+
+    .welcome_windowRP div {
+        color: white;
+        background-color: rgba(150, 0, 0, 0.7);
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
-.global_report_padrino{
-    background-color: rgba(152, 0, 0)!important;
+.global_report_padrino {
+    background-color: rgba(152, 0, 0) !important;
 }

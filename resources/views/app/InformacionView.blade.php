@@ -7,7 +7,7 @@
          <div id="fondoInfo">
           <div id="tituloInfo" class="container-fluid">
             <img src="/img/png.png">
-            <label>Atracciones</label>
+            <label>ATRACCIONES</label>
           </div>
          </div>
         <div class="home">
@@ -60,6 +60,16 @@
                   <h2 class="actividad">Cercanías</h2>
                   <img class="  image_activity img-responsive" src="/img/b3.jpg">
                   <label class="explicacion">Cercanía a playas, ríos y parques nacional del Pacífico Sur de Costa Rica</label>
+                </div>
+                <div class="cajitaInformativa">
+                  <h2 class="actividad">Carrera del agua</h2>
+                  <img class="  image_activity img-responsive" src="/img/carrera.jpg">
+                  <label class="explicacion">Anualmente realizamos una carrera en honor al agua</label>
+                </div>
+                <div class="cajitaInformativa">
+                  <h2 class="actividad">Lago</h2>
+                  <img class="  image_activity img-responsive" src="/img/fude19.jpg">
+                  <label class="explicacion">Contamos con un lago en donde puede navegar en bote</label>
                 </div>
 
                </div>

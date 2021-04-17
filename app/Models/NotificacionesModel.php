@@ -56,7 +56,7 @@ class NotificacionesModel extends Model {
                     'fila' => $request->input('fila'),
                     'columna' => $request->input('columna'),
                     'estado' => '1',
-                    'certificado' => 'http://fudebiol.com/images/logo_06.png'
+                    'certificado' => route('generarCertificado', $request->input('fpa_id'))
                 ];
                 \Mail::to($request->input('email'))->send(new \App\Mail\FudebiolMail($details));
                 try {

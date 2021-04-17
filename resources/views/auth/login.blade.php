@@ -47,15 +47,14 @@
                     </div>
 
                     <div id="remember"> 
-                        <div class="col-md-6 offset-md-4">
-                            <div class="f">
+                          <div class="f" style="display:flex; align-items:center; justify-content:center;">
                                 <input class="form-check-input" id="remember" type="checkbox" name="remember"  {{ old('remember') ? 'checked' : '' }}>
-
+                                &nbsp;&nbsp;
                                 <label class="form-check-label" for="remember">
                                     {{ __('Recordar sesión') }}
                                 </label>
                             </div>
-                        </div>
+                       
                     </div>
 
 

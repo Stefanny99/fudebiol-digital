@@ -1,3 +1,10 @@
+.tituloAU *{
+    -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeInUp 1s; /* Firefox < 16 */
+    -ms-animation: fadeInUp 1s; /* Internet Explorer */
+    -o-animation: fadeInUp 1s; /* Opera < 12.1 */
+    animation: fadeInUp 1s;
+}
 @media (min-width: 1001px) {
     #fondoAboutUs {
         background-image: url("/img/fude2.jpg");

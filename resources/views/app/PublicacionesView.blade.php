@@ -7,8 +7,10 @@
                 @guest
                 @else
                 @if ( Auth::user()->role == 'S' )
-                <a href="{{ route('editorPublicaciones') }}" class="crear-publicacion">Crear una nueva publicación</a>
-                <a href="{{ route('administrarPublicaciones', $pagina) }}" class="crear-publicacion">Administrar publicaciones</a>
+                <div class="row_container"> 
+                    <a href="{{ route('editorPublicaciones') }}" class="crear-publicacion">Crear una nueva publicación</a>
+                    <a href="{{ route('administrarPublicaciones', $pagina) }}" class="crear-publicacion">Administrar publicaciones</a>
+                </div>
                 @endif
                 @endif
                 <div id="contenedor-publicaciones" style="overflow: visible; height: auto; min-height: auto; max-height: none;">
@@ -31,6 +33,11 @@
                         </div>
                     </div>
                    @endforeach
+                   <div style="display:flex; align-items: center; justify-content: center">
+                        <a class="crear-publicacion" href=""> <i class="fas fa-backward"></i> </a>
+                        <span style="margin-left:10%; letter-spacing: normal; text-align: center; word-spacing: normal; white-space: nowrap; margin-right: 10%; color:white; font-weight: bold">{{ $pagina }} de {{ $cantidadPaginas }}</span>
+                        <a class="crear-publicacion" href=""> <i class="fas fa-forward"></i> </a>
+                    </div>
                 </div>
             </div>
         </div>
