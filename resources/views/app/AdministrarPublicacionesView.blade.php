@@ -34,7 +34,7 @@
                     </div>
                     <div id="paginacion">
                         <a class="btn_pagRL" href=" {{ route( 'administrarPublicaciones', max( 1, $pagina - 1 ) ) }}?buscar={{ $buscar }}"> <i class="fas fa-backward"></i> </a>
-                        <span style="letter-spacing: normal; text-align: center; word-spacing: normal; white-space: nowrap; margin-right: 10%;">{{ $pagina }} de {{ $cantidadPaginas }}</span>
+                        <span style="letter-spacing: normal; text-align: center; word-spacing: normal; white-space: nowrap; margin-right: 10%; ">{{ $pagina }} de {{ $cantidadPaginas }}</span>
                         <a class="btn_pagRL" href="{{ route( 'administrarPublicaciones', min( $pagina + 1, $cantidadPaginas ) ) }}?buscar={{ $buscar }}" > <i class="fas fa-forward"></i> </a>
                     </div>
                 </div>  

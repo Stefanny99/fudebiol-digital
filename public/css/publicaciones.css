@@ -1,3 +1,17 @@
+.publicacion-fecha, .publicacion-titulo{
+    text-align:left;
+}
+.publicacion-titulo{
+    font-size:20px;
+}
+#publicacion-descripcion{
+    font-family: Quicksand;
+    text-align: justify;
+    text-justify: inter-word; 
+    white-space: pre-line; 
+    word-break: break-word;
+}
+
 @media(min-width:1001px){
 .publicacion-base{
     background-color: white;
@@ -52,6 +66,7 @@
 }
 #publicacion-fecha{
     color:gray;
+    text-align: left;
 
 }
 #publicacion-descripcion{
@@ -74,6 +89,7 @@
     background-image: url('/img/lbg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh !important;
 }
 #contenedor-publicaciones{
     margin-top:20px;
@@ -85,16 +101,18 @@
 .crear-publicacion{
     background-color:rgba(0,0,0,0.6);
     border-radius:20px;
+    border: 1px solid white;
    cursor:pointer;
     color:white;
     margin:auto;
-    width:60vw;
+    width:25vw;
     padding:2%;
     margin-bottom: 1%;
     text-decoration: none;
 }
 .crear-publicacion:hover{
-    color:lime;
+    background-color: rgba(0, 128, 0, 0.644);
+    color: white;
 }
 }
 
@@ -139,6 +157,7 @@
 }
 #publicacion-fecha{
     color:gray;
+    text-align: left;
 
 }
 #publicacion-descripcion{
@@ -164,6 +183,7 @@
     background-image: url('/img/lbg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh !important;
 }
 #contenedor-publicaciones{
     margin-top:20px;
@@ -175,16 +195,18 @@
 .crear-publicacion{
     background-color:rgba(0,0,0,0.6);
     border-radius:20px;
+    border: 1px solid white;
    cursor:pointer;
     color:white;
     margin:auto;
-    width:60vw;
+    min-width:25vw;
     padding:2%;
     margin-bottom: 1%;
     text-decoration: none;
 }
 .crear-publicacion:hover{
-    color:lime;
+    background-color: rgba(0, 128, 0, 0.644);
+    color: white;
 }
 }
 @media all and (max-width: 1000px) and (orientation: landscape){
@@ -229,6 +251,7 @@
     }
     #publicacion-fecha{
         color:gray;
+        text-align: left;
     
     }
     #publicacion-descripcion{
@@ -254,6 +277,7 @@
         background-image: url('/img/lbg.jpg');
         background-repeat: no-repeat;
         background-size: cover;
+        min-height: 100vh !important;
     }
     #contenedor-publicaciones{
         margin-top:20px;
@@ -265,16 +289,18 @@
     .crear-publicacion{
         background-color:rgba(0,0,0,0.6);
         border-radius:20px;
+        border: 1px solid white;
        cursor:pointer;
         color:white;
         margin:auto;
-        width:60vw;
+        min-width:25vw;
         padding:2%;
         margin-bottom: 1%;
         text-decoration: none;
     }
     .crear-publicacion:hover{
-        color:lime;
+        background-color: rgba(0, 128, 0, 0.644);
+        color: white;
     }
     }
 
@@ -319,7 +345,7 @@
 }
 .publicacion-size{
 
-    min-width:20vw;
+    min-width:30vw;
     padding:20px;
     
 }
@@ -376,11 +402,11 @@ height:6vh;
 }
 
 .container-style{
-    border-radius: 10px;
     overflow: hidden;
     padding-left:10px;
     outline:none;
-    border: 1px solid gray;
+    border: none;
+    border-bottom: 1px solid gray;
 }
 .image-preview{
 width:5vw;
@@ -543,11 +569,11 @@ object-fit:contain;
     }
     
     .container-style{
-        border-radius: 10px;
         overflow: hidden;
         padding-left:10px;
         outline:none;
-        border: 1px solid gray;
+        border: none;
+        border-bottom: 1px solid gray;
     }
     .image-preview{
     width:25vw;
@@ -709,11 +735,11 @@ object-fit:contain;
     }
     
     .container-style{
-        border-radius: 10px;
         overflow: hidden;
         padding-left:10px;
         outline:none;
-        border: 1px solid gray;
+        border: none;
+        border-bottom: 1px solid gray;
     }
     .image-preview{
     width:25vw;
@@ -819,20 +845,20 @@ object-fit:contain;
 .edit-style{
     color:white;
     background-color:green;
-    padding:5px;
+    padding:8px;
     border-radius: 50%;
-    width:1.5vw;
-    height:1.5vw;
+    width:2.5vw;
+    height:2.5vw;
     font-size:10px;
 }
 .delete-style{
     margin-left: 5px;
     color:white;
     background-color:#bb2a35;
-    padding:5px;
+    padding:8px;
     border-radius: 50%;
-    width:1.5vw;
-    height:1.5vw;
+    width:2.5vw;
+    height:2.5vw;
     font-size:13px;
 }
 

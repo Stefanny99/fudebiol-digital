@@ -32,7 +32,7 @@
                                         <label id="publicacion-fecha">{{ $publicacion ? $publicacion->FP_FECHA : '3-3-2020' }}</label>
                                     </div>
                                 </div>
-                                <pre id="publicacion-descripcion" style="text-align: justify; text-justify: inter-word; white-space: pre-line; word-break: break-word;">{{ $publicacion ? $publicacion->FP_DESCRIPCION : '' }}</pre>
+                                <pre id="publicacion-descripcion" >{{ $publicacion ? $publicacion->FP_DESCRIPCION : '' }}</pre>
                                 <div id="publicacion-imagenes-1" class="publicacion-imagenes pub">
                                     @if ( $publicacion )
                                     @foreach ( $publicacion->imagenes as $imagen )
