@@ -71,18 +71,18 @@
                  <!--galeriaMIni -->
                  <div id="row">
                     
-                    <div class="inner">
-                    <img class="img-responsive" src="{{ asset( '/img/b10.jpg' ) }}" alt="image" data-descripcion="Sembramos estos árboles con todo el corazón por un mejor mundo." onclick="mostrarFoto(this);" />
+                    <div class="inner" id="contenedor-imagen-1">
+                    <img class="img-responsive" src="{{ asset( '/img/b10.jpg' ) }}" alt="image" data-id="1" data-descripcion="Sembramos estos árboles con todo el corazón por un mejor mundo." onclick="mostrarFoto(this);" />
                     </div>
                     
-                    <div class="inner">
-                        <img src="{{ asset( '/img/b12.jpg' ) }}" class="img-responsive"  data-descripcion="Siéntete de la mano con la naturaleza" alt="image" onclick="mostrarFoto(this);" /> 
+                    <div class="inner" id="contenedor-imagen-2">
+                        <img src="{{ asset( '/img/b12.jpg' ) }}" class="img-responsive" data-id="2" data-descripcion="Siéntete de la mano con la naturaleza" alt="image" onclick="mostrarFoto(this);" /> 
                     </div>
-                    <div class="inner">
-                        <img src="{{ asset( '/img/b13.jpg' ) }}" class="img-responsive"  alt="image" data-descripcion="Ún sitio siempre verde.." onclick="mostrarFoto(this);"/>
+                    <div class="inner" id="contenedor-imagen-3">
+                        <img src="{{ asset( '/img/b13.jpg' ) }}" class="img-responsive"  alt="image" data-id="3" data-descripcion="Ún sitio siempre verde.." onclick="mostrarFoto(this);"/>
                     </div>
-                    <div class="inner">
-                        <img src="{{ asset( '/img/b14.jpg' ) }}" class="img-responsive"  alt="image" data-descripcion="Un ambiente de paz..."  onclick="mostrarFoto(this);"/>
+                    <div class="inner" id="contenedor-imagen-4">
+                        <img src="{{ asset( '/img/b14.jpg' ) }}" class="img-responsive"  alt="image" data-id="4" data-descripcion="Un ambiente de paz..."  onclick="mostrarFoto(this);"/>
                     </div>
                 </div>
             

@@ -9,26 +9,7 @@ use Session;
 use App\Helper\Util;
 
 
-class InformacionController extends Controller
-{
-
-	/**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-
-    /* Llama la vista de mantenimiento de categorías */
+class InformacionController extends Controller{
     public function informacion(){
     	return view('app/InformacionView');
     }
