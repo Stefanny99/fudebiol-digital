@@ -48,7 +48,7 @@
                   <td class="fila">
                     <div class="action">
                        <a class="edit" href="{{ route('editarPadrino').'?fp_id='.$padrino->FP_ID }}"><i class="far fa-edit"></i></a>
-                       <label class="report"><i class="fas fa-chart-bar"></i></label>
+                       <a class="report" href="{{ route('reportePadrino').'?fp_id='.$padrino->FP_ID }}"><i class="fas fa-chart-bar"></i></a>
                     </div>
                     </td>
                 </tr>
@@ -57,7 +57,7 @@
             </table>
             <div id="botonesEdicionArbolesRP">
                 <button type="submit" class="btn_arbolesRL"><i class="far fa-trash-alt"></i></button>
-                <a href="{{ route('reporteArboles') }}" class="global_report_padrino global_report"> 
+                <a href="{{ route('reportePadrinos') }}" class="global_report_padrino global_report"> 
                   <i class="fas fa-chart-pie"></i>
                 </a>
                 <div id="paginacion">

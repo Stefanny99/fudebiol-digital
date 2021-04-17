@@ -150,4 +150,33 @@ class PadrinosModel extends Model {
         }
         return $data;
     }
+
+    public function reporteGlobal( ) {
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "PadrinosModel:reporteGlobal"
+        );
+        try{
+            $resultados = DB::table("fudebiol_padrinos as fp")
+                        ->select(DB::raw("COUNT(fpa.fpa_id) as cantidad_adopciones"),"fp.FP_NOMBRE_COMPLETO")
+                        ->join("fudebiol_padrinos_arboles as fpa", "fp.FP_ID", "=", "fpa.FPA_PADRINO_ID")
+                        ->where("fpa.FPA_ESTADO", "A")
+                        ->groupBy("fp.FP_NOMBRE_COMPLETO")
+                        ->orderBy("cantidad_adopciones", "DESC")
+                        ->take(7)
+                        ->get();
+
+            $data[ "padrinos" ] = array();
+            $data[ "cantida_adopciones" ] = array();
+            foreach ($resultados as $resultado) {
+                $data[ "padrinos" ][]= $resultado->FP_NOMBRE_COMPLETO;
+                $data[ "cantidad_adopciones" ][]= $resultado->cantidad_adopciones;
+            }
+        }catch(Exception $e){
+            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
 }
