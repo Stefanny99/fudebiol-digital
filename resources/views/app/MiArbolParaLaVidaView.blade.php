@@ -72,17 +72,17 @@
                  <div id="row">
                     
                     <div class="inner">
-                    <img class="img-responsive" src="{{ asset( '/img/b10.jpg' ) }}" alt="image" data-descripcion="Sembramos estos árboles con todo el corazón por un mejor mundo." onclick="mostrarFoto(this);" />
+                    <img class="img-responsive" src="{{ asset( '/img/b10.jpg' ) }}" alt="image" onclick="mostrarFoto(this);" />
                     </div>
                     
                     <div class="inner">
-                        <img src="{{ asset( '/img/b12.jpg' ) }}" class="img-responsive"  data-descripcion="Siéntete de la mano con la naturaleza" alt="image" onclick="mostrarFoto(this);" /> 
+                        <img src="{{ asset( '/img/b12.jpg' ) }}" class="img-responsive"  alt="image" onclick="mostrarFoto(this);" /> 
                     </div>
                     <div class="inner">
-                        <img src="{{ asset( '/img/b13.jpg' ) }}" class="img-responsive"  alt="image" data-descripcion="Ún sitio siempre verde.." onclick="mostrarFoto(this);"/>
+                        <img src="{{ asset( '/img/b13.jpg' ) }}" class="img-responsive"  alt="image"  onclick="mostrarFoto(this);"/>
                     </div>
                     <div class="inner">
-                        <img src="{{ asset( '/img/b14.jpg' ) }}" class="img-responsive"  alt="image" data-descripcion="Un ambiente de paz..."  onclick="mostrarFoto(this);"/>
+                        <img src="{{ asset( '/img/b14.jpg' ) }}" class="img-responsive"  alt="image"  onclick="mostrarFoto(this);"/>
                     </div>
                 </div>
             
