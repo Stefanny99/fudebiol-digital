@@ -36,6 +36,7 @@ class GaleriaModel extends Model {
         $descripciones = $request->input( "descripciones" );
         for ( $i = 0; $i < count( $imagenes ); ++$i ){
             try{
+                DB::beginTransaction();
                 $imagen_id = DB::table( "fudebiol_imagenes" )->insertGetId( [
                     "fi_descripcion" => $descripciones[ $i ],
                     "fi_formato" => $imagenes[ $i ]->extension()
@@ -43,12 +44,15 @@ class GaleriaModel extends Model {
                 DB::table( "fudebiol_galeria" )->insertGetId( [ "fg_imagen_id" => $imagen_id ] );
                 try{
                     $imagenes[ $i ]->storeAs( "public/img/fudebiol_imagenes/", $imagen_id . "." . $imagenes[ $i ]->extension() );
+                    DB::commit();
                 }catch ( Exception $e ){
                     array_push($data['errores'], "Ocurrió un error al subir la imagen " . $imagenes[ $i ]->getClientOriginalName());
+                    DB::rollBack();
                     Log::error( $e->getMessage(), $data );
                 }
             }catch ( Exception $e ){
                 array_push($data['errores'], "Error al guardar la imagen " . $imagenes[ $i ]->getClientOriginalName() . " en la base de datos");
+                DB::rollBack();
                 Log::error( $e->getMessage(), $data );
             }
         }

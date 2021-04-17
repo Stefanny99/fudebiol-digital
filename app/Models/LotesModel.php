@@ -45,9 +45,17 @@ class LotesModel extends Model {
         $data = array(
             "codigo" => Util::$codigos[ "EXITO" ],
             "razon" => "",
-            "accion" => "eliminarLotes"
+            "accion" => "eliminarLotes",
         );
         try{
+            foreach ($request->input('ids') as $idlote) {
+                $arbol = DB::table('fudebiol_arboles_lote')->where('fal_lote_id', $idlote)->first();
+                if ($arbol->fal_id && $arbol->fal_id > 0) {
+                    $data[ 'razon' ] = 'No se puede eliminar el lote ' . $arbol->fl_nombre . ' porque contiene árboles';
+                    break;
+                    return $data;
+                }
+            }
             DB::table('fudebiol_lotes')->whereIn('fl_id', $request->input('ids'))->delete();
         }catch(Exception $e){
             $data[ 'codigo' ] =  Util::$codigos[ "ERROR_ELIMINANDO" ];
