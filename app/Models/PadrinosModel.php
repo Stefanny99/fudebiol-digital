@@ -85,7 +85,7 @@ class PadrinosModel extends Model {
                 }
             } 
         }catch(Exception $e){
-            array_push( $data[ 'errores' ], "Ocurrió un error eliminando" );
+            array_push( $data[ 'errores' ], "Ocurrió un error en el servidor eliminando padrinos" );
             Log::error( $e->getMessage(), $data );
         }
         return $data;
