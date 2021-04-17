@@ -30,7 +30,7 @@ function adopciones_cargarLote( lote ){
 }
 
 function visualizarArbol( lote, arbol ){
-    document.getElementById( "arbolInfo" ).src = arbol.getAttribute( "data-formato" ) != "" ? imagenes_arboles + "/" + arbol.getAttribute( "data-arbol-id" ) + "." + arbol.getAttribute( "data-formato" ) : sinfoto;
+    document.getElementById( "arbolInfo" ).src = arbol.getAttribute( "data-formato" ) != "" && arbol.getAttribute( "data-formato" ) != "null" ? imagenes_arboles + "/" + arbol.getAttribute( "data-arbol-id" ) + "." + arbol.getAttribute( "data-formato" ) : sinfoto;
     document.getElementById( "fal_id" ).value = arbol.getAttribute( "data-id" );
     document.getElementById( "lote_arbol" ).innerHTML = lotes[ lote ].FL_NOMBRE;
     document.getElementById( "nombre_arbol" ).innerHTML = arbol.getAttribute( "data-nombre-cientifico" );
@@ -38,7 +38,8 @@ function visualizarArbol( lote, arbol ){
     document.getElementById( "coordenada_W_arbol" ).innerHTML = arbol.getAttribute( "data-coordenada-w" ) + "&deg;";
     document.getElementById( "fila_arbol" ).innerHTML = arbol.getAttribute( "data-fila" );
     document.getElementById( "columna_arbol" ).innerHTML = arbol.getAttribute( "data-columna" );
-    document.getElementById( "btn_adoptar_arbol" ).disabled = !arbol.classList.contains( "disponible" );
+    //document.getElementById( "btn_adoptar_arbol" ).disabled = !arbol.classList.contains( "disponible" );
+    document.getElementById( "btn_adoptar_arbol" ).style.display = arbol.classList.contains( "disponible" ) ? "" : "none";
     window.location = "#visualizador_arbol";
 }
 

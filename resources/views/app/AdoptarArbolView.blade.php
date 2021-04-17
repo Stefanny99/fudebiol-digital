@@ -22,7 +22,7 @@
                 @csrf
                 <input name="fao_id" type="hidden" value="{{ $arbol->token_id }}">
                 <div class="escoger_lote">
-                    <img id="arbolInfo" src="{{ $arbol->FA_IMAGEN_FORMATO ? asset( 'storage/img/fudebiol_arboles/' . $arbol->FA_ID . '.' . $arbol->FA_IMAGEN_FORMATO ) : asset( 'img/sinfoto.jpg' ) }}" style="object-fit: cover;">
+                    <img id="arbolInfo" src="{{ $arbol->FA_IMAGEN_FORMATO && $arbol->FA_IMAGEN_FORMATO != '' ? asset( 'storage/img/fudebiol_arboles/' . $arbol->FA_ID . '.' . $arbol->FA_IMAGEN_FORMATO ) : asset( 'img/sinfoto.jpg' ) }}" style="object-fit: cover;">
                     <div id="datosArbol">
                         <input name="fal_id" type="hidden" value="{{ $arbol->FAL_ID }}">
                         <h4 class='center-text'><b>Datos del árbol elegido</b></h4>

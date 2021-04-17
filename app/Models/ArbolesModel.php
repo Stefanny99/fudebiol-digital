@@ -204,4 +204,27 @@ class ArbolesModel extends Model {
         }
         return $data;
     }
+
+    public function reporteEspecifico ( $id_arbol ) {
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "ArbolesModel:reporteEspecifico",
+            "resultado" => array(),
+        );
+        try{
+            $data [ "resultado" ] = DB::table( "fudebiol_arboles_lote AS fal" )
+                                    ->select( "fa.FA_NOMBRES_COMUNES", DB::raw("COUNT(fa.FA_ID) as TOTAL_ARBOLES"), DB::raw("COUNT(fpa.FPA_ID) as TOTAL_ADOPTADOS") )
+                                    ->join( "fudebiol_arboles as fa", "fa.FA_ID", "=", "fal.FAL_ARBOL_ID" )
+                                    ->leftjoin( "fudebiol_padrinos_arboles as fpa", "fal.FAL_ID", "=", "fpa.FPA_ARBOL_LOTE_ID" )
+                                    ->where( "fpa.fpa_estado", "A" )
+                                    ->where( "fa.FA_ID", $id_arbol )
+                                    ->groupBy ( "fa.FA_NOMBRES_COMUNES" )
+                                    ->first();
+        }catch(Exception $e){
+            $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
 }

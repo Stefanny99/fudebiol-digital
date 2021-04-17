@@ -100,7 +100,7 @@
                          <i class="fas fa-users"></i>
                         <h1>Paso 1</h1>
                         <p>Regístrate como un padrino.</p>
-                        <a href="{{route('registrarPadrino')}}">Registrarme</a>
+                        <a href="{{route('editarPadrino')}}">Registrarme</a>
                     </div>
                     <div  class="directrices d2">
                         <i class="fab fa-pagelines"></i>

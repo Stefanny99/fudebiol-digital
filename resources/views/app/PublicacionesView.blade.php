@@ -21,7 +21,7 @@
                                 <label class="publicacion-fecha">{{ \Carbon\Carbon::parse($publicacion->FP_FECHA)->format('d/m/Y') }}</label>
                             </div>
                         </div>
-                        <div id="publicacion-descripcion">{{ $publicacion->FP_DESCRIPCION }}</div>
+                        <pre id="publicacion-descripcion" style="text-align: justify; text-justify: inter-word; white-space: pre-line; word-break: break-word;">{{ $publicacion->FP_DESCRIPCION }}</pre>
                         <div class="publicacion-imagenes">
                             @foreach ( $publicacion->imagenes as $imagen )
                             <div class="inner" id="contenedor-imagen-{{ $imagen->FI_ID }}">

@@ -6,6 +6,7 @@ function confirmarAdopcion( fpa_id ) {
         cancel: "Cancelar"
     },
     onok: () => {
+        document.getElementById( "panel-cargando" ).style.display = "flex";
         let data = new FormData();
         data.append( "fpa_id", fpa_id );
         axios.post( routes.aceptarAdopcion, data ).then( response => {
@@ -15,8 +16,10 @@ function confirmarAdopcion( fpa_id ) {
           } else if ( response.data.errores ){
             response.data.errores.forEach( error => alertify.notify( error, "error" ) );
           }
+          document.getElementById( "panel-cargando" ).style.display = "none";
         } ).catch( error => {
             console.log( error );
+            document.getElementById( "panel-cargando" ).style.display = "none";
         } );
     }
   } );
@@ -31,6 +34,7 @@ function rechazarAdopcion( fpa_id ) {
         cancel: "Cancelar"
     },
     onok: () => {
+        document.getElementById( "panel-cargando" ).style.display = "flex";
         let data = new FormData();
         data.append( "fpa_id", fpa_id );
         axios.post( routes.rechazarAdopcion, data ).then( response => {
@@ -40,8 +44,10 @@ function rechazarAdopcion( fpa_id ) {
           } else if ( response.data.errores ){
             response.data.errores.forEach( error => alertify.notify( error, "error" ) );
           }
+          document.getElementById( "panel-cargando" ).style.display = "none";
         } ).catch( error => {
             console.log( error );
+            document.getElementById( "panel-cargando" ).style.display = "none";
         } );
     }
   } );

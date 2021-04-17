@@ -55,6 +55,7 @@
                     <input type="text" name="buscar" placeholder="Buscar una especie" value="{{ $buscar }}">
                     <button type="submit" class="btn_buscar"><i class="fas fa-search"></i></button>
                 </form>
+                <a href="{{ route('reporteArboles') }}" class="report">Reporte global<i class="fas fa-chart-bar"></i></a>
                 <form class="tableForm" action="{{ route( 'eliminarArboles' ) }}" method="post">
                     @csrf
                     <div class= "beforeTable" >
@@ -94,7 +95,7 @@
                                     <td class="fila">
                                         <div class="action">
                                         <label class="edit" onclick="editarArbol( 'arbol_{{ $arbol->FA_ID }}' )"><i class="far fa-edit"></i></label>
-                                        <label class="report"><i class="fas fa-chart-bar"></i></label>
+                                        <a href="{{ route('reporteEspecies').'?fa_id='.$arbol->FA_ID }}" class="report"><i class="fas fa-chart-bar"></i></a>
                                         </div>
                                     </td>
                                 </tr>

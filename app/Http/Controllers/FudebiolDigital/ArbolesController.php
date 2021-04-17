@@ -76,10 +76,6 @@ class ArbolesController extends Controller{
         return view( 'app/MiArbolParaLaVidaView' );
     }
 
-    public function registroArbol(){
-        return view( 'app/RegistroArbolesIndividualesView' );
-    }
-
     public function reporteGlobal(){
         $model = new ArbolesModel();
         $result = $model->reporteGlobal();
@@ -94,7 +90,14 @@ class ArbolesController extends Controller{
         ) );
     }
 
-    public function reporteEspecifico(){
-        return view( 'app/ReporteEspeciesView' );
+    public function reporteEspecifico( Request $request){
+        $model = new ArbolesModel();
+        $result = $model->reporteEspecifico( $request->input( "fa_id" ) );
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) );
+        }
+        return view( 'app/ReporteEspeciesView', array(
+            "arbol" => $result[ "resultado" ],
+        ) );
     }
 }

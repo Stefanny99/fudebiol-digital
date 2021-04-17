@@ -18,9 +18,13 @@ Route::group( [ 'middleware' => [ 'auth', 'rolecheck' ] ], function(){
 	/*RUTAS DE MANTENIMIENTO DE ESPECIES*/
 	Route::get('/registrarArbol/{pagina}', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\ArbolesController@registrarArbol', 'role' => 'A' ])->name('registrarArbol');
 	Route::post('/editarArbol', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\ArbolesController@editarArbol', 'role' => 'A' ])->name('editarArbol');
-	Route::get('/registroArbol', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\ArbolesController@registroArbol', 'role' => 'A' ])->name('registroArbol');
-    Route::post('/eliminarArboles', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\ArbolesController@eliminarArboles', 'role' => 'A' ])->name( 'eliminarArboles' );
-
+  Route::post('/eliminarArboles', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\ArbolesController@eliminarArboles', 'role' => 'A' ])->name( 'eliminarArboles' );
+  
+  /*RUTAS DE MANTENIMIENTO DE ARBOLES POR LOTE*/
+	Route::get('/registroArbol/{pagina}', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\ArbolesLoteController@mantenimientoArbolesLote', 'role' => 'A' ])->name('registroArbol');
+	Route::post('/eliminarArbolesLote', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\ArbolesLoteController@eliminarArbolesLote', 'role' => 'A' ])->name( 'eliminarArbolesLote' );
+	Route::post('/editarArbolLote', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\ArbolesLoteController@editarArbolLote', 'role' => 'A' ])->name( 'editarArbolLote' );
+	
 	/*RUTAS DE MANTENIMIENTOS DE PADRINOS*/
 	Route::get('/verPadrinos/{pagina}', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PadrinosController@mantenimientoPadrinos', 'role' => 'A' ])->name('verPadrino');
 	Route::post('/eliminarPadrino', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\PadrinosController@eliminarPadrino', 'role' => 'A' ])->name('eliminarPadrino');
@@ -31,7 +35,6 @@ Route::group( [ 'middleware' => [ 'auth', 'rolecheck' ] ], function(){
 	Route::post('/editarLote', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\LotesController@editarLote', 'role' => 'A' ])->name('editarLote');
 	Route::post('/eliminarLotes', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\LotesController@eliminarLotes', 'role' => 'A' ])->name('eliminarLotes');
 
-	
 	/*RUTAS DE MENSAJES*/
 	Route::get('/mensajes/{pagina}', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\MensajesController@mantenimientoMensajes', 'role' => 'A' ])->name('mensajes');
 	Route::post('/eliminarMensajes', [ 'uses' => 'App\Http\Controllers\FudebiolDigital\MensajesController@eliminarMensajes', 'role' => 'A' ])->name('eliminarMensajes');

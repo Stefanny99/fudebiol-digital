@@ -22,18 +22,20 @@ class ArbolesLoteModel extends Model {
             $query = DB::table('fudebiol_arboles_lote')
             ->join('fudebiol_arboles', 'fudebiol_arboles_lote.fal_arbol_id', '=', 'fudebiol_arboles.fa_id')
             ->join('fudebiol_lotes', 'fudebiol_arboles_lote.fal_lote_id', '=', 'fudebiol_lotes.fl_id')
-            ->select('fudebiol_arboles_lote.*','fudebiol_arboles.fa_nombres_comunes', 'fudebiol_arboles.fa_id','fudebiol_lotes.fl_nombre', 'fudebiol_lotes.fl_id')
-            ->orderBy($fila, asc);
-            if ( $request->input('fl_id') ) {
-                $query->where('fal_lote_id', $lote);
+            ->select('fudebiol_arboles_lote.*', 'fudebiol_arboles.FA_NOMBRES_COMUNES', 'fudebiol_arboles.FA_ID', 'fudebiol_lotes.FL_NOMBRE', 'fudebiol_lotes.FL_ID')
+            ->orderBy('fal_fila', 'asc');
+            if ( $request->input( "lote_id") ) {
+                $query->where('fal_lote_id', $request->input( "lote_id"));
             }
-            if ( $request->input('fal_fila') ) {
-                $query->where('fal_fila', $fila);
+            if ( $request->input( "fila") ) {
+                $query->where('fal_fila', $request->input( "fila"));
             }
-            if ( $request->input('fal_columna') ) {
-                $query->where('fal_columna', $columna);
+            if ( $request->input( "columna" ) ) {
+                $query->where('fal_columna', $request->input( "columna"));
             }
             $data['resultado'] = $query->skip( ( $pagina - 1 ) * 8 )->take( 8 )->get();
+            $data['lotes'] = DB::table('fudebiol_lotes')->select('FL_ID', 'FL_NOMBRE')->get();
+            $data['especies'] = DB::table('fudebiol_arboles')->select('FA_ID', 'FA_NOMBRES_COMUNES')->orderBy('FA_NOMBRES_COMUNES')->get();
         }catch(Exception $e){
             $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );

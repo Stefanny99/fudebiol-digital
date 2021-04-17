@@ -17,14 +17,16 @@
                     <form class="mascaramensajes" action="{{ route( 'eliminarMensajes' ) }}" method="post">  
                         @csrf
                         <div id="etc">
-                            <label>Mensajes no leídos: 23</label>
+                            <label>Mensajes: {{ count($mensajes) }}</label>
                             <button id="btn_send" name="eliminar_btn">Eliminar seleccionados</button>
                             <button id="btn_send" name="leidos_btn" formaction="/marcarLeidos">Marcar como leidos</button>
                         </div> 
                         <div id="contenedor_mensajes">
                             @foreach ( $mensajes as $mensaje )
                             <div class="mesage">
+                                @if ( $mensaje->FM_ESTADO == 1 )
                                 <div id="unread"></div>
+                                @endif
                                 <div class="mesage_mail">
                                     <label><b>De:</b></label>
                                     <label>{{ $mensaje->FM_CORREO }}</label>
@@ -33,9 +35,7 @@
                                     <label><b>Teléfono:</b></label>
                                     <label>{{ $mensaje->FM_TELEFONO }}</label>
                                 </div>
-                                <div class="mesage_content">
-                                    {{ $mensaje->FM_TEXTO }}
-                                </div>
+                                <pre class="mesage_content" style="text-align: justify; text-justify: inter-word; white-space: pre-line; word-break: break-word;">{{ $mensaje->FM_TEXTO }}</pre>
                                 @if ( $mensaje ->FM_ESTADO === 1)
                                 <label for="leido">Leído</label>
                                 <input name="ids[]"  id="leido" type="checkbox" value="{{ $mensaje->FM_ID }}"> 

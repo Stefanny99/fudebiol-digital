@@ -94,4 +94,91 @@ class ArbolesLoteController extends Controller{
             "Adopción efectuada con éxito"
         ) );
     }
+
+    public function mantenimientoArbolesLote($pagina, Request $request){
+        $model = new ArbolesLoteModel();
+        $result = $model->obtenerArbolesPorLote($request, $pagina);
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            return redirect()->back()->with( "errores", array(
+                $result[ "codigo" ][ "descripcion" ] . $result[ "razon" ]
+            ) );
+        }
+        return view( 'app/RegistroArbolesIndividualesView', array(
+            "arboles" => $result[ "resultado" ],
+            "lotes" => $result[ "lotes" ],
+            "especies" => $result[ "especies" ],
+            "pagina" => $pagina,
+            "lote_id" => $request->input( "lote_id"),
+            "fila" => $request->input( "fila"),
+            "columna" => $request->input( "columna"),
+            "cantidadPaginas" => 1
+        ) );
+        
+    }
+
+    public function editarArbolLote(Request $request){
+        if ( !$request->has( "fal_id" ) || $request->input( "fal_id" ) <= 0 ){
+            $validator = Validator::make( $request->all(), [
+                'fal_arbol_id' => [ 'required', 'integer' ],
+                'fal_lote_id' => [ 'required', 'integer' ],
+                'fal_coordenada_W' => [ 'required', 'string', 'max:20' ],
+                'fal_coordenada_N' => [ 'required', 'string', 'max:20' ],
+                'fal_fila' => [ 'required', 'integer' ],
+                'fal_columna' => [ 'required', 'integer' ],
+            ]);
+            if ( $validator->fails() ){
+                return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $request->input() );
+            }else{
+                $model = new ArbolesLoteModel();
+                $result = $model->crearArbolLote( $request );
+                if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+                    return redirect()->back()->with( "errores", array(
+                        $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
+                    ) );
+                }else{
+                    return redirect()->back()->with( "mensajes", array(
+                        "Árbol insertado exitosamente"
+                    ) );
+                }
+            }
+        }else {
+            $validator = Validator::make( $request->all(), [
+                'fal_arbol_id' => [ 'required', 'integer' ],
+                'fal_lote_id' => [ 'required', 'integer' ],
+                'fal_coordenada_W' => [ 'required', 'string', 'max:20' ],
+                'fal_coordenada_N' => [ 'required', 'string', 'max:20' ],
+                'fal_fila' => [ 'required', 'integer' ],
+                'fal_columna' => [ 'required', 'integer' ],
+            ]);
+            if ( $validator->fails() ){
+                return redirect()->back()->with( "errores", $validator->errors()->all() )->withInput( $request->input() );
+            }else{
+                $model = new ArbolesLoteModel();
+                $result = $model->editarArbolLote( $request );
+                if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+                    return redirect()->back()->with( "errores", array(
+                        $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
+                    ) );
+                }else{
+                    return redirect()->back()->with( "mensajes", array(
+                        "Árbol actualizado exitosamente"
+                    ) );
+                }
+            }
+        }
+    }
+
+    public function eliminarArbolesLote ( Request $request ){
+        $model = new ArbolesLoteModel();
+        $result = $model->eliminarArbolesLote( $request );
+        if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
+            return redirect()->back()->with( "errores", array(
+                $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
+            ) );
+        }else{
+            return redirect()->back()->with( "mensajes", array(
+                "Árboles eliminados exitosamente"
+            ) );
+        }
+    }
 }
