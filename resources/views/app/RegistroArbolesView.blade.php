@@ -94,7 +94,7 @@
                                     <td class="fila">
                                         <div class="action">
                                         <label class="edit" onclick="editarArbol( 'arbol_{{ $arbol->FA_ID }}' )"><i class="far fa-edit"></i></label>
-                                        <label class="report"><i class="fas fa-chart-bar"></i></label>
+                                        <a href="{{ route('reporteEspecies').'?fa_id='.$arbol->FA_ID }}" class="report"><i class="fas fa-chart-bar"></i></a>
                                         </div>
                                     </td>
                                 </tr>
