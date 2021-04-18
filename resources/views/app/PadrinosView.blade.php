@@ -24,42 +24,44 @@
             </form>
             <form action="{{ route( 'eliminarPadrinos' ) }}" method="post">  
               @csrf
-              <table id="tablaArbolesRP">
-              <caption>Padrinos registrados con FUDEBIOL Digital</caption>
-                <thead>
-                <tr id="tablehead" >
-                  <th></th>
-                  <th>Nombre completo</th>
-                  <th>Cédula</th>
-                  <th>Tipo</th>
-                  <th>Correo</th>
-                  <th>Acción</th>
-                </tr>
-                 </thead> 
-              <tbody>
-                @foreach ( $padrinos as $padrino )
-                <tr class="fila" id="padrino_{{ $padrino->FP_ID }}">
-                  <td class="fila">
-                    @if ( $padrino->FP_CEDULA )
-                    <input name="padrinos_eliminar[{{ $padrino->FP_ID }}]" type="checkbox" value="{{ $padrino->FP_NOMBRE_COMPLETO }}"></td>
-                    @endif
-                  <td class="fila nombrePadrino">{{ $padrino->FP_NOMBRE_COMPLETO }}</td>
-                  <td class="fila">{{ $padrino->FP_CEDULA }}</td>
-                  <td class="fila">{{ $padrino->FP_TIPO === 'P' ? 'Persona' : ( $padrino->FP_TIPO === 'O' ? 'Otro' : 'Empresa' ) }}</td>
-                  <td class="fila">{{ $padrino->FP_CORREO }}</td>
-                  <td class="fila"></td>
-                  <td class="fila">
-                    <div class="action">
-                       @if ( $padrino->FP_CEDULA )
-                       <a class="edit" href="{{ route('editarPadrino').'?fp_id='.$padrino->FP_ID }}"><i class="far fa-edit"></i></a>
-                       @endif
-                       <a class="report" href="{{ route('reportePadrino').'?fp_id='.$padrino->FP_ID }}"><i class="fas fa-chart-bar"></i></a>
-                    </div>
-                    </td>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
+              <div class= "beforeTable" >
+                <table id="tablaArbolesRP">
+                <caption>Padrinos registrados con FUDEBIOL Digital</caption>
+                  <thead>
+                  <tr id="tablehead" >
+                    <th></th>
+                    <th>Nombre completo</th>
+                    <th>Cédula</th>
+                    <th>Tipo</th>
+                    <th>Correo</th>
+                    <th>Acción</th>
+                  </tr>
+                  </thead> 
+                <tbody>
+                  @foreach ( $padrinos as $padrino )
+                  <tr class="fila" id="padrino_{{ $padrino->FP_ID }}">
+                    <td class="fila">
+                      @if ( $padrino->FP_CEDULA )
+                      <input name="padrinos_eliminar[{{ $padrino->FP_ID }}]" type="checkbox" value="{{ $padrino->FP_NOMBRE_COMPLETO }}"></td>
+                      @endif
+                    <td class="fila nombrePadrino">{{ $padrino->FP_NOMBRE_COMPLETO }}</td>
+                    <td class="fila">{{ $padrino->FP_CEDULA }}</td>
+                    <td class="fila">{{ $padrino->FP_TIPO === 'P' ? 'Persona' : ( $padrino->FP_TIPO === 'O' ? 'Otro' : 'Empresa' ) }}</td>
+                    <td class="fila">{{ $padrino->FP_CORREO }}</td>
+                    <td class="fila"></td>
+                    <td class="fila">
+                      <div class="action">
+                        @if ( $padrino->FP_CEDULA )
+                        <a class="edit" href="{{ route('editarPadrino').'?fp_id='.$padrino->FP_ID }}"><i class="far fa-edit"></i></a>
+                        @endif
+                        <a class="report" href="{{ route('reportePadrino').'?fp_id='.$padrino->FP_ID }}"><i class="fas fa-chart-bar"></i></a>
+                      </div>
+                      </td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+              </div>
             <div id="botonesEdicionArbolesRP">
                 <a href="{{ route('reportePadrinos') }}" class="global_report_padrino global_report"> 
                   <i class="fas fa-chart-pie"></i>

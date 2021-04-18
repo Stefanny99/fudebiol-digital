@@ -738,7 +738,7 @@
         box-shadow: -1px -0px 25px lightgray;
         font-size: 15px;
         border-collapse: unset;
-        width: 90%;
+        flex:1;
         max-height: 40vh !important;
         border: none;
         caption-side: top;
