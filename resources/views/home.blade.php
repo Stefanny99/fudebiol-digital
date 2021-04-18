@@ -57,9 +57,7 @@
                 </div>
 
             </div>
-        
-        </div>  
-        <div id="pie">
+            <div id="pie">
             <div class="bottom">
                 <div class="left">
                     <img class="icon img-responsive" src="{{ asset( 'img/vector.png' ) }}"></img>
@@ -83,4 +81,6 @@
             </div>
         </div>
     </div>
+        </div>  
+        
 @endsection
