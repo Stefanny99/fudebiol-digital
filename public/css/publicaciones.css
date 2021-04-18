@@ -1,9 +1,14 @@
 .publicacion-fecha, .publicacion-titulo{
     text-align:left;
 }
+.editor-fondo{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .publicacion-titulo{
     font-size:20px;
 }
+
 #publicacion-descripcion{
     font-family: Quicksand;
     text-align: justify;
@@ -380,7 +385,7 @@
 #descripcion-publicacion{
     margin-bottom: 20px;
 }
-#vista-previa, #guardar-publicacion{
+#vista-previa, #guardar-publicacion, #limpiar_pub{
 border-radius: 10px;
 color:white;
 border:none;
@@ -394,6 +399,11 @@ height:6vh;
 #guardar-publicacion{
     margin-left: 2%;
     background-color: rgb(4, 155, 79);
+
+}
+#limpiar_pub{
+    margin-left: 2%;
+    background-color: rgba(155, 64, 4, 0.856);
 
 }
 #vista-previa:hover, #guardar-publicacion:hover,#agregar-fotos:hover{

@@ -32,10 +32,10 @@
                         </div>
                         @endforeach
                     </div>
-                    <div id="paginacion">
-                        <a class="btn_pagRL" href=" {{ route( 'administrarPublicaciones', max( 1, $pagina - 1 ) ) }}?buscar={{ $buscar }}"> <i class="fas fa-backward"></i> </a>
-                        <span style="letter-spacing: normal; text-align: center; word-spacing: normal; white-space: nowrap; margin-right: 10%; color:white; font-weight: bold">{{ $pagina }} de {{ $cantidadPaginas }}</span>
-                        <a class="btn_pagRL" href="{{ route( 'administrarPublicaciones', min( $pagina + 1, $cantidadPaginas ) ) }}?buscar={{ $buscar }}" > <i class="fas fa-forward"></i> </a>
+                    <div  style="display:flex; align-items: center; justify-content: center">
+                        <a class="crear-publicacion" href=" {{ route( 'administrarPublicaciones', max( 1, $pagina - 1 ) ) }}?buscar={{ $buscar }}"> <i class="fas fa-backward"></i> </a>
+                        <span style="margin-left:10%; letter-spacing: normal; text-align: center; word-spacing: normal; white-space: nowrap; margin-right: 10%; color:white; font-weight: bold">{{ $pagina }} de {{ $cantidadPaginas }}</span>
+                        <a class="crear-publicacion" href="{{ route( 'administrarPublicaciones', min( $pagina + 1, $cantidadPaginas ) ) }}?buscar={{ $buscar }}" > <i class="fas fa-forward"></i> </a>
                     </div>
                 </div>  
             </div>
