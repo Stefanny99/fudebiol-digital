@@ -75,6 +75,7 @@
                             <div class="content-row">
                                 <button type="button" id="vista-previa" onclick="vistaPrevia()">Vista previa</button>  
                                 <button type="submit" id="guardar-publicacion">Guardar</button>
+                                <button type="button" id="limpiar_pub" onclick="window.location='{{route('editorPublicaciones')}}'">Limpiar</button>  
                             </div>
                         </form>  
 

@@ -17,7 +17,6 @@
     #cajaRP {
         display: flex;
         flex-direction: row;
-        flex: 1;
         margin: auto;
         align-items: center;
         justify-content: space-between;
@@ -135,14 +134,7 @@
         font-weight: bold;
     }
 
-    #cajaRP {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        margin: auto;
-        align-items: center;
-        justify-content: space-between;
-    }
+   
     .welcome_windowRP {
         box-shadow: -3px 8px 20px gray;
         background-size: cover;
@@ -263,14 +255,6 @@
         font-weight: bold;
     }
 
-    #cajaRP {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        margin: auto;
-        align-items: center;
-        justify-content: space-between;
-    }
     .welcome_windowRP {
         box-shadow: -3px 8px 20px gray;
         background-size: cover;
@@ -507,13 +491,10 @@
         padding-top: 3%;
         background: white;
         white-space: nowrap;
-        flex: 0;
-        margin-right: 30px;
-        margin-left: 30px;
+        flex:1;
         box-shadow: -1px -0px 25px lightgray;
         font-size: 2.5vh;
         border-collapse: unset;
-        min-width: 40vw !important;
         min-height: 50vh !important;
         max-height: 50vh !important;
         border: none;
@@ -541,7 +522,13 @@
         padding-right: 6%;
     }
     #tablaRP {
-        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        padding-top: 20px;
+        overflow-x: hidden;
     }
 
     #botonesEdicionArbolesRP {
@@ -738,10 +725,11 @@
         box-shadow: -1px -0px 25px lightgray;
         font-size: 15px;
         border-collapse: unset;
-        width: 90%;
+        flex:1;
         max-height: 40vh !important;
         border: none;
         caption-side: top;
+         margin: 0px;
     }
     #tablaArbolesRP caption {
         background: rgba(152, 0, 0);
@@ -768,7 +756,13 @@
         padding-right: 6%;
     }
     #tablaRP {
-        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        padding-top: 20px;
+        overflow-x: hidden;
     }
 
     #botonesEdicionArbolesRP {

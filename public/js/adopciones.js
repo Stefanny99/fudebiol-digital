@@ -19,6 +19,7 @@ function adopciones_cargarLote( lote ){
                 arbol.setAttribute( "data-fila", a.FAL_FILA );
                 arbol.setAttribute( "data-columna", a.FAL_COLUMNA );
                 arbol.setAttribute( "data-adopciones", a.adopciones );
+                arbol.setAttribute( "data-padrino", a.FP_NOMBRE_COMPLETO );
                 arbol.onclick = () => visualizarArbol( lote, arbol );
             }else{
                 arbol.style.opacity = "0.3";
@@ -38,7 +39,8 @@ function visualizarArbol( lote, arbol ){
     document.getElementById( "coordenada_W_arbol" ).innerHTML = arbol.getAttribute( "data-coordenada-w" ) + "&deg;";
     document.getElementById( "fila_arbol" ).innerHTML = arbol.getAttribute( "data-fila" );
     document.getElementById( "columna_arbol" ).innerHTML = arbol.getAttribute( "data-columna" );
-    //document.getElementById( "btn_adoptar_arbol" ).disabled = !arbol.classList.contains( "disponible" );
+    document.getElementById( "padrino_arbol" ).innerHTML = arbol.classList.contains( "disponible" ) ? "" : arbol.getAttribute( "data-padrino" );
+    document.getElementById( "padrino" ).style.display = arbol.classList.contains( "disponible" ) ? "none" : "";
     document.getElementById( "btn_adoptar_arbol" ).style.display = arbol.classList.contains( "disponible" ) ? "" : "none";
     window.location = "#visualizador_arbol";
 }
