@@ -39,7 +39,10 @@
               <tbody>
                 @foreach ( $padrinos as $padrino )
                 <tr class="fila" id="padrino_{{ $padrino->FP_ID }}">
-                  <td class="fila"><input name="padrinos_eliminar[{{ $padrino->FP_ID }}]" type="checkbox" value="{{ $padrino->FP_NOMBRE_COMPLETO }}"></td>
+                  <td class="fila">
+                    @if ( $padrino->FP_CEDULA )
+                    <input name="padrinos_eliminar[{{ $padrino->FP_ID }}]" type="checkbox" value="{{ $padrino->FP_NOMBRE_COMPLETO }}"></td>
+                    @endif
                   <td class="fila nombrePadrino">{{ $padrino->FP_NOMBRE_COMPLETO }}</td>
                   <td class="fila">{{ $padrino->FP_CEDULA }}</td>
                   <td class="fila">{{ $padrino->FP_TIPO === 'P' ? 'Persona' : ( $padrino->FP_TIPO === 'O' ? 'Otro' : 'Empresa' ) }}</td>
@@ -47,7 +50,9 @@
                   <td class="fila"></td>
                   <td class="fila">
                     <div class="action">
+                       @if ( $padrino->FP_CEDULA )
                        <a class="edit" href="{{ route('editarPadrino').'?fp_id='.$padrino->FP_ID }}"><i class="far fa-edit"></i></a>
+                       @endif
                        <a class="report" href="{{ route('reportePadrino').'?fp_id='.$padrino->FP_ID }}"><i class="fas fa-chart-bar"></i></a>
                     </div>
                     </td>
@@ -61,9 +66,9 @@
                   <i class="fas fa-chart-pie"></i>
                 </a>
                 <div id="paginacion">
-                  <a class="btn_pagRP" href=" {{ route('registrarPadrino' )}}"> <i class="fas fa-backward"></i> </a>
+                  <a class="btn_pagRP" href=" {{ route('verPadrino', max( 1, $pagina - 1 ) )}}?buscar={{ $buscar }}"> <i class="fas fa-backward"></i> </a>
                   <span style="letter-spacing: normal; text-align: center; word-spacing: normal; white-space: nowrap; margin-right: 10%;">{{ $pagina }} de {{ $cantidadPaginas }}</span>
-                  <a class="btn_pagRP" href="{{ route('registrarPadrino')}}" > <i class="fas fa-forward"></i> </a>
+                  <a class="btn_pagRP" href="{{ route('verPadrino', min( $pagina + 1, $cantidadPaginas ))}}?buscar={{ $buscar }}" > <i class="fas fa-forward"></i> </a>
                 </div>
             </div>
           </div>
