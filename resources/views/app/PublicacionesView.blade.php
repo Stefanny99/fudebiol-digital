@@ -34,9 +34,9 @@
                     </div>
                    @endforeach
                    <div style="display:flex; align-items: center; justify-content: center">
-                        <a class="crear-publicacion" href=""> <i class="fas fa-backward"></i> </a>
+                        <a class="crear-publicacion" href="{{ route( 'publicaciones', max( 1, $pagina - 1 ) ) }}"> <i class="fas fa-backward"></i> </a>
                         <span style="margin-left:10%; letter-spacing: normal; text-align: center; word-spacing: normal; white-space: nowrap; margin-right: 10%; color:white; font-weight: bold">{{ $pagina }} de {{ $cantidadPaginas }}</span>
-                        <a class="crear-publicacion" href=""> <i class="fas fa-forward"></i> </a>
+                        <a class="crear-publicacion" href="{{ route( 'publicaciones', min( $pagina + 1, $cantidadPaginas ) ) }}"> <i class="fas fa-forward"></i> </a>
                     </div>
                 </div>
             </div>
