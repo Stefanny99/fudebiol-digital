@@ -860,6 +860,8 @@
         background: rgb(0, 0, 0);
         background-image: url('/img/P1.png');
         flex: 1;
+        background-size: cover;
+        background-repeat: no-repeat;
         padding: 20px;
         display: flex;
         flex-direction: column-reverse;
@@ -1020,6 +1022,8 @@
     #eg_base_fondo {
         background: rgb(0, 0, 0);
         background-image: url('/img/P1.png');
+        background-size: cover;
+        background-repeat: no-repeat;
         flex: 1;
         padding: 20px;
         display: flex;
