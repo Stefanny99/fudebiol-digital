@@ -15,14 +15,12 @@
         <div class="home">
         
          <div id="cajaRP"> 
-             
-              
           <div id="tablaRP">
             <form id="buscador" accion="{{ route('verPadrino', $pagina ) }}" method="get">
                 <input type="text" name="buscar" placeholder="Buscar un padrino" value="{{ $buscar }}">
                 <button  class="btn_buscarRP"><i class="fas fa-search"></i></button>
             </form>
-            <form action="{{ route( 'eliminarPadrinos' ) }}" method="post">  
+            <form class="tableForm" action="{{ route( 'eliminarPadrinos' ) }}" method="post">  
               @csrf
               <div class= "beforeTable" >
                 <table id="tablaArbolesRP">
@@ -30,7 +28,7 @@
                   <thead>
                   <tr id="tablehead" >
                     <th></th>
-                    <th>Nombre completo</th>
+                    <th style="min-width:30vw;">Nombre completo</th>
                     <th>Cédula</th>
                     <th>Tipo</th>
                     <th>Correo</th>
@@ -61,7 +59,7 @@
                   @endforeach
                 </tbody>
               </table>
-              </div>
+            </div>
             <div id="botonesEdicionArbolesRP">
                 <a href="{{ route('reportePadrinos') }}" class="global_report_padrino global_report"> 
                   <i class="fas fa-chart-pie"></i>
