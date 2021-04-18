@@ -23,6 +23,7 @@ class ArbolesLoteModel extends Model {
             ->join('fudebiol_arboles', 'fudebiol_arboles_lote.fal_arbol_id', '=', 'fudebiol_arboles.fa_id')
             ->join('fudebiol_lotes', 'fudebiol_arboles_lote.fal_lote_id', '=', 'fudebiol_lotes.fl_id')
             ->select('fudebiol_arboles_lote.*', 'fudebiol_arboles.FA_NOMBRES_COMUNES', 'fudebiol_arboles.FA_ID', 'fudebiol_lotes.FL_NOMBRE', 'fudebiol_lotes.FL_ID')
+            ->orderBy( "fal_lote_id", "asc" )
             ->orderBy('fal_fila', 'asc')
             ->orderBy( "fal_columna", "asc" );
             if ( $request->input( "lote_id" ) ) {
