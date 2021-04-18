@@ -23,8 +23,9 @@ class ArbolesLoteModel extends Model {
             ->join('fudebiol_arboles', 'fudebiol_arboles_lote.fal_arbol_id', '=', 'fudebiol_arboles.fa_id')
             ->join('fudebiol_lotes', 'fudebiol_arboles_lote.fal_lote_id', '=', 'fudebiol_lotes.fl_id')
             ->select('fudebiol_arboles_lote.*', 'fudebiol_arboles.FA_NOMBRES_COMUNES', 'fudebiol_arboles.FA_ID', 'fudebiol_lotes.FL_NOMBRE', 'fudebiol_lotes.FL_ID')
-            ->orderBy('fal_fila', 'asc');
-            if ( $request->input( "lote_id") ) {
+            ->orderBy('fal_fila', 'asc')
+            ->orderBy( "fal_columna", "asc" );
+            if ( $request->input( "lote_id" ) ) {
                 $query->where('fal_lote_id', $request->input( "lote_id"));
             }
             if ( $request->input( "fila") ) {
@@ -38,6 +39,34 @@ class ArbolesLoteModel extends Model {
             $data['especies'] = DB::table('fudebiol_arboles')->select('FA_ID', 'FA_NOMBRES_COMUNES')->orderBy('FA_NOMBRES_COMUNES')->get();
         }catch(Exception $e){
             $data[ 'codigo' ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
+            Log::error( $e->getMessage(), $data );
+        }
+        return $data;
+    }
+
+    public function cantidadPaginas( $request ){
+        $data = array(
+            "codigo" => Util::$codigos[ "EXITO" ],
+            "razon" => "",
+            "accion" => "ArbolesModel:cantidadPaginas"
+        );
+        try{
+            $query = DB::table('fudebiol_arboles_lote')
+            ->join('fudebiol_arboles', 'fudebiol_arboles_lote.fal_arbol_id', '=', 'fudebiol_arboles.fa_id')
+            ->join('fudebiol_lotes', 'fudebiol_arboles_lote.fal_lote_id', '=', 'fudebiol_lotes.fl_id')
+            ->select('fudebiol_arboles_lote.*', 'fudebiol_arboles.FA_NOMBRES_COMUNES', 'fudebiol_arboles.FA_ID', 'fudebiol_lotes.FL_NOMBRE', 'fudebiol_lotes.FL_ID');
+            if ( $request->input( "lote_id" ) ) {
+                $query->where('fal_lote_id', $request->input( "lote_id"));
+            }
+            if ( $request->input( "fila") ) {
+                $query->where('fal_fila', $request->input( "fila"));
+            }
+            if ( $request->input( "columna" ) ) {
+                $query->where('fal_columna', $request->input( "columna"));
+            }
+            $data[ "resultado" ] = ceil( $query->count() / 8 );
+        }catch ( Exception $e ){
+            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );
         }
         return $data;
@@ -170,31 +199,6 @@ class ArbolesLoteModel extends Model {
                 $data[ "razon" ] = "token inválido";
                 DB::rollBack();
             }
-        }catch ( Exception $e ){
-            $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
-            Log::error( $e->getMessage(), $data );
-        }
-        return $data;
-    }
-
-    public function cantidadPaginas( $lote, $fila, $columna ){
-        $data = array(
-            "codigo" => Util::$codigos[ "EXITO" ],
-            "razon" => "",
-            "accion" => "ArbolesLoteModel:cantidadPaginas"
-        );
-        try{
-            $query =  DB::table( "fudebiol_arboles_lote" );
-            if( $lote ){
-                $query->where('fal_lote_id', $lote);
-            }
-            if( $fila ){
-                $query->where('fal_fila', $fila);
-            }
-            if( $columna ){
-                $query->where('fal_columna', $columna);
-            }
-            $data[ "resultado" ] = ceil( $query->count() / 8 );
         }catch ( Exception $e ){
             $data[ "codigo" ] = Util::$codigos[ "ERROR_DE_SERVIDOR" ];
             Log::error( $e->getMessage(), $data );

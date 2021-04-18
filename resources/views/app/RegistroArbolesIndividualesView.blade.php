@@ -33,7 +33,7 @@
 								<label class="texto" for="lote">Lote</label>
 								<select id="lote" name="fal_lote_id">
 									@foreach($lotes as $lote)
-										<option value="{{ $lote->FL_ID }}">{{ $lote->FL_NOMBRE }}</option>
+										<option value="{{ $lote->FL_ID }}" {{ $lote->FL_ID == $lote_id ? "selected" : "" }}>{{ $lote->FL_NOMBRE }}</option>
 									@endforeach
 								</select>
 							 
@@ -61,7 +61,7 @@
 										<label class="texto" for="lote"><b>Lote:</b></label>
 										<select name="lote_id" class="ml">
 												@foreach($lotes as $lote)
-												<option value="{{ $lote->FL_ID }}" name="lote_id">{{ $lote->FL_NOMBRE }}</option>
+												<option value="{{ $lote->FL_ID }}" name="lote_id" {{ $lote->FL_ID == $lote_id ? 'selected' : '' }}>{{ $lote->FL_NOMBRE }}</option>
 												@endforeach
 										</select>
 									</div>
@@ -122,11 +122,11 @@
 								<div id="botonesEdicionArbolesRAI">
 										<button class="btn_arbolesRAI" type="submit"><i class="far fa-trash-alt"></i></button>
 										<div id="paginacion" >
-											<a class="btn_pagRAI"  href="{{ route('registroArbol', max( 1, $pagina - 1 ) ) }}?lote_id={{ $lote_id }}?fila={{ $fila }}?columna={{ $columna }}">
+											<a class="btn_pagRAI"  href="{{ route('registroArbol', max( 1, $pagina - 1 ) ) }}?lote_id={{ $lote_id }}&fila={{ $fila }}&columna={{ $columna }}">
 												<i class="fas fa-backward"></i>
 											</a>
 											<span style="letter-spacing: normal; text-align: center; word-spacing: normal; white-space: nowrap; margin-right: 10%;">{{ $pagina }} de {{ $cantidadPaginas }}</span>
-											<a class="btn_pagRAI" href="{{ route('registroArbol', min( $pagina + 1, $cantidadPaginas ) ) }}?lote_id={{ $lote_id }}?fila={{ $fila }}?columna={{ $columna }}">
+											<a class="btn_pagRAI" href="{{ route('registroArbol', min( $pagina + 1, $cantidadPaginas ) ) }}?lote_id={{ $lote_id }}&fila={{ $fila }}&columna={{ $columna }}">
 												<i class="fas fa-forward"></i>
 											</a>
 									</div>

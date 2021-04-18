@@ -97,6 +97,9 @@ class ArbolesLoteController extends Controller{
 
     public function mantenimientoArbolesLote($pagina, Request $request){
         $model = new ArbolesLoteModel();
+        $cantidadPaginas = $model->cantidadPaginas( $request );
+        $cantidadPaginas = $cantidadPaginas[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ? 1 : $cantidadPaginas[ "resultado" ];
+        $pagina = max( 1, min( $pagina, $cantidadPaginas ) );
         $result = $model->obtenerArbolesPorLote($request, $pagina);
         if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
             return redirect()->back()->with( "errores", array(
@@ -108,10 +111,10 @@ class ArbolesLoteController extends Controller{
             "lotes" => $result[ "lotes" ],
             "especies" => $result[ "especies" ],
             "pagina" => $pagina,
-            "lote_id" => $request->input( "lote_id"),
-            "fila" => $request->input( "fila"),
-            "columna" => $request->input( "columna"),
-            "cantidadPaginas" => 1
+            "lote_id" => $request->input( "lote_id", ""),
+            "fila" => $request->input( "fila", ""),
+            "columna" => $request->input( "columna", ""),
+            "cantidadPaginas" => $cantidadPaginas
         ) );
         
     }
