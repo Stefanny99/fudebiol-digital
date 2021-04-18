@@ -104,7 +104,7 @@
 											data-fila="{{ $arbol->FAL_FILA }}"
 											data-columna="{{ $arbol->FAL_COLUMNA }}"
 										>
-                      <td class="fila"><input type="checkbox" name="arboles-eliminados[]" value="{{ $arbol->FAL_ID }}"></td>
+                      <td class="fila"><input type="checkbox" name="arboles-eliminados[{{ $arbol->FAL_ID }}]" value="{{ $arbol->FA_NOMBRES_COMUNES }}"></td>
 											<td class="fila">{{ $arbol->FA_NOMBRES_COMUNES }}</td>
 											<td class="fila overflow-hidden">{{ $arbol->FL_NOMBRE }}</td>
 											<td class="fila">{{ $arbol->FAL_COORDENADA_N }}</td>
