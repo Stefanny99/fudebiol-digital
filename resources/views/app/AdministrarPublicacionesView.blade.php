@@ -18,7 +18,7 @@
                             <a href="{{ route('editorPublicaciones').'?fp_id='.$publicacion->FP_ID }}"><i class="fas fa-pen edit-style"></i></a>
                             <a href="{{ route('eliminarPublicacion').'?fp_id='.$publicacion->FP_ID }}"><i class="fas fa-times delete-style"></i></a>
                             </div>
-                            <div class="publicacion-encabezado">
+                            <div class="publicacion-encabezado pub_2">
                                 <img class="publicacion-logo publicacion-logo-size" src="{{ asset('/img/logo.jpg')}}">
                                 <div class="titulo-fecha titulo-fecha-size">
                                     <label id="publicacion-titulo" class="publicacion-titulo-size">{{ $publicacion->FP_TITULO }}</label>
