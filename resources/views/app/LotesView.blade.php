@@ -66,7 +66,7 @@
                 <tr class="fila" id="lote_{{ $lote->FL_ID }}" data-id="{{ $lote->FL_ID }}" data-codigo="{{ $lote->FL_NOMBRE }}" data-tamano="{{ $lote->FL_TAMANO }}" data-filas="{{ $lote->FL_FILAS }}" data-columnas="{{ $lote->FL_COLUMNAS }}">
                   <td><input name="lotes_eliminar[{{ $lote->FL_ID }}]" type="checkbox" value="{{ $lote->FL_NOMBRE }}"></td>
                   <td class="fila">{{ $lote->FL_NOMBRE }}</td>
-                  <td class="fila">{{ $lote->FL_TAMANO }}</td>
+                  <td class="fila">{{ $lote->FL_TAMANO }} <span style="display: inline-flex; flex-direction: row; align-items: flex-end;">m<span style="font-size: 10px; transform: translateY(-60%);">2</span></span></td>
                   <td class="fila">{{ $lote->FL_FILAS }}</td>
                   <td class="fila">{{ $lote->FL_COLUMNAS }}</td>
                   <td class="fila">
@@ -88,7 +88,31 @@
           </form>
           </div>
           </div>
-        </div>      
+        </div>  
+        <div id="pie">
+            <div class="bottom">
+                <div class="left">
+                    <img class="icon img-responsive" src="{{ asset( 'img/vector.png' ) }}"></img>
+                    <div class="sitename">&copy;FUDEBIOL</div>
+                </div>
+                <div class="middle">
+                    <a class="facebook contact" href="https://www.facebook.com/FUDEBIOL/">
+                        <img class="icon img-responsive" src="img/facebook.png"></img>
+                        <div class="label">@FUDEBIOL</div>
+                    </a>
+                    <a class="whatsapp contact" href="https://wa.me/+50672659372">
+                        <img class="icon img-responsive" src="{{ asset( 'img/whatsapp.png' ) }}"></img>
+                        <div class="label">2771-4131</div>
+                    </a>
+                    <a class="email contact" href="mailto:udebiol@gmail.com">
+                        <img class="icon img-responsive" src="{{ asset( 'img/email.png' ) }}"></img>
+                        <div class="label">fudebiol@gmail.com</div>
+                    </a>
+                </div>
+               
+            </div>
+        </div>
+    </div>    
         </div>
     </div>
 @endsection

@@ -23,12 +23,14 @@
         box-shadow: 0px 8px 20px gray;
         font-size: 2.5vh;
         height: 80vh;
-        flex:0;
+        flex: 0;
     }
     #botonRL {
-       
+        width: 100%;
         padding-top: 8%;
         text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     #treeheaderRL {
@@ -193,9 +195,6 @@
         z-index: 7;
     }
 
-  
-
-
     .btn_arbolesRL {
         margin-left: auto;
         cursor: pointer;
@@ -269,8 +268,11 @@
         height: auto;
     }
     #botonRL {
+        width: 100%;
         margin-top: 10px;
         text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     #treeheaderRL {
@@ -427,9 +429,6 @@
         z-index: 7;
     }
 
-  
- 
-
     .btn_arbolesRL {
         margin-left: auto;
         margin-right: auto;
@@ -461,10 +460,10 @@
         outline-style: none;
         border-style: none !important;
     }
-		.btn_pagRL i{
-			margin-left: 10px !important;
-			margin-top: 7px;
-		}
+    .btn_pagRL i {
+        margin-left: 10px !important;
+        margin-top: 7px;
+    }
 }
 @media all and (max-width: 1000px) and (orientation: landscape) {
     .tituloRL {
@@ -504,7 +503,10 @@
     }
     #botonRL {
         margin-top: 10px;
+        width: 100%;
         text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     #treeheaderRL {
@@ -620,7 +622,7 @@
         padding-top: 3%;
         background: white;
         white-space: nowrap;
-        flex:1;
+        flex: 1;
         box-shadow: -1px -0px 25px lightgray;
         font-size: 3.5vh;
         border-collapse: unset;
@@ -628,7 +630,7 @@
         max-height: 65vh !important;
         border: none;
         caption-side: top;
-        margin:0;
+        margin: 0;
     }
     #tablaArbolesRL caption {
         background: rgba(0, 92, 152);
@@ -662,9 +664,6 @@
         z-index: 7;
     }
 
- 
- 
-
     .btn_arbolesRL {
         margin-left: auto;
         margin-right: auto;
@@ -688,7 +687,7 @@
         cursor: pointer;
         height: 5vw;
         width: 8vw;
-        font-size:4vh;
+        font-size: 4vh;
         border: none;
         border-radius: 5px;
         background: rgba(0, 92, 152);
@@ -700,10 +699,9 @@
         padding: 4px 22px 5px 22px;
         font-family: "Quicksand";
         font-weight: 900;
-       
     }
-		.btn_pagRL i{
-			margin-left: 10px !important;
-			margin-top: 7px;
-		}
+    .btn_pagRL i {
+        margin-left: 10px !important;
+        margin-top: 7px;
+    }
 }

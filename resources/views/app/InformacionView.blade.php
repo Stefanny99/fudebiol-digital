@@ -77,11 +77,10 @@
             
         </div>
       </div>
-    </div>
-       <div id="pie">
+      <div id="pie">
             <div class="bottom">
                 <div class="left">
-                    <img class="icon img-responsive" src="img/vector.png"></img>
+                    <img class="icon img-responsive" src="{{ asset( 'img/vector.png' ) }}"></img>
                     <div class="sitename">&copy;FUDEBIOL</div>
                 </div>
                 <div class="middle">
@@ -90,16 +89,19 @@
                         <div class="label">@FUDEBIOL</div>
                     </a>
                     <a class="whatsapp contact" href="https://wa.me/+50672659372">
-                        <img class="icon img-responsive" src="img/whatsapp.png"></img>
-                        <div class="label">7265-9372</div>
+                        <img class="icon img-responsive" src="{{ asset( 'img/whatsapp.png' ) }}"></img>
+                        <div class="label">2771-4131</div>
                     </a>
                     <a class="email contact" href="mailto:udebiol@gmail.com">
-                        <img class="icon img-responsive" src="img/email.png"></img>
+                        <img class="icon img-responsive" src="{{ asset( 'img/email.png' ) }}"></img>
                         <div class="label">fudebiol@gmail.com</div>
                     </a>
                 </div>
                
             </div>
         </div>
+    </div>
+    </div>
+      
     </div>
 @endsection
