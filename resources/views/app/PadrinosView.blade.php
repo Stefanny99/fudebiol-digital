@@ -40,8 +40,9 @@
                   <tr class="fila" id="padrino_{{ $padrino->FP_ID }}">
                     <td class="fila">
                       @if ( $padrino->FP_CEDULA )
-                      <input name="padrinos_eliminar[{{ $padrino->FP_ID }}]" type="checkbox" value="{{ $padrino->FP_NOMBRE_COMPLETO }}"></td>
+                      <input name="padrinos_eliminar[{{ $padrino->FP_ID }}]" type="checkbox" value="{{ $padrino->FP_NOMBRE_COMPLETO }}">
                       @endif
+                    </td>
                     <td class="fila nombrePadrino">{{ $padrino->FP_NOMBRE_COMPLETO }}</td>
                     <td class="fila">{{ $padrino->FP_CEDULA }}</td>
                     <td class="fila">{{ $padrino->FP_TIPO === 'P' ? 'Persona' : ( $padrino->FP_TIPO === 'O' ? 'Otro' : 'Empresa' ) }}</td>
@@ -68,7 +69,7 @@
               
                 <div id="paginacion">
                   <a class="btn_pagRP" href=" {{ route('verPadrino', max( 1, $pagina - 1 ) )}}?buscar={{ $buscar }}"> <i class="fas fa-backward"></i> </a>
-                  <span style="letter-spacing: normal; text-align: center; word-spacing: normal; white-space: nowrap; margin-right: 10%;">{{ $pagina }} de {{ $cantidadPaginas }}</span>
+                  <span class="display" style="letter-spacing: normal; text-align: center; word-spacing: normal; white-space: nowrap; margin-right: 10%;">{{ $pagina }} de {{ $cantidadPaginas }}</span>
                   <a class="btn_pagRP" href="{{ route('verPadrino', min( $pagina + 1, $cantidadPaginas ))}}?buscar={{ $buscar }}" > <i class="fas fa-forward"></i> </a>
                 </div>
             </div>

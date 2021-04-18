@@ -6,6 +6,24 @@
     animation: fadeInUp 1s;
 }
 @media (min-width: 1001px) {
+    .global_report {
+        margin-left: 5%;
+        cursor: pointer;
+        height: 5vh;
+        width: 10vh;
+        border: none;
+        border-radius: 5px;
+        background: #008a00;
+        color: white;
+        text-align: center;
+        padding: 4px 22px 5px 22px;
+        font-size: 2.5vh;
+        font-family: "Quicksand";
+        font-weight: 900;
+        text-decoration: none;
+        outline-style: none;
+        border-style: none !important;
+    }
     .beforeTable {
         display: flex;
         overflow-x: auto;
@@ -347,6 +365,25 @@
     }
 }
 @media all and (max-width: 1000px) and (orientation: portrait) {
+
+    .global_report {
+        margin-left: 5%;
+        cursor: pointer;
+        height: 5vh;
+        width: 8vh;
+        border: none;
+        border-radius: 5px;
+        background: #008a00;
+        color: white;
+        text-align: center;
+        padding: 4px 22px 5px 22px;
+        font-size: 2.5vh;
+        font-family: "Quicksand";
+        font-weight: 900;
+        text-decoration: none;
+        outline-style: none;
+        border-style: none !important;
+    }
     .tableForm {
         width: 100%;
         overflow: hidden;
@@ -698,6 +735,24 @@
     }
 }
 @media all and (max-width: 360px) and (orientation: portrait) {
+    .global_report {
+        margin-left: 5%;
+        cursor: pointer;
+        height: 5vh;
+        width: 8vh;
+        border: none;
+        border-radius: 5px;
+        background: #008a00;
+        color: white;
+        text-align: center;
+        padding: 4px 22px 5px 22px;
+        font-size: 2.5vh;
+        font-family: "Quicksand";
+        font-weight: 900;
+        text-decoration: none;
+        outline-style: none;
+        border-style: none !important;
+    }
     #botonesEdicionArboles {
         display: flex;
         flex-direction: row;
@@ -711,7 +766,7 @@
     }
 
     .btn_arboles {
-        margin-left: 5px;
+        margin-left: 10%;
         margin-right: 5px;
         cursor: pointer;
         height: 5vh;
@@ -749,6 +804,24 @@
     }
 }
 @media all and (max-width: 330px) and (orientation: portrait) {
+    .global_report {
+        margin-left: 5%;
+        cursor: pointer;
+        height: 5vh;
+        width: 8vh;
+        border: none;
+        border-radius: 5px;
+        background: #008a00;
+        color: white;
+        text-align: center;
+        padding: 4px 22px 5px 22px;
+        font-size: 2.5vh;
+        font-family: "Quicksand";
+        font-weight: 900;
+        text-decoration: none;
+        outline-style: none;
+        border-style: none !important;
+    }
     #botonesEdicionArboles {
         display: flex;
         flex-direction: row;
@@ -800,6 +873,24 @@
     }
 }
 @media all and (max-width: 1000px) and (orientation: landscape) {
+    .global_report {
+        margin-left: 5%;
+        cursor: pointer;
+        height: 5vw;
+        width: 8vw;
+        border: none;
+        border-radius: 5px;
+        background: #008a00;
+        color: white;
+        text-align: center;
+        padding: 4px 22px 5px 22px;
+        font-size: 4vh;
+        font-family: "Quicksand";
+        font-weight: 900;
+        text-decoration: none;
+        outline-style: none;
+        border-style: none !important;
+    }
     .beforeTable {
         display: flex;
         overflow-x: auto;
@@ -1104,11 +1195,11 @@
         color: blue;
     }
     .btn_arboles {
-        margin-left: 5px;
+        margin-left: 10%;
         margin-right: 5px;
         cursor: pointer;
         height: 5vw;
-        width: 20vw;
+        width: 12vw;
         border: none;
         border-radius: 5px;
         background: #008a00;
@@ -1399,6 +1490,7 @@
         padding-right: 1%;
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
     }
     .delete {
@@ -2041,24 +2133,7 @@
     }
 }
 
-.global_report {
-    margin-left: 5%;
-    cursor: pointer;
-    height: 5vh;
-    width: 10vh;
-    border: none;
-    border-radius: 5px;
-    background: #008a00;
-    color: white;
-    text-align: center;
-    padding: 4px 22px 5px 22px;
-    font-size: 2.5vh;
-    font-family: "Quicksand";
-    font-weight: 900;
-    text-decoration: none;
-    outline-style: none;
-    border-style: none !important;
-}
+
 
 .global_report:hover {
     color: white;

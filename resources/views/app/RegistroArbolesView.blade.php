@@ -112,7 +112,7 @@
                         <button type="submit" class="btn_arboles"><i class="far fa-trash-alt"></i></button>
                         <div id="paginacion" >
                             <a class="btn_pag" href="{{ route('registrarArbol', max( 1, $pagina - 1 ) ) }}?buscar={{ $buscar }}"> <i class="fas fa-backward"></i> </a>
-                            <span style="letter-spacing: normal; text-align: center; word-spacing: normal; white-space: nowrap; margin-right: 10%;">{{ $pagina }} de {{ $cantidadPaginas }}</span>
+                            <span class="display" style="letter-spacing: normal; text-align: center; word-spacing: normal; white-space: nowrap; margin-right: 10%;">{{ $pagina }} de {{ $cantidadPaginas }}</span>
                             <a class="btn_pag" href="{{ route('registrarArbol', min( $pagina + 1, $cantidadPaginas ) ) }}?buscar={{ $buscar }}" > <i class="fas fa-forward"></i> </a>
                         </div>
                     </div>
