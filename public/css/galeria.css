@@ -110,6 +110,8 @@
 
     #foto {
         height: 95vh;
+        width: 80%;
+        object-fit: contain;
     }
 
     #descripcion {
