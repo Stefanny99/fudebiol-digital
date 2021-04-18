@@ -149,7 +149,6 @@
     flex-direction:row;
     padding:2%;
     background-color: rgb(3 156 0 / 45%);
-    border-radius: 35px 35px 0px 0px;
 
 }
 .pub_2{
@@ -247,7 +246,6 @@
         flex-direction:row;
         padding:2%;
         background-color: rgb(3 156 0 / 45%);
-        border-radius: 35px 35px 0px 0px;
     
     }
     .pub_2{
