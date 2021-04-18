@@ -14,17 +14,17 @@
           <div class="column_container ml">
           <img class="user_pic_size2"src="{{asset('/img/users.png')}}">
             <label>Nombre</label>
-            <h5><b>{{ $padrino->FP_NOMBRE_COMPLETO }}</b></h5>
+            <h5><b>{{ $padrino ? $padrino->FP_NOMBRE_COMPLETO : ""}}</b></h5>
             
           </div>
           <div class="column_container ml">
           <label>Adopciones</label>
-            <h5><b>{{ $padrino->cantidad_adopciones }}</b></h5>
+            <h5><b>{{ $padrino ? $padrino->cantidad_adopciones : 0 }}</b></h5>
            
         </div>  
         <div class="column_container ml">
         <label>Especies</label>
-            <h5><b>{{ count($adopciones) }}</b></h5>
+            <h5><b>{{ $adopciones ? count($adopciones) : 0}}</b></h5>
            
         </div> 
       </div> 
