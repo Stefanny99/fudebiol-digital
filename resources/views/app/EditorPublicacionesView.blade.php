@@ -95,7 +95,7 @@
                     </a>
                     <a class="whatsapp contact" href="https://wa.me/+50672659372">
                         <img class="icon img-responsive" src="{{ asset( 'img/whatsapp.png' ) }}"></img>
-                        <div class="label">7265-9372</div>
+                        <div class="label">2771-4131</div>
                     </a>
                     <a class="email contact" href="mailto:udebiol@gmail.com">
                         <img class="icon img-responsive" src="{{ asset( 'img/email.png' ) }}"></img>
