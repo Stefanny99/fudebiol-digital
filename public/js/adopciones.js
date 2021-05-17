@@ -35,14 +35,16 @@ function visualizarArbol( lote, arbol ){
     document.getElementById( "fal_id" ).value = arbol.getAttribute( "data-id" );
     document.getElementById( "lote_arbol" ).innerHTML = lotes[ lote ].FL_NOMBRE;
     document.getElementById( "nombre_arbol" ).innerHTML = arbol.getAttribute( "data-nombre-cientifico" );
-    document.getElementById( "coordenada_N_arbol" ).innerHTML = arbol.getAttribute( "data-coordenada-n" ) + "&deg;";
-    document.getElementById( "coordenada_W_arbol" ).innerHTML = arbol.getAttribute( "data-coordenada-w" ) + "&deg;";
+    document.getElementById( "coordenada_N_arbol" ).innerHTML = arbol.getAttribute( "data-coordenada-n" );
+    document.getElementById( "coordenada_W_arbol" ).innerHTML = arbol.getAttribute( "data-coordenada-w" );
     document.getElementById( "fila_arbol" ).innerHTML = arbol.getAttribute( "data-fila" );
     document.getElementById( "columna_arbol" ).innerHTML = arbol.getAttribute( "data-columna" );
     document.getElementById( "padrino_arbol" ).innerHTML = arbol.classList.contains( "disponible" ) ? "" : arbol.getAttribute( "data-padrino" );
     document.getElementById( "padrino" ).style.display = arbol.classList.contains( "disponible" ) ? "none" : "";
     document.getElementById( "btn_adoptar_arbol" ).style.display = arbol.classList.contains( "disponible" ) ? "" : "none";
     window.location = "#visualizador_arbol";
+    let link = document.getElementById( "link_arbol" );
+    link.onclick = () => goToGoogleMaps( arbol.getAttribute( "data-coordenada-w" ), arbol.getAttribute( "data-coordenada-n" ) );
 }
 
 function verificarCedula(){
@@ -82,4 +84,16 @@ function actualizarToken(){
     } ).catch( error => {
         console.log( error );
     } );
+}
+
+function goToGoogleMaps(coordW, coordN){
+    let deg = parseFloat(coordW.split( "°" )[0]);
+    let min = parseFloat(coordW.split("°").pop().split("'")[0]);
+    let sec = parseFloat(coordW.split( "'" )[1]);
+    const lng = ((deg + ( min / 60 ) + ( sec / 3600 )) * -1).toFixed(6);
+    deg = parseFloat(coordN.split( "°" )[0]);
+    min = parseFloat(coordN.split("°").pop().split("'")[0]);
+    sec = parseFloat(coordN.split( "'" )[1]);
+    const lat =  (deg + ( min / 60 ) + ( sec / 3600 )).toFixed(6);
+    window.open("https://www.google.com/maps/search/?api=1&query=" + lat + "," + lng + "&zoom=15&basemap=satellite");
 }

@@ -1,4 +1,13 @@
 /*MENSAJES*/
+.email{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 22px;
+}
+.email .icon {
+    color: rgb(0, 153, 255);
+}
 @media (min-width: 1001px) {
     .tituloMensajes {
         display: flex;
