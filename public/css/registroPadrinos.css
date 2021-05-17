@@ -234,6 +234,22 @@
     }
 }
 @media all and (max-width: 1000px) and (orientation: landscape) {
+    .btn_arbolesRP {
+        margin-left: auto;
+        cursor: pointer;
+        height: 5vW;
+        width: 12vw;
+        border: none;
+        border-radius: 5px;
+        background: rgba(152, 0, 0);
+        color: white;
+        text-align: center;
+        font-size: 4vh;
+        font-family: "Quicksand";
+        font-weight: 900;
+        outline-style: none;
+        border-style: none !important;
+    }
     #fondoRP {
         background-image: url("/img/b12.jpg");
         height: 100vh;
@@ -376,6 +392,11 @@
 }
 /*CSS TABLAS*/
 @media (min-width: 1001px) {
+    
+    .global_report_padrino {
+        background-color: rgba(152, 0, 0) !important;
+    }
+    
     #treeheaderRP {
         text-align: center;
         background-image: url("/img/header.jpg");
@@ -604,6 +625,34 @@
     }
 }
 @media all and (max-width: 1000px) and (orientation: portrait) {
+    .display{
+        display:none;
+    }
+    .btn_arbolesRP {
+        margin-left: auto;
+        cursor: pointer;
+        height: 5vh;
+        width: 8vh;
+        border: none;
+        border-radius: 5px;
+        background: rgba(152, 0, 0);
+        color: white;
+        text-align: center;
+        margin-right: 15%;
+        font-size: 3vh;
+        font-family: "Quicksand";
+        font-weight: 900;
+        outline-style: none;
+        border-style: none !important;
+    }
+    .global_report_padrino {
+        padding: 1% 0% 0% 5% !important;
+        background-color: rgba(152, 0, 0) !important;
+        height: 5vh !important;
+        width: 8vh !important;
+        font-size: 3vh !important;
+        text-align: center !important;
+    }
     #treeheaderRP {
         text-align: center;
         background-image: url("/img/header.jpg");
@@ -776,7 +825,7 @@
         padding: 10px 0px 10px 0px;
         z-index: 7;
         border-radius: 0px 0px 20px 20px;
-        width: 90%;
+        width: 100%;
     }
 
     .action {
@@ -828,6 +877,32 @@
     }
 }
 @media all and (max-width: 1000px) and (orientation: landscape) {
+
+    .btn_arbolesRP {
+        margin-left: auto;
+        cursor: pointer;
+        height: 5vw;
+        width: 10vw;
+        border: none;
+        border-radius: 5px;
+        background: rgba(152, 0, 0);
+        color: white;
+        text-align: center;
+        font-size: 4vh;
+        font-family: "Quicksand";
+        font-weight: 900;
+        outline-style: none;
+        border-style: none !important;
+    }
+    
+    .global_report_padrino {
+        padding: 1% 0% 0% 4% !important;
+        background-color: rgba(152, 0, 0) !important;
+        height: 5vw !important;
+        width: 9vw !important;
+        font-size: 4vh !important;
+        text-align: center !important;
+    }
     #treeheaderRP {
         text-align: center;
         background-image: url("/img/header.jpg");
@@ -1044,6 +1119,4 @@
         align-items: center;
     }
 }
-.global_report_padrino {
-    background-color: rgba(152, 0, 0) !important;
-}
+

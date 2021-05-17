@@ -105,33 +105,59 @@
                </div>
                
   
-</div> <!-- FIN DE HOME-->
+      </div> <!-- FIN DE HOME-->
 
-   <div class="tituloAU_colaboradores">
-      <div class="column_container">
-         <label >¡Envíanos tus dudas o comentarios!</label>
-         <i class="rightI far fa-hand-point-right"></i>
-         <i class="downI far fa-hand-point-down"></i>
-      </div>
-      
-     
-      <div id="caja2" >
-      <form id="caja_comentario" action="{{ route( 'enviarMensaje' ) }}" method="post">
-         @csrf
-         <label ><b>Tu correo electrónico:</b></label>
-         <input id="user_correo" type="text" placeholder="Escribe aquí" name="fm_correo">
-         <label ><b>Número de teléfono:</b></label>
-         <input id="user_telefono" type="text" placeholder="Escribe aquí" name="fm_telefono">
-         <label><b>Tu comentario:</b></label>
-         <textarea id="comentario" placeholder="Escribe aquí" name="fm_texto"></textarea>
-         <button id="btn_send">Enviar</button>
-      </form>
-      </div>
+         <div class="tituloAU_colaboradores">
+            <div class="column_container">
+               <label >¡Envíanos tus dudas o comentarios!</label>
+               <i class="rightI far fa-hand-point-right"></i>
+               <i class="downI far fa-hand-point-down"></i>
+            </div>
+            
+         
+            <div id="caja2" >
+               <form id="caja_comentario" action="{{ route( 'enviarMensaje' ) }}" method="post">
+                  @csrf
+                  <label ><b>Tu correo electrónico:</b></label>
+                  <input id="user_correo" type="text" placeholder="Escribe aquí" name="fm_correo">
+                  <label ><b>Número de teléfono:</b></label>
+                  <input id="user_telefono" type="text" placeholder="Escribe aquí" name="fm_telefono">
+                  <label><b>Tu comentario:</b></label>
+                  <textarea id="comentario" placeholder="Escribe aquí" name="fm_texto"></textarea>
+                  <button id="btn_send">Enviar</button>
+               </form>
+            </div>
 
-</div>
-</div>
+            </div>
+            <div id="pie">
+            <div class="bottom">
+                <div class="left">
+                    <img class="icon img-responsive" src="{{ asset( 'img/vector.png' ) }}"></img>
+                    <div class="sitename">&copy;FUDEBIOL</div>
+                </div>
+                <div class="middle">
+                    <a class="facebook contact" href="https://www.facebook.com/FUDEBIOL/">
+                        <img class="icon img-responsive" src="img/facebook.png"></img>
+                        <div class="label">@FUDEBIOL</div>
+                    </a>
+                    <a class="whatsapp contact" href="https://wa.me/+50672659372">
+                        <img class="icon img-responsive" src="{{ asset( 'img/whatsapp.png' ) }}"></img>
+                        <div class="label">2771-4131</div>
+                    </a>
+                    <a class="email contact" href="mailto:udebiol@gmail.com">
+                        <img class="icon img-responsive" src="{{ asset( 'img/email.png' ) }}"></img>
+                        <div class="label">fudebiol@gmail.com</div>
+                    </a>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+            </div>
 
       
         </div>
+        
     </div>
+ 
 @endsection

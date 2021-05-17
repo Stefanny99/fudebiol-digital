@@ -102,19 +102,19 @@
                         <p>Regístrate como un padrino.</p>
                         <a href="{{route('editarPadrino')}}">Registrarme</a>
                     </div>
-                    <div  class="directrices d2">
+                    <div  class="directrices d1">
                         <i class="fab fa-pagelines"></i>
                         <h1>Paso 2</h1>
                         <p>Mira los árboles disponibles en nuestros lotes</p>
                         <a href="{{route('arboles')}}">Ver árboles</a>
                     </div>
-                    <div  class="directrices d3">
+                    <div  class="directrices d1">
                         <i class="fas fa-hand-pointer"></i>
                         <h1>Paso 3</h1>
                         <p>Selecciona el árbol y adóptalo</p>
                         
                     </div>
-                    <div  class="directrices d4">
+                    <div  class="directrices d1">
                         <i class="fas fa-certificate"></i>
                         <h1>Paso 4</h1>
                         <p>Después de dar tu contribución se te enviará el certificado de apadrinado</p>
@@ -123,6 +123,30 @@
                     
                 </div>   
             </div>    
+            <div id="pie">
+            <div class="bottom">
+                <div class="left">
+                    <img class="icon img-responsive" src="{{ asset( 'img/vector.png' ) }}"></img>
+                    <div class="sitename">&copy;FUDEBIOL</div>
+                </div>
+                <div class="middle">
+                    <a class="facebook contact" href="https://www.facebook.com/FUDEBIOL/">
+                        <img class="icon img-responsive" src="img/facebook.png"></img>
+                        <div class="label">@FUDEBIOL</div>
+                    </a>
+                    <a class="whatsapp contact" href="https://wa.me/+50672659372">
+                        <img class="icon img-responsive" src="{{ asset( 'img/whatsapp.png' ) }}"></img>
+                        <div class="label">2771-4131</div>
+                    </a>
+                    <a class="email contact" href="mailto:udebiol@gmail.com">
+                        <img class="icon img-responsive" src="{{ asset( 'img/email.png' ) }}"></img>
+                        <div class="label">fudebiol@gmail.com</div>
+                    </a>
+                </div>
+               
+            </div>
+        </div>
+    </div>
         </div>
     </div>
 @endsection
