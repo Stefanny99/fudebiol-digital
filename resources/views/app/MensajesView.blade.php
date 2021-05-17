@@ -27,6 +27,7 @@
                                 @if ( $mensaje->FM_ESTADO == 1 )
                                 <div id="unread"></div>
                                 @endif
+                                <a href="mailto:{{$mensaje->FM_CORREO}}" class="email"><i class="fas fa-envelope-square icon"></i> Responder</a>
                                 <div class="mesage_mail">
                                     <label><b>De:</b></label>
                                     <label>{{ $mensaje->FM_CORREO }}</label>
@@ -40,8 +41,8 @@
                                 <label for="leido">Leído</label>
                                 <input name="ids[]"  id="leido" type="checkbox" value="{{ $mensaje->FM_ID }}"> 
                                 @endif
-                                <label for="eliminar">Eliminar</label> 
-                                <input name="ids[]"  id="eliminar" type="checkbox" value="{{ $mensaje->FM_ID }}"> 
+                                <label for="eliminar">Eliminar</label>
+                                <input name="ids[]"  id="eliminar" type="checkbox" value="{{ $mensaje->FM_ID }}">
                             </div>
                             @endforeach
                         </div>
