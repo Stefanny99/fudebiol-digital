@@ -64,6 +64,7 @@
                </div>
                </div>
                <div class="column_container center-content">
+                  <br><br>
                   <h2><b>Informes e investigaciones hechas o promovidas por FUDEBIOL</b></h2>
                   <p>
                   <i class="fas fa-search"></i> El Filtro Verde: Propuesta de Proyecto. Teresa Concalves Ingeniera Ambiental,  <br>

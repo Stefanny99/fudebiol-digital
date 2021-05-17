@@ -10,11 +10,13 @@
         background-image: url("/img/fude2.jpg");
         background-repeat: no-repeat;
         background-size: cover;
+        height: 100vh;
     }
     #fondoAboutUs_colaboradores {
         background-image: url("/img/fude4.jpg");
         background-repeat: no-repeat;
         background-size: 100%;
+       
     }
     .tituloAU_colaboradores {
         align-items: center;
@@ -25,19 +27,22 @@
         text-shadow: 0px 0px 5px yellowgreen;
         flex: 1;
         font-size: 40px;
-        padding: 4%;
+        padding: 2%;
+        padding-left: 8%;
+        padding-right: 8%;
         background-color: rgb(0, 41, 9);
+       
     }
     .tituloAU_colaboradores .rightI {
         margin-top: 20px;
         box-shadow: 0px 0px 20px black;
         border-radius: 50%;
-        height: 200px;
+        height: 140px;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 200px;
-        font-size: 80px;
+        width: 140px;
+        font-size: 60px;
     }
     .tituloAU_colaboradores .downI {
         display: none;
@@ -46,12 +51,14 @@
     .tituloAU {
         align-items: flex-start;
         display: flex;
+        justify-content:center;
         flex-direction: column;
         color: white;
         font-size: 5vw;
         text-shadow: 0px 0px 5px yellowgreen;
         flex: 1;
         padding: 5%;
+        height:100vh;
 
         background: linear-gradient(
             90deg,
@@ -87,8 +94,8 @@
 
     .carta-box {
         margin: auto;
-        width: 25vw;
-        height: 450px;
+        width: 20vw;
+        height: 320px;
         perspective: 1000px;
     }
 
@@ -104,8 +111,8 @@
     .cara {
         position: absolute;
         backface-visibility: hidden;
-        width: 25vw;
-        height: 400px;
+        width: 20vw;
+        height: 320px;
         background-color: rgba(1, 44, 7, 0.993);
         color: white;
         display: flex;
@@ -139,8 +146,8 @@
         text-align: justify;
         transform: rotateY(180deg);
         border: 1px solid black;
-        width: 25vw;
-        height: 400px;
+        width: 20vw;
+        height: 320px;
     }
 
     .cara.detras p {
@@ -206,7 +213,7 @@
         font-size: 15px;
         outline: none;
         padding-left: 1%;
-        height: 30vh;
+        height: 20vh;
         margin-bottom: 20px;
         border: none;
         border-top: 1px solid rgba(0, 128, 0, 0.473);
@@ -234,13 +241,13 @@
     }
 
     #caja2 {
-        padding: 4%;
+        padding: 2%;
         display: flex;
         text-align: center;
         justify-content: center;
         flex-direction: column;
         background: white;
-        width: 35vw;
+        width: 23vw;
         box-shadow: 0px 0px 10px black;
         border-radius: 30px;
     }
