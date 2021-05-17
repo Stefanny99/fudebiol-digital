@@ -87,7 +87,7 @@
                
                 <nav class="menu">
                 <div class="sitename">
-                    <img class="logo img-responsive" src="{{ asset('img/logob.png')}}">
+                    <img class="logo img-responsive" src="{{ asset('img/logo.jpg')}}">
                 </div>
                 <div class="hiperlinks">
                     <a href="{{ route( 'home' ) }}">

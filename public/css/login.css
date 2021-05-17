@@ -1,18 +1,13 @@
-
-
 @keyframes cambiarforma {
     0% {
-        
-    border-radius: 20% 70% 30% 20%;
+        border-radius: 20% 70% 30% 20%;
     }
     50% {
-        
         border-radius: 60% 20% 20% 30%;
-        }
-    
+    }
+
     100% {
-        
-    border-radius: 14% 45% 89% 5%;
+        border-radius: 14% 45% 89% 5%;
     }
 }
 
@@ -20,7 +15,7 @@
     0% {
         background: rgba(0, 0, 0, 0.795) 0%;
     }
-    
+
     100% {
         background: rgba(0, 95, 21, 0.644);
     }
@@ -774,7 +769,7 @@
 /*Home*/
 @media (min-width: 1001px) {
     /*home css*/
-    .bg2{
+    .bg2 {
         margin: auto;
         margin-left: 2%;
         margin-right: 2%;
@@ -792,15 +787,19 @@
     .banner {
         background-repeat: no-repeat;
         background-size: cover;
+        height: 100vh;
         background-image: url("/img/fude_banner.jpg");
     }
 
     #banner_mascara {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         animation-name: cambiarColor;
         animation-direction: alternate-reverse;
         animation-iteration-count: infinite;
         animation-duration: 5s;
-        flex: 1;
+        height: 100vh;
     }
 
     #banner_texto {
@@ -901,21 +900,6 @@
         align-items: flex-start;
         margin-bottom: 5%;
     }
-    .img_izquierda {
-        margin-left: 5%;
-    }
-    .img_derecha {
-        margin-right: 5%;
-    }
-    .img_derecha,
-    .img_izquierda {
-        height: auto;
-        margin-top: 2%;
-        animation: cambiarforma;
-        animation-duration: 6s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-    }
 
     .cont_btn_derecha {
         text-align: right;
@@ -929,10 +913,10 @@
 }
 @media all and (max-width: 1000px) and (orientation: portrait) {
     /*home css*/
-    .bg2{
+    .bg2 {
         background-color: white;
-        height:auto;
-        padding:1%;
+        height: auto;
+        padding: 1%;
     }
     .banner {
         background-repeat: no-repeat;
@@ -1008,6 +992,7 @@
         font-size: 18px;
         font-weight: bold;
         margin: auto;
+        margin-bottom: 5%;
     }
 
     .welcome_right {
@@ -1059,14 +1044,13 @@
         margin: auto;
         margin-bottom: 10px;
         margin-top: 10px;
-        
     }
 }
 @media all and (max-width: 1000px) and (orientation: landscape) {
     /*home css*/
-    .bg2{
+    .bg2 {
         background-color: white;
-        width:100%;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1145,6 +1129,7 @@
         font-size: 18px;
         font-weight: bold;
         margin: auto;
+        margin-bottom: 5%;
     }
 
     .welcome_right {

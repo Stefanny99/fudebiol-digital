@@ -102,19 +102,19 @@
                         <p>Regístrate como un padrino.</p>
                         <a href="{{route('editarPadrino')}}">Registrarme</a>
                     </div>
-                    <div  class="directrices d2">
+                    <div  class="directrices d1">
                         <i class="fab fa-pagelines"></i>
                         <h1>Paso 2</h1>
                         <p>Mira los árboles disponibles en nuestros lotes</p>
                         <a href="{{route('arboles')}}">Ver árboles</a>
                     </div>
-                    <div  class="directrices d3">
+                    <div  class="directrices d1">
                         <i class="fas fa-hand-pointer"></i>
                         <h1>Paso 3</h1>
                         <p>Selecciona el árbol y adóptalo</p>
                         
                     </div>
-                    <div  class="directrices d4">
+                    <div  class="directrices d1">
                         <i class="fas fa-certificate"></i>
                         <h1>Paso 4</h1>
                         <p>Después de dar tu contribución se te enviará el certificado de apadrinado</p>
