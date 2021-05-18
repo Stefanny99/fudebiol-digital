@@ -113,7 +113,7 @@
     #pie > .bottom {
         display: flex;
         font-family: "Quicksand", sans-serif;
-        flex-direction: row;
+        flex-direction: column-reverse;
         justify-content: space-between;
         padding: 1rem;
     }
@@ -130,6 +130,8 @@
         align-items: center;
         display: flex;
         flex: 0;
+				margin-top:2vw;
+				color: white;
         flex-direction: column;
         justify-content: flex-end;
     }
@@ -144,15 +146,17 @@
         align-items: flex-start;
         display: flex;
         flex: 0;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-around;
     }
 
     #pie > .bottom > .middle > .contact {
         align-items: center;
+				justify-content:center;
         border-style: none;
         display: flex;
-        flex: 0;
+        flex: 1;
+				text-align: center;
         flex-direction: row;
         outline-style: none;
         text-decoration: none;
@@ -170,12 +174,13 @@
 
     #pie > .bottom > .middle > .contact > .label {
         color: white;
-        font-size: 1.7vw;
+        font-size: 1vw;
         margin-left: 1rem;
+				font-weight: 100;
     }
 
     #pie > .bottom > .middle > a.contact:hover > .label {
-        color: #2385ff;
+        color: #059400;
     }
 
     #pie > .bottom > .right {
@@ -444,7 +449,7 @@
 	#pie > .bottom {
 			display: flex;
 			font-family: "Quicksand", sans-serif;
-			flex-direction: row;
+			flex-direction: column-reverse;
 			justify-content: space-between;
 			padding: 1rem;
 	}
@@ -458,10 +463,12 @@
 	}
 
 	#pie > .bottom > .left {
+		margin-top: 2vh;
 			align-items: center;
 			display: flex;
-			flex: 0;
-			flex-direction: column;
+			color:white;
+			font-size: 1.5vh;
+			flex-direction: row;
 			justify-content: flex-end;
 	}
 
@@ -475,7 +482,7 @@
 			align-items: flex-start;
 			display: flex;
 			flex: 0;
-			flex-direction: column;
+			flex-direction: row;
 			justify-content: space-around;
 	}
 
@@ -483,7 +490,7 @@
 			align-items: center;
 			border-style: none;
 			display: flex;
-			flex: 0;
+			flex: 1;
 			flex-direction: row;
 			outline-style: none;
 			text-decoration: none;
@@ -503,70 +510,11 @@
 			color: white;
 			font-size: 1.7vw;
 			margin-left: 1rem;
+			font-weight:100;
 	}
 
 	#pie > .bottom > .middle > a.contact:hover > .label {
 			color: #2385ff;
-	}
-
-	#pie > .bottom > .right {
-			align-items: flex-end;
-			display: flex;
-			flex: 0;
-			flex-direction: column;
-	}
-
-	#pie > .bottom > .right > .message-form {
-			display: flex;
-			flex: 1;
-			flex-direction: column;
-			margin-bottom: 20px;
-			max-width: 40rem;
-			min-width: 40rem;
-	}
-
-	#pie > .bottom > .right > .message-form > .title {
-			color: white;
-			font-size: 2rem;
-			flex: 0;
-			margin-bottom: 0.5rem;
-	}
-
-	#pie > .bottom > .right > .message-form > .body {
-			box-sizing: border-box;
-			border-style: none;
-			font-size: 1.5rem;
-			flex: 0;
-			min-height: 10rem;
-			margin-bottom: 0.5rem;
-			max-width: 40rem;
-			min-width: 40rem;
-			padding: 0.5rem;
-	}
-
-	#pie > .bottom > .right > .message-form > .field {
-			align-items: center;
-			display: flex;
-			flex: 0;
-			flex-direction: row;
-			margin-bottom: 0.5rem;
-	}
-
-	#pie > .bottom > .right > .message-form > .field > label {
-			color: white;
-			font-size: 1.5rem;
-			flex: 0;
-			min-width: 7rem;
-	}
-
-	#pie > .bottom > .right > .message-form > .field > input {
-			border-style: none;
-			font-family: inherit;
-			font-size: 1.5rem;
-			flex: 1;
-			outline-style: none;
-			padding: 0.5rem;
-			text-decoration: none;
 	}
 
 	#pie > .bottom > .right > .message-form > .remember {
@@ -622,42 +570,8 @@
 			width: 1.2rem;
 	}
 
-	#pie > .bottom > .right > .message-form > .submit {
-			border-style: none;
-			cursor: pointer;
-			font-family: inherit;
-			font-size: 1.5rem;
-			flex: 0;
-			margin-left: auto;
-			outline-style: none;
-			padding: 0.5rem 1.5rem;
-			text-decoration: none;
-	}
+	
 
-	#pie > .bottom > .right > .message-form > .submit:hover {
-			background: transparent;
-			outline-style: solid;
-
-			outline-width: 0.2rem;
-			outline-offset: -0.2rem;
-	}
-
-	#pie > .bottom > .right > .authors {
-			display: flex;
-			flex-direction: row;
-			justify-content: flex-end;
-	}
-
-	#pie > .bottom > .right > .authors > .author {
-			color: white;
-			font-size: 1.2rem;
-			flex: 0;
-			white-space: nowrap;
-	}
-
-	#pie > .bottom > .right > .authors > .author:not(:last-child) {
-			margin-right: 1.5rem;
-	}
 }
 @media all and (max-width: 1000px) and (orientation: landscape) {
 	#body_home {
@@ -769,224 +683,130 @@
 	}
 
 	#pie {
-			background-color: rgba(0, 0, 0, 0.9);
-	}
+		background-color: rgba(0, 0, 0, 0.9);
+}
 
-	#pie > .bottom {
-			display: flex;
-			font-family: "Quicksand", sans-serif;
-			flex-direction: row;
-			justify-content: space-between;
-			padding: 1rem;
-	}
+#pie > .bottom {
+		display: flex;
+		font-family: "Quicksand", sans-serif;
+		flex-direction: column-reverse;
+		justify-content: space-between;
+		padding: 1rem;
+}
 
-	#pie > .bottom > *:not(:first-child) {
-			margin-left: 0.5rem;
-	}
+#pie > .bottom > *:not(:first-child) {
+		margin-left: 0.5rem;
+}
 
-	#pie > .bottom > *:not(:last-child) {
-			margin-right: 0.5rem;
-	}
+#pie > .bottom > *:not(:last-child) {
+		margin-right: 0.5rem;
+}
 
-	#pie > .bottom > .left {
-			align-items: center;
-			display: flex;
-			flex: 0;
-			flex-direction: column;
-			justify-content: flex-end;
-	}
+#pie > .bottom > .left {
+	margin-top: 2vh;
+		align-items: center;
+		display: flex;
+		color:white;
+		font-size: 1.5vh;
+		flex-direction: row;
+		justify-content: flex-end;
+}
 
-	#pie > .bottom > .left > .sitename {
-			color: white;
-			font-size: 1.7vw;
-			white-space: nowrap;
-	}
+#pie > .bottom > .left > .sitename {
+		color: white;
+		font-size: 1.7vw;
+		white-space: nowrap;
+}
 
-	#pie > .bottom > .middle {
-			align-items: flex-start;
-			display: flex;
-			flex: 0;
-			flex-direction: column;
-			justify-content: space-around;
-	}
+#pie > .bottom > .middle {
+		align-items: flex-start;
+		display: flex;
+		flex: 0;
+		flex-direction: row;
+		justify-content: space-around;
+}
 
-	#pie > .bottom > .middle > .contact {
-			align-items: center;
-			border-style: none;
-			display: flex;
-			flex: 0;
-			flex-direction: row;
-			outline-style: none;
-			text-decoration: none;
-	}
+#pie > .bottom > .middle > .contact {
+		align-items: center;
+		border-style: none;
+		display: flex;
+		flex: 1;
+		flex-direction: row;
+		outline-style: none;
+		text-decoration: none;
+}
 
-	#pie > .bottom > .middle > .contact > .icon {
-			height: 5vh;
-			width: 5vh;
-	}
+#pie > .bottom > .middle > .contact > .icon {
+		height: 5vh;
+		width: 5vh;
+}
 
-	#pie > .bottom > .left > .icon {
-			height: 18vh;
-			width: 18vh;
-	}
+#pie > .bottom > .left > .icon {
+		height: 18vh;
+		width: 18vh;
+}
 
-	#pie > .bottom > .middle > .contact > .label {
-			color: white;
-			font-size: 1.7vw;
-			margin-left: 1rem;
-	}
+#pie > .bottom > .middle > .contact > .label {
+		color: white;
+		font-size: 1.7vw;
+		margin-left: 1rem;
+		font-weight:100;
+}
 
-	#pie > .bottom > .middle > a.contact:hover > .label {
-			color: #2385ff;
-	}
+#pie > .bottom > .middle > a.contact:hover > .label {
+		color: #2385ff;
+}
 
-	#pie > .bottom > .right {
-			align-items: flex-end;
-			display: flex;
-			flex: 0;
-			flex-direction: column;
-	}
+#pie > .bottom > .right > .message-form > .remember {
+		display: none;
+}
 
-	#pie > .bottom > .right > .message-form {
-			display: flex;
-			flex: 1;
-			flex-direction: column;
-			margin-bottom: 20px;
-			max-width: 40rem;
-			min-width: 40rem;
-	}
+#pie > .bottom > .right > .message-form > .remember-label {
+		align-items: center;
+		color: white;
+		cursor: pointer;
+		display: flex;
+		flex-direction: row;
+		font-size: 1.5rem;
+		margin-left: auto;
+		margin-bottom: 0.5rem;
+}
 
-	#pie > .bottom > .right > .message-form > .title {
-			color: white;
-			font-size: 2rem;
-			flex: 0;
-			margin-bottom: 0.5rem;
-	}
+#pie
+		> .bottom
+		> .right
+		> .message-form
+		> .remember:not(:checked)
+		+ .remember-label::after {
+		box-sizing: border-box;
+		content: "";
+		display: inline-block;
+		height: 1.2rem;
+		margin: 0.4rem;
+		margin-left: 0.9rem;
+		outline-offset: 0.2rem;
+		outline-style: solid;
+		outline-width: 0.2rem;
 
-	#pie > .bottom > .right > .message-form > .body {
-			box-sizing: border-box;
-			border-style: none;
-			font-size: 1.5rem;
-			flex: 0;
-			min-height: 10rem;
-			margin-bottom: 0.5rem;
-			max-width: 40rem;
-			min-width: 40rem;
-			padding: 0.5rem;
-	}
+		width: 1.2rem;
+}
 
-	#pie > .bottom > .right > .message-form > .field {
-			align-items: center;
-			display: flex;
-			flex: 0;
-			flex-direction: row;
-			margin-bottom: 0.5rem;
-	}
+#pie
+		> .bottom
+		> .right
+		> .message-form
+		> .remember:checked
+		+ .remember-label::after {
+		box-sizing: border-box;
+		content: "";
+		display: inline-block;
+		height: 1.2rem;
+		margin: 0.4rem;
+		margin-left: 0.9rem;
+		outline-offset: 0.2rem;
+		outline-style: solid;
+		outline-width: 0.2rem;
 
-	#pie > .bottom > .right > .message-form > .field > label {
-			color: white;
-			font-size: 1.5rem;
-			flex: 0;
-			min-width: 7rem;
-	}
-
-	#pie > .bottom > .right > .message-form > .field > input {
-			border-style: none;
-			font-family: inherit;
-			font-size: 1.5rem;
-			flex: 1;
-			outline-style: none;
-			padding: 0.5rem;
-			text-decoration: none;
-	}
-
-	#pie > .bottom > .right > .message-form > .remember {
-			display: none;
-	}
-
-	#pie > .bottom > .right > .message-form > .remember-label {
-			align-items: center;
-			color: white;
-			cursor: pointer;
-			display: flex;
-			flex-direction: row;
-			font-size: 1.5rem;
-			margin-left: auto;
-			margin-bottom: 0.5rem;
-	}
-
-	#pie
-			> .bottom
-			> .right
-			> .message-form
-			> .remember:not(:checked)
-			+ .remember-label::after {
-			box-sizing: border-box;
-			content: "";
-			display: inline-block;
-			height: 1.2rem;
-			margin: 0.4rem;
-			margin-left: 0.9rem;
-			outline-offset: 0.2rem;
-			outline-style: solid;
-			outline-width: 0.2rem;
-
-			width: 1.2rem;
-	}
-
-	#pie
-			> .bottom
-			> .right
-			> .message-form
-			> .remember:checked
-			+ .remember-label::after {
-			box-sizing: border-box;
-			content: "";
-			display: inline-block;
-			height: 1.2rem;
-			margin: 0.4rem;
-			margin-left: 0.9rem;
-			outline-offset: 0.2rem;
-			outline-style: solid;
-			outline-width: 0.2rem;
-
-			width: 1.2rem;
-	}
-
-	#pie > .bottom > .right > .message-form > .submit {
-			border-style: none;
-			cursor: pointer;
-			font-family: inherit;
-			font-size: 1.5rem;
-			flex: 0;
-			margin-left: auto;
-			outline-style: none;
-			padding: 0.5rem 1.5rem;
-			text-decoration: none;
-	}
-
-	#pie > .bottom > .right > .message-form > .submit:hover {
-			background: transparent;
-			outline-style: solid;
-
-			outline-width: 0.2rem;
-			outline-offset: -0.2rem;
-	}
-
-	#pie > .bottom > .right > .authors {
-			display: flex;
-			flex-direction: row;
-			justify-content: flex-end;
-	}
-
-	#pie > .bottom > .right > .authors > .author {
-			color: white;
-			font-size: 1.2rem;
-			flex: 0;
-			white-space: nowrap;
-	}
-
-	#pie > .bottom > .right > .authors > .author:not(:last-child) {
-			margin-right: 1.5rem;
-	}
+		width: 1.2rem;
+}
 }

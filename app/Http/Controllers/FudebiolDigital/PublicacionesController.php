@@ -96,7 +96,7 @@ class PublicacionesController extends Controller{
         $validator = Validator::make( $data->all(), [
             "fp_id" => [ "nullable", "integer" ],
             "fp_titulo" => [ "required", "string", "max:200" ],
-            "fp_descripcion" => [ "required", "string", "max:1000" ],
+            "fp_descripcion" => [ "required", "string", "max:5000" ],
             "fp-imagenes-temporales" => [ "nullable", "array" ],
             "fp-imagenes-temporales.*" => [ "integer" ],
             "fp-imagenes-eliminadas" => [ "nullable", "array" ],
