@@ -123,16 +123,16 @@
                     <!-- Solo usuarios -->
                     @if ( Auth::user()->role == 'A' )
                     <a href="{{ route( 'registrarArbol', 1 ) }}">
-                        <div class="text">Reg.Especies</div>
+                        <div class="text">Especies</div>
                     </a>
                     <a href="{{ route( 'lotes', 1 ) }}">
-                        <div class="text">Reg.Lotes</div>
+                        <div class="text">Lotes</div>
                     </a>
                     <a href="{{ route( 'verPadrino', 1 ) }}">
-                        <div class="text">Reg.Padrinos</div>
+                        <div class="text">Padrinos</div>
                     </a>
                     <a href="{{ route( 'registroArbol', 1 ) }}">
-                        <div class="text">Reg.Árboles</div>
+                        <div class="text">Árboles</div>
                     </a>
                     <a href="{{ route( 'mensajes', 1 ) }}">
                         <div class="text">Mensajes</div>
@@ -142,7 +142,7 @@
                     </a>
                     @elseif ( Auth::user()->role == 'S' )
                     <a href="{{ route( 'editorGaleria', 1 ) }}">
-                        <div class="text">Edit.Galería</div>
+                        <div class="text">Editar Galería</div>
                     </a>
                     @endif
                     

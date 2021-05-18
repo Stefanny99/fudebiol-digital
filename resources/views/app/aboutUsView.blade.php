@@ -100,8 +100,6 @@
                   <i class="fas fa-search"></i> Patrones de producción y concentración de néctar en flores silvestres visitadas por colibríes a diferentes elevaciones sobre la cordillera de Talamanca, Costa Rica. Yendry Hernández Barboza. 2021<br>
 
                   <i class="fas fa-search"></i> Riqueza específica y abundancia proporcional en los senderos; los pioneros, árbol gigante, y una de tigre del Centro Biológico Las Quebradas. UTN Tatiana Vega Hidalgo,2021.<br>
-
-
                   </p>
                </div>
                

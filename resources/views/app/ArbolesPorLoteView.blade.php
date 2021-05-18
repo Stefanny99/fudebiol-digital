@@ -51,11 +51,10 @@
         
       </div>
       <div id="pie">
-            <div class="bottom">
-                <div class="left">
-                    <img class="icon img-responsive" src="{{ asset( 'img/vector.png' ) }}"></img>
-                    <div class="sitename">&copy;FUDEBIOL</div>
-                </div>
+                <div class="bottom">
+                    <div class="left">
+                        &copy; 2021, Lizeth Monge Padilla, Diego Tames Vargas, Stefanny Barrantes Vargas
+                    </div>
                 <div class="middle">
                     <a class="facebook contact" href="https://www.facebook.com/FUDEBIOL/">
                         <img class="icon img-responsive" src="img/facebook.png"></img>
@@ -70,7 +69,6 @@
                         <div class="label">fudebiol@gmail.com</div>
                     </a>
                 </div>
-               
             </div>
         </div>
     </div>

@@ -2,11 +2,36 @@
 .email{
     text-decoration: none;
     color: black;
-    font-weight: bold;
-    font-size: 22px;
+    margin-right: 1%;
 }
 .email .icon {
     color: rgb(0, 153, 255);
+}
+.opciones_mensajes{
+    display: flex;
+    flex-direction:row;
+
+}
+.opciones_mensajes div{
+    flex:1;
+}
+
+.btn_aceptar, .btn_rechazar{
+    width: 30%;
+    border-radius:10px;
+    margin-top: 4%;
+    color:white;
+    border: none;
+    background-color: white;
+}
+
+.btn_aceptar{
+    background: green;
+}
+
+.btn_rechazar{
+    background: darkred;
+    margin-right: 2%;
 }
 @media (min-width: 1001px) {
     .tituloMensajes {
