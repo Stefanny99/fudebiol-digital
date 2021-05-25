@@ -19,7 +19,7 @@
                         <div id="home_textoAV" class="container-fluid">
                             <label class="welcome_right">¿Qué es mi árbol para la vida?</label>
                             <p class="contenidotextual"> El proyecto consiste en la reforestación
-                                 de un área de 3 has. de pastos, en una de las propiedades de Fudebiol,
+                                 de un área de 3 hectáreas de pastos, en una de las propiedades de Fudebiol,
                                   con la siembra de 25 especies de árboles nativos. Estos se dan en 
                                   adopción a personas, empresas u organizaciones, quienes pagan 50$ por 
                                   una sola vez, por árbol adoptado; los recursos se manejan en un fondo
