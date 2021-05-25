@@ -25,7 +25,7 @@
                     <label class="welcome_right">Educación</label>
                     <div class="subseccion">
                         <img class="img_derechaAV img-responsive" src="{{ asset( '/img/educacion.jpg' ) }}">
-                        <div id="home_texto" class="container-fluid">FUDEBIOL desarrolla una agenda anual de actividades de educación ambiental, dirigidas a diferentes sectores de la población de la Cuenca del Río Quebradas y del Valle de El General interesadas en impulsar acciones de formación en desarrollo sostenible, con un especial énfasis en los niños y estudiantes, entre ellas la Feria del Agua que se realiza en el mes de marzo. El propósito de la educación ambiental es concienciar sobre la biodiversidad y el recurso hídrico del área, aplicar el Plan de Manejo y Ordenamiento Territorial de la cuenca y potenciar los esfuerzos de estudios, investigaciones ambientales, proyectos productivos sostenibles; con el fin de aprender a enfrentar el futuro, sin cometer los errores generados contra los recursos naturales en el pasado. </div>
+                        <div id="home_texto" class="container-fluid">FUDEBIOL desarrolla una agenda anual de actividades de educación ambiental, dirigidas a diferentes sectores de la población de la Cuenca del Río Quebradas y del Valle de El General interesadas en impulsar acciones de formación en desarrollo sostenible, con un especial énfasis en los niños y estudiantes, entre ellas la Feria del Agua que se realiza en el mes de marzo. El propósito de la educación ambiental es concientizar sobre la biodiversidad y el recurso hídrico del área, aplicar el Plan de Manejo y Ordenamiento Territorial de la cuenca y potenciar los esfuerzos de estudios, investigaciones ambientales, proyectos productivos sostenibles; con el fin de aprender a enfrentar el futuro, sin cometer los errores generados contra los recursos naturales en el pasado. </div>
                     </div>
                 </div>
 
@@ -61,7 +61,11 @@
                         <img class="icon img-responsive" src="{{ asset( 'img/whatsapp.png' ) }}"></img>
                         <div class="label">2771-4131</div>
                     </a>
-                    <a class="email contact" href="mailto:udebiol@gmail.com">
+                    <a class="whatsapp contact">
+                        <img class="icon img-responsive" src="{{ asset( 'img/whatsapp.png' ) }}"></img>
+                        <div class="label">2771-4131</div>
+                    </a>
+                    <a class="email contact" href="mailto:fudebiol@gmail.com">
                         <img class="icon img-responsive" src="{{ asset( 'img/email.png' ) }}"></img>
                         <div class="label">fudebiol@gmail.com</div>
                     </a>

@@ -45,9 +45,9 @@
                 </div>
 
                 <div class="cajitaInformativa">
-                  <h2 class="actividad">Andarivel</h2>
-                  <img class="  image_activity img-responsive" src="/img/andarivel.png">
-                  <label class="explicacion">Andarivel donde podrá admirar la belleza del bosque tropical desde las alturas</label>
+                  <h2 class="actividad">Hospejade</h2>
+                  <img class="  image_activity img-responsive" src="/img/albergue.jpeg">
+                  <label class="explicacion">Contamos con un albergue para grupos de hasta 30 personas mas 2 habitaciones individuales con capacidad de 4 personas</label>
                 </div>
 
                 <div class="cajitaInformativa">
@@ -91,7 +91,11 @@
                         <img class="icon img-responsive" src="{{ asset( 'img/whatsapp.png' ) }}"></img>
                         <div class="label">2771-4131</div>
                     </a>
-                    <a class="email contact" href="mailto:udebiol@gmail.com">
+                    <a class="whatsapp contact">
+                        <img class="icon img-responsive" src="{{ asset( 'img/whatsapp.png' ) }}"></img>
+                        <div class="label">2771-4131</div>
+                    </a>
+                    <a class="email contact" href="mailto:fudebiol@gmail.com">
                         <img class="icon img-responsive" src="{{ asset( 'img/email.png' ) }}"></img>
                         <div class="label">fudebiol@gmail.com</div>
                     </a>

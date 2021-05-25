@@ -36,7 +36,11 @@
                         <img class="icon img-responsive" src="{{ asset( 'img/whatsapp.png' ) }}"></img>
                         <div class="label">2771-4131</div>
                     </a>
-                    <a class="email contact" href="mailto:udebiol@gmail.com">
+                    <a class="whatsapp contact">
+                        <img class="icon img-responsive" src="{{ asset( 'img/whatsapp.png' ) }}"></img>
+                        <div class="label">2771-4131</div>
+                    </a>
+                    <a class="email contact" href="mailto:fudebiol@gmail.com">
                         <img class="icon img-responsive" src="{{ asset( 'img/email.png' ) }}"></img>
                         <div class="label">fudebiol@gmail.com</div>
                     </a>
