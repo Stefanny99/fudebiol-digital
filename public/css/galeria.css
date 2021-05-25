@@ -110,7 +110,7 @@
 
     #foto {
         height: 95vh;
-        width: 80%;
+        max-width: 80vw;
         object-fit: contain;
     }
 
