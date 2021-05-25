@@ -37,7 +37,7 @@
                         <img class="icon img-responsive" src="img/facebook.png"></img>
                         <div class="label">@FUDEBIOL</div>
                     </a>
-                    <a class="whatsapp contact" href="https://wa.me/+50672659372">
+                    <a class="whatsapp contact" href="https://wa.me/+50689731001">
                         <img class="icon img-responsive" src="{{ asset( 'img/whatsapp.png' ) }}"></img>
                         <div class="label">2771-4131</div>
                     </a>
