@@ -20,6 +20,7 @@
             rgba(0, 0, 0, 0.916) 0%,
             rgba(14, 116, 5, 0.653) 100%
         );
+        height: 100vh;
     }
     #textovs > * {
         -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
