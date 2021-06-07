@@ -69,7 +69,7 @@
                     </a>
                     <a class="whatsapp contact" href="https://wa.me/+50689731001">
                         <img class="icon img-responsive" src="{{ asset( 'img/whatsapp.png' ) }}"></img>
-                        <div class="label">2771-4131</div>
+                        <div class="label">8973-1001</div>
                     </a>
                     <a class="whatsapp contact">
                         <img class="icon img-responsive" src="{{ asset( 'img/whatsapp.png' ) }}"></img>
