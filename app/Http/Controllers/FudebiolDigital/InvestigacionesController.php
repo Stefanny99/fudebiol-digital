@@ -9,29 +9,8 @@ use Session;
 use App\Helper\Util;
 
 
-class InvestigacionesController extends Controller
-{
-
-	/**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-
-    /* Llama la vista de mantenimiento de categorías */
+class InvestigacionesController extends Controller{
     public function investigaciones(){
     	return view('app/InvestigacionesView');
     }
-    
-	
 }

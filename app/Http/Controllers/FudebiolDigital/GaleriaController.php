@@ -16,7 +16,7 @@
             if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
                 return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) );
             }
-            return view( 'app\GaleriaView', array(
+            return view( 'app/GaleriaView', array(
                 "imagenes" => $result[ "resultado" ]
             ) );
         }
@@ -27,7 +27,7 @@
             if ( $result[ "codigo" ][ "codigo" ] != Util::$codigos[ "EXITO" ][ "codigo" ] ){
                 return redirect()->back()->with( "errores", array( $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ] ) )->withInput( $request->input() );
             }
-            return view('app\EditarGaleriaView', array(
+            return view('app/EditarGaleriaView', array(
                 "imagenes" => $result[ "resultado" ]
             ) );
         }

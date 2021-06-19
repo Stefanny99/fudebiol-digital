@@ -21,7 +21,7 @@ class UsuariosController extends Controller{
                 $result[ "codigo" ][ "descripcion" ] . ", " . $result[ "razon" ]
             ) );
         }
-        return view( "app\MantenimientoUsuariosView", array(
+        return view( "app/MantenimientoUsuariosView", array(
             "usuarios" => $result[ "resultado" ]
         ) );
     }
