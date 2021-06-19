@@ -17,6 +17,9 @@
             rgba(0, 83, 1, 0.7539390756302521) 100%
         );
         height: 100vh;
+        display:flex;
+        align-items: flex-end;
+        justify-content: center;
     }
     .tituloGaleria *{
         -webkit-animation: fadeInUp 1s; /* Safari, Chrome and Opera > 12.1 */
