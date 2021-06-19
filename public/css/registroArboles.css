@@ -31,7 +31,7 @@
     }
     #fondo {
         background-size: cover;
-        display: flex;
+        display: block;
         background-image: url("/img/b1.jpg");
         background-repeat: no-repeat;
         font-family: "Quicksand", sans-serif;
